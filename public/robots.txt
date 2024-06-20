@@ -1,0 +1,6 @@
+User-agent: *
+disallow:/admin/
+sitemap: https://www.atel.ir/sitemap.xml
+
+
+
