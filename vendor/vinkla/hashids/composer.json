@@ -1,0 +1,56 @@
+{
+    "name": "vinkla/hashids",
+    "description": "A Hashids bridge for Laravel",
+    "license": "MIT",
+    "keywords": [
+        "hashids",
+        "laravel"
+    ],
+    "authors": [
+        {
+            "name": "Vincent Klaiber",
+            "email": "hello@doubledip.se"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "graham-campbell/manager": "^5.0",
+        "hashids/hashids": "^5.0",
+        "illuminate/contracts": "^10.0",
+        "illuminate/support": "^10.0"
+    },
+    "require-dev": {
+        "graham-campbell/analyzer": "^4.0",
+        "graham-campbell/testbench": "^6.0",
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^10.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Vinkla\\Hashids\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vinkla\\Tests\\Hashids\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "11.0-dev"
+        },
+        "laravel": {
+            "aliases": {
+                "Hashids": "Vinkla\\Hashids\\Facades\\Hashids"
+            },
+            "providers": [
+                "Vinkla\\Hashids\\HashidsServiceProvider"
+            ]
+        }
+    }
+}

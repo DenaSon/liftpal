@@ -1,0 +1,39 @@
+{
+  "name": "mojtabaahn/php-persian-number-to-words",
+  "description": "Converts number to words in persian",
+  "keywords": [
+    "numbers-to-words",
+    "persian"
+  ],
+  "homepage": "https://github.com/mojtabaahn/php-number-to-words",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mojtabaa hn",
+      "email": "mojtabaa.hn@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^0.2.3|^1.0",
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MojtabaaHN\\PersianNumberToWords\\": "./src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MojtabaaHN\\PersianNumberToWords\\Tests\\": "./tests"
+    }
+  },
+  "scripts": {
+    "test": "pest"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
