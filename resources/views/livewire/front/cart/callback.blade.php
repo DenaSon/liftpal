@@ -100,7 +100,7 @@
 
                                         <th>وضعیت</th>
 
-                                        <th>شماره سفارش</th>
+
 
 
                                     </tr>
@@ -109,9 +109,8 @@
 
 
                                     <tr class="">
-                                        <td class=""> {{ $errorMessage }} </td>
+                                        <td class="bg-danger"> {{ $errorMessage }} </td>
 
-                                        <td>{{ $order->order_number ?? 0 }}</td>
 
                                     </tr>
 
