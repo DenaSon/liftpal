@@ -51,7 +51,7 @@ class Callback extends Component
 
             if (!$response->success())
             {
-
+                //False if Transaction not success
                 $this->success = false;
                 $this->errorMessage = $response->error()->message();
                 session()->forget('callbackToken');
@@ -62,6 +62,7 @@ class Callback extends Component
                 session()->regenerate();
                 session()->regenerateToken();
                 session()->forget('callbackToken');
+                // True if success transaction
                 $this->success = true;
                 $this->transaction = Transaction::whereTransactionId($authority)->first();
 
