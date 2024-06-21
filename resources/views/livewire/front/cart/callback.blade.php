@@ -96,10 +96,10 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-                                    <tr>
+                                    <tr class="">
 
                                         <th>وضعیت</th>
-                                        <th>مبلغ</th>
+
                                         <th>شماره سفارش</th>
 
 
@@ -110,7 +110,7 @@
 
                                     <tr class="">
                                         <td class=""> {{ $errorMessage }} </td>
-                                        <td class="fw-bold">{{ number_format($transaction->amount ?? 0) }}</td>
+
                                         <td>{{ $order->order_number ?? 0 }}</td>
 
                                     </tr>
