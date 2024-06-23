@@ -1,4 +1,4 @@
-@php use RakibDevs\Weather\Weather; @endphp
+
 <div>
 
     @section('meta')
@@ -36,7 +36,7 @@
         @include('livewire.front.home-inc.logos')
 
 
-    <livewire:front.home.calculator/>
+
 
 
     @include('livewire.front.home-inc.footer')
