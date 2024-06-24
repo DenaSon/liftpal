@@ -2,9 +2,14 @@
     <button class="btn btn-icon btn-light rounded-circle shadow position-fixed top-50 start-0 translate-middle-y ms-3"
             type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="سبد خرید" style="z-index: 1035;"
             data-target="#demo-switcher">
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+         {{ count($carts) }}
+
+  </span>
         <div
             class="d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 rounded-circle"
             data-bs-toggle="offcanvas" data-bs-target="#demo-switcher"><i class="fi-cart"></i></div>
+
     </button>
 
     <div wire:ignore.self class="offcanvas offcanvas-end" id="demo-switcher" data-bs-toggle="" data-bs-scroll="true">
@@ -26,7 +31,7 @@
             @endif
 
             @php
-            $total = 0;
+                $total = 0;
             @endphp
             @foreach($carts as $cart)
                 <div wire:key="{{ $cart->id }}" class="">
@@ -95,7 +100,7 @@
                       جمع قیمت :
                 </span>
 
-                <span class="text-sum fs-20 fw-bolder cart-sum-number text-info">
+                    <span class="text-sum fs-20 fw-bolder cart-sum-number text-info">
                    {{ number_format($totalPrice) }}
                 تومان </span>
 
@@ -112,7 +117,7 @@
                 <hr/>
 
                 @if(!$cartDiscountAmount)
-                <div class="cart-discount">
+                    <div class="cart-discount">
                 <span class="text-sum fs-15 text-info">
 
                 <div x-data="{ showInput: false }" class="input-group align-items-center">
@@ -129,19 +134,19 @@
 
                     <div class="" wire:dirty wire:target="cartDiscount">درحال بررسی...</div>
                 </span>
-                </div>
+                    </div>
                 @endif
 
             @endif
 
-                <a wire:click.debounce.500ms="orderRegister"
-                   style="border-radius:0"
-                   class="btn btn-lg w-100 {{ count($carts) < 1 ? 'btn-secondary' : 'btn-primary' }}">
+            <a wire:click.debounce.500ms="orderRegister"
+               style="border-radius:0"
+               class="btn btn-lg w-100 {{ count($carts) < 1 ? 'btn-secondary' : 'btn-primary' }}">
 
-                    <i class="fi-cart fs-lg me-2"></i>
-                    <span> ثبت نهایی سفارش </span>
+                <i class="fi-cart fs-lg me-2"></i>
+                <span> ثبت نهایی سفارش </span>
 
-                </a>
+            </a>
 
 
 
@@ -182,3 +187,11 @@
 
     </style>
 </div>
+
+@script
+<script>
+    $wire.on('getAddressModal', () => {
+        alert('hello php ');
+    });
+</script>
+@endscript
