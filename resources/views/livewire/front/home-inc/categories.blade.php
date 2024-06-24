@@ -19,7 +19,11 @@
             <div class="dropdown h-100"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#" data-bs-toggle="dropdown">
                     <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i class="fi-dots-horisontal"></i></div>
                     <h3 class="icon-box-title fs-base mb-0">سایر</h3></a>
-                <div class="dropdown-menu dropdown-menu-end my-1"><a class="dropdown-item" href="real-estate-catalog-sale.html"><i class="fi-single-bed fs-base opacity-60 me-2"></i>سوئیت</a><a class="dropdown-item" href="real-estate-catalog-rent.html"><i class="fi-computer fs-base opacity-60 me-2"></i>دفتر کار</a><a class="dropdown-item" href="real-estate-catalog-sale.html"><i class="fi-real-estate-buy fs-base opacity-60 me-2"></i>زمین</a><a class="dropdown-item" href="real-estate-catalog-rent.html"><i class="fi-parking fs-base opacity-60 me-2"></i>خانه حیاط دار</a></div>
+                <div class="dropdown-menu dropdown-menu-end my-1"><a class="dropdown-item" href="real-estate-catalog-sale.html"><i
+                            class="fi-single-bed fs-base opacity-60 me-2"></i>سوئیت</a><a class="dropdown-item" href="real-estate-catalog-rent.html"><i
+                            class="fi-computer fs-base opacity-60 me-2"></i>دفتر کار</a><a class="dropdown-item" href="real-estate-catalog-sale.html"><i
+                            class="fi-real-estate-buy fs-base opacity-60 me-2"></i>زمین</a><a class="dropdown-item" href="real-estate-catalog-rent.html"><i
+                            class="fi-parking fs-base opacity-60 me-2"></i>خانه حیاط دار</a></div>
             </div>
         </div>
     </div>

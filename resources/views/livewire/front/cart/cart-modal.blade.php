@@ -31,7 +31,7 @@
             @endif
 
             @php
-            $total = 0;
+                $total = 0;
             @endphp
             @foreach($carts as $cart)
                 <div wire:key="{{ $cart->id }}" class="">
@@ -100,7 +100,7 @@
                       جمع قیمت :
                 </span>
 
-                <span class="text-sum fs-20 fw-bolder cart-sum-number text-info">
+                    <span class="text-sum fs-20 fw-bolder cart-sum-number text-info">
                    {{ number_format($totalPrice) }}
                 تومان </span>
 
@@ -117,7 +117,7 @@
                 <hr/>
 
                 @if(!$cartDiscountAmount)
-                <div class="cart-discount">
+                    <div class="cart-discount">
                 <span class="text-sum fs-15 text-info">
 
                 <div x-data="{ showInput: false }" class="input-group align-items-center">
@@ -134,19 +134,19 @@
 
                     <div class="" wire:dirty wire:target="cartDiscount">درحال بررسی...</div>
                 </span>
-                </div>
+                    </div>
                 @endif
 
             @endif
 
-                <a wire:click.debounce.500ms="orderRegister"
-                   style="border-radius:0"
-                   class="btn btn-lg w-100 {{ count($carts) < 1 ? 'btn-secondary' : 'btn-primary' }}">
+            <a wire:click.debounce.500ms="orderRegister"
+               style="border-radius:0"
+               class="btn btn-lg w-100 {{ count($carts) < 1 ? 'btn-secondary' : 'btn-primary' }}">
 
-                    <i class="fi-cart fs-lg me-2"></i>
-                    <span> ثبت نهایی سفارش </span>
+                <i class="fi-cart fs-lg me-2"></i>
+                <span> ثبت نهایی سفارش </span>
 
-                </a>
+            </a>
 
 
 

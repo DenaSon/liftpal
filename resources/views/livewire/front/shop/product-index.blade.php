@@ -82,7 +82,7 @@
                                     <div class="tns-carousel-inner">
                                         <a style="text-decoration: none; color: inherit;" wire:navigate
                                            href="{{ route('singleProduct',['id'=>$product->id,'slug'=>slugMaker($product->name)]) }}">
-                                            <img src="{{ $product->images->first()->file_path }}"
+                                            <img src="{{ $product->images->first()->file_path  ?? ""}}"
                                                  alt="{{ $product->name }}"
                                                  style="height: 250px">
                                         </a>

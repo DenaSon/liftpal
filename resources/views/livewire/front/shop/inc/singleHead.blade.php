@@ -7,10 +7,12 @@
             <li class="breadcrumb-item active" aria-current="page">{{ $product->categories->first()->name }}</li>
         </ol>
     </nav>
-
     <h1 class="h2 mb-2 font-vazir">
         {{ $product->name ?? '' }}
     </h1>
+
+
+
 
 
     <!-- Features + Sharing-->
