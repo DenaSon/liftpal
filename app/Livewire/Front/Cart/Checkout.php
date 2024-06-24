@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Front\Cart;
 
+use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Transaction;
@@ -44,6 +45,25 @@ class Checkout extends Component
      */
     public function mount()
     {
+
+        //check authenticate
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        else
+        {
+            $authId = auth()->user()->id;
+
+            //Check for customer address
+            if(!userAddressExist($authId))
+            {
+                $this->flash('warning','آدرس محل ارسال را انتخاب کنید');
+                $this->redirectRoute('blogIndex');
+            }
+
+
+
+
        if (session()->has('orderNumber'))
        {
            session()->regenerate();
@@ -57,6 +77,7 @@ class Checkout extends Component
        }
 
 
+        }
 
     }
 

@@ -16,14 +16,19 @@
 
     <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
         <div class="row align-items-md-start align-items-center gy-4">
-            <div class="col-lg-5 col-md-6">
+
+
+            <div class="col-lg-5 col-md-6 ">
                 <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-4 text-md-start text-center" style="max-width: 416px;">
 
 
                 </div>
+
                 <img class="d-block mx-auto rotate-img" src="{{ asset($success ? 'assets/img/real-estate/payment/payment-confirm.png' : 'assets/img/real-estate/illustrations/failed-pay.png') }}" alt="Illustration" height="200">
 
             </div>
+
+
             <div class="col-md-6 offset-lg-1">
                 <div class="card border-0 bg-white p-sm-3 p-2">
                     <div class="card-body m-1">
@@ -109,6 +114,8 @@
 
 
                                     <tr class="">
+
+
                                         <td class="bg-danger"> {{ $errorMessage }} </td>
 
 

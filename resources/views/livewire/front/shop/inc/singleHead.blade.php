@@ -7,10 +7,8 @@
             <li class="breadcrumb-item active" aria-current="page">{{ $product->categories->first()->name }}</li>
         </ol>
     </nav>
-    <h1 class="h2 text-center mb-2 font-vazir" style="color:#a3b18a">
-        {{ $product->name ?? '' }}
-    </h1>
 
+    <h1 class="h2 text-center mb-2 font-vazir" style="color:#a3b18a">  {{ $product->name ?? '' }} </h1>
 
 
 

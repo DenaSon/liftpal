@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Address;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Log;
@@ -374,4 +375,12 @@ function getArticleReadTime($text='abc', $division=100,$locale = 'fa')
    $result = Number::spell($length,$locale);
 
    return $result ?? 0;
+}
+
+function userAddressExist($authId): bool
+{
+    //get user address
+    $addressExists = (bool) Address::whereUserId($authId)->whereIsDefault(1)->first();
+
+    return $addressExists;
 }
