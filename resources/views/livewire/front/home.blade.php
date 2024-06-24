@@ -3,13 +3,9 @@
 
     @section('meta')
 
-
-
         <meta name="description" content="{{ getSetting('meta_description') }}">
         <meta name="keywords" content="{{ getSetting('meta_keywords') }}">
         <meta name="author" content="">
-
-
 
     @endsection
 

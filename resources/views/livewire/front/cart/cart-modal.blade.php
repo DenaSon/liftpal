@@ -2,9 +2,14 @@
     <button class="btn btn-icon btn-light rounded-circle shadow position-fixed top-50 start-0 translate-middle-y ms-3"
             type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="سبد خرید" style="z-index: 1035;"
             data-target="#demo-switcher">
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+         {{ count($carts) }}
+
+  </span>
         <div
             class="d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 rounded-circle"
             data-bs-toggle="offcanvas" data-bs-target="#demo-switcher"><i class="fi-cart"></i></div>
+
     </button>
 
     <div wire:ignore.self class="offcanvas offcanvas-end" id="demo-switcher" data-bs-toggle="" data-bs-scroll="true">
@@ -182,3 +187,11 @@
 
     </style>
 </div>
+
+@script
+<script>
+    $wire.on('getAddressModal', () => {
+        alert('hello php ');
+    });
+</script>
+@endscript
