@@ -141,8 +141,6 @@ class CartModal extends Component
 
 
 
-
-
     private function OrderNumber()
     {
         $characters = '123456789';
@@ -157,61 +155,71 @@ class CartModal extends Component
     }
 
     /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function orderRegister()
     {
-        $carts = Cart::whereUserId(auth()->id())->get();
-        if (!$carts->isEmpty())
+        $authId = auth()->id();
+
+        if (!userAddressExist($authId))
         {
-            $default_address = Address::where('is_default', 1)
-                ->whereUserId(auth()->id())
-                ->first() ?? 0;
+            $this->alert('warning', 'آدرس محل ارسال را انتخاب کنید', ['position' => 'bottom-left']);
 
-            $order = new Order();
+            $this->dispatch('getAddressModal');
 
-            $order->order_number = $this->OrderNumber();
-            $order->address_id = $default_address->id;
-            $order->user_id = Auth::id();
-            $order->status = 'waiting';
-            $priceWithDiscount = $this->totalPrice - $this->cartDiscountAmount;
-            $order->total_price = (($priceWithDiscount) * $this->fixed_tax_rate / 100) + (($this->fixed_shipping_cost) + $priceWithDiscount);
-            $order->payment_status = 'pending';
-            $order->payment_method = 'ZARINPAL';
 
-            //Get Default Address for user;
-            if ($default_address->recipient_phone != null) {
-                $phone = $default_address->recipient_phone;
-            }
-            else {
-                $phone = Auth::user()->phone;
-            }
-            $fullAddress = $default_address->province . '  ' . $default_address->city . '  ' . $default_address->postal_address .
-                ' پلاک  ' . $default_address->building_number . ' ' . 'واحد  ' . $default_address->unit_number . '  کد پستی ' . $default_address->postal_code .
-                '  گیرنده :  ' . $default_address->recipient_name . ' شماره تماس : ' . $phone;
-            $order->shipping_address = $fullAddress;
-            $order->shipping_method = 'post';
-            $order->shipping_cost = $this->fixed_shipping_cost;
-            $order->tax = $this->fixed_tax_rate;
-            $order->discount_amount = $this->cartDiscountAmount;
-
-            $order->subtotal =
-            $order->grand_total = $this->totalPrice;
-            $order->currency = 'IRT';
-            $order->payment_due_date = now();
-            $order->save();
-
-            session()->put('orderNumber',$order->order_number);
-
-            $this->alert('info',session()->get('orderNumber'));
-
-            Cart::whereUserId(auth()->id())->delete();
-            $this->redirectRoute('checkout',['status'=>'beforePay'],true,true);
         }
+
         else
         {
-            $this->alert('info','محصولی در سبد خرید وجود ندارد',['position'=>'center']);
+            $carts = Cart::whereUserId($authId)->get();
+            if (!$carts->isEmpty())
+            {
+                $default_address = Address::where('is_default', 1)
+                    ->whereUserId($authId)
+                    ->first() ?? 0;
+
+                $order = new Order();
+
+                $order->order_number = $this->OrderNumber();
+                $order->address_id = $default_address->id ?? null;
+                $order->user_id = $authId;
+                $order->status = 'waiting';
+                $priceWithDiscount = $this->totalPrice - $this->cartDiscountAmount;
+                $order->total_price = (($priceWithDiscount) * $this->fixed_tax_rate / 100) + (($this->fixed_shipping_cost) + $priceWithDiscount);
+                $order->payment_status = 'pending';
+                $order->payment_method = 'ZARINPAL';
+
+                //Get Default Address for user;
+                if ($default_address->recipient_phone != null) {
+                    $phone = $default_address->recipient_phone;
+                }
+                else {
+                    $phone = Auth::user()->phone;
+                }
+                $fullAddress = $default_address->province . '  ' . $default_address->city . '  ' . $default_address->postal_address .
+                    ' پلاک  ' . $default_address->building_number . ' ' . 'واحد  ' . $default_address->unit_number . '  کد پستی ' . $default_address->postal_code .
+                    '  گیرنده :  ' . $default_address->recipient_name . ' شماره تماس : ' . $phone;
+                $order->shipping_address = $fullAddress;
+                $order->shipping_method = 'post';
+                $order->shipping_cost = $this->fixed_shipping_cost;
+                $order->tax = $this->fixed_tax_rate;
+                $order->discount_amount = $this->cartDiscountAmount;
+
+                $order->subtotal =
+                $order->grand_total = $this->totalPrice;
+                $order->currency = 'IRT';
+                $order->payment_due_date = now();
+                $order->save();
+
+                session()->put('orderNumber',$order->order_number);
+
+                Cart::whereUserId(auth()->id())->delete();
+                $this->redirectRoute('checkout',['status'=>'beforePay'],true,true);
+            }
+            else
+            {
+                $this->alert('info','محصولی در سبد خرید وجود ندارد',['position'=>'center']);
+            }
         }
     }
 
