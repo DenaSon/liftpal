@@ -3,8 +3,8 @@
 namespace OpenAI\Responses;
 
 use Generator;
+use IteratorAggregate;
 use OpenAI\Contracts\ResponseHasMetaInformationContract;
-use OpenAI\Contracts\ResponseStreamContract;
 use OpenAI\Exceptions\ErrorException;
 use OpenAI\Responses\Meta\MetaInformation;
 use Psr\Http\Message\ResponseInterface;
@@ -13,9 +13,9 @@ use Psr\Http\Message\StreamInterface;
 /**
  * @template TResponse
  *
- * @implements ResponseStreamContract<TResponse>
+ * @implements IteratorAggregate<int, TResponse>
  */
-final class StreamResponse implements ResponseHasMetaInformationContract, ResponseStreamContract
+final class StreamResponse implements IteratorAggregate, ResponseHasMetaInformationContract
 {
     /**
      * Creates a new Stream Response instance.
@@ -48,7 +48,7 @@ final class StreamResponse implements ResponseHasMetaInformationContract, Respon
             }
 
             /** @var array{error?: array{message: string|array<int, string>, type: string, code: string}} $response */
-            $response = json_decode($data, true, flags: JSON_THROW_ON_ERROR);
+            $response = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
 
             if (isset($response['error'])) {
                 throw new ErrorException($response['error']);

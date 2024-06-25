@@ -9,7 +9,6 @@ final class CreateResponseFixture
         'object' => 'chat.completion',
         'created' => 1_677_652_288,
         'model' => 'gpt-3.5-turbo',
-        'system_fingerprint' => null,
         'choices' => [
             [
                 'index' => 0,

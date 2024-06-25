@@ -15,7 +15,7 @@
                 <!-- Demos switcher-->
                 <li class="nav-item dropdown py-2 me-lg-2"><a
                         class="nav-link dropdown-toggle align-items-center border-end-lg py-1 pe-lg-4" href="#"
-                        data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>
+                        data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi fi-shopping-bag me-2"></i>
                         فروشگاه</a>
                     <ul class="dropdown-menu">
                         <li><a wire:navigate class="dropdown-item" href="{{ route('shop') }}"><i

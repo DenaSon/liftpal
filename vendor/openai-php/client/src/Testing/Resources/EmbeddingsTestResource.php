@@ -18,6 +18,6 @@ final class EmbeddingsTestResource implements EmbeddingsContract
 
     public function create(array $parameters): CreateResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $parameters);
     }
 }

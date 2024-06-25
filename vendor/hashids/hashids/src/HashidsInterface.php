@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (c) Ivan Akimov.
+ * Copyright (c) Ivan Akimov
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -21,7 +21,7 @@ interface HashidsInterface
 
     /**
      * Decode a hash to the original parameter values.
-     * @return array<int, int>|array{}
+     * @return array<int, int>
      */
     public function decode(string $hash): array;
 

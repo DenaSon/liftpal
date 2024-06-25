@@ -20,26 +20,26 @@ final class FineTuningTestResource implements FineTuningContract
 
     public function createJob(array $parameters): RetrieveJobResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $parameters);
     }
 
     public function listJobs(array $parameters = []): ListJobsResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__);
     }
 
     public function retrieveJob(string $jobId): RetrieveJobResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $jobId);
     }
 
     public function cancelJob(string $jobId): RetrieveJobResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $jobId);
     }
 
     public function listJobEvents(string $jobId, array $parameters = []): ListJobEventsResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $jobId);
     }
 }
