@@ -5,6 +5,7 @@
         <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/tiny-slider/dist/tiny-slider.css') }}"/>
 
         <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
+        <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme-style.css') }}">
 
 
     @endsection

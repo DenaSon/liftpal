@@ -17,23 +17,20 @@
 
 <!-- ============================ Contact Detail ================================== -->
 
-<section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-<div class="row align-items-md-start align-items-center gy-4">
-    <div class="col-lg-3 col-md-3">
-        <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-4 text-md-start text-center" style="max-width: 416px;">
+<section class="container mb-3 pb-5 pb-md-4 pb-lg-5">
+<div class="row align-items-md-start pt-5 align-items-center gy-4">
+    <div class="col-lg-4 col-md-3">
 
-
-        </div>
         <img class="d-block mx-auto rotate-img"
              src="{{ asset('assets/img/real-estate/illustrations/checkout.png') }}" alt="Illustration"
              height="200">
     </div>
-    <div class="col-md-8 offset-lg-1">
+    <div class="col-md-8 gx-lg-3">
         <div class="card border-0 bg-white p-sm-3 p-2">
             <div class="card-body m-1">
 
-                <ul class="list-group">
-                    <li class="bg-warning text-white list-group-item d-flex justify-content-between align-items-center">
+                <ul class="list-group ">
+                    <li class="bg-primary border border-primary text-white list-group-item d-flex justify-content-between align-items-center">
                         <span>
                          شماره سفارش
                         </span>
@@ -41,7 +38,7 @@
                     </li>
 
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
                         <span>
                             مجموع خرید
                         </span>
@@ -49,7 +46,7 @@
                         </li>
 
                         @if($order->discount_amount > 0)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
                         <span>
                            تخفیف
                         </span>
@@ -57,7 +54,7 @@
                         </li>
                         @endif
                     @if($order->shipping_cost > 0)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
                         <span>
                            هزینه ارسال
                         </span>
@@ -66,7 +63,7 @@
                     @endif
 
                     @if($order->tax > 0)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
                         <span>
                            مالیات
                         </span>
@@ -74,7 +71,7 @@
                         </li>
                     @endif
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center border border-1 border-primary ">
+                    <li class="list-group-item border border-primary d-flex justify-content-between align-items-center border border-1 border-primary ">
                         <span>
                           مجموع قیمت
                         </span>
@@ -84,14 +81,14 @@
                 </ul>
 
                 <div class="d-flex justify-content-center align-items-center ">
-                    <button wire:offline.attr="disabled" wire:loading.attr="disabled" wire:click.debounce.150ms="startPayment" type="button" class="btn btn-primary w-25 mt-4">پرداخت </button>
-                    <hr>
+                    <button wire:offline.attr="disabled" wire:loading.attr="disabled" wire:click.debounce.150ms="startPayment" type="button" class="btn btn-primary w-25  mt-5">پرداخت </button>
+
 
                 </div>
 
                 <!-- Light alert -->
                 <div  wire:loading class="w-100">
-                <div class="alert alert-warning d-flex mt-3" role="alert">
+                <div class="alert alert-info d-flex mt-3" role="alert">
                     <i class="fi-clock me-2 me-sm-3 lead"></i>
                     <div> لطفا صبر کنید | درحال انتقال به صفحه پرداخت </div>
 

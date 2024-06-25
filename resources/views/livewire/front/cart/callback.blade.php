@@ -15,11 +15,11 @@
     </div>
 
     <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-        <div class="row align-items-md-start align-items-center gy-4">
+        <div class="row align-items-md-start justify-content-center align-items-center gy-4">
 
 
-            <div class="col-lg-5 col-md-6 ">
-                <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-4 text-md-start text-center" style="max-width: 416px;">
+            <div class="col-lg-4 col-md-6 ">
+                <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-3 text-md-start text-center" style="max-width: 416px;">
 
 
                 </div>
@@ -98,33 +98,13 @@
                         @else
 
 
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr class="">
 
-                                        <th>وضعیت</th>
-
-
-
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                    <tr class="">
-
-
-                                        <td class="bg-danger"> {{ $errorMessage }} </td>
-
-
-                                    </tr>
-
-                                    </tbody>
-                                </table>
+                            <div >
+                                <ul class=" list-group container m-auto pt-4 mt-5 d-flex ">
+                                    <li class="list-group-item text-center bg-secondary shadow">وضعیت</li>
+                                    <li class="list-group-item text-center shadow"> {{ $errorMessage }} </li>
+                                </ul>
                             </div>
-
 
 
 
