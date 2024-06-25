@@ -9,6 +9,8 @@
         "php": "^8.1",
         "cryptommer/smsir": "^1.1",
         "fahlisaputra/laravel-minify": "^1.1",
+        "gemini-api-php/client": "dev-main",
+        "google-gemini-php/laravel": "dev-main",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^3.2",
         "jantinnerezo/livewire-alert": "^3.0",

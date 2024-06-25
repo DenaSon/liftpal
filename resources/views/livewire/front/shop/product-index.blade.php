@@ -119,6 +119,11 @@
                         {{ $products->links() }}
                     </ul>
                 </nav>
+
+                <br/>
+
+                <button class="btn btn-danger" wire:click="showai">Show AI</button>
+
             </div>
         </div>
     </div>

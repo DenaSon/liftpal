@@ -5,12 +5,17 @@ namespace App\Livewire\Front\Shop;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Tag;
+use Gemini\Data\Blob;
+use Gemini\Enums\MimeType;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Psr\Http\Client\ClientExceptionInterface;
 use RakibDevs\Weather\Weather;
 use Throwable;
+
+
 
 class ProductIndex extends Component
 {
@@ -28,14 +33,29 @@ class ProductIndex extends Component
     public $selectedSubcategoryIds = [];
 
     public $selectedTagIds = [];
+    public $aimessage = 'Test-Ai';
 
 
-
+    /**
+     * @throws ClientExceptionInterface
+     */
     public function mount()
     {
         $this->categories = Category::whereParentId(null)->whereType('product')->get();
 
         $this->tags = Tag::has('products')->inRandomOrder()->get();
+
+    }
+
+
+    public function showai()
+    {
+        $client = new Client('AIzaSyBID4O4vQayLQodQwfwA-zqtqYNK6f2Yok');
+        $response = $client->geminiPro()->generateContent(
+            new TextPart('PHP in less than 100 chars'),
+        );
+
+        $this->alert('success',$response->text());
 
     }
 
