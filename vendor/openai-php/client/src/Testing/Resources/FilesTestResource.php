@@ -26,21 +26,21 @@ final class FilesTestResource implements FilesContract
 
     public function retrieve(string $file): RetrieveResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $file);
     }
 
     public function download(string $file): string
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $file);
     }
 
     public function upload(array $parameters): CreateResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $parameters);
     }
 
     public function delete(string $file): DeleteResponse
     {
-        return $this->record(__FUNCTION__, func_get_args());
+        return $this->record(__FUNCTION__, $file);
     }
 }

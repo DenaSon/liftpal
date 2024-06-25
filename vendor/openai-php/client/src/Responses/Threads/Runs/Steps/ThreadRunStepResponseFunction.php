@@ -30,14 +30,14 @@ final class ThreadRunStepResponseFunction implements ResponseContract
     /**
      * Acts as static factory, and returns a new Response instance.
      *
-     * @param  array{name: string, arguments: string, output?: ?string}  $attributes
+     * @param  array{name: string, arguments: string, output: ?string}  $attributes
      */
     public static function from(array $attributes): self
     {
         return new self(
             $attributes['name'],
             $attributes['arguments'],
-            $attributes['output'] ?? null,
+            $attributes['output'],
         );
     }
 

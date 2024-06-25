@@ -4,6 +4,7 @@ namespace OpenAI\Contracts\Resources;
 
 use OpenAI\Responses\Threads\Runs\ThreadRunResponse;
 use OpenAI\Responses\Threads\ThreadDeleteResponse;
+use OpenAI\Responses\Threads\ThreadListResponse;
 use OpenAI\Responses\Threads\ThreadResponse;
 
 interface ThreadsContract
@@ -50,7 +51,16 @@ interface ThreadsContract
     public function delete(string $id): ThreadDeleteResponse;
 
     /**
-     * Manage messages attached to a thread.
+     * Returns a list of threads.
+     *
+     * @see TBA - there is no documentation yet
+     *
+     * @param  array<string, mixed>  $parameters
+     */
+    public function list(array $parameters = []): ThreadListResponse;
+
+    /**
+     * Manage messages attached to a thred.
      *
      * @see https://platform.openai.com/docs/api-reference/messages
      */

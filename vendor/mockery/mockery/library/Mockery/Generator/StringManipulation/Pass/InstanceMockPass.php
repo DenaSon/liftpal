@@ -4,19 +4,17 @@
  * Mockery (https://docs.mockery.io/)
  *
  * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
- * @license https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
- * @link https://github.com/mockery/mockery for the canonical source repository
+ * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link      https://github.com/mockery/mockery for the canonical source repository
  */
 
 namespace Mockery\Generator\StringManipulation\Pass;
 
 use Mockery\Generator\MockConfiguration;
-use function strrpos;
-use function substr;
 
-class InstanceMockPass implements Pass
+class InstanceMockPass
 {
-    public const INSTANCE_MOCK_CODE = <<<MOCK
+    const INSTANCE_MOCK_CODE = <<<MOCK
 
     protected \$_mockery_ignoreVerification = true;
 
@@ -57,14 +55,10 @@ class InstanceMockPass implements Pass
     }
 MOCK;
 
-    /**
-     * @param  string $code
-     * @return string
-     */
     public function apply($code, MockConfiguration $config)
     {
         if ($config->isInstanceMock()) {
-            return $this->appendToClass($code, static::INSTANCE_MOCK_CODE);
+            $code = $this->appendToClass($code, static::INSTANCE_MOCK_CODE);
         }
 
         return $code;
@@ -72,7 +66,8 @@ MOCK;
 
     protected function appendToClass($class, $code)
     {
-        $lastBrace = strrpos($class, '}');
-        return substr($class, 0, $lastBrace) . $code . "\n    }\n";
+        $lastBrace = strrpos($class, "}");
+        $class = substr($class, 0, $lastBrace) . $code . "\n    }\n";
+        return $class;
     }
 }

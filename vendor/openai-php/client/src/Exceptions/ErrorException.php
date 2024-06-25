@@ -18,7 +18,7 @@ final class ErrorException extends Exception
         $message = ($contents['message'] ?: (string) $this->contents['code']) ?: 'Unknown error';
 
         if (is_array($message)) {
-            $message = implode(PHP_EOL, $message);
+            $message = implode("\n", $message);
         }
 
         parent::__construct($message);

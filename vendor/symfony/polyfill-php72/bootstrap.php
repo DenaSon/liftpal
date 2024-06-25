@@ -46,12 +46,15 @@ if (!function_exists('utf8_decode')) {
 if (!function_exists('spl_object_id')) {
     function spl_object_id($object) { return p\Php72::spl_object_id($object); }
 }
-if (!function_exists('mb_ord')) {
-    function mb_ord($string, $encoding = null) { return p\Php72::mb_ord($string, $encoding); }
-}
-if (!function_exists('mb_chr')) {
-    function mb_chr($codepoint, $encoding = null) { return p\Php72::mb_chr($codepoint, $encoding); }
-}
-if (!function_exists('mb_scrub')) {
-    function mb_scrub($string, $encoding = null) { $encoding = null === $encoding ? mb_internal_encoding() : $encoding; return mb_convert_encoding($string, $encoding, $encoding); }
+
+if (extension_loaded('mbstring')) {
+    if (!function_exists('mb_ord')) {
+        function mb_ord($string, $encoding = null) { return p\Php72::mb_ord($string, $encoding); }
+    }
+    if (!function_exists('mb_chr')) {
+        function mb_chr($codepoint, $encoding = null) { return p\Php72::mb_chr($codepoint, $encoding); }
+    }
+    if (!function_exists('mb_scrub')) {
+        function mb_scrub($string, $encoding = null) { $encoding = null === $encoding ? mb_internal_encoding() : $encoding; return mb_convert_encoding($string, $encoding, $encoding); }
+    }
 }
