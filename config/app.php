@@ -163,6 +163,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */

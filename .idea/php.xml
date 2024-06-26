@@ -160,9 +160,9 @@
       <path value="$PROJECT_DIR$/vendor/openai-php/laravel" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/jumbaeric/laragpt" />
+      <path value="$PROJECT_DIR$/vendor/gemini-api-php/client" />
       <path value="$PROJECT_DIR$/vendor/google-gemini-php/laravel" />
       <path value="$PROJECT_DIR$/vendor/google-gemini-php/client" />
-      <path value="$PROJECT_DIR$/vendor/gemini-api-php/client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
