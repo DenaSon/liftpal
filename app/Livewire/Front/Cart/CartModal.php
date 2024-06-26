@@ -170,7 +170,10 @@ class CartModal extends Component
 
         if (!userAddressExist($authId))
         {
+
             $this->dispatch('getAddressModal');
+
+
         }
 
         else
