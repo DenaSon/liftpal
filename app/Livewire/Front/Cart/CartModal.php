@@ -163,7 +163,6 @@ class CartModal extends Component
         if (!userAddressExist($authId))
         {
 
-            $this->alert('warning', 'آدرس محل ارسال را انتخاب کنید', ['position' => 'bottom-left']);
             $this->dispatch('getAddressModal');
 
 
