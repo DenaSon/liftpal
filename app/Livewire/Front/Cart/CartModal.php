@@ -35,6 +35,15 @@ class CartModal extends Component
     public $finalPrice;
 
 
+    // Get address fields
+    public $province;
+    public $country;
+    public $city;
+    public $postalAddress;
+    public $postalCode;
+    public $buildingNumber;
+    public $unitNumber;
+
     public function mount()
     {
         $this->updateCart();
@@ -220,6 +229,29 @@ class CartModal extends Component
                 $this->alert('info','محصولی در سبد خرید وجود ندارد',['position'=>'center']);
             }
         }
+    }
+
+    public function saveAddress()
+    {
+        // Validate the fields
+        $validatedData = $this->validate([
+            'province' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'postalAddress' => 'required|string|max:255',
+            'postalCode' => 'required|string|max:20',
+            'buildingNumber' => 'required|string|max:10',
+            'unitNumber' => 'nullable|string|max:10',
+        ]);
+        $validatedData['is_default'] = 1;
+
+        // Save the validated data to the Addresses table
+        Address::create($validatedData);
+
+        // Optionally, you can reset the form fields or show a success message
+        $this->reset(['province', 'country', 'city', 'postalAddress', 'postalCode', 'buildingNumber', 'unitNumber']);
+
+
     }
 
 

@@ -1,7 +1,7 @@
 
 
     <div class="modal fade" id="get-address-modal" aria-hidden="true" aria-labelledby="get-address-modalLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="get-address-modalLabel">ثبت آدرس ارسال</h1>
@@ -16,12 +16,13 @@
                            <option class="text-muted" value="" label="انتخاب استان">انتخاب استان</option>
                                 @include('livewire.front.cart.inc.province')
                             </select>
+                            @error('province') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="city" class="form-label">شهر</label>
                             <input class="form-control" id="city" wire:model="city">
-
+                            @error('city') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
 
