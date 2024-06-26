@@ -12,6 +12,8 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 
 class CartModal extends Component
@@ -170,6 +172,7 @@ class CartModal extends Component
         if (!userAddressExist($authId))
         {
 
+            $this->alert('warning', 'آدرس محل ارسال را انتخاب کنید', ['position' => 'bottom-left']);
             $this->dispatch('getAddressModal');
 
 

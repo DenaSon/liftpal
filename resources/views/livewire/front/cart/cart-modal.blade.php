@@ -87,7 +87,6 @@
                 </div>
                 <br/>
 
-
             @endforeach
         </div>
 
@@ -110,7 +109,6 @@
                             تخفیف :    {{ number_format($cartDiscountAmount) }}  تومان </span>
                         <br/>
                     @endif
-
 
 
                 </div>
@@ -149,9 +147,6 @@
             </a>
 
 
-
-
-
         </div>
     </div>
 
@@ -186,12 +181,28 @@
 
 
     </style>
+
+    @include('livewire.front.cart.inc.get-address-modal')
+
 </div>
+
 
 @script
 <script>
+
+
     $wire.on('getAddressModal', () => {
-        alert('hello php ');
+
+        var offcanvasElement = document.getElementById('demo-switcher');
+
+        var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+
+        offcanvasInstance.hide();
+        // Show the modal
+        var modalElement = new bootstrap.Modal(document.getElementById('get-address-modal'));
+        modalElement.show();
+
     });
 </script>
+
 @endscript
