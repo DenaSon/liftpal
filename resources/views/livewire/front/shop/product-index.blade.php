@@ -123,7 +123,6 @@
 
                 <br/>
 
-                <button class="btn btn-danger" wire:click="showai">Show AI</button>
 
             </div>
         </div>
