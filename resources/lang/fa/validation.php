@@ -264,7 +264,10 @@ return [
         'diameter'=>'قطر',
         'length' => 'طول',
         'sortby'=>'مرتب سازی',
-        'search'=> 'جستجو'
+        'search' => 'جستجو',
+        'province' => 'استان',
+        'postal_address' => 'آدرس پستی',
+        'postal_code' => 'کد پستی',
 
 
 
