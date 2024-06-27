@@ -15,14 +15,15 @@
                 <!-- Demos switcher-->
                 <li class="nav-item  py-2 me-lg-2"><a
                         class="nav-link  align-items-center border-end-lg py-1 pe-lg-4" href="{{ route('shop') }}"
-                         role="button" aria-expanded="false"><i class="fi-shopping-bag me-2"></i>
+                        role="button" aria-expanded="false"><i class="fi-shopping-bag me-2"></i>
                         فروشگاه</a>
 
                 </li>
                 <!-- Menu items-->
-                <li class="nav-item dropdown "><a wire:navigate class="nav-link" href="{{ route('home') }}"
-                                                        role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">خانه</a>
+                <li class="nav-item dropdown ">
+                    <a wire:navigate class="nav-link @if(request()->route()->getName() == 'home') active  @endif" href="{{ route('home') }}"
+                       role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">خانه</a>
 
                 </li>
 
@@ -54,3 +55,6 @@
 <livewire:auth.login wire:key="{{uniqid()}}"/>
 <!-- Sign Up Modal-->
 <livewire:auth.register wire:key="{{ uniqid() }}"/>
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/theme-style.css') }}">
+@endpush

@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#766df4">
 
 @yield('css')
-
+    @stack('styles')
 </head>
 
 <body dir="rtl">
