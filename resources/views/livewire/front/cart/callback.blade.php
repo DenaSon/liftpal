@@ -8,92 +8,68 @@
     @include('livewire.front.home-inc.header')
 
 
-    <div class="container mt-5 mb-md-4 pt-5">
+    <div class="container mt-5 mb-md-4 pt-5 mb-5">
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
 
         </nav>
     </div>
 
     <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-        <div class="row align-items-md-start justify-content-center align-items-center gy-4">
-
-
+        <div class="row  justify-content-center align-items-center gy-4">
             <div class="col-lg-4 col-md-6 ">
-                <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-3 text-md-start text-center" style="max-width: 416px;">
 
-
-                </div>
-
-                <img class="d-block mx-auto rotate-img" src="{{ asset($success ? 'assets/img/real-estate/payment/payment-confirm.png' : 'assets/img/real-estate/illustrations/failed-pay.png') }}" alt="Illustration" height="200">
+                <img class="d-flex mx-auto rotate-img pb-2 " src="{{ asset($success ? 'assets/img/real-estate/payment/payment-confirm.png' : 'assets/img/real-estate/illustrations/failed-pay.png') }}" alt="Illustration" height="150">
 
             </div>
 
 
             <div class="col-md-6 offset-lg-1">
-                <div class="card border-0 bg-white p-sm-3 p-2">
-                    <div class="card-body m-1">
-
 
                         <!-- Basic table -->
                         @if($success)
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
 
-                                    <th>وضعیت</th>
-                                    <th>مبلغ</th>
-                                    <th>شماره سفارش</th>
-
-
-                                </tr>
-                                </thead>
-                                <tbody>
-
-
-                                <tr class="">
-                                    <td class="">پرداخت شده</td>
-                                    <td class="fw-bold">{{ number_format($transaction->amount) }}</td>
-                                    <td>{{ $order->order_number ?? 0 }}</td>
-
-                                </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                            <div class="table-responsive mt-3">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-
-                                        <th>شماره تراکنش</th>
-                                        <th>کارت پرداخت</th>
-                                        <th> درگاه پرداخت </th>
-
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                    <tr class="">
-
-                                        <td>{{ $transaction->reference_id ?? 0 }}</td>
-                                        <td>{{ $transaction->card_pen ?? 0 }}</td>
+                                <ul class=" list-group">
+                                    <li class="bg-success border  text-white list-group-item d-flex justify-content-between align-items-center">
+                                        <span>وضعیت</span>
+                                        <span class="fw-bold fs-16 small fw-normal">پرداخت شده</span>
+                                    </li>
+                                    <li class="list-group-item border  d-flex justify-content-between align-items-center">
+                                        <span>مبلغ</span>
+                                        <span class="fw-bold fs-16">{{ number_format($transaction->amount) }}</span>
+                                    </li>
+                                    <li class="list-group-item border d-flex justify-content-between align-items-center">
+                                        <span>شماره سفارش</span>
+                                        <span class="fw-bold fs-16">{{ $order->order_number ?? 0 }}</span>
+                                    </li>
+                                    <li class="list-group-item border d-flex justify-content-between align-items-center">
+                                        <span>شماره تراکنش</span>
+                                        <span class="fw-bold fs-16">{{ $transaction->reference_id ?? 0 }}</span>
+                                    </li>
+                                    <li class="list-group-item border d-flex justify-content-between align-items-center">
+                                        <span>کارت پرداخت</span>
+                                        <span class="fw-bold fs-16">{{ $transaction->card_pen ?? 0 }}</span>
+                                    </li>
 
                                         @if($transaction->payment_method == 'ZARINPAL')
-                                            <td>Zarinpal</td>
+                                        <li class="list-group-item border d-flex justify-content-between align-items-center">
+                                            <span>درگاه پرداخت</span>
+                                            <span class="fw-bold fs-16">Zarinpal</span>
+                                        </li>
+                                </ul>
+
+
                                         @endif
 
-
-
-
-                                    </tr>
-
-                                    </tbody>
-                                </table>
                             </div>
+
+
+
+
+        <div class="container mt-4 me-md-5">
+            <div >
+                <button type="button" class="btn btn-outline-success w-100">پیگیری سفارش</button>
+            </div>
+        </div>
 
                         @else
 
@@ -104,19 +80,16 @@
                                     <li class="list-group-item text-center bg-secondary shadow">وضعیت</li>
                                     <li class="list-group-item text-center shadow"> {{ $errorMessage }} </li>
                                 </ul>
+
                             </div>
-
-
 
 
                         @endif
 
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
     </section>
 
 
