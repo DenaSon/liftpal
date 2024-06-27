@@ -9,39 +9,41 @@
                 <form wire:submit.prevent="saveAddress">
                     <div class="row align-items-center">
                         <div class="col-6 mb-3">
-                            <label for="province" class="form-label">استان</label>
-                            <select class="form-select required-field" wire:model="province" required>
-                                <option class="text-muted" value="" label="انتخاب استان">انتخاب استان</option>
+                            <label for="province" class="form-label ">استان</label>
+                            <span class="text-danger">*</span>
+                            <select class="form-select " wire:model="province" >
+                                <option class="text-muted" value="" label="انتخاب استان" >انتخاب استان</option>
                                 @include('livewire.front.cart.inc.province')
                             </select>
 
                         </div>
 
                         <div class="col-6 mb-3">
-                            <label for="city" class="form-label">شهر</label>
-                            <input class="form-control" id="city" wire:model="city">
+                            <label for="city" class="form-label ">شهر</label>
+                            <span class="text-danger">*</span>
+                            <input class="form-control" id="city" wire:model="city" >
 
                         </div>
                     </div>
                     <div class="col mb-3">
-                        <label for="postal-address" class="form-label">آدرس پستی</label>
-                        <textarea wire:model="postal_address" class="form-control" id="postal-address" rows="3"></textarea>
+                        <label for="postal-address" class="form-label ">آدرس پستی</label>
+                        <span class="text-danger">*</span>
+                        <textarea wire:model="postal_address" class="form-control" id="postal-address" rows="3" ></textarea>
 
                     </div>
 
                     <div class="row align-items-center">
 
                         <div class="col-4 mb-3">
-                            <label for="postal-code" class="form-label">کد پستی
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input required wire:model="postal_code" type="number" class="form-control" id="postal-code" title="Enter ">
+                            <label for="postal-code" class="form-label ">کد پستی</label>
+                            <span class="text-danger">*</span>
+                            <input wire:model="postal_code" type="number" class="form-control no-spinner" id="postal-code" >
 
                         </div>
 
                         <div class="col-4 mb-3">
                             <label for="building-number" class="form-label">پلاک</label>
-                            <input wire:model="building_number" type="number" class="form-control" id="building-number">
+                            <input wire:model="building_number" type="number" class="form-control no-spinner" id="building-number">
 
                         </div>
 
@@ -53,7 +55,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">ثبت آدرس</button>
+                             <button type="submit" class="btn btn-primary ">ثبت آدرس</button>
 
 
                 </form>
@@ -64,3 +66,4 @@
     </div>
 
 
+</div>
