@@ -30,7 +30,7 @@
             <div class="card-body m-1">
 
                 <ul class="list-group ">
-                    <li class="bg-primary border border-primary text-white list-group-item d-flex justify-content-between align-items-center">
+                    <li class="bg-primary border  text-white list-group-item d-flex justify-content-between align-items-center">
                         <span>
                          شماره سفارش
                         </span>
@@ -38,7 +38,7 @@
                     </li>
 
 
-                    <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
+                    <li class="list-group-item border d-flex justify-content-between align-items-center">
                         <span>
                             مجموع خرید
                         </span>
@@ -46,7 +46,7 @@
                         </li>
 
                         @if($order->discount_amount > 0)
-                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border  d-flex justify-content-between align-items-center">
                         <span>
                            تخفیف
                         </span>
@@ -54,7 +54,7 @@
                         </li>
                         @endif
                     @if($order->shipping_cost > 0)
-                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border  d-flex justify-content-between align-items-center">
                         <span>
                            هزینه ارسال
                         </span>
@@ -63,7 +63,7 @@
                     @endif
 
                     @if($order->tax > 0)
-                        <li class="list-group-item border border-primary d-flex justify-content-between align-items-center">
+                        <li class="list-group-item border  d-flex justify-content-between align-items-center">
                         <span>
                            مالیات
                         </span>
@@ -71,7 +71,7 @@
                         </li>
                     @endif
 
-                    <li class="list-group-item border border-primary d-flex justify-content-between align-items-center border border-1 border-primary ">
+                    <li class="list-group-item border  d-flex justify-content-between align-items-center border border-1  ">
                         <span>
                           مجموع قیمت
                         </span>
