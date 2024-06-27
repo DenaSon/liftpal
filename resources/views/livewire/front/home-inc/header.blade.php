@@ -27,10 +27,10 @@
                         <i class="star-rating-icon fi-star-filled active">
 
                         </i></span>
-                            <div class="fs-xs py-2">{{ auth()->user()->phone }}<br>annette_black@email.com</div>
+                            <div class="fs-xs muted">{{ auth()?->user()?->phone }}<br>{{ auth()?->user()?->email ?? 'ایمیل ثبت نشده' }}</div>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="{{ route('panel',[],false) }}">
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel') }}">
                         <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
                     <a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>گذرواژه
                         و امنیتی</a>
@@ -46,11 +46,15 @@
                             class="fi-bell opacity-60 me-2">
 
                         </i>اطلاعیه ها</a>
-                    <div class="dropdown-divider">
+                    <div class="dropdown-divider"> </div>
 
-                    </div>
-                    <a class="dropdown-item" href="#">پشتیبانی</a>
-                    <a class="dropdown-item" href="#"> خروج</a>
+
+                    <a class="dropdown-item active" href="#">پشتیبانی</a>
+
+
+                    @auth
+                       @livewire('auth.logout')
+                    @endauth
 
                 </div>
             </div>
