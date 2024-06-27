@@ -77,7 +77,6 @@
                         </span>
                         <span class="fw-bold fs-20">{{ number_format($order->total_price) }} <span class="small fw-normal">تومان</span> </span>
                     </li>
-
                 </ul>
 
                 <div class="d-flex justify-content-center align-items-center ">
