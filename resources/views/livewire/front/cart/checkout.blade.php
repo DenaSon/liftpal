@@ -1,71 +1,129 @@
-<div class="modal fade" id="get-address-modal" aria-hidden="true" aria-labelledby="get-address-modalLabel" tabindex="-1" wire:ignore>
-    <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="get-address-modalLabel">ثبت آدرس ارسال</h1>
-                <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form wire:submit.prevent="saveAddress">
-                    <div class="row align-items-center">
-                        <div class="col-6 mb-3">
-                            <label for="province" class="form-label ">استان</label>
-                            <span class="text-danger">*</span>
-                            <select class="form-select " wire:model="province" >
-                                <option class="text-muted" value="" label="انتخاب استان" >انتخاب استان</option>
-                                @include('livewire.front.cart.inc.province')
-                            </select>
+<div>
+    @section('css')
 
-                        </div>
+        <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
 
-                        <div class="col-6 mb-3">
-                            <label for="city" class="form-label ">شهر</label>
-                            <span class="text-danger">*</span>
-                            <input class="form-control" id="city" wire:model="city" >
+    @endsection
 
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <label for="postal-address" class="form-label ">آدرس پستی</label>
-                        <span class="text-danger">*</span>
-                        <textarea wire:model="postal_address" class="form-control" id="postal-address" rows="3" ></textarea>
-
-                    </div>
-
-                    <div class="row align-items-center">
-
-                        <div class="col-4 mb-3">
-                            <label for="postal-code" class="form-label ">کد پستی</label>
-                            <span class="text-danger">*</span>
-                            <input wire:model="postal_code" type="number" class="form-control no-spinner" id="postal-code" >
-
-                        </div>
-
-                        <div class="col-4 mb-3">
-                            <label for="building-number" class="form-label">پلاک</label>
-                            <input wire:model="building_number" type="number" class="form-control no-spinner" id="building-number">
-
-                        </div>
-
-                        <div class="col-4 mb-3">
-                            <label for="unit-number" class="form-label">شماره واحد</label>
-                            <input wire:model="unit_number" type="number" class="form-control no-spinner" id="unit-number">
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center align-items-center mt-4"  >
-
-                        <button type="submit" class="btn btn-primary ">ثبت آدرس</button>
-
-                    </div>
-
-                </form>
+    @include('livewire.front.home-inc.header')
 
 
-            </div>
-        </div>
+    <div class="container mt-5 mb-md-4 pt-5">
+        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+
+        </nav>
     </div>
 
 
+    <!-- ============================ Contact Detail ================================== -->
+
+    <section class="container mb-3 pb-5 pb-md-4 pb-lg-5">
+        <div class="row align-items-md-start pt-5 align-items-center gy-4">
+            <div class="col-lg-4 col-md-3">
+
+                <img class="d-block mx-auto rotate-img"
+                     src="{{ asset('assets/img/real-estate/illustrations/checkout.png') }}" alt="Illustration"
+                     height="200">
+            </div>
+            <div class="col-md-8 gx-lg-3">
+                <div class="card border-0 bg-white p-sm-3 p-2">
+                    <div class="card-body m-1">
+
+                        <ul class="list-group ">
+                            <li class="bg-primary border  text-white list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                         شماره سفارش
+                        </span>
+                                <span class="fw-bold fs-16 small fw-normal">{{ $orderNumber  }}</span>
+                            </li>
+
+
+                            <li class="list-group-item border d-flex justify-content-between align-items-center">
+                        <span>
+                            مجموع خرید
+                        </span>
+                                <span class="fw-bold fs-16">{{ number_format($order->grand_total) }}</span>
+                            </li>
+
+                            @if($order->discount_amount > 0)
+                                <li class="list-group-item border  d-flex justify-content-between align-items-center">
+                        <span>
+                           تخفیف
+                        </span>
+                                    <span class="fw-bold fs-16">{{ number_format($order->discount_amount) }}</span>
+                                </li>
+                            @endif
+                            @if($order->shipping_cost > 0)
+                                <li class="list-group-item border  d-flex justify-content-between align-items-center">
+                        <span>
+                           هزینه ارسال
+                        </span>
+                                    <span class="fw-bold fs-16">{{ number_format($order->shipping_cost) }}</span>
+                                </li>
+                            @endif
+
+                            @if($order->tax > 0)
+                                <li class="list-group-item border  d-flex justify-content-between align-items-center">
+                        <span>
+                           مالیات
+                        </span>
+                                    <span class="fw-bold fs-16">%{{ number_format($order->tax) }}</span>
+                                </li>
+                            @endif
+
+                            <li class="list-group-item border  d-flex justify-content-between align-items-center border border-1  ">
+                        <span>
+                          مجموع قیمت
+                        </span>
+                                <span class="fw-bold fs-20">{{ number_format($order->total_price) }} <span class="small fw-normal">تومان</span> </span>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <button wire:offline.attr="disabled" wire:loading.attr="disabled" wire:click.debounce.150ms="startPayment" type="button" class="btn btn-primary w-25  mt-5">پرداخت </button>
+
+
+                        </div>
+
+                        <!-- Light alert -->
+                        <div  wire:loading class="w-100">
+                            <div class="alert alert-info d-flex mt-3" role="alert">
+                                <i class="fi-clock me-2 me-sm-3 lead"></i>
+                                <div> لطفا صبر کنید | درحال انتقال به صفحه پرداخت </div>
+
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger  justify-content-center align-items-center mt-4 fw-bold" wire:offline>  اتصال به اینترنت خود را بررسی کنید </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="clearfix"></div>
+    <!-- ============================ map End ================================== -->
+
+
+    @include('livewire.front.home-inc.footer')
+
+
+    @section('js')
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts/>
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script data-navigate-once
+                src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+        <script data-navigate-once
+                src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+        <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
+        <!-- Main theme script-->
+        <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+    @endsection
 </div>

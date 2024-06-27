@@ -54,9 +54,11 @@
                         </div>
                     </div>
 
+                        <div class="d-flex justify-content-center align-items-center mt-4"  >
 
                              <button type="submit" class="btn btn-primary ">ثبت آدرس</button>
 
+                        </div>
 
                 </form>
 
