@@ -24,7 +24,3 @@
     -moz-appearance: textfield;
 }
 
-.required-field::after {
-    content: "*";
-    color: red;
-}
