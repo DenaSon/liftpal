@@ -14,6 +14,7 @@
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                 <!-- Demos switcher-->
                 <li class="nav-item  py-2 me-lg-2"><a
+                        wire:navigate
                         class="nav-link  align-items-center border-end-lg py-1 pe-lg-4" href="{{ route('shop') }}"
                         role="button" aria-expanded="false"><i class="fi-shopping-bag me-2"></i>
                         فروشگاه</a>
