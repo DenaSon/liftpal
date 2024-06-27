@@ -5,3 +5,26 @@
     background: transparent;
     background-image: none;
 }
+
+.no-spinner {
+    /* برای مرورگرهای وب‌کیت مانند کروم و سافاری */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* برای فایرفاکس */
+.no-spinner {
+    -moz-appearance: textfield;
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}

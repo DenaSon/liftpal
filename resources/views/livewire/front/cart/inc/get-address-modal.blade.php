@@ -10,7 +10,7 @@
                     <div class="row align-items-center">
                         <div class="col-6 mb-3">
                             <label for="province" class="form-label">استان</label>
-                            <select class="form-select" wire:model="province">
+                            <select class="form-select required-field" wire:model="province" required>
                                 <option class="text-muted" value="" label="انتخاب استان">انتخاب استان</option>
                                 @include('livewire.front.cart.inc.province')
                             </select>
@@ -45,7 +45,7 @@
 
                         <div class="col-4 mb-3">
                             <label for="unit-number" class="form-label">شماره واحد</label>
-                            <input wire:model="unit_number" type="number" class="form-control" id="unit-number">
+                            <input wire:model="unit_number" type="number" class="form-control no-spinner" id="unit-number">
 
                         </div>
                     </div>
