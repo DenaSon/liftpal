@@ -8,12 +8,12 @@
                     <div class="mb-sm-0 mb-4 px-2"><a class="d-inline-block mb-4" href="real-estate-home-v1.html"><img
                                 src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
                         <ul class="nav flex-column mb-sm-4 mb-2">
-                            <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:example@email.com"><i
-                                        class="fi-mail mt-n1 me-2 align-middle opacity-70"></i>example@email.com</a>
+                            <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:{{ getSetting('support_manager_email') }}"><i
+                                        class="fi-mail mt-n1 me-2 align-middle opacity-70"></i>{{ getSetting('support_manager_email') }}</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link p-0 fw-normal" href="tel:4065550120"><i
-                                        class="fi-device-mobile mt-n1 me-2 align-middle opacity-70"></i>(406)
-                                    555-0120</a></li>
+                            <li class="nav-item"><a class="nav-link p-0 fw-normal" href="tel:{{getSetting('support_manager_phone')}}"><i
+                                        class="fi-device-mobile mt-n1 me-2 align-middle opacity-70"></i>
+                                    {{getSetting('support_manager_phone')}}</a></li>
                         </ul>
                         <div class="pt-2"><a
                                 class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2"
@@ -51,10 +51,11 @@
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 offset-xl-1">
-                <h4 class="h5">بلاگ های اخیر</h4>
+                <h4 class="h5">آخرین مقالات</h4>
                 <article class="d-flex align-items-start" style="max-width: 640px;"><a
                         class="d-none d-sm-block flex-shrink-0 me-sm-4 mb-sm-0 mb-3"
-                        href="real-estate-blog-single.html"><img class="rounded-3"
+                        href="real-estate-blog-single.html">
+                        <img class="rounded-3"
                                                                  src="{{ asset('assets/img/real-estate/blog/th01.jpg') }}"
                                                                  width="100" alt="Blog post"></a>
                     <div>
@@ -70,23 +71,8 @@
                     </div>
                 </article>
                 <hr class="text-dark opacity-10 my-4">
-                <article class="d-flex align-items-start" style="max-width: 640px;"><a
-                        class="d-none d-sm-block flex-shrink-0 me-sm-4 mb-sm-0 mb-3"
-                        href="real-estate-blog-single.html"><img class="rounded-3"
-                                                                 src="{{ asset('assets/img/real-estate/blog/th02.jpg') }}"
-                                                                 width="100" alt="Blog post"></a>
-                    <div>
-                        <h6 class="mb-1 fs-sm fw-normal text-uppercase text-primary">نکات و ترفندها</h6>
-                        <h5 class="mb-2 fs-base"><a class="nav-link" href="real-estate-blog-single.html">10 روش برتر
-                                برای تجدید فضای خود</a></h5>
-                        <p class="mb-2 fs-sm">لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت
-                            بوده است...</p><a class="nav-link nav-link-muted d-inline-block me-3 p-0 fs-xs fw-normal"
-                                              href="#"><i
-                                class="fi-calendar mt-n1 me-1 fs-sm align-middle opacity-70"></i>18 مرداد</a><a
-                            class="nav-link nav-link-muted d-inline-block me-3 p-0 fs-xs fw-normal" href="#"><i
-                                class="fi-chat-circle mt-n1 me-1 fs-sm align-middle opacity-70"></i> 0 کامنت</a>
-                    </div>
-                </article>
+
+
             </div>
         </div>
         <!-- Banner-->
