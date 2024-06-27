@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Front\Cart;
 
+use App\Models\Cart;
+use App\Models\History;
 use App\Models\Order;
 use App\Models\Transaction;
+use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
 
 class Callback extends Component
@@ -81,6 +83,9 @@ class Callback extends Component
                 $this->order->payment_transaction_id = $response->referenceId();
                 $this->order->save();
 
+                //Transfer data to user history
+                $this->transferToHistory($this->order->id);
+
 
 
 
@@ -97,7 +102,27 @@ class Callback extends Component
 
     }
 
+    private function transferToHistory($order_id)
+    {
+        $user_id = auth()->id();
+        //Transfer data to order_details table
+        $carts = Cart::where('user_id', $user_id)->get(['user_id', 'product_id', 'type_id', 'quantity']);
+        foreach ($carts as $cart) {
+            $discount = $cart->product->discount;
+            $model = new History();
+            $model->user_id = $cart->user_id;
+            $model->order_id = $order_id;
+            $model->product_id = $cart->product->id;
+            $model->quantity = $cart->quantity;
+            $model->price = $cart->type->price;
+            $model->product_name = $cart->product->name ?? '';
+            $model->type_name = $cart->type->name ?? '';
+            $model->created_at = Carbon::now();
+            $model->save();
 
+        }
+        Cart::where('user_id', $user_id)->delete();
+    }
 
 
     public function render()

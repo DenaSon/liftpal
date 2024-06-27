@@ -27,23 +27,15 @@ use App\Http\Controllers\Admin\User\CustomerController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\Front\Blog\BlogController;
-
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\Page\StaticPageController;
-use App\Http\Controllers\Front\Store\Cart\CartController;
 use App\Http\Controllers\Front\Store\Cart\CheckoutController;
-use App\Http\Controllers\Front\Store\Product\BrandIndexController;
-use App\Http\Controllers\Front\Store\Product\CategoryIndexController;
-use App\Http\Controllers\Front\Store\Product\SearchIndexController;
-use App\Http\Controllers\Front\Store\Profile\ProfileController;
-
-use App\Http\Controllers\Front\Store\Single\SingleController;
-use App\Livewire\Front\Blog\IndexBlog;
-use App\Livewire\Front\Blog\SingleArticle;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\Front\Blog\IndexBlog;
+use App\Livewire\Front\Blog\SingleArticle;
 use App\Livewire\Front\Cart\Callback;
 use App\Livewire\Front\Cart\Checkout;
+use App\Livewire\Front\Panel\Clientarea;
 use App\Livewire\Front\Shop\ProductIndex;
 use App\Livewire\Front\Shop\Single\SingleProduct;
 use App\Livewire\Front\Static\ContactUs;
@@ -74,10 +66,7 @@ Route::middleware('throttle:25,1')->post('/logout', [LogoutController::class, 'l
 
 
 
-//Payment Controllers route
 
-//Route::post('orders/payments/control/{order}',[OrderController::class,'PaymentValidate'])->name('payment-validator');
-Route::middleware('throttle:60,1')->get('orders/payments/control/zarinpal/callback',[CheckoutController::class,'ZarinpalCallback'])->name('zarinpal-payment-callback');
 
 
 // Admin Routes Group
@@ -183,6 +172,7 @@ Route::prefix('')->group(function ()
     {
         Route::get('payment/checkout',Checkout::class)->name('checkout');
         Route::get('payment/callback',Callback::class)->name('zarinpal-callback');
+        Route::get('panel', Clientarea::class)->name('panel');
 
     });
 

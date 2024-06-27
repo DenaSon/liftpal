@@ -6,9 +6,62 @@
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
-        <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i
-                class="fi-user me-2"></i>ورود به حساب </a><a class="btn btn-primary btn-sm ms-2 order-lg-3"
-                                                             href="real-estate-add-property.html"><i
+
+
+        @if(auth()->check())
+            <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3">
+                <a class="d-block py-2" href="javascript:void(0)">
+                    <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="40" alt=""></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
+                        <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="48" alt="">
+                        <div class="ps-2 text-end">
+                            <h6 class="fs-base mb-0"> {{ auth()->user()->profile->name ?? '' }} {{ auth()->user()->profile->last_name ?? '' }} </h6>
+                            <span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i>
+                        <i class="star-rating-icon fi-star-filled active">
+
+                        </i>
+                        <i
+                            class="star-rating-icon fi-star-filled active"></i>
+                        <i class="star-rating-icon fi-star-filled active"></i>
+                        <i class="star-rating-icon fi-star-filled active">
+
+                        </i></span>
+                            <div class="fs-xs py-2">{{ auth()->user()->phone }}<br>annette_black@email.com</div>
+                        </div>
+                    </div>
+                    <a class="dropdown-item" href="{{ route('panel',[],false) }}">
+                        <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
+                    <a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>گذرواژه
+                        و امنیتی</a>
+                    <a class="dropdown-item" href="real-estate-account-properties.html">
+                        <i class="fi-home opacity-60 me-2"></i>املاک من</a>
+                    <a class="dropdown-item" href="real-estate-account-wishlist.html"><i
+                            class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
+                    <a class="dropdown-item" href="real-estate-account-reviews.html">
+                        <i class="fi-star opacity-60 me-2">
+
+                        </i>نظرات</a><a class="dropdown-item"
+                                        href="real-estate-account-notifications.html"><i
+                            class="fi-bell opacity-60 me-2">
+
+                        </i>اطلاعیه ها</a>
+                    <div class="dropdown-divider">
+
+                    </div>
+                    <a class="dropdown-item" href="#">پشتیبانی</a>
+                    <a class="dropdown-item" href="#"> خروج</a>
+
+                </div>
+            </div>
+
+        @else
+            <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i
+                    class="fi-user me-2"></i>ورود </a>
+        @endif
+
+        <a class="btn btn-primary btn-sm ms-2 order-lg-3"
+           href="real-estate-add-property.html"><i
                 class="fi-plus me-2"></i>ثبت<span class='d-none d-sm-inline'> پروژه</span></a>
         <div wire:ignore class="collapse navbar-collapse order-lg-2" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
@@ -29,7 +82,7 @@
                 </li>
 
                 @if(auth()->check())
-                    <li class="nav-item dropdown"><a wire:navigate class="nav-link" href="{{ route('home') }}"
+                    <li class="nav-item dropdown"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
                                                      role="button"
                                                      data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
                     </li>
@@ -49,6 +102,8 @@
 
                 <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i
                             class="fi-user me-2"></i>ورود به حساب </a></li>
+
+
             </ul>
         </div>
     </div>
@@ -58,4 +113,5 @@
 <livewire:auth.register wire:key="{{ uniqid() }}"/>
 @push('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/theme-style.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
 @endpush

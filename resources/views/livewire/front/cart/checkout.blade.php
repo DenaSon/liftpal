@@ -1,9 +1,5 @@
 <div>
-    @section('css')
 
-        <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
-
-    @endsection
 
     @include('livewire.front.home-inc.header')
 

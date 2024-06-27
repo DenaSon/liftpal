@@ -32,8 +32,10 @@
                     <div class="row align-items-center">
 
                         <div class="col-4 mb-3">
-                            <label for="postal-code" class="form-label">کد پستی</label>
-                            <input wire:model="postal_code" type="number" class="form-control" id="postal-code">
+                            <label for="postal-code" class="form-label">کد پستی
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input required wire:model="postal_code" type="number" class="form-control" id="postal-code" title="Enter ">
 
                         </div>
 
