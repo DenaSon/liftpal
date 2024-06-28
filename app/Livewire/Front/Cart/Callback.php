@@ -33,7 +33,7 @@ class Callback extends Component
         if (!session()->has('callbackToken') )
         {
 
-            abort(403);
+            // abort(403);
         }
 
         try

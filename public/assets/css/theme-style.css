@@ -1,9 +1,9 @@
 .no-arrow {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: transparent;
-    background-image: none;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    background-image: none !important;
 }
 
 .no-spinner {
