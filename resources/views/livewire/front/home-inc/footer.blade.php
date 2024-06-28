@@ -5,7 +5,7 @@
         <div class="row mb-5 pb-md-3 pb-lg-4">
             <div class="col-lg-6 mb-lg-0 mb-4">
                 <div class="d-flex flex-sm-row flex-column justify-content-between mx-n2">
-                    <div class="mb-sm-0 mb-4 px-2 ustify-content-center justify-content-md-start"><a class="d-inline-block mb-4" href="real-estate-home-v1.html"><img
+                    <div class="mb-sm-0 mb-4 px-2 "><a class="d-inline-block mb-4" href="real-estate-home-v1.html"><img
                                 src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
                         <ul class="nav flex-column mb-sm-4 mb-2">
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:{{ getSetting('support_manager_email') }}"><i
