@@ -12,7 +12,7 @@
             <div class="dropdown  d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
                     <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="40" alt=""></a>
-                <div class="dropdown-menu  dropdown-menu-center ">
+                <div class="dropdown-menu  dropdown-menu-center-hompage ">
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
                         <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="48" alt="">
                         <div class="ps-2 text-end">
