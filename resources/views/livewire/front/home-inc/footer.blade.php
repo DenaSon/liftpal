@@ -1,5 +1,5 @@
 <!-- Footer-->
-<footer class="footer pt-2 @if(request()->route()->getName() !== 'home') bg-white @else bg-secondary @endif">
+<footer class="footer pt-2 bg-secondary">
     <div class="container pt-lg-4 pb-1  bg-secondary">
         <!-- Links-->
 
