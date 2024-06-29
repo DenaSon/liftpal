@@ -18,20 +18,13 @@
     @endsection
 
 
-
-
-
     @include('livewire.front.home-inc.header')
-
         @include('livewire.front.home-inc.hero')
         @include('livewire.front.home-inc.categories')
         @include('livewire.front.home-inc.services')
         @include('livewire.front.home-inc.posts')
         @include('livewire.front.home-inc.elevator-calc')
         @include('livewire.front.home-inc.logos')
-
-
-
 
 
     @include('livewire.front.home-inc.footer')

@@ -25,9 +25,9 @@ class Logout extends Component
     {
         // Directly return HTML as a string
         return <<<'blade'
-            <div>
-                <button wire:click="logout" class="dropdown-item">خروج</button>
-            </div>
+
+                <span wire:click="logout" class="dropdown-item">خروج</span>
+
 blade;
     }
 }
