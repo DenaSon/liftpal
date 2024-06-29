@@ -55,7 +55,7 @@
                             <div class="cart d-flex flex-wrap align-items-center rounded">
                                 <button id="btn-{{$cart->id}}" wire:loading.attr="disabled"
                                         wire:click.debounce.500ms="increaseItem({{ $cart->id }})"
-                                        class="btn btn-sm btn-outline-primary mx-auto"
+                                        class="btn btn-xs btn-outline-primary mx-auto"
                                         wire:loading.attr="disabled">+
 
                                 </button>
@@ -63,7 +63,7 @@
                                 <b class="p-2 mx-auto">{{ $cart->quantity }}</b>
                                 <button wire:loading.attr="disabled" wire:loading.attr="disabled"
                                         wire:click.debounce.500ms="decreaseItem({{ $cart->id  }})"
-                                        class="btn btn-sm btn-outline-primary  mx-auto">
+                                        class="btn btn-xs btn-outline-primary  mx-auto">
                                     @if( $cart->quantity == 1 )
                                         <i class="fi-trash"></i>
                                     @else
@@ -198,7 +198,7 @@
         var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
 
         offcanvasInstance.hide();
-        // Show the modal
+
         var modalElement = new bootstrap.Modal(document.getElementById('get-address-modal'));
         modalElement.show();
 
