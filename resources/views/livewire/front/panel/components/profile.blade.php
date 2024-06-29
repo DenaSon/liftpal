@@ -2,7 +2,7 @@
     <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر</label>
     <div class="row pb-2">
         <div class="col-lg-12 col-sm-12 mb-4">
-            <textarea wire:model="resume" class="form-control fs-sm" id="account-bio" rows="3" placeholder="بیوگرافی خود را اینجا بنویسید"></textarea>
+            <textarea wire:model="resume" class="form-control fs-sm" id="account-bio" rows="3" placeholder="من ........هستم، تکنسین ماهر آسانسور با بیش از ۱۵ سال تجربه. با دانش فنی گسترده و تعهد به ایمنی، پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. تخصص من در ترکیب تکنولوژی روز با استانداردهای برتر ایمنی، مرا به انتخابی مطمئن برای هر پروژه آسانسوری تبدیل کرده است."></textarea>
         </div>
 
     </div>
