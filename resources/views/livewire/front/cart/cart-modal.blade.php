@@ -36,11 +36,11 @@
             @foreach($carts as $cart)
                 <div wire:key="{{ $cart->id }}" class="">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img class="img-thumbnail" src="{{ asset($cart->product->images->first()->file_path) }}"
+                        <div class="col-md-5">
+                            <img class="img-thumbnail h-100" src="{{ asset($cart->product->images->first()->file_path) }}"
                                  alt="{{ $cart->product->name }}">
                         </div>
-                        <div class="col-md-8 shadow-sm">
+                        <div class="col-md-7 shadow-sm">
                             <span class="small p-0">{{ $cart->product->name }} - {{ $cart->type->name }}</span>
                             <hr>
                             <div class="m-3">
@@ -55,7 +55,7 @@
                             <div class="cart d-flex flex-wrap align-items-center rounded">
                                 <button id="btn-{{$cart->id}}" wire:loading.attr="disabled"
                                         wire:click.debounce.500ms="increaseItem({{ $cart->id }})"
-                                        class="btn btn-xs btn-outline-primary mx-auto"
+                                        class="btn btn-sm btn-outline-primary mx-auto"
                                         wire:loading.attr="disabled">+
 
                                 </button>
@@ -63,7 +63,7 @@
                                 <b class="p-2 mx-auto">{{ $cart->quantity }}</b>
                                 <button wire:loading.attr="disabled" wire:loading.attr="disabled"
                                         wire:click.debounce.500ms="decreaseItem({{ $cart->id  }})"
-                                        class="btn btn-xs btn-outline-primary  mx-auto">
+                                        class="btn btn-sm btn-outline-primary  mx-auto">
                                     @if( $cart->quantity == 1 )
                                         <i class="fi-trash"></i>
                                     @else
