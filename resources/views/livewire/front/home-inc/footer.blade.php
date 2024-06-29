@@ -43,8 +43,9 @@
                 </div>
                 <div class="d-none d-md-block col-md-4 my-3 ">
                         <div class="row">
-                            <img class="col" src="assets/img/footer/logo-namad.png" style="width: 70px; height: 120px;" alt="">
-                            <img class="col" src="assets/img/footer/zarin-namad-enamad.jpg" style="width: 70px; height: 120px;" alt=""></div>
+                            <img class="col" src="{{ asset('assets/img/footer/logo-namad.png') }}" style="width: 70px; height: 120px;" alt="">
+
+                            <img class="col" src="{{ asset('assets/img/footer/zarin-namad-enamad.jpg') }}" style="width: 70px; height: 120px;" alt=""></div>
                 </div>
             </div>
 
