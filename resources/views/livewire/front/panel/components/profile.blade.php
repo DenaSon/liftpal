@@ -1,8 +1,9 @@
 <div>
-    <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر</label>
+    <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label>
     <div class="row pb-2">
         <div class="col-lg-12 col-sm-12 mb-4">
-            <textarea wire:model="resume" class="form-control fs-sm" id="account-bio" rows="3" placeholder="بیوگرافی خود را اینجا بنویسید"></textarea>
+            <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="3" placeholder="ن ........هستم، تکنسین ماهر آسانسور با بیش از ۱۵ سال تجربه. با دانش فنی
+گسترده و تعهد به ایمنی، پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. تخصص من در ترکیب تکنولوژی روز با استانداردهای برتر ایمنی، مرا به انتخابی مطمئن برای هر پروژه آسانسوری تبدیل کرده است."></textarea>
         </div>
 
     </div>
@@ -50,30 +51,19 @@
                 .com">
             </div>
         </div>
-        <!-- Phone number-->
-        <div class="border-bottom pb-3 mb-3">
-            <div class="d-flex align-items-center justify-content-between">
-                <div class="ps-2">
-                    <label class="form-label fw-bold">شماره تماس</label>
-                    <div id="phone-value">(302) 555-0107</div>
-                </div>
-                <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش"><a class="nav-link py-0" href="#phone-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
-            </div>
-            <div class="collapse" id="phone-collapse" data-bs-parent="#personal-info">
-                <input class="form-control mt-3" type="text" data-bs-binded-element="#phone-value" data-bs-unset-value="ثبت نشده" value="(302) 555-0107">
-            </div>
-        </div>
+
         <!-- Company name-->
         <div class="border-bottom pb-3 mb-3">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="ps-2">
-                    <label class="form-label fw-bold">نام شرکت</label>
-                    <div id="company-value">مشخص نشده است</div>
+                    <label class="form-label fw-bold">تحصیلات</label>
+                    <div id="education-value">مشخص نشده است</div>
                 </div>
-                <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش"><a class="nav-link py-0" href="#company-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+                <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش">
+                    <a class="nav-link py-0" href="#education-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
             </div>
-            <div class="collapse" id="company-collapse" data-bs-parent="#personal-info">
-                <input class="form-control mt-3" type="text" data-bs-binded-element="#company-value" data-bs-unset-value="ثبت نشده" placeholder="Enter company name">
+            <div class="collapse" id="education-collapse" data-bs-parent="#personal-info">
+                <input wire:model="education" class="form-control mt-3" type="text" data-bs-binded-element="#education-value" data-bs-unset-value="ثبت نشده" placeholder="تحصیلات خود را وارد کنید">
             </div>
         </div>
         <!-- Address-->

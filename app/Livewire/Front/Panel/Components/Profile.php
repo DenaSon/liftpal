@@ -3,7 +3,6 @@
 namespace App\Livewire\Front\Panel\Components;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Profile extends Component
@@ -16,10 +15,10 @@ class Profile extends Component
     public $last_name;
     public $email;
     public $resume;
+    public $education;
     public $authUser =null;
     public $authUserProfile = '';
 
-    #[Title('پنل کاربری')]
 
     public function mount()
     {
