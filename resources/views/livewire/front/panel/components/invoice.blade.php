@@ -19,7 +19,7 @@
                 <div class="row">
                     <span class="h5 text-end p-2">جزئیات سفارش</span>
                 </div>
-                <hr dir="rtl" class="custom-hr-invoice mt-1">
+                <hr dir="rtl" class="custom-hr-invoice ">
                 <div class="row">
                     <h6 class="d-flex justify-content-between my-3">
                         <span>تعداد کل</span><span class="text-end">108</span>
@@ -37,7 +37,7 @@
                 <div class="row">
                     <span class="h5 text-end p-2">جزئیات پرداخت</span>
                 </div>
-                <hr dir="rtl" class="custom-hr-invoice mt-2">
+                <hr dir="rtl" class="custom-hr-invoice">
                 <div class="row">
                     <h6 class="d-flex justify-content-between my-3">
                         <span>مالیات</span><span class="text-end">108</span>
@@ -57,7 +57,7 @@
 
         <div class="container mx-auto row mt-2 bg-secondary p-2 shadow-sm border rounded "><span class=" text-end ">ادرس دریافت مرسوله </span>
         <hr dir="rtl" class=" custom-hr-invoice mt-2">
-        <div class="row col"><h6><span class="d-block fs-5 my-2">شماره سفارش</span> <span class="d-block">108</span></h6></div>
+        <div class="row col"><h6><span class="d-block fs-5 my-2">شماره سفارش</span> </h6></div>
 
      </div>
 
