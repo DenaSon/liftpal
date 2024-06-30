@@ -27,7 +27,7 @@
                 @elseif(request()->input('page') == 'main')
                     <livewire:front.panel.components.main  />
                 @elseif(request()->input('page') == 'invoice')
-                    <livewire:front.panel.components.main  />
+                    <livewire:front.panel.components.invoice/>
                 @endif
 
 
