@@ -13,22 +13,26 @@
     <table class="contianer table mt-5 ">
         <thead class="fw-bold">
         <tr>
-            <th colspan="5">شماره سفارش</th>
+            <th colspan="4">شماره سفارش</th>
             <th colspan="1" class="text-center">وضعیت</th>
+            <th colspan="1" class="text-center">مبلغ</th>
         </tr>
         </thead>
         <tbody class="table-group-divider fw-bold bold-divider">
         <tr>
-            <td colspan="5">1</td>
+            <td colspan="4">1</td>
             <td colspan="1" class="text-center">پرداخت شده</td>
+            <th colspan="1" class="text-center">مبلغ</th>
         </tr>
         <tr>
-            <td colspan="5">2</td>
+            <td colspan="4">2</td>
             <td colspan="1" class="text-center">مرجوعی</td>
+            <th colspan="1" class="text-center">مبلغ</th>
         </tr>
         <tr>
-            <td colspan="5">3</td>
+            <td colspan="4">3</td>
             <td colspan="1" class="text-center">در حال بررسی</td>
+            <th colspan="1" class="text-center">مبلغ</th>
         </tr>
         </tbody>
     </table>
