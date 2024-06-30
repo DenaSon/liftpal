@@ -5,6 +5,7 @@ namespace App\Livewire\Front\Panel\Components;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
+
 #[Lazy]
 class Profile extends Component
 {
@@ -12,7 +13,6 @@ class Profile extends Component
 
     use LivewireAlert;
 
-    public $pageTitle = 'پروفایل';
     public $name;
     public $last_name;
     public $email;
@@ -27,7 +27,7 @@ class Profile extends Component
         $this->authUser = auth()?->user();
         $this->authUserProfile = $this->authUser->profile;
         $this->resume = $this->authUserProfile?->resume;
-        $this->pageTitle = 'پروفایل';
+
 
     }
 
