@@ -1,4 +1,3 @@
-<!-- Sidebar-->
 <aside class="col-lg-4 col-md-5 pe-xl-4 mb-5">
     <!-- Account nav-->
     <div class="card card-body border-0 shadow-sm pb-1 me-lg-1">
@@ -38,17 +37,23 @@
                             class="fi-home opacity-60 me-2"></i>املاک من</a>
                 <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
                    href="{{ route('panel',['page'=>'favorite']) }}" wire:navigate><i
-                            class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a><a
+                            class="fi-heart opacity-60 me-2"></i>مورد علاقه‌ها</a><a
                         class="card-nav-link" href="real-estate-account-reviews.html"><i
                             class="fi-star opacity-60 me-2"></i>نظرات</a><a class="card-nav-link"
                                                                             href="real-estate-account-notifications.html"><i
-                            class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a><a class="card-nav-link"
-                                                                                 href="real-estate-help-center.html"><i
-                            class="fi-help opacity-60 me-2"></i>پشتیبانی</a><a class="card-nav-link"
-                                                                               href="#">
+                            class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
+
+                <a class="card-nav-link" href="real-estate-help-center.html"><i
+                            class="fi-help opacity-60 me-2"></i>پشتیبانی</a>
+
+
+                <a class="card-nav-link" href="#">
                     <i class="fi-logout opacity-60 me-2"></i>
                     @livewire('auth.logout')
-                </a></div>
+                </a>
+
+
+            </div>
         </div>
     </div>
 </aside>

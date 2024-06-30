@@ -2,7 +2,7 @@
     <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label>
     <div class="row pb-2">
         <div class="col-lg-12 col-sm-12 mb-4">
-            <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="3" placeholder="ن ........هستم، تکنسین ماهر آسانسور با بیش از ۱۵ سال تجربه. با دانش فنی
+        <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="3" placeholder="ن ........هستم، تکنسین ماهر آسانسور با بیش از ۱۵ سال تجربه. با دانش فنی
 گسترده و تعهد به ایمنی، پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. تخصص من در ترکیب تکنولوژی روز با استانداردهای برتر ایمنی، مرا به انتخابی مطمئن برای هر پروژه آسانسوری تبدیل کرده است."></textarea>
         </div>
 
@@ -48,7 +48,7 @@
             <div class="collapse" id="email-collapse" data-bs-parent="#personal-info">
                 <input wire:model="email" placeholder="ایمیل خود را وارد کنید" class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="ثبت نشده"
                        value="annette_black@email
-                .com">
+            .com">
             </div>
         </div>
 

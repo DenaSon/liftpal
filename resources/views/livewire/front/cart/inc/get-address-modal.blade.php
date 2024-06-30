@@ -12,7 +12,7 @@
                             <label for="province" class="form-label ">استان</label>
                             <span class="text-danger">*</span>
                             <select class="form-select " wire:model="province" >
-                                <option class="text-muted" value="" label="انتخاب استان" >انتخاب استان</option>
+                                <optgroup selected disabled value="" label="انتخاب استان">انتخاب استان</optgroup>
                                 @include('livewire.front.cart.inc.province')
                             </select>
 

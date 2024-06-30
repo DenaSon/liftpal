@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Front\Panel;
 
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 
@@ -11,21 +10,39 @@ class Clientarea extends Component
 
     public $authUser = '';
 
-
-    public $activePage = '';
-    public $pageTitle = null;
-
+    public $pageTitle = '';
 
     public function mount()
     {
         $this->authUser = auth()?->user();
+
+        $this->setPageTitle();
     }
+
+    private function setPageTitle()
+    {
+        $activePage = request()->input('page', '') ?? '';
+        switch ($activePage) {
+            case 'main':
+                $this->pageTitle = 'خلاصه فعالیت‌ها';
+                break;
+            case 'profile':
+                $this->pageTitle = 'ویرایش پروفایل';
+                break;
+            case 'favorite':
+                $this->pageTitle = 'مورد علاقه‌ها';
+                break;
+            default:
+                $this->redirectRoute('panel', ['page' => 'main']);
+        }
+
+    }
+
 
     public function render()
     {
-        $this->activePage = 'حساب کاربری';
+        $prefix = 'پنل کاربری | ';
 
-
-        return view('livewire.front.panel.clientarea');
+        return view('livewire.front.panel.clientarea')->title($prefix . $this->pageTitle);
     }
 }

@@ -10,7 +10,8 @@ class Profile extends Component
 
 
     use LivewireAlert;
-    public $pageTitle = '';
+
+    public $pageTitle = 'پروفایل';
     public $name;
     public $last_name;
     public $email;
@@ -25,10 +26,9 @@ class Profile extends Component
         $this->authUser = auth()?->user();
         $this->authUserProfile = $this->authUser->profile;
         $this->resume = $this->authUserProfile?->resume;
-
+        $this->pageTitle = 'پروفایل';
 
     }
-
 
     public function render()
     {

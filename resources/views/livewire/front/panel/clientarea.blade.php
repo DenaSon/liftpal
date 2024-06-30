@@ -23,7 +23,9 @@
                 <h1 class="fw-normal fs-5">{{ $pageTitle ?? 'اطلاعات حساب کاربری' }}</h1>
 
                 @if(request()->input('page') == 'profile')
-                    <livewire:front.panel.components.profile lazy/>
+                    <livewire:front.panel.components.profile lazy :pageTitle="'پروفایل'"/>
+                @elseif(request()->input('page') == 'main')
+                    <livewire:front.panel.components.main lazy :pageTitle="'داشبورد'"/>
                 @endif
 
 
