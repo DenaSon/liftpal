@@ -30,5 +30,10 @@
     transform: translateX(50%) !important;
 }
 
-
+.custom-hr-invoice {
+    border: none;
+    height: 1px; /* عرض خط */
+    background: linear-gradient(to left, blue 2cm, black 3cm); /* 2cm اول آبی و بقیه سیاه */
+    margin-top: 10px; /* فاصله از بالا */
+}
 
