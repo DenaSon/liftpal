@@ -26,7 +26,7 @@ class Logout extends Component
         // Directly return HTML as a string
         return <<<'blade'
 
-                <span wire:click="logout" class="dropdown-item">خروج</span>
+                <span wire:click="logout">خروج</span>
 
 blade;
     }

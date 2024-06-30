@@ -28,18 +28,28 @@
                 data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>منو</a>
         <div class="collapse d-md-block mt-3" id="account-nav">
             <div class="card-nav">
+
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'main') active @endif"
+                   href="{{ route('panel',['page'=>'main']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد </a>
+
+
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'profile') active @endif"
                    href="{{ route('panel',['page'=>'profile']) }}"><i
-                            class="fi-user opacity-60 me-2"></i>اطلاعات حساب کاربری</a><a
-                        class="card-nav-link" href="real-estate-account-security.html"><i
-                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a><a
-                        class="card-nav-link" href="real-estate-account-properties.html"><i
-                            class="fi-home opacity-60 me-2"></i>املاک من</a>
+                        class="fi-user opacity-60 me-2"></i>ویرایش پروفایل</a>
+
+                <a class="card-nav-link" href="real-estate-account-security.html"><i
+                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a>
+
+
                 <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
                    href="{{ route('panel',['page'=>'favorite']) }}" wire:navigate><i
-                            class="fi-heart opacity-60 me-2"></i>مورد علاقه‌ها</a><a
+                            class="fi-heart opacity-60 me-2"></i>مورد علاقه‌ها</a>
+
+                <a
                         class="card-nav-link" href="real-estate-account-reviews.html"><i
-                            class="fi-star opacity-60 me-2"></i>نظرات</a><a class="card-nav-link"
+                            class="fi-star opacity-60 me-2"></i>نظرات</a>
+
+                <a class="card-nav-link"
                                                                             href="real-estate-account-notifications.html"><i
                             class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
 

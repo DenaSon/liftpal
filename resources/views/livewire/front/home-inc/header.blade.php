@@ -46,14 +46,16 @@
                             class="fi-bell opacity-60 me-2">
 
                         </i>اطلاعیه ها</a>
-                    <div class="dropdown-divider"> </div>
+                    <div class="dropdown-divider"></div>
 
 
                     <a class="dropdown-item active" href="#">پشتیبانی</a>
 
 
                     @auth
-                       @livewire('auth.logout')
+                       <a class="dropdown-item" href="javascript:void(0)">
+                            @livewire('auth.logout')
+                       </a>
                     @endauth
 
                 </div>

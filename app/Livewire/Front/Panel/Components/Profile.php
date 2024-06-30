@@ -3,8 +3,9 @@
 namespace App\Livewire\Front\Panel\Components;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
-
+#[Lazy]
 class Profile extends Component
 {
 

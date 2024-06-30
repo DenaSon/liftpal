@@ -32,6 +32,9 @@ class Clientarea extends Component
             case 'favorite':
                 $this->pageTitle = 'مورد علاقه‌ها';
                 break;
+            case 'invoice':
+                $this->pageTitle = 'صورتحساب';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }
