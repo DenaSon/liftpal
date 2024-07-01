@@ -1,4 +1,4 @@
-<div>
+<div wire:key="{{\Illuminate\Support\Str::uuid()}}">
     <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label>
     <div class="row pb-2">
         <div class="col-lg-12 col-sm-12 mb-4">

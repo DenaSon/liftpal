@@ -1,6 +1,6 @@
 <div>
 
-    <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(225,155,139,0.34)
+    <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.42)
     !important;">
 
         <div class="col flex-col justify-content-between ">
@@ -12,16 +12,17 @@
         <div class="col flex-col justify-content-between ">
 
             <button class="btn btn-outline-success">
-                <i class="fi fi-check me-2"></i>
-                دریافت شده
-            </button>
+                <i class="fi fi-check-circle me-2"></i>
+                 دریافت شده</button>
         </div>
         <div class="col flex-col justify-content-between ">
             <button class="btn btn-outline-warning">
-                <i class="fi-logout  me-2 "></i>
+                <i class="fi-login  me-2 "></i>
                 مرجوعی
             </button>
         </div>
+
+
 
 
     </div>

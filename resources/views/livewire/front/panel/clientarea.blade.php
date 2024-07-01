@@ -1,9 +1,6 @@
 <div>
     @include('livewire.front.home-inc.header')
-    @push('styles')
 
-        <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css') }}"/>
-    @endpush
 
     <!-- Page content-->
     <div class="container pt-5 pb-lg-4 mt-5 mb-sm-2">
@@ -20,13 +17,15 @@
             @include('livewire.front.panel.inc.sidebar')
             <!-- Content-->
             <div class="col-lg-8 col-md-7 mb-5 account">
-                <h1 class="fw-normal fs-5">{{ $pageTitle ?? 'اطلاعات حساب کاربری' }}</h1>
-                <hr dir="rtl" class=" custom-hr-title-panel mt-2" >
+                <hr class="mb-2">
+                <h1 class="fw-normal fs-5"> {{ $pageTitle ?? 'اطلاعات حساب کاربری' }} </h1>
+                <hr class="mb-2">
+
                 @if(request()->input('page') == 'profile')
                     <livewire:front.panel.components.profile />
                 @elseif(request()->input('page') == 'main')
                     <livewire:front.panel.components.main  />
-                @elseif(request()->input('page') == 'invoice')
+                @elseif(request()->input('page') == 'invoice' && !empty(request()->input('order')))
                     <livewire:front.panel.components.invoice/>
                 @endif
 
@@ -56,9 +55,7 @@
         <script data-navigate-once
                 src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
-        <!-- Main theme script-->
 
-        <script src="{{ asset('assets/vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
     @endsection
 
