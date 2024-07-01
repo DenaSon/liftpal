@@ -21,7 +21,7 @@
             <!-- Content-->
             <div class="col-lg-8 col-md-7 mb-5 account">
                 <h1 class="fw-normal fs-5">{{ $pageTitle ?? 'اطلاعات حساب کاربری' }}</h1>
-
+                <hr dir="rtl" class=" custom-hr-title-panel mt-2" >
                 @if(request()->input('page') == 'profile')
                     <livewire:front.panel.components.profile />
                 @elseif(request()->input('page') == 'main')

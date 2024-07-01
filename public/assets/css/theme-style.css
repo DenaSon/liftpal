@@ -30,10 +30,10 @@
     transform: translateX(50%) !important;
 }
 
-.custom-hr-invoice {
+.custom-hr-title-panel {
     border: none;
     height: 1px; /* عرض خط */
-    background: linear-gradient(to left, blue 2cm, black 3cm); /* 2cm اول آبی و بقیه سیاه */
+    background: linear-gradient(to left, orangered 3cm, black 3cm);
     margin-top: 10px; /* فاصله از بالا */
 }
 
