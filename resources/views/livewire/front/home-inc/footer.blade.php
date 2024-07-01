@@ -57,7 +57,7 @@
         <div class="row justify-content-center ">
             <div class="col-md-3 d-none d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
                 <img class=" mt-2 "
-                     src="{{ asset('assets/img/footer/elevator-footer.jpg') }}" width="240" height="240" alt="اپلیکیشن">
+                     src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="اپلیکیشن">
             </div>
                 <div class=" col-md-9 align-self-center ">
                     <div class="me-md-5 rounded-3 bg-dark p-4">
