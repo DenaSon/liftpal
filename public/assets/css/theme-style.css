@@ -37,3 +37,9 @@
     margin-top: 10px; /* فاصله از بالا */
 }
 
+.custom-hr-title-panel {
+    border: none;
+    height: 1px; /* عرض خط */
+    background: linear-gradient(to left, orangered 3.5cm, rgba(96, 85, 75, 0.22) 3cm);
+    margin-top: 10px; /* فاصله از بالا */
+}

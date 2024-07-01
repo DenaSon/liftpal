@@ -44,7 +44,13 @@
             @foreach($orders as $order)
 
                 <tr>
-                    <td colspan="3">{{ $order->order_number }}</td>
+
+                    <td colspan="3">
+                        <a class="text-dark text-decoration-none" wire:navigate href="{{ route('panel', ['page' => 'invoice', 'order' => $order->order_number]) }}">
+                            {{ $order->order_number }}
+                        </a>
+
+                    </td>
                     <td colspan="1" class="text-center">
                         @switch($order->status)
                             @case('received')
@@ -70,6 +76,7 @@
                     <td colspan="1" class="text-center">{{ number_format($order->total_price ) }}</td>
 
                     <td colspan="1" class="text-center fw-normal fs-xs">{{ jdate($order->created_at)->format('d M Y')  }}</td>
+
                 </tr>
 
             @endforeach
