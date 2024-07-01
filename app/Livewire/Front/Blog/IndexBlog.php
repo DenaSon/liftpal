@@ -7,7 +7,6 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -96,6 +95,7 @@ class IndexBlog extends Component
 
         $posts = $posts->paginate(20);
         $title = 'Blog | ' . getSetting('website_title');
+
 
         return view('livewire.front.blog.index-blog', ['posts' => $posts])->title($title);
     }

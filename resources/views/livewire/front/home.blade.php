@@ -40,4 +40,17 @@
             <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
 
 @endsection
+        @script
+        <script>
+
+
+            $wire.on('login-action', () => {
+
+                var loginModal = new bootstrap.Modal(document.getElementById('signin-modal'));
+                loginModal.show();
+
+            });
+        </script>
+
+        @endscript
 </div>

@@ -43,9 +43,9 @@
                 </div>
                 <div class="d-none d-md-block col-md-4 my-3 ">
                         <div class="row">
-                            <img class="col" src="{{ asset('assets/img/footer/logo-namad.png') }}" style="width: 70px; height: 120px;" alt="">
+                            <img class="col" src="{{ asset('assets/img/footer/logo-namad.png') }}" style="width: 30px; height: 110px;" alt="">
 
-                            <img class="col" src="{{ asset('assets/img/footer/zarin-namad-enamad.jpg') }}" style="width: 70px; height: 120px;" alt=""></div>
+                            <img class="col img img-fluid" src="{{ asset('assets/img/footer/samandehi.png') }}" style="width: 30px; height:110px;" alt=""></div>
                 </div>
             </div>
 
@@ -61,12 +61,15 @@
             </div>
                 <div class=" col-md-9 align-self-center ">
                     <div class="me-md-5 rounded-3 bg-dark p-4">
-                        <h4 class="text-light">خدمات آسانسور و فروش قطعات</h4>
-                        <p class="mb-lg-0 text-light">ما در فروشگاه خدمات آسانسور، انواع خدمات نصب، تعمیر و نگهداری آسانسورهای مسکونی و تجاری را با بهترین کیفیت ارائه می‌دهیم.
-                            آسانسورهای شماست.همچنین، فروش قطعات اصلی و معتبر آسانسور، شامل موتور، کابین، درب و سایر اجزای ضروری، از جمله تخصص‌های ماست. هدف ما اطمینان از عملکرد ایمن و کارآمد
-                            ما در فروشگاه خدمات آسانسور، انواع خدمات نصب، تعمیر و نگهداری آسانسورهای مسکونی و تجاری را با بهترین کیفیت ارائه می‌دهیم.
-                            همچنین، فروش قطعات اصلی و معتبر آسانسور، شامل موتور، کابین، درب و سایر اجزای ضروری، از جمله تخصص‌های ماست. هدف ما اطمینان از عملکرد ایمن و کارآمد
-                            آسانسورهای شماست.</p></div>
+
+                        <h4 class="text-light">لیفت‌پال</h4>
+                        <p class="text-justify text-light text-shadow-lg" style="line-height:30px">
+                            آیا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را
+                            پوشش می‌دهد. از هماهنگی با تکنسین‌های ماهر، تا خرید قطعات باکیفیت و ارتباط مستقیم با مدیران ساختمان – همه و همه در یک جا!
+                            ما به شما کمک می‌کنیم تا امور نگهداری و تعمیرات آسانسورهای خود را به سادگی و با اطمینان بیشتری مدیریت کنید.
+                        </p>
+
+                    </div>
                 </div>
 
 

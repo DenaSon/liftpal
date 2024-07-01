@@ -6,19 +6,19 @@
         <div class="col flex-col justify-content-between ">
 
 
-            <button class="btn btn-outline-info">
+            <button class="btn btn-outline-info" wire:click.debounce.500ms="getSended">
                 <i class="fi fi-truck me-2"></i>
                 <span>ارسال شده</span>
             </button>
         </div>
         <div class="col flex-col justify-content-between ">
 
-            <button class="btn btn-outline-success">
+            <button wire:click.debounce.500ms="getDelivered" class="btn btn-outline-success">
                 <i class="fi fi-check-circle me-2"></i>
                  دریافت شده</button>
         </div>
         <div class="col flex-col justify-content-between ">
-            <button class="btn btn-outline-warning">
+            <button class="btn btn-outline-warning" wire:click.debounce.500ms="getReturn">
                 <i class="fi-login  me-2 "></i>
                 مرجوعی
             </button>

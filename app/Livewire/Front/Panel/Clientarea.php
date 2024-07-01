@@ -39,6 +39,7 @@ class Clientarea extends Component
                 $this->redirectRoute('panel', ['page' => 'main']);
         }
 
+
     }
 
 
