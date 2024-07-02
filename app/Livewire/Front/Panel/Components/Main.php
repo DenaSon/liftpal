@@ -47,13 +47,11 @@ class Main extends Component
     public function render()
     {
 
-
-
         $orders = Order::query()
             ->when($this->sended, fn($query) => $query->whereStatus('shipped'))
             ->when($this->delivered, fn($query) => $query->whereStatus('delivered'))
             ->when($this->return, fn($query) => $query->whereStatus('return'))
-            ->whereUserId(auth()->id())
+            ->whereUserId(auth()->id())->wherePaymentStatus('paid')
             ->paginate(10);
 
 
