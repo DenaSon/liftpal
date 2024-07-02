@@ -22,7 +22,7 @@ class Main extends Component
         $this->resetPage();
         $this->return = false;
         $this->delivered = false;
-        return $this->sended = true;
+         $this->sended = true;
 
     }
 
@@ -46,19 +46,16 @@ class Main extends Component
 
     public function render()
     {
-        $authUser = auth()->user();
-        $orders = Order::query();
 
-        if ($this->sended) {
-            $orders->whereStatus('shipped');
-        } elseif ($this->delivered) {
-            $orders->whereStatus('delivered');
-        } elseif ($this->return) {
-            $orders->whereStatus('return');
 
-        }
 
-        $orders = $orders->whereUserId(auth()->id())->paginate(10);
+        $orders = Order::query()
+            ->when($this->sended, fn($query) => $query->whereStatus('shipped'))
+            ->when($this->delivered, fn($query) => $query->whereStatus('delivered'))
+            ->when($this->return, fn($query) => $query->whereStatus('return'))
+            ->whereUserId(auth()->id())
+            ->paginate(10);
+
 
         return view('livewire.front.panel.components.main', ['orders' => $orders]);
     }
