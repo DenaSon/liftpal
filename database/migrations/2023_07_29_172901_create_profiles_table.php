@@ -20,19 +20,11 @@ return new class extends Migration
             $table->string('name',150)->nullable();
             $table->string('last_name',150)->nullable();
             $table->string('education',100)->nullable();
-            $table->string('phone')->nullable();
-            $table->string('province',255)->nullable();
-            $table->string('city',255)->nullable();
-            $table->date('birth_year')->nullable();
-            $table->string('address',255)->nullable();
             $table->text('resume')->nullable();
-            $table->text('skills')->nullable();
-            $table->string('avatar',255)->nullable();
             $table->timestamps();
 
             //indexes :
             $table->index('user_id');
-            $table->index('education');
 
         });
     }

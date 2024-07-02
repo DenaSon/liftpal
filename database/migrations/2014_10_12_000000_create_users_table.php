@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
-            $table->enum('role',['admin','author','seller','customer','teacher'])->index();
+            $table->enum('role',['admin','author','customer','technician','company','manager','master'])->index();
             $table->enum('status',['banned','unbanned'])->default('unbanned')->comment('UserIsActiveOrNo');
             $table->timestamps();
         });

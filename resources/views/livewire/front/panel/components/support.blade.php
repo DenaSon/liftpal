@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a href="#request-form" class="nav-link active" data-bs-toggle="tab" role="tab">
                 <i class="fi-send me-2"></i>
-                ارسال درخواست پشتیبانی
+                ارسال درخواست
             </a>
         </li>
 
