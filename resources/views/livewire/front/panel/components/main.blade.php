@@ -3,7 +3,7 @@
     <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.19)
     !important;">
 
-        <div class="col flex-col justify-content-between ">
+        <div class="col flex-col justify-content-md-between align-items-center ">
 
 
             <button class="btn btn-outline-info" wire:click.debounce.500ms="getSended">
