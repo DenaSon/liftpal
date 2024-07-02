@@ -144,7 +144,7 @@ class Register extends Component
                         $profile->save();
                         Auth::login($user, $remember = true);
                         $this->alert('success', 'ثبت نام شما با موفقیت انجام شد', ['position' => 'center', '']);
-                        return redirect()->route('panel', ['page' => 'main']);
+                        return redirect()->route('panel', ['page' => 'profile']);
                     }
 
 
