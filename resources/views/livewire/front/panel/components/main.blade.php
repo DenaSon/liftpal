@@ -1,6 +1,6 @@
 <div>
 
-    <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.42)
+    <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.19)
     !important;">
 
         <div class="col flex-col justify-content-between ">
@@ -31,7 +31,17 @@
 
 
     <div class="table-responsive">
-        <table class="container table mt-4 table-hover">
+        <table class="container table mt-4  @if(!$orders->isEmpty()) table-hover  @endif">
+            @if($orders->isEmpty())
+                <tr>
+                    <td class="text-center" colspan="100%">
+                        <span class="fw-bold fs-lg mb-5">هنوز سفارشی ثبت نشده است</span>
+                        <div class="clearfix"></div>
+                        <a wire:navigate class="btn btn-outline-primary btn-lg w-50 mt-5" href="{{ route('shop') }}"><i class="fi-cart me-2"></i> خرید از فروشگاه </a>
+                    </td>
+
+                </tr>
+            @else
             <thead class="fw-bold" style="border-bottom: 2px solid #807878">
             <tr>
                 <th colspan="3">شماره سفارش</th>
@@ -43,6 +53,7 @@
             </tr>
             </thead>
             <tbody class="table-group-divider fw-bold bold-divider">
+
             @foreach($orders as $order)
 
                 <tr>
@@ -88,6 +99,7 @@
             </span>
             </div>
             </tbody>
+                @endif
         </table>
     </div>
 
