@@ -54,19 +54,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',\App\Livewire\Front\Home::class)->name('home');
 
-//livewire Register page
-Route::middleware('throttle:10,1')->get('/register', Register::class)->name('register');
-Route::middleware('throttle:10,1')->get('/login', Login::class)->name('login');
 
-Route::middleware('throttle:8,5')->post('storeNewsletter', [HomeController::class, 'storeNewsletter'])->name('storeNewsletter');
 //Logout Authenticated User
 Route::middleware('throttle:25,1')->post('/logout', [Logout::class, 'logout'])->name('logout');
-
-//Route::middleware('throttle:4,2')->post('/userAuthenticate', [RegisterController::class, 'authenticate'])->name('userAuthenticate');
-
-
-
-
 
 
 // Admin Routes Group

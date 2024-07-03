@@ -1,7 +1,7 @@
-<header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
+<header class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" data-scroll-header>
     <div class="container"><a target="_self" wire:navigate class="navbar-brand ms-3 ms-xl-4 logo"
                               href="{{ route('home') }}"><img
-                    class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="Finder"></a>
+                    class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
         <button data-no-turbolink class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -11,10 +11,11 @@
         @if(auth()->check())
             <div class="dropdown  d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
-                    <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="40" alt=""></a>
+                <i class="fs-lg fw-bold fi fi-user"></i>
+                </a>
                 <div class="dropdown-menu  dropdown-menu-center-hompage ">
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
-                        <img class="rounded-circle" src="{{ asset('assets/img/avatars/03.jpg') }}" width="48" alt="">
+                        <i class="fi fi-user fs-lg"></i>
                         <div class="ps-2 text-end">
                             <h6 class="fs-base mb-0"> {{ auth()->user()->profile->name ?? '' }} {{ auth()->user()->profile->last_name ?? '' }} </h6>
                             <span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i>
@@ -72,10 +73,8 @@
         <div wire:ignore class="collapse navbar-collapse order-lg-2" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
 
-
-                <!-- Demos switcher-->
-                <li class="nav-item dropdown me-lg-2"><a wire:navigate class="nav-link dropdown-toggle" href="{{ route('shop') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
-                    <ul class="dropdown-menu ">
+                <li class="nav-item dropdown me-lg-2"><a  class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
+                    <ul class="dropdown-menu  shadow-lg">
                         <li><a class="dropdown-item" href="car-finder-about.html">درباره ما</a></li>
                         <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">صفحات وبلاگ</a>
                             <ul class="dropdown-menu ">
@@ -89,10 +88,8 @@
 
 
                 <!-- Menu items-->
-                <li class="nav-item  ">
-                    <a wire:navigate class="nav-link @if(request()->route()->getName() == 'home') active  @endif" href="{{ route('home') }}"
-                       role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">خانه</a>
+                <li class="nav-item">
+
 
                 </li>
 
@@ -105,7 +102,7 @@
                 @endif
 
                 @foreach(getPagesName('header')->take(5) as $page)
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a wire:navigate class="nav-link" href="{{ route('home') }}" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false"> {{ $page->title }} </a>
                     </li>

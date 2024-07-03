@@ -268,7 +268,8 @@ return [
         'province' => 'استان',
         'postal_address' => 'آدرس پستی',
         'postal_code' => 'کد پستی',
-
+        'skill' => 'مهارت',
+        'skills' => 'مهارت ها',
 
 
     ],

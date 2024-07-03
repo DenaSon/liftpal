@@ -18,7 +18,7 @@
 
     </ul>
 
-    <!-- Tabs content -->
+
     <div class="tab-content">
         <div class="tab-pane fade show active" id="request-form" role="tabpanel">
             @include('livewire.front.panel.components.support-inc.request-form')

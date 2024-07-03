@@ -28,7 +28,7 @@
                 @elseif(request()->input('page') == 'invoice' && !empty(request()->input('order')))
                     <livewire:front.panel.components.invoice/>
                 @elseif(request()->input('page') == 'support' )
-                    <livewire:front.panel.components.support/>
+                    <livewire:front.panel.components.support >
                 @endif
 
 
