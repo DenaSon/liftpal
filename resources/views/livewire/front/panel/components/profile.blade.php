@@ -134,34 +134,33 @@
             </div>
         </div>
 
-        <div class="row container mt-3 ">
-            <div class="collapse" id="showMoreSkill">
+        <div class="row container mt-3 collapse " id="showMoreSkill">
 
-        </div>
 
 
         <!-- List group with icons and badges -->
         <ul class="list-group">
-            @foreach(auth()->user()->skills as $skill)
-                <li wire:key="{{$skill->id}}" class="list-group-item d-flex justify-content-between align-items-center">
+            @foreach(auth()->user()->skills as $index =>$skill)
+                <li wire:key="{{$skill->id}}" class="list-group-item d-flex justify-content-between align-items-cente border border-warning">
         <span>
-        <i class="fi-star text-warning me-2"></i>
-       {{ $skill->name }}
-        </span>
-                    <a href="javascript:void(0)" class="" wire:click="skillDelete({{$skill->id}})">
-                        <i class=" btn-xs fi fi-trash"></i>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-
-    </div>
-    <a class="collapse-label collapsed d-inline-block ms-md-2 fs-md fw-bold text-decoration-none pt-2 pb-3" href="#showMoreSkill" data-bs-toggle="collapse"
-       data-bs-label-collapsed="مشاهده مهارت‌ها "
-       data-bs-label-expanded="بستن" role="button"
-       aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
-</div>
-
-    </div>
+        <i class="fi-star-filled text-warning me-2"></i>
+            <span class="text-warning">  {{ $index + 1 }} <i class="fi-minus fw-normal fs-sm"></i> </span>
+            {{ $skill->name }}
+ </span>
+             <a href="javascript:void(0)" class="" wire:click="skillDelete({{$skill->id}})">
+                 <i class=" btn-xs fi fi-trash"></i>
+             </a>
+         </li>
+     @endforeach
+ </ul>
 
 </div>
+<a class="collapse-label collapsed d-inline-block ms-md-2 fs-md fw-bold text-decoration-none pt-2 pb-3" href="#showMoreSkill" data-bs-toggle="collapse"
+data-bs-label-collapsed="مشاهده مهارت‌ها "
+data-bs-label-expanded="بستن" role="button"
+aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
+</div>
+
+</div>
+
+

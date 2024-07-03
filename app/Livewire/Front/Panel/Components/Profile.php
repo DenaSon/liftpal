@@ -67,7 +67,7 @@ class Profile extends Component
 
             $user = User::find(auth()->id());
 
-            $user->skills()->attach($this->skill);
+            $user->skills()->sync($this->skill);
             $this->alert('success','مهارت جدید برای شما ثبت شد',['position'=>'center']);
         }
         catch(Throwable $e)
