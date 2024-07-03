@@ -2,12 +2,9 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
-use App\Models\Skill;
-
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Throwable;
 
@@ -63,19 +60,24 @@ class Profile extends Component
     {
         try
         {
-            $this->validate(['skill'=>'required|unique:skills,name']);
 
+            $this->validate(['skill' => 'required']);
             $user = User::find(auth()->id());
 
-            $user->skills()->sync($this->skill);
-            $this->alert('success','مهارت جدید برای شما ثبت شد',['position'=>'center']);
-        }
-        catch(Throwable $e)
-        {
-            $this->alert('error',$e->getMessage(),['position'=>'center']);
-        }
+            if ($user->skills()->where('skill_id', $this->skill)->exists()) {
+                $this->alert('error', 'این مهارت قبلاً برای شما ثبت شده است', ['position' => 'center']);
+            } else {
 
+                $user->skills()->attach($this->skill);
+                $this->alert('success', 'مهارت جدید برای شما ثبت شد', ['position' => 'center']);
+            }
+        } catch (Throwable $e)
+        {
+
+            $this->alert('error', $e->getMessage(), ['position' => 'center']);
+        }
     }
+
 
     public function updateProfileInfo()
     {
