@@ -83,8 +83,19 @@
             <input wire:model="education" class="form-control mt-3" type="text" data-bs-binded-element="#education-value" data-bs-unset-value="ثبت نشده" placeholder="تحصیلات خود را وارد کنید">
         </div>
     </div>
+
+
+    <div class="d-flex align-items-center justify-content-center mt-4 pt-4 pb-1">
+        <button class="btn btn-primary px-3 px-sm-4" type="submit">ذخیره پروفایل</button>
+        <!-- <button class="btn btn-link btn-sm px-0" type="button"><i class="fi-trash me-2"></i>حذف اکانت</button> -->
+    </div>
+
+</div>
+
+</form>
+
     <!-- skills-->
-    <div>
+    <div class=" border-primary shadow-sm p-4">
         <div class="d-flex align-items-center justify-content-between">
             <div class="ps-2">
                 <label class="form-label fw-bold">افزودن مهارت ها</label>
@@ -92,61 +103,54 @@
             </div>
             <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش">
                 <a class="nav-link py-0" href="#skill-collapse" data-bs-toggle="collapse"><i
-                        class="fi-plus text-success"></i></a>
+                        class="fi-dots-vertical text-warning"></i></a>
             </div>
         </div>
-        <div class="collapse" id="skill-collapse" data-bs-parent="#personal-info">
-            <input wire:model="skill" class="form-control mt-4"
-                   type="text" data-bs-binded-element="#skill-value"
-                   data-bs-unset-value="ثبت نشده"
-                   placeholder="عنوان مهارت">
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-6 ">
+                <select wire:model="skill" class="form-select">
+                    @foreach(\App\Models\Skill::all() as $skill_list)
+                        <option value="{{ $skill_list->id }}" wire:key="{{ $skill_list->id }}">{{ $skill_list->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-            <div class="clearfix mt-2 text-center">
-                <button class="btn btn-outline-success btn-xs" wire:click="saveSkill">
-                <i class="fi-plus-circle  me-2 fs-sm"></i>
+            <div class="mt-4 text-center mb-4">
+                <button class="btn btn-warning btn-xs" wire:click="saveSkill">
+                    <i class="fi-plus-circle  me-1 fs-sm"></i>
                     افزودن
                 </button>
             </div>
         </div>
-    </div>
-</div>
 
 
+        <div class="collapse" id="showMoreSkill">
 
-
-
-
-<div class="d-flex align-items-center mb-3 ">
-   <h6 class="h fw-normal fs-sm text-muted"> <span class="text-primary fw-bold text-muted">{{ auth()->user()->skills->count() }}</span> مهارت برای شما ثبت شده است </h6>
-</div>
-<div class="collapse" id="showMoreSkill">
-
-    <!-- List group with icons and badges -->
-    <ul class="list-group">
-        @foreach(auth()->user()->skills as $skill)
-        <li wire:key="{{$skill->id}}" class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- List group with icons and badges -->
+            <ul class="list-group">
+                @foreach(auth()->user()->skills as $skill)
+                    <li wire:key="{{$skill->id}}" class="list-group-item d-flex justify-content-between align-items-center">
         <span>
         <i class="fi-star text-warning me-2"></i>
        {{ $skill->name }}
         </span>
-            <a href="javascript:void(0)" class="" wire:click="skillDelete({{$skill->id}})">
-                <i class=" btn-xs fi fi-trash"></i>
-            </a>
-        </li>
-        @endforeach
-    </ul>
+                        <a href="javascript:void(0)" class="" wire:click="skillDelete({{$skill->id}})">
+                            <i class=" btn-xs fi fi-trash"></i>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
 
 
 
 
-</div>
-<a class="collapse-label collapsed d-inline-block fs-md fw-bold text-decoration-none pt-2 pb-3" href="#showMoreSkill" data-bs-toggle="collapse"
-   data-bs-label-collapsed="مشاهده همه"
-   data-bs-label-expanded="بستن" role="button"
-   aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
-<div class="d-flex align-items-center justify-content-between border-top mt-4 pt-4 pb-1">
-    <button class="btn btn-primary px-3 px-sm-4" type="submit">ذخیره تغییرات</button>
-    <!-- <button class="btn btn-link btn-sm px-0" type="button"><i class="fi-trash me-2"></i>حذف اکانت</button> -->
-</div>
-</form>
+        </div>
+        <a class="collapse-label collapsed d-inline-block fs-md fw-bold text-decoration-none pt-2 pb-3" href="#showMoreSkill" data-bs-toggle="collapse"
+           data-bs-label-collapsed="مشاهده مهارت‌ها "
+           data-bs-label-expanded="بستن" role="button"
+           aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
+
+    </div>
+
+
 </div>

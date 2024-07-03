@@ -26,6 +26,7 @@ class Profile extends Component
     public $authUser =null;
     public $authUserProfile = '';
 
+
     public $skill =[];
 
     public function mount()
@@ -33,6 +34,8 @@ class Profile extends Component
         $this->authUser = auth()?->user();
         $this->authUserProfile = $this->authUser->profile;
         $this->resume = $this->authUserProfile?->resume;
+
+
 
 
     }
@@ -63,9 +66,7 @@ class Profile extends Component
             $this->validate(['skill'=>'required|unique:skills,name']);
 
             $user = User::find(auth()->id());
-            $skill = new Skill();
-            $skill->name = $this->skill;
-            $skill->save();
+
             $user->skills()->attach($skill->id);
             $this->alert('success','مهارت جدید برای شما ثبت شد',['position'=>'center']);
         }
