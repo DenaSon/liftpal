@@ -3,27 +3,26 @@
     <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.19)
     !important;">
 
-        <div class="col flex-col justify-content-md-between align-items-center ">
+        <div class="col-sm-12 col-md-4  col-flex justify-content-md-between align-items-center ">
 
 
-            <button class="btn btn-outline-info" wire:click.debounce.500ms="getSended">
+            <button class="btn btn-outline-info mb-3" wire:click.debounce.500ms="getSended">
                 <i class="fi fi-truck me-2"></i>
                 <span>ارسال شده</span>
             </button>
         </div>
-        <div class="col flex-col justify-content-between ">
+        <div class="col-sm-12 col-md-4 col-flex justify-content-between ">
 
-            <button wire:click.debounce.500ms="getDelivered" class="btn btn-outline-success">
+            <button wire:click.debounce.500ms="getDelivered" class="btn btn-outline-success mb-3">
                 <i class="fi fi-check-circle me-2"></i>
                  دریافت شده</button>
         </div>
-        <div class="col flex-col justify-content-between ">
-            <button class="btn btn-outline-warning" wire:click.debounce.500ms="getReturn">
+        <div class="col-sm-12 col-md-4 col-flex justify-content-between mb-3">
+            <button class="btn btn-outline-warning " wire:click.debounce.500ms="getReturn">
                 <i class="fi-login  me-2 "></i>
                 مرجوعی
             </button>
         </div>
-
 
 
 
