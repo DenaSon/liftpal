@@ -32,6 +32,7 @@
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">نحوه ثبت سفارش</a></li>
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">رویه ارسال کالا</a></li>
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">پیگیری سفارش</a></li>
+                            <li class="nav-item mb-2"><a wire:navigate class="nav-link p-0 fw-normal" href="{{ route('shop') }}">فروشگاه</a></li>
                         </ul>
                 </div>
                 <div class=" d-none d-md-block col-md-3 mb-sm-0 mb-4 ">
@@ -57,7 +58,7 @@
         <div class="row justify-content-center ">
             <div class="col-md-3 d-none d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
                 <img class=" mt-2 "
-                     src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="اپلیکیشن">
+                     src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="">
             </div>
                 <div class=" col-md-9 align-self-center ">
                     <div class="me-md-5 rounded-3 bg-dark p-4">

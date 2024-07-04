@@ -31,7 +31,7 @@ class Profile extends Component
         $this->authUser = auth()?->user();
         $this->authUserProfile = $this->authUser->profile;
         $this->resume = $this->authUserProfile?->resume;
-        $this->name = $this->authUser?->name;
+        $this->name = $this->authUserProfile?->name;
         $this->last_name = $this->authUserProfile?->last_name;
         $this->email = $this->authUser?->email;
         $this->education = $this->authUserProfile?->education;
