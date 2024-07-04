@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9ee5cfab5edd05f215e1d5747a3549bbb45ea939',
+        'reference' => 'd4e789bfd342cb01569aa0234641c7e4b040d843',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -137,7 +137,7 @@
         'fakerphp/faker' => array(
             'pretty_version' => '1.23.x-dev',
             'version' => '1.23.9999999.9999999-dev',
-            'reference' => 'bfb4fe148adbf78eff521199619b93a52ae3554b',
+            'reference' => '4dae775c9fbd5d734f5307b73e29d34adf289e50',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fakerphp/faker',
             'aliases' => array(),
@@ -476,9 +476,9 @@
             'dev_requirement' => false,
         ),
         'intervention/image' => array(
-            'pretty_version' => '3.7.0',
-            'version' => '3.7.0.0',
-            'reference' => '6bfd3dd1d430c5224c728dc4f8b2fdc757b5eaf5',
+            'pretty_version' => '3.7.1',
+            'version' => '3.7.1.0',
+            'reference' => '137bdb356aacc01409d22aee3f0904497616cf3c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../intervention/image',
             'aliases' => array(),
@@ -513,7 +513,7 @@
         'laravel/fortify' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => '04078fb4a19bcb63743bc29781c52a2110fb2cbc',
+            'reference' => 'ce38a4da341595a8644854a52da521b0f6b6637f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/fortify',
             'aliases' => array(),
@@ -522,7 +522,7 @@
         'laravel/framework' => array(
             'pretty_version' => '10.x-dev',
             'version' => '10.9999999.9999999.9999999-dev',
-            'reference' => '35f07d3d3ceafc748f6301b5f4520dbd15924e36',
+            'reference' => '6230d5691ea9cab4cafb07717efcc58f703ba5a6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
@@ -531,7 +531,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9ee5cfab5edd05f215e1d5747a3549bbb45ea939',
+            'reference' => 'd4e789bfd342cb01569aa0234641c7e4b040d843',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -560,7 +560,7 @@
         'laravel/sail' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => 'e08b594052385ab9891dd86047e52da8a953c827',
+            'reference' => '4f80da86ce0b3f36f476700de01c0e5750775792',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/sail',
             'aliases' => array(),
@@ -629,7 +629,7 @@
         'league/flysystem' => array(
             'pretty_version' => '3.x-dev',
             'version' => '3.9999999.9999999.9999999-dev',
-            'reference' => '60ce12e4cb19fd324038149aa02ca83c1278eba8',
+            'reference' => '12d77c260788e7f6bae1462ea5c3549b8c405dce',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/flysystem',
             'aliases' => array(),
@@ -654,9 +654,9 @@
             'dev_requirement' => false,
         ),
         'livewire/livewire' => array(
-            'pretty_version' => 'v3.5.1',
-            'version' => '3.5.1.0',
-            'reference' => 'da044261bb5c5449397f18fda3409f14acf47c0a',
+            'pretty_version' => 'v3.5.2',
+            'version' => '3.5.2.0',
+            'reference' => '636725c1f87bc7844dd80277488268db27eec1aa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../livewire/livewire',
             'aliases' => array(),
@@ -692,7 +692,7 @@
         'monolog/monolog' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a4471eb05bb32400bf408972d5162dccc49f46c5',
+            'reference' => 'f4393b648b78a5408747de94fca38beb5f7e9ef8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../monolog/monolog',
             'aliases' => array(
@@ -754,14 +754,12 @@
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '3ef0811e45ba7e91fb0f066af5af7d52c3b24469',
+            'pretty_version' => 'v5.1.0',
+            'version' => '5.1.0.0',
+            'reference' => '683130c2ff8c2739f4822ff7ac5c873ec529abd1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
-            'aliases' => array(
-                0 => '5.0.x-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'nunomaduro/collision' => array(
@@ -882,7 +880,7 @@
         'phpunit/php-code-coverage' => array(
             'pretty_version' => '10.1.x-dev',
             'version' => '10.1.9999999.9999999-dev',
-            'reference' => '491a4882edecb4250e81d0412d786df9d7cfbe45',
+            'reference' => '5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
@@ -927,7 +925,7 @@
         'phpunit/phpunit' => array(
             'pretty_version' => '10.5.x-dev',
             'version' => '10.5.9999999.9999999-dev',
-            'reference' => '5f124e3e3e561006047b532fd0431bf5bb6b9015',
+            'reference' => '831bf82312be6037e811833ddbea0b8de60ea314',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
@@ -1090,7 +1088,7 @@
         'psy/psysh' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd4b722a5df466db5c22955d2dac804e5077d009e',
+            'reference' => '0df038ebf0efc4322ae8749ff62deb7ce621f180',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psy/psysh',
             'aliases' => array(
@@ -1206,7 +1204,7 @@
         'sebastian/environment' => array(
             'pretty_version' => '6.1.x-dev',
             'version' => '6.1.9999999.9999999-dev',
-            'reference' => '8074dbcd93529b357029f5cc5058fd3e43666984',
+            'reference' => '680b003e3a85fdb0b8c4f979987567daf5ea8b70',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sebastian/environment',
             'aliases' => array(),
@@ -1294,9 +1292,9 @@
             'dev_requirement' => true,
         ),
         'spatie/error-solutions' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => 'd60d4d2ef4b7701c86134ded959667cac6215233',
+            'pretty_version' => '1.0.4',
+            'version' => '1.0.4.0',
+            'reference' => '264a7eef892aceb2fd65e206127ad3af4f3a2d6b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/error-solutions',
             'aliases' => array(),
@@ -1350,7 +1348,7 @@
         'symfony/console' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'be5854cee0e8c7b110f00d695d11debdfa1a2a91',
+            'reference' => '6edb5363ec0c78ad4d48c5128ebf4d083d89d3a9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -1432,7 +1430,7 @@
         'symfony/http-kernel' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'b20d5c84f61ba0b183c18a08e6faa5ea3b57ec7b',
+            'reference' => 'c92c5bd4d22e85a6350c03cfb4de8f06a9006986',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -1441,7 +1439,7 @@
         'symfony/mailer' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '76326421d44c07f7824b19487cfbf87870b37efc',
+            'reference' => 'e2d56f180f5b8c5e7c0fbea872bb1f529b6d6d45',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mailer',
             'aliases' => array(),
@@ -1450,7 +1448,7 @@
         'symfony/mime' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '5a659bac90eba7e8eda6bd5e8b0cf13443b6f8fb',
+            'reference' => '7d048964877324debdcb4e0549becfa064a20d43',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mime',
             'aliases' => array(),
@@ -1569,7 +1567,7 @@
         'symfony/string' => array(
             'pretty_version' => '7.2.x-dev',
             'version' => '7.2.9999999.9999999-dev',
-            'reference' => '531bcd7d236925c5e4ee52fb5b272f9277aef872',
+            'reference' => '96f70c72b21f39b7cbd21bc1006b7496cf40a15e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),
@@ -1613,7 +1611,7 @@
         'symfony/var-dumper' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'f82848117a898e1032e413ec910d30a63bc6c3bc',
+            'reference' => 'c31566e4ca944271cc8d8ac6887cbf31b8c6a172',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
@@ -1622,7 +1620,7 @@
         'symfony/yaml' => array(
             'pretty_version' => '7.2.x-dev',
             'version' => '7.2.9999999.9999999-dev',
-            'reference' => '691075a69ffe3f347dccff347615d2772dbf8c5a',
+            'reference' => '9175fd2fa7c06edaca319cc9fec16518bb4bffc9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),

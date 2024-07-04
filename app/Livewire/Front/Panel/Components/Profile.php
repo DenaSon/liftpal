@@ -123,8 +123,13 @@ class Profile extends Component
                    if ($this->education) {
                        $profile->education = $this->education;
                    }
+                   if ($this->resume) {
+                       $profile->resume = $this->resume;
+                   }
                    $profile->save();
+
                }
+               $this->alert('success','اطلاعات پروفایل ویرایش شد',['position'=>'center']);
            }
        }
 

@@ -1,10 +1,10 @@
 <div>
-<form wire:submit.prevent="updateProfileInfo">
+<form wire:submit.debounce.1000ms="updateProfileInfo">
 
 <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label>
 <div class="row pb-2">
     <div class="col-lg-12 col-sm-12 mb-4">
-    <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="3" placeholder="معرفی کوتاه و مختصر از خود..."></textarea>
+    <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="2" placeholder="{{ $resume ?? 'معرفی کوتاه...' }}"></textarea>
     </div>
 
 </div>
@@ -14,7 +14,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="ps-2">
                 <label class="form-label fw-bold">نام </label>
-                <div id="name-value">{{ $authUserProfile?->name }}</div>
+                <div id="name-value">{{ $name }}</div>
             </div>
             <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش"><a class="nav-link py-0" href="#name-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
         </div>
@@ -35,7 +35,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="ps-2">
                 <label class="form-label fw-bold">نام خانوادگی</label>
-                <div id="lastName-value"> {{ $authUserProfile?->last_name }} </div>
+                <div id="lastName-value"> {{ $last_name }} </div>
             </div>
             <div class="me-n3" data-bs-toggle="tooltip" title="ویرایش"><a class="nav-link py-0" href="#lastName-collapse" data-bs-toggle="collapse">
                     <i class="fi-edit"></i></a></div>

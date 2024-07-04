@@ -382,8 +382,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\ImageOptimizer\\' => 
         array (
@@ -391,8 +391,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -805,7 +805,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Jobs\\CheckBatchesReoderLevel' => __DIR__ . '/../..' . '/app/Jobs/CheckBatchesReoderLevel.php',
         'App\\Listeners\\ProductUpdatedListener' => __DIR__ . '/../..' . '/app/Listeners/ProductUpdatedListener.php',
         'App\\Livewire\\Auth\\Login' => __DIR__ . '/../..' . '/app/Livewire/Auth/Login.php',
-        'App\\Livewire\\Auth\\LoginModal' => __DIR__ . '/../..' . '/app/Livewire/Auth/LoginModal.php',
+        'App\\Livewire\\Auth\\Logout' => __DIR__ . '/../..' . '/app/Livewire/Auth/Logout.php',
         'App\\Livewire\\Auth\\Register' => __DIR__ . '/../..' . '/app/Livewire/Auth/Register.php',
         'App\\Livewire\\Calc\\Capacity\\CabinArea' => __DIR__ . '/../..' . '/app/Livewire/Calc/Capacity/CabinArea.php',
         'App\\Livewire\\Calc\\Capacity\\ElevatorCapacity' => __DIR__ . '/../..' . '/app/Livewire/Calc/Capacity/ElevatorCapacity.php',
@@ -823,6 +823,11 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Livewire\\Front\\Home\\CategoriesMenu' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/CategoriesMenu.php',
         'App\\Livewire\\Front\\Home\\Search' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Search.php',
         'App\\Livewire\\Front\\Home\\Subscriber' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Subscriber.php',
+        'App\\Livewire\\Front\\Panel\\Clientarea' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Clientarea.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Invoice' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Invoice.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Main' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Main.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Profile' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Profile.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Support' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Support.php',
         'App\\Livewire\\Front\\Shop\\ProductIndex' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/ProductIndex.php',
         'App\\Livewire\\Front\\Shop\\Single\\CartModal' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/Single/CartModal.php',
         'App\\Livewire\\Front\\Shop\\Single\\SingleProduct' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/Single/SingleProduct.php',
@@ -869,6 +874,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Models\\Response' => __DIR__ . '/../..' . '/app/Models/Response.php',
         'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
+        'App\\Models\\Skill' => __DIR__ . '/../..' . '/app/Models/Skill.php',
         'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',
         'App\\Models\\Stock' => __DIR__ . '/../..' . '/app/Models/Stock.php',
         'App\\Models\\Subscriber' => __DIR__ . '/../..' . '/app/Models/Subscriber.php',
@@ -7253,6 +7259,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'Spatie\\ErrorSolutions\\SolutionProviders\\Laravel\\ViewNotFoundSolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/Laravel/ViewNotFoundSolutionProvider.php',
         'Spatie\\ErrorSolutions\\SolutionProviders\\MergeConflictSolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/MergeConflictSolutionProvider.php',
         'Spatie\\ErrorSolutions\\SolutionProviders\\UndefinedPropertySolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/UndefinedPropertySolutionProvider.php',
+        'Spatie\\ErrorSolutions\\Solutions\\Concerns\\IsProvidedByFlare' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Concerns/IsProvidedByFlare.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\GenerateAppKeySolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/GenerateAppKeySolution.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\LivewireDiscoverSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/LivewireDiscoverSolution.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\MakeViewVariableOptionalSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/MakeViewVariableOptionalSolution.php',
