@@ -37,8 +37,8 @@
                 <div wire:key="{{ $cart->id }}" class="">
                     <div class="row">
                         <div class="col-md-5">
-                            <img class="img-thumbnail h-100" src="{{ asset($cart->product->images?->first()->file_path ?? '') }}"
-                                 alt="{{ $cart->product->name }}">
+                            <img class="img-thumbnail h-100" src="{{ asset($cart->product->images->first()?->file_path ?? '') }}" alt="{{ $cart->product->name }}">
+
                         </div>
                         <div class="col-md-7 shadow-sm">
                             <span class="small p-0">{{ $cart->product->name }} - {{ $cart->type->name }}</span>
