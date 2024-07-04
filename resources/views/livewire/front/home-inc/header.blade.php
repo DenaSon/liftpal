@@ -75,7 +75,7 @@
 
                 <li class="nav-item dropdown me-lg-2"><a  class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
                     <ul class="dropdown-menu  shadow-lg">
-                        <li><a class="dropdown-item" href="car-finder-about.html">درباره ما</a></li>
+                        <li><a class="dropdown-item" href="">درباره ما</a></li>
                         <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">صفحات وبلاگ</a>
                             <ul class="dropdown-menu ">
                                 <li><a class="dropdown-item" href="#">لیست</a></li>

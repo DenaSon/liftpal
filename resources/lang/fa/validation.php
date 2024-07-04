@@ -270,6 +270,7 @@ return [
         'postal_code' => 'کد پستی',
         'skill' => 'مهارت',
         'skills' => 'مهارت ها',
+        'education' => 'تحصیلات',
 
 
     ],
