@@ -32,7 +32,7 @@
 
                              تاریخ
                             </span>
-                            <span class="">{{ jdate($order->created_at)->toDateString() }}
+                            <span class="">{{ jdate($order->created_at)->toFormattedDateString() }}
 
                             </span>
                         </li>
@@ -41,6 +41,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
 
 
         <div class="col-sm-6">
@@ -56,7 +60,7 @@
 
                                تعداد
                             </span>
-                            <span class="">10 محصول</span>
+                            <span class="">{{$orderCount}} محصول</span>
                         </li>
 
 
