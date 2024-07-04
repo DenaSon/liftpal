@@ -42,12 +42,16 @@
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">قوانین و مقررات</a></li>
                         </ul>
                 </div>
-                <div class="d-none d-md-block col-md-4 my-3 ">
-                        <div class="row">
-                            <img class="col" src="{{ asset('assets/img/footer/logo-namad.png') }}" style="width: 30px; height: 110px;" alt="">
 
-                            <img class="col img img-fluid" src="{{ asset('assets/img/footer/samandehi.png') }}" style="width: 30px; height:110px;" alt=""></div>
-                </div>
+
+
+                    <div class="d-none d-md-block col-md-4 p-0 ">
+
+                            <img src="{{ asset('assets/img/footer/logo-namad.png') }}" width="100" height="100" alt="Logo Namad">
+
+                            <img src="{{ asset('assets/img/footer/samandehi.png') }}" width="100" height="100" alt="Samandehi">
+                    </div>
+
             </div>
 
 
@@ -58,7 +62,7 @@
         <div class="row justify-content-center ">
             <div class="col-md-3 d-none d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
                 <img class=" mt-2 "
-                     src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="">
+                     src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="لیفت‌پال">
             </div>
                 <div class=" col-md-9 align-self-center ">
                     <div class="me-md-5 rounded-3 bg-dark p-4">
