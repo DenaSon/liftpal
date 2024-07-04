@@ -220,7 +220,6 @@ class CartModal extends Component
 
                 session()->put('orderNumber',$order->order_number);
 
-                Cart::whereUserId(auth()->id())->delete();
                 $this->redirectRoute('checkout',['status'=>'beforePay'],true,true);
             }
             else

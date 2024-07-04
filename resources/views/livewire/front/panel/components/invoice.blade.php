@@ -7,7 +7,7 @@
                 </div>
                 <div class="card-body border-2">
 
-                <ul class="list-group border-0">
+                    <ul class="list-group border-0">
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom">
                             <span>
 
@@ -41,6 +41,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="col-sm-6">
             <div class="card shadow-lg">
@@ -77,7 +78,6 @@
                             <span class="fs-xs">  1 خرداد تا 5 فروردین</span>
 
                         </li>
-
 
 
                     </ul>
