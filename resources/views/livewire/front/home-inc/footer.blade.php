@@ -45,11 +45,15 @@
 
 
 
-                    <div class="d-none d-md-block col-md-4 p-0 ">
+                    <div class="d-none d-md-block col-md-4 mt-2 p-0 ">
 
-                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo-namad.png') }}" width="100" height="100" alt="Logo Namad">
+                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.enamad.png') }}" width="100" height="100" alt="Logo Namad">
 
-                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/samandehi.png') }}" width="75" height="120" alt="Samandehi">
+                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.samandehi.png') }}" width="110" height="100" alt="Samandehi">
+
+                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.etehadie.png') }}" width="90" height="90" alt="Samandehi">
+
+                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.asnaf.png') }}" width="90" height="90" alt="Samandehi">
                     </div>
 
             </div>
@@ -61,7 +65,7 @@
         <!-- Banner-->
         <div class="row justify-content-center ">
             <div class="col-md-3 d-none d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
-                <img class=" mt-2 "
+                <img class="me-2 ms-0 ps-0 mt-2 "
                      src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="لیفت‌پال">
             </div>
                 <div class=" col-md-9 align-self-center ">
