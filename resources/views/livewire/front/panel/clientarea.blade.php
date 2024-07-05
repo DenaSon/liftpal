@@ -29,6 +29,10 @@
                     <livewire:front.panel.components.invoice/>
                 @elseif(request()->input('page') == 'support' )
                     <livewire:front.panel.components.support >
+                        @elseif(request()->input('page') == 'favorite' )
+                            <livewire:front.panel.components.favorite>
+                                @elseif(request()->input('page') == 'address' )
+                                    <livewire:front.panel.components.address>
                 @endif
 
 

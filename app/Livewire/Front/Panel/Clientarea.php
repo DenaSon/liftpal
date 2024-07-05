@@ -38,6 +38,9 @@ class Clientarea extends Component
             case 'support':
                 $this->pageTitle = 'پشتیبانی';
                 break;
+            case 'address':
+                $this->pageTitle = 'آدرس‌ها';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }

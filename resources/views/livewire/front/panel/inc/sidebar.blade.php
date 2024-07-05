@@ -45,6 +45,10 @@
                    href="{{ route('panel',['page'=>'favorite']) }}" wire:navigate><i
                         class="fi-heart opacity-60 me-2"></i>مورد علاقه‌ها</a>
 
+                <a class="card-nav-link @if(request()->input("page") == 'address') active @endif"
+                   href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
+                        class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
+
                 <a
                     class="card-nav-link" href="real-estate-account-reviews.html"><i
                         class="fi-star opacity-60 me-2"></i>نظرات</a>

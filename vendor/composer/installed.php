@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd4e789bfd342cb01569aa0234641c7e4b040d843',
+        'reference' => 'b3769b41c712521af560414be47d175712670f4c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -485,12 +485,14 @@
             'dev_requirement' => false,
         ),
         'jantinnerezo/livewire-alert' => array(
-            'pretty_version' => 'v3.0.2',
-            'version' => '3.0.2.0',
-            'reference' => '24281639258daf80fe0a585f55b7490a88fd68ef',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '2ee08396f431259df3e72667da1314e324b3e2aa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../jantinnerezo/livewire-alert',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'dev_requirement' => false,
         ),
         'jumbaeric/laragpt' => array(
@@ -531,7 +533,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd4e789bfd342cb01569aa0234641c7e4b040d843',
+            'reference' => 'b3769b41c712521af560414be47d175712670f4c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

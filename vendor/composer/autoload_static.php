@@ -382,8 +382,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
         ),
         'Spatie\\ImageOptimizer\\' => 
         array (
@@ -391,8 +391,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            1 => __DIR__ . '/..' . '/spatie/ignition/src',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -824,6 +824,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Livewire\\Front\\Home\\Search' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Search.php',
         'App\\Livewire\\Front\\Home\\Subscriber' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Subscriber.php',
         'App\\Livewire\\Front\\Panel\\Clientarea' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Clientarea.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Address' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Address.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Favorite' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Favorite.php',
         'App\\Livewire\\Front\\Panel\\Components\\Invoice' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Invoice.php',
         'App\\Livewire\\Front\\Panel\\Components\\Main' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Main.php',
         'App\\Livewire\\Front\\Panel\\Components\\Profile' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Profile.php',
@@ -902,6 +904,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Providers\\FortifyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/FortifyServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\TelescopeServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TelescopeServiceProvider.php',
+        'App\\Traits\\globalFunctionality' => __DIR__ . '/../..' . '/app/Traits/globalFunctionality.php',
         'Assert\\Assert' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/Assert.php',
         'Assert\\Assertion' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/Assertion.php',
         'Assert\\AssertionChain' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/AssertionChain.php',

@@ -4,7 +4,6 @@ namespace App\Livewire\Front\Panel\Components;
 
 use App\Models\History;
 use App\Models\Order;
-
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
