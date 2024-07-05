@@ -60,7 +60,7 @@
 
                                تعداد
                             </span>
-                            <span class="">{{$orderCount}} محصول</span>
+                            <span class="">{{ $orderCount }} محصول</span>
                         </li>
 
 
@@ -69,17 +69,20 @@
 
                               ساعت ثبت
                             </span>
-                            <span class="">9:25
-                            <span class="text-muted fs-xs"> تومان</span>
+                            <span class="">{{ jdate($order->updated_at)->format('H:i:s') }}
+
                             </span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom">
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0">
                             <span>
 
                              زمان تحویل
                             </span>
 
-                            <span class="fs-xs">  1 خرداد تا 5 فروردین</span>
+                            <span class="fs-xs"> {{ jdate($order->updated_at)->addDays(5)->toFormattedDateString() }}
+                            تا
+                                {{ jdate($order->updated_at)->addDays(8)->toFormattedDateString() }}
+                            </span>
 
                         </li>
 
