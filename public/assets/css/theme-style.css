@@ -43,3 +43,7 @@
     background: linear-gradient(to left, orangered 3.5cm, rgba(96, 85, 75, 0.22) 3cm);
     margin-top: 10px; /* فاصله از بالا */
 }
+
+.dropdown-toggle-addressbtnedit::after {
+    display: none !important;
+}
