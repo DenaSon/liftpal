@@ -4,6 +4,7 @@ namespace App\Livewire\Front\Panel\Components;
 
 use App\Models\Product;
 use App\Traits\globalFunctionality;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
