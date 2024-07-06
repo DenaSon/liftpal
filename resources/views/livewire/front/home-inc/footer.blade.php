@@ -45,7 +45,7 @@
 
 
 
-                    <div class="d-none d-md-block col-md-4 mt-5 p-0 mx-auto ">
+                    <div class="d-none d-md-block col-md-4 mt-2 p-0 ">
 
                             <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.enamad.png') }}" width="100" height="100" alt="Logo Namad">
 
@@ -63,16 +63,15 @@
 
 
         <!-- Banner-->
-        <div class="row container justify-content-center ps-0 ">
-            <div class="col-md-3 d-none ms-md-0 d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
+        <div class="row justify-content-center ">
+            <div class="col-md-3 d-none d-md-block d-md-block d-flex justify-content-center justify-content-md-start">
                 <img class="me-2 ms-0 ps-0 mt-2 "
                      src="{{ asset('assets/img/footer/elevator.png') }}" width="310" height="310" alt="لیفت‌پال">
             </div>
                 <div class=" col-md-9 align-self-center ">
-                    <div class=" rounded-3 bg-dark p-4 m-0">
+                    <div class="me-md-5 rounded-3 bg-dark p-4">
 
-
-                        <h4 class="text-light m-0">لیفت‌پال</h4>
+                        <h4 class="text-light">لیفت‌پال</h4>
                         <p class="text-justify text-light text-shadow-lg" style="line-height:30px">
                             آیا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را
                             پوشش می‌دهد. از هماهنگی با تکنسین‌های ماهر، تا خرید قطعات باکیفیت و ارتباط مستقیم با مدیران ساختمان – همه و همه در یک جا!
