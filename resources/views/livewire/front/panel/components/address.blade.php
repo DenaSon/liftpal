@@ -10,7 +10,7 @@
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 " id="get-address-modalLabel">ثبت آدرس ارسال</h1>
+                    <h1 class="modal-title fs-5 " id="get-address-modalLabel">ثبت آدرس جدید</h1>
                     <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
