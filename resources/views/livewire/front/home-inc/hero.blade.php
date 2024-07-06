@@ -18,7 +18,7 @@
 
                         <div class="input-group">
 
-                            <select class="form-select no-arrow">
+                            <select class="form-select no-arrow-homedrop">
                                 <option class="small">انتخاب گزینه جستجو</option>
                                 <option>مجری</option>
                                 <option>نصاب</option>

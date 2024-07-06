@@ -81,7 +81,7 @@
     <!-- Simple list group inside card -->
     <div class="card shadow-lg mt-3">
         <div class="card-body d-flex justify-content-between">
-            <p class="card-text fs-sm text-muted">سیسخت...خیابان مطهری</p>
+            <p class="card-text fs-sm ">سیسخت...خیابان مطهری</p>
 
             <div class="dropend ">
                 <a class=" fi-dots-vertical dropdown-toggle dropdown-toggle-addressbtnedit" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
@@ -99,15 +99,15 @@
             <li class="list-group-item"><i class="fi-mail me-2"></i><span>(کد پستی)111111</span></li>
             <li class="list-group-item"><i class="fi-phone me-2"></i><span>شماره تلفن(000000)</span></li>
         </ul>
-        <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success text-center"><i class="fi-plus me-2"></i>افزودن به پیش فرض</a>
+        <div class="card-body  d-flex justify-content-center justify-content-md-end">
+            <a href="#" class="btn btn-sm btn-success"><i class="fi-plus me-2"></i>افزودن به پیش فرض</a>
         </div>
     </div>
 
     <!-- Actionable list group inside card -->
     <div class="card shadow-lg mt-3">
         <div class="card-body d-flex justify-content-between">
-            <p class="card-text fs-sm text-muted">یاسوج...کوی مخابرات</p>
+            <p class="card-text fs-sm ">یاسوج...کوی مخابرات</p>
 
             <div class="dropend">
                 <a class=" fi-dots-vertical dropdown-toggle dropdown-toggle-addressbtnedit" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
