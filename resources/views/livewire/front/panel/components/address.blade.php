@@ -80,9 +80,17 @@
 
     <!-- Simple list group inside card -->
     <div class="card shadow-lg mt-3">
-        <div class="card-body">
-
+        <div class="card-body d-flex justify-content-between">
             <p class="card-text fs-sm text-muted">سیسخت...خیابان مطهری</p>
+
+            <div class="dropend ">
+                <a class=" fi-dots-vertical dropdown-toggle dropdown-toggle-addressbtnedit" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+               <i class="fi-dots-vertical"></i> </a>
+                <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item " href="#"><i class="fi-edit me-2 text-primary"></i>ویرایش آدرس</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fi-trash me-2 text-primary"></i>حذف آدرس</a></li>
+                </ul>
+            </div>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><i class="fi-user me-2"></i><span>محمد اسدی</span></li>
@@ -97,9 +105,17 @@
 
     <!-- Actionable list group inside card -->
     <div class="card shadow-lg mt-3">
-        <div class="card-body">
-
+        <div class="card-body d-flex justify-content-between">
             <p class="card-text fs-sm text-muted">یاسوج...کوی مخابرات</p>
+
+            <div class="dropend">
+                <a class=" fi-dots-vertical dropdown-toggle dropdown-toggle-addressbtnedit" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fi-dots-vertical"></i> </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#"><i class="fi-edit me-2 text-primary"></i>ویرایش آدرس</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fi-trash me-2 text-primary"></i>حذف آدرس</a></li>
+                </ul>
+            </div>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><i class="fi-user me-2"></i><span>میلاد اسدپور</span></li>
