@@ -2,7 +2,7 @@
     @if($products->isNotEmpty())
         <div class="d-flex align-items-center justify-content-between mb-4 pb-2">
             <h1 class="h2 mb-0"></h1><a wire:click.debounce.1000ms="confirmDelete" class=" mt-3 fw-bold text-decoration-none" href="#"><i class="fi-x fs-xs mt-n1 me-2"></i>
-                حذف همه</a>
+               موارد حذف همه</a>
         </div>
         <div class="container row">
             @foreach($products as $index=> $product)
