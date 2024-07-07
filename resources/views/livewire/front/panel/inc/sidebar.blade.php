@@ -51,7 +51,7 @@
 
 
 
-                <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
+                <a class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
                    href="{{ route('panel',['page'=>'notification']) }}"><i
                         class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
 
