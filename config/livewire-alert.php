@@ -16,7 +16,7 @@ return [
     'confirm' => [
         'icon' => 'question',
         'position' => 'center',
-        'toast' => false,
+        'toast' => true,
         'timer' => null,
         'showConfirmButton' => true,
         'showCancelButton' => true,
