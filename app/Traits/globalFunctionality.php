@@ -5,10 +5,12 @@ namespace App\Traits;
 trait globalFunctionality
 {
     protected $authUserId = '';
+    protected $authUser = [];
 
     public function __construct()
     {
-        return $this->authUserId = \Auth::id();
+        $this->authUserId = \Auth::id();
+        $this->authUser = \Auth::user();
     }
 
 

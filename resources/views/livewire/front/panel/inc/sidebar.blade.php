@@ -37,8 +37,8 @@
                    href="{{ route('panel',['page'=>'profile']) }}"><i
                         class="fi-user opacity-60 me-2"></i>ویرایش پروفایل</a>
 
-                <a class="card-nav-link" href="real-estate-account-security.html"><i
-                        class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a>
+             <!--   <a class="card-nav-link" href="real-estate-account-security.html"><i
+                        class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a> -->
 
 
                 <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
@@ -49,12 +49,10 @@
                    href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
                         class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
-                <a
-                    class="card-nav-link" href="real-estate-account-reviews.html"><i
-                        class="fi-star opacity-60 me-2"></i>نظرات</a>
 
-                <a class="card-nav-link"
-                   href="real-estate-account-notifications.html"><i
+
+                <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
+                   href="{{ route('panel',['page'=>'notification']) }}"><i
                         class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'support') active @endif" href="{{ route('panel',['page'=>'support']) }}"><i

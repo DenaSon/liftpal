@@ -22,17 +22,19 @@
                 <hr dir="rtl" class=" custom-hr-title-panel mt-2" >
 
                 @if(request()->input('page') == 'profile')
-                    <livewire:front.panel.components.profile />
+                    <livewire:front.panel.components.profile/>
                 @elseif(request()->input('page') == 'main')
-                    <livewire:front.panel.components.main  />
+                    <livewire:front.panel.components.main/>
                 @elseif(request()->input('page') == 'invoice' && !empty(request()->input('order')))
                     <livewire:front.panel.components.invoice/>
                 @elseif(request()->input('page') == 'support' )
-                    <livewire:front.panel.components.support >
+                    <livewire:front.panel.components.support>
                         @elseif(request()->input('page') == 'favorite' )
                             <livewire:front.panel.components.favorite>
                                 @elseif(request()->input('page') == 'address' )
                                     <livewire:front.panel.components.address>
+                                        @elseif(request()->input('page') == 'address' )
+                                            <livewire:front.panel.components.notifications>
                 @endif
 
 
