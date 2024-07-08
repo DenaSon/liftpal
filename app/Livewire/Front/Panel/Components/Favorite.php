@@ -4,7 +4,6 @@ namespace App\Livewire\Front\Panel\Components;
 
 use App\Models\Product;
 use App\Traits\globalFunctionality;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
@@ -19,6 +18,11 @@ class Favorite extends Component
 
     protected $listeners = ['doRemoveAddFavorites'];
 
+    public function deleteItem($id)
+    {
+        $favoriteItem = \App\Models\Favorite::whereUserId($this->authUserId)->whereProductId($id);
+        $favoriteItem->delete();
+    }
     public function confirmDelete()
     {
         $this->confirm('همه موارد حذف شوند؟', [
