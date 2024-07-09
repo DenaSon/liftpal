@@ -54,16 +54,12 @@
     @section('js')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts/>
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script data-navigate-once
                 src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
         <script data-navigate-once
                 src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
-
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
     @endsection
 

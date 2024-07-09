@@ -67,9 +67,9 @@
                     class="fi-user me-2"></i>ورود </a>
         @endif
 
-        <a class="btn btn-primary btn-sm ms-2 order-lg-3"
-           href="real-estate-add-property.html"><i
-                class="fi-plus me-2"></i>ثبت<span class='d-none d-sm-inline'> پروژه</span></a>
+        <a wire:navigate class="btn btn-primary btn-sm ms-2 order-lg-3 "
+           href="{{ route('EED') }}"><i
+                class="fi-info-circle me-2"></i> خطایاب<span class='d-none d-sm-inline'> </span></a>
         <div wire:ignore class="collapse navbar-collapse order-lg-2" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
 
