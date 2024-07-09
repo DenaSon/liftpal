@@ -41,10 +41,12 @@
     "extra": {
         "bamarni-bin": {
             "bin-links": true,
-            "forward-command": false
+            "forward-command": true
         },
         "branch-alias": {
             "dev-master": "1.9-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

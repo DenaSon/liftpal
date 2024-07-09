@@ -26,9 +26,6 @@ final class Parameter
         $this->type = $type;
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
     public function name(): string
     {
         return $this->name;

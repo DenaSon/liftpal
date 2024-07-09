@@ -44,13 +44,13 @@ final class Context
     }
 
     /**
-     * @psalm-template T of object|array
+     * @psalm-template T
      *
      * @psalm-param T $value
      *
      * @param-out T $value
      */
-    public function add(array|object &$value): false|int|string
+    public function add(object|array &$value): int|string|false
     {
         if (is_array($value)) {
             return $this->addArray($value);
@@ -60,13 +60,13 @@ final class Context
     }
 
     /**
-     * @psalm-template T of object|array
+     * @psalm-template T
      *
      * @psalm-param T $value
      *
      * @param-out T $value
      */
-    public function contains(array|object &$value): false|int|string
+    public function contains(object|array &$value): int|string|false
     {
         if (is_array($value)) {
             return $this->containsArray($value);
@@ -123,14 +123,14 @@ final class Context
         return spl_object_hash($object);
     }
 
-    private function containsArray(array $array): false|int
+    private function containsArray(array $array): int|false
     {
         $end = array_slice($array, -2);
 
         return isset($end[1]) && $end[1] === $this->objects ? $end[0] : false;
     }
 
-    private function containsObject(object $value): false|string
+    private function containsObject(object $value): string|false
     {
         if ($this->objects->contains($value)) {
             return spl_object_hash($value);

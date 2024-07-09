@@ -13,12 +13,8 @@ trait QRCode
      *
      * @return string
      */
-    public function getQRCodeUrl(
-        $company,
-        $holder,
-        #[\SensitiveParameter]
-        $secret
-    ) {
+    public function getQRCodeUrl($company, $holder, $secret)
+    {
         return 'otpauth://totp/'.
             rawurlencode($company).
             ':'.

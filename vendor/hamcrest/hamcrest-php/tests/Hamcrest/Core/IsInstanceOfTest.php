@@ -7,10 +7,7 @@ class IsInstanceOfTest extends \Hamcrest\AbstractMatcherTest
     private $_baseClassInstance;
     private $_subClassInstance;
 
-    /**
-     * @before
-     */
-    protected function setUpTest()
+    protected function setUp()
     {
         $this->_baseClassInstance = new \Hamcrest\Core\SampleBaseClass('good');
         $this->_subClassInstance = new \Hamcrest\Core\SampleSubClass('good');

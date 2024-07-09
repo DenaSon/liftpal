@@ -1,11 +1,6 @@
 CHANGELOG
 =========
 
-7.2
----
-
- * Deprecate parsing duplicate mapping keys whose value is `null`
-
 7.1
 ---
 

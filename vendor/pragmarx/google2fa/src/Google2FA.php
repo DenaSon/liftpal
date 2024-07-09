@@ -65,9 +65,7 @@ class Google2FA
      * @return bool|int
      */
     public function findValidOTP(
-        #[\SensitiveParameter]
         $secret,
-        #[\SensitiveParameter]
         $key,
         $window,
         $startingTimestamp,
@@ -79,7 +77,7 @@ class Google2FA
             $startingTimestamp++
         ) {
             if (
-                hash_equals($this->oathTotp($secret, $startingTimestamp), (string) $key)
+                hash_equals($this->oathTotp($secret, $startingTimestamp), $key)
             ) {
                 return is_null($oldTimestamp)
                     ? true
@@ -98,11 +96,8 @@ class Google2FA
      *
      * @return string
      */
-    protected function generateHotp(
-        #[\SensitiveParameter]
-        $secret,
-        $counter
-    ) {
+    protected function generateHotp($secret, $counter)
+    {
         return hash_hmac(
             $this->getAlgorithm(),
             pack('N*', 0, $counter), // Counter must be 64-bit int
@@ -139,10 +134,8 @@ class Google2FA
      *
      * @return string
      */
-    public function getCurrentOtp(
-        #[\SensitiveParameter]
-        $secret
-    ) {
+    public function getCurrentOtp($secret)
+    {
         return $this->oathTotp($secret, $this->getTimestamp());
     }
 
@@ -183,10 +176,8 @@ class Google2FA
      *
      * @return string
      */
-    public function getSecret(
-        #[\SensitiveParameter]
-        $secret = null
-    ) {
+    public function getSecret($secret = null)
+    {
         return is_null($secret) ? $this->secret : $secret;
     }
 
@@ -272,11 +263,8 @@ class Google2FA
      *
      * @return string
      */
-    public function oathTotp(
-        #[\SensitiveParameter]
-        $secret,
-        $counter
-    ) {
+    public function oathTotp($secret, $counter)
+    {
         if (strlen($secret) < 8) {
             throw new SecretKeyTooShortException();
         }
@@ -298,10 +286,8 @@ class Google2FA
      *
      * @return string
      **/
-    public function oathTruncate(
-        #[\SensitiveParameter]
-        $hash
-    ) {
+    public function oathTruncate($hash)
+    {
         $offset = ord($hash[strlen($hash) - 1]) & 0xF;
 
         $temp = unpack('N', substr($hash, $offset, 4));
@@ -391,10 +377,8 @@ class Google2FA
      *
      * @param mixed $secret
      */
-    public function setSecret(
-        #[\SensitiveParameter]
-        $secret,
-    ) {
+    public function setSecret($secret)
+    {
         $this->secret = $secret;
     }
 
@@ -425,9 +409,7 @@ class Google2FA
      * @return bool|int
      */
     public function verify(
-        #[\SensitiveParameter]
         $key,
-        #[\SensitiveParameter]
         $secret,
         $window = null,
         $timestamp = null,
@@ -459,9 +441,7 @@ class Google2FA
      * @return bool|int
      */
     public function verifyKey(
-        #[\SensitiveParameter]
         $secret,
-        #[\SensitiveParameter]
         $key,
         $window = null,
         $timestamp = null,
@@ -498,9 +478,7 @@ class Google2FA
      * @return bool|int
      */
     public function verifyKeyNewer(
-        #[\SensitiveParameter]
         $secret,
-        #[\SensitiveParameter]
         $key,
         $oldTimestamp,
         $window = null,

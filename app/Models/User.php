@@ -120,6 +120,11 @@ use Laravel\Sanctum\HasApiTokens;
     ];
 
 
+     public function images() : MorphToMany
+     {
+         return $this->morphToMany(Image::class, 'imageable');
+     }
+
     // Define the relationship: Each user has one profile
     public function profile(): HasOne
     {

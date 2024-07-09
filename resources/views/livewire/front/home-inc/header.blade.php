@@ -1,17 +1,17 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" data-scroll-header>
     <div class="container"><a target="_self" wire:navigate class="navbar-brand ms-3 ms-xl-4 logo"
                               href="{{ route('home') }}"><img
-                    class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
+                class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
         <button data-no-turbolink class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
+                class="navbar-toggler-icon"></span></button>
 
 
         @if(auth()->check())
             <div class="dropdown  d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
-                <i class="fs-lg fw-bold fi fi-user"></i>
+                    <i class="fs-lg fw-bold fi fi-user"></i>
                 </a>
                 <div class="dropdown-menu  dropdown-menu-center-hompage ">
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
@@ -23,7 +23,7 @@
 
                         </i>
                         <i
-                                class="star-rating-icon fi-star-filled active"></i>
+                            class="star-rating-icon fi-star-filled active"></i>
                         <i class="star-rating-icon fi-star-filled active"></i>
                         <i class="star-rating-icon fi-star-filled active">
 
@@ -38,13 +38,13 @@
                     <a class="dropdown-item" href="real-estate-account-properties.html">
                         <i class="fi-home opacity-60 me-2"></i>املاک من</a>
                     <a class="dropdown-item" href="real-estate-account-wishlist.html"><i
-                                class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
+                            class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
                     <a class="dropdown-item" href="real-estate-account-reviews.html">
                         <i class="fi-star opacity-60 me-2">
 
                         </i>نظرات</a><a class="dropdown-item"
                                         href="real-estate-account-notifications.html"><i
-                                class="fi-bell opacity-60 me-2">
+                            class="fi-bell opacity-60 me-2">
 
                         </i>اطلاعیه ها</a>
                     <div class="dropdown-divider"></div>
@@ -64,16 +64,16 @@
 
         @else
             <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i
-                        class="fi-user me-2"></i>ورود </a>
+                    class="fi-user me-2"></i>ورود </a>
         @endif
 
         <a class="btn btn-primary btn-sm ms-2 order-lg-3"
            href="real-estate-add-property.html"><i
-                    class="fi-plus me-2"></i>ثبت<span class='d-none d-sm-inline'> پروژه</span></a>
+                class="fi-plus me-2"></i>ثبت<span class='d-none d-sm-inline'> پروژه</span></a>
         <div wire:ignore class="collapse navbar-collapse order-lg-2" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
 
-                <li class="nav-item dropdown me-lg-2"><a  class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
+                <li class="nav-item dropdown me-lg-2"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
                     <ul class="dropdown-menu  shadow-lg">
                         <li><a class="dropdown-item" href="">درباره ما</a></li>
                         <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">صفحات وبلاگ</a>
@@ -113,7 +113,7 @@
                 </li>
 
                 <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i
-                                class="fi-user me-2"></i>ورود به حساب </a></li>
+                            class="fi-user me-2"></i>ورود به حساب </a></li>
 
 
             </ul>

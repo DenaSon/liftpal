@@ -15,8 +15,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/sebastianbergmann/php-invoker/issues",
-        "security": "https://github.com/sebastianbergmann/php-invoker/security/policy"
+        "issues": "https://github.com/sebastianbergmann/php-invoker/issues"
     },
     "prefer-stable": true,
     "config": {

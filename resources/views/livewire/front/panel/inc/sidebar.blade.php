@@ -1,9 +1,19 @@
 <aside class="col-lg-4 col-md-5 pe-xl-4 mb-5">
     <!-- Account nav-->
     <div class="card card-body border-0 shadow-sm pb-1 me-lg-1">
-        <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-4"><img
-                class="rounded-circle" src="{{ asset('assets/img/avatars/09.jpg') }}" width="48"
-                alt="">
+        <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-4">
+            @if($photo == null)
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">
+                        <img class="rounded-circle" src="{{ asset('admin/assets/libs/feather-icons/icons/user.svg') }}" width="48" alt="">
+                    </label>
+                    <input class="form-control" type="file" id="formFile" wire:model.live.debounce.200ms="photo">
+                </div>
+
+            @else
+                <img class="rounded-circle" src="{{ asset($photo) }} }}" width="48" alt="">
+            @endif
+
             <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                 <h2 class="fs-lg mb-0">
                     {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}
@@ -22,7 +32,7 @@
                 </ul>
             </div>
         </div>
-        <a class="btn btn-outline-primary btn-lg w-100 mb-3" href="real-estate-add-property.html"><i
+        <a class="btn btn-outline-primary btn-lg w-100 mb-3" href=""><i
                 class="fi-shop me-2"></i> خرید محصولات</a><a
             class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav"
             data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>منو</a>
