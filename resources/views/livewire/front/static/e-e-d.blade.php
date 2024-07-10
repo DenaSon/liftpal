@@ -21,10 +21,10 @@
 
     <section class="container  pb-md-4 pb-lg-5">
         <div class="row align-items-md-start align-items-center ">
-            <div class="flex-column justify-content-center col-lg-5 col-md-6">
-                <div class="ms-md-5 mb-md-5 mb-0  text-center" style="max-width: 416px;">
+            <div class="flex-column align-items-center justify-content-center col-lg-5 col-md-6">
+                <div class="ms-md-5 mb-md-5 mb-0 justify-content-center text-center text-justify" >
                     <h1 class="mb-3 text-md-start"> سیستم EED</h1>
-                    <p class="mb-0 fs-base text-muted text-justify">
+                    <p class="mb-0 fs-base text-center text-muted text-justify">
                         سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
                         تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
                         کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
@@ -33,8 +33,10 @@
 
                     </p>
                 </div>
-                <img class="d-flex ms-0 pt-0 rotate-img"
+                <div class="d-md-flex align-items-center justify-content-center">
+                <img class="d-none d-md-flex align-items-center justify-content-center  pt-0 me-0 ms-5" style="width: 250px; height: 250px;"
                      src="{{ asset('assets/img/liftpal/eed-pic.jpg') }}" alt="Illustration">
+                </div>
             </div>
             <div class="col-md-6 offset-lg-1 order-1">
 
@@ -48,7 +50,7 @@
     <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
         <div class="row mx-1">
             <!-- Item-->
-            <div class="card m-auto shadow-sm col-md-3">
+            <div class="card m-auto shadow-sm col-md-3 fixed-height-eedcard">
                     <div class="card-body">
 
                         <div class="icon-box text-center">
@@ -63,7 +65,7 @@
                             <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً محاسبات فنی مربوط به آسانسورها را انجام دهند.  </p>
                         </div>
 
-                        <div class="d-flex justify-content-center justify-content-md-start">
+                        <div class="d-flex justify-content-center ">
 
                             <button type="button" class="btn btn-outline-primary">شروع کن</button>
 
@@ -74,7 +76,7 @@
                     </div>
               </div>
             <!-- Item-->
-            <div class="card my-2 shadow-sm  col-md-3">
+            <div class="card my-2 shadow-sm  col-md-3 fixed-height-eedcard">
                 <div class="card-body">
                     <div class="icon-box text-center">
                         <div class="d-flex align-items-center">
@@ -91,7 +93,7 @@
 
                         </p>
 
-                    <div class="d-flex justify-content-center justify-content-md-start">
+                    <div class="d-flex justify-content-center ">
 
                         <button type="button" class="btn btn-outline-primary align-self-start">شروع کن</button>
 
@@ -101,7 +103,7 @@
                 </div>
             </div>
             <!-- Item-->
-            <div class="card m-auto shadow-sm col-md-3">
+            <div class="card m-auto shadow-sm col-md-3 fixed-height-eedcard">
                 <div class="card-body">
 
                     <div class="icon-box text-center">
@@ -113,12 +115,12 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-dark mt-5 mb-4  text-justify">
+                        <p class="text-dark mt-4 mb-5  text-justify">
                             لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
                         </p>
                     </div>
 
-                    <div class="d-flex justify-content-center justify-content-md-start">
+                    <div class="d-flex justify-content-center ">
                         <button type="button" class="btn btn-outline-primary ">شروع کن</button>
 
                     </div>

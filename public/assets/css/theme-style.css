@@ -47,3 +47,9 @@
 .dropdown-toggle-addressbtnedit::after {
     display: none !important;
 }
+
+@media (min-width: 768px) and (max-width: 1110px) {
+    .fixed-height-eedcard {
+        height: 350px !important;
+    }
+}
