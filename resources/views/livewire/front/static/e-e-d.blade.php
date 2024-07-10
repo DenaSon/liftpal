@@ -36,7 +36,7 @@
                 <img class="d-flex ms-0 pt-0 rotate-img"
                      src="{{ asset('assets/img/liftpal/eed-pic.jpg') }}" alt="Illustration">
             </div>
-            <div class="col-md-6 offset-lg-1">
+            <div class="col-md-6 offset-lg-1 order-1">
 
              @include('livewire.front.static.eed-inc.eed-form')
 
@@ -142,7 +142,7 @@
 
 
     @section('js')
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script data-navigate-once src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts/>
 
         <!-- ============================================================== -->
@@ -155,14 +155,25 @@
         <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <!-- Main theme script-->
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
-            <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+            <script data-navigate-once src="{{ asset('assets/js/select2.min.js') }}"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
 
         <script>
             $(document).ready(function() {
-                $('.select2-error').select2();
+                $('.select2-error').select2(
+                    {
+                        theme: "classic",
+                        placeholder: "وارد کردن کد خطا",
+                        allowClear: true,
+                        minimumInputLength: 1,
+                        maximumInputLength: 10,
+                        tags: false,
+                        width: 'resolve',
+
+                    }
+                );
             });
 
         </script>
