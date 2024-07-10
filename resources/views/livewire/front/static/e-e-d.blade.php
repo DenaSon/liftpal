@@ -16,11 +16,11 @@
 
     <!-- ============================ Contact Detail ================================== -->
 
-    <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-        <div class="row align-items-md-start align-items-center gy-4">
-            <div class="col-lg-5 col-md-6">
-                <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-4 text-md-start text-center" style="max-width: 416px;">
-                    <h1 class="mb-4 "> سیستم EED</h1>
+    <section class="container  pb-md-4 pb-lg-5">
+        <div class="row align-items-md-start align-items-center ">
+            <div class="flex-column justify-content-center col-lg-5 col-md-6">
+                <div class="ms-md-5 mb-md-5 mb-0  text-center" style="max-width: 416px;">
+                    <h1 class="mb-3 text-md-start"> سیستم EED</h1>
                     <p class="mb-0 fs-base text-muted text-justify">
                         سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
                         تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
@@ -30,86 +30,103 @@
 
                     </p>
                 </div>
-                <img class="d-block mx-auto rotate-img"
+                <img class="d-flex ms-0 pt-0 rotate-img"
                      src="{{ asset('assets/img/liftpal/eed-pic.jpg') }}" alt="Illustration">
             </div>
             <div class="col-md-6 offset-lg-1">
-                <div class="card border-0 bg-white p-sm-3 p-2">
-                    <div class="card-body m-1">
-                        <form class="needs-validation" novalidate="" wire:submit="send">
-                            <div class="mb-4">
-                                <label class="form-label" for="c-name">نام </label>
-                                <input class="form-control form-control-lg" id="c-name" type="text" required="" placeholder="نام و نام خانوادگی"
-                                       wire:model="name">
-                                @error('name')
-                                <div class="small mt-1 text-danger">{{ $message }} </div>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label" for="c-email">پست الکترونیکی</label>
-                                <input wire:model="email" class="form-control form-control-lg" id="c-email" type="email" placeholder="ایمیل">
-                                @error('email')
-                                <div class="small mt-1 text-danger">{{ $message }}</div> @enderror
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="form-label" for="c-phone">شماره تلفن</label>
-                                <input wire:model="phone" class="form-control form-control-lg" id="c-phone" placeholder="شماره تلفن"
-                                       type="number" required="">
-                                @error('phone')
-                                <div class="small mt-1 text-danger">{{ $message }}</div> @enderror
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="form-label" for="c-message">متن درخواست</label>
-                                <textarea wire:model="text" class="form-control form-control-lg" id="c-message" rows="4"
-                                          placeholder="متن مورد نظر خود را بنویسید ..." required=""></textarea>
-                                @error('text')
-                                <div class="small mt-1 text-danger">{{ $message }}</div> @enderror
-                            </div>
-                            <div class="pt-sm-2 pt-1">
-                                <button class="btn btn-lg btn-primary w-sm-auto w-100" type="submit">ارسال پیغام</button>
-                            </div>
-                        </form>
 
 
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </section>
 
 
     <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-        <div class="row g-4">
+        <div class="row mx-1">
             <!-- Item-->
-            <div class="col-md-4"><a class="icon-box card card-hover h-100" href="mailto:{{ getSetting('support_manager_email') }}">
+            <div class="card m-auto shadow-sm col-md-3">
                     <div class="card-body">
-                        <div class="icon-box-media text-primary rounded-circle shadow-sm mb-3"><i class="fi-mail"></i>
+
+                        <div class="icon-box text-center">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
+                                    <i class="fi-laundry"></i>
+                                </div>
+                                <h6 class="ms-3 icon-box-title fs-sm mb-0">محاسبات فنی مهندسی </h6>
+                            </div>
                         </div>
-                        <span class="d-block mb-1 text-body">ارسال ایمیل</span>
-                        <h3 class="h5 icon-box-title mb-0 opacity-90">{{ getSetting('support_manager_email') }}</h3>
+                        <div>
+                            <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً محاسبات فنی مربوط به آسانسورها را انجام دهند.  </p>
+                        </div>
+
+                        <div class="d-flex justify-content-center justify-content-md-start">
+
+                            <button type="button" class="btn btn-outline-primary">شروع کن</button>
+
+                        </div>
+
+
+
                     </div>
-                </a></div>
+              </div>
             <!-- Item-->
-            <div class="col-md-4"><a class="icon-box card card-hover h-100" href="tel:{{ getSetting('support_manager_phone') }}">
-                    <div class="card-body">
-                        <div class="icon-box-media text-primary rounded-circle shadow-sm mb-3"><i
-                                class="fi-device-mobile"></i></div>
-                        <span class="d-block mb-1 text-body">تماس در 7 روز هفته (24/7)</span>
-                        <h3 class="h5 icon-box-title mb-0 opacity-90 ltr">{{ getSetting('support_manager_phone') }}</h3>
+            <div class="card my-2 shadow-sm  col-md-3">
+                <div class="card-body">
+                    <div class="icon-box text-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
+                                <i class="fi-user-plus"></i>
+                            </div>
+                            <h6 class="ms-3 icon-box-title fs-sm mb-0">یافتن متخصص</h6>
+                        </div>
                     </div>
-                </a></div>
+                    <div>
+                        <p class="text-dark mt-4 mb-5  text-justify">
+                            لیفت‌پال به شما کمک می کند تا بهترین متخصصان آسانسور، مجریان و نصابان را در منطقه خود پیدا کنید.
+
+
+                        </p>
+
+                    <div class="d-flex justify-content-center justify-content-md-start">
+
+                        <button type="button" class="btn btn-outline-primary align-self-start">شروع کن</button>
+
+                    </div>
+
+                </div>
+                </div>
+            </div>
             <!-- Item-->
-            <div class="col-md-4"><a class="icon-box card card-hover h-100" href="#">
-                    <div class="card-body">
-                        <div class="icon-box-media text-primary rounded-circle shadow-sm mb-3"><i
-                                class="fi-instagram"></i></div>
-                        <span class="d-block mb-1 text-body">ما را دنبال کنید</span>
-                        <h3 class="h5 icon-box-title mb-0 opacity-90 ltr">@Instagram</h3>
+            <div class="card m-auto shadow-sm col-md-3">
+                <div class="card-body">
+
+                    <div class="icon-box text-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
+                                <i class="fi-apartment"></i>
+                            </div>
+                            <h6 class="ms-3 icon-box-title fs-sm mb-0">ثبت ساختمان</h6>
+                        </div>
                     </div>
-                </a></div>
+                    <div>
+                        <p class="text-dark mt-5 mb-4  text-justify">
+                            لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
+                        </p>
+                    </div>
+
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <button type="button" class="btn btn-outline-primary ">شروع کن</button>
+
+                    </div>
+
+
+
+                </div>
+            </div>
         </div>
+
     </section>
 
 
@@ -139,4 +156,6 @@
         <!-- ============================================================== -->
 
     @endsection
+
+
 </div>
