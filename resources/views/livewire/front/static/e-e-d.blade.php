@@ -1,5 +1,8 @@
 <div>
 
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    @endpush
 
     @include('livewire.front.home-inc.header')
 
@@ -35,8 +38,7 @@
             </div>
             <div class="col-md-6 offset-lg-1">
 
-
-
+             @include('livewire.front.static.eed-inc.eed-form')
 
             </div>
         </div>
@@ -142,18 +144,28 @@
     @section('js')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts/>
+
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
+            <script data-navigate-once src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <!-- Main theme script-->
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
+            <script src="{{ asset('assets/js/select2.min.js') }}"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
+
+        <script>
+            $(document).ready(function() {
+                $('.select2-error').select2();
+            });
+
+        </script>
 
     @endsection
 
