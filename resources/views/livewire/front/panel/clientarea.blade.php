@@ -35,6 +35,8 @@
                                     <livewire:front.panel.components.address>
                                         @elseif(request()->input('page') == 'address' )
                                             <livewire:front.panel.components.notifications>
+                                                @elseif(request()->input('page') == 'building' )
+                                                    <livewire:front.panel.components.building>
                 @endif
 
 

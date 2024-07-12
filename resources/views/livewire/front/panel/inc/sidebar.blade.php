@@ -32,8 +32,8 @@
                 </ul>
             </div>
         </div>
-        <a class="btn btn-outline-primary btn-lg w-100 mb-3" href=""><i
-                class="fi-shop me-2"></i> خرید محصولات</a><a
+        <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3" href="{{ route('panel',['page'=>'building']) }}"><i
+                class="fi-shop me-2"></i> مدیریت ساختمان</a><a
             class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav"
             data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>منو</a>
         <div class="collapse d-md-block mt-3" id="account-nav">
@@ -59,9 +59,12 @@
                    href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
                         class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
+                <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
+                   href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
+                        class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
 
 
-                <a class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
                    href="{{ route('panel',['page'=>'notification']) }}"><i
                         class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
 

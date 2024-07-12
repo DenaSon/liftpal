@@ -150,17 +150,17 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-            <script  src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
+            <script data-navigate-once src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
             <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
             <!-- Main theme script-->
             <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
-            <script  src="{{ asset('assets/js/select2.min.js') }}"></script>
+            <script data-navigate-once src="{{ asset('assets/js/select2.min.js') }}"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
 
-        <script>
+            <script data-navigate-once>
             $(document).ready(function() {
                 $('.select2-error').select2(
                     {

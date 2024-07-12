@@ -99,6 +99,9 @@ class Clientarea extends Component
             case 'notification':
                 $this->pageTitle = 'اطلاعیه‌ها';
                 break;
+            case 'building':
+                $this->pageTitle = 'مدیریت ساختمان';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }
