@@ -60,7 +60,7 @@
                         class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
                 <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
-                   href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
+                   href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
                         class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
 
 
