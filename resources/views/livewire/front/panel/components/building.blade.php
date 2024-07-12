@@ -6,33 +6,35 @@
         <div class="card container shadow-lg">
             <div class="card-body">
 
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">آدرس ساختمان:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="آدرس ساختمان:" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">آدرس ساختمان:</label>
                 </div>
-                <div class="row container d-flex justify-content-around">
-                    <div class="col-4 mb-3">
-                        <label for="text-input" class="form-label">نام ساختمان</label>
-                        <input class="form-control w-100" type="text" id="text-input">
+
+                <div >
+                    <div class="row">
+                    <div class="form-floating col-md-6 mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="نام ساختمان">
+                        <label for="floatingInput">نام ساختمان</label>
                     </div>
 
-                    <div class="col-4 mb-3 ">
-                        <label for="text-input" class="form-label">تعداد طبقه</label>
-                        <input class="form-control w-25" type="text" id="text-input">
+                    <div class="form-floating col-md-6 mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="تعداد طبقه">
+                        <label for="floatingInput">تعداد طبقه</label>
+                    </div>
                     </div>
 
+                    <div class="row ">
 
-                    <div class="row container d-flex justify-content-around">
-
-                        <div class="col-4 mb-3">
-                            <label for="text-input" class="form-label">تعداد واحد</label>
-                            <input class="form-control w-25" type="text" id="text-input">
+                        <div class="form-floating col-md-6 mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="تعداد واحد">
+                            <label for="floatingInput">تعداد واحد</label>
                         </div>
 
 
-                        <div class="col-4 mb-3">
-                            <label for="text-input" class="form-label">کد آسانسور</label>
-                            <input class="form-control w-50" type="text" id="text-input">
+                        <div class="form-floating col-md-6 mb-3 ">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="کد آسانسور">
+                            <label for="floatingInput">کد آسانسور</label>
                         </div>
 
 
@@ -94,20 +96,22 @@
         <div class="card-body">
 
 
-            <div class="row container d-flex justify-content-center align-items-center">
-                <div class="col-sm-12 mb-3">
-                    <label for="text-input" class="form-label">نام و نام خانوادگی</label>
-                    <input class="form-control w-75" type="text" id="text-input">
+            <div class="row ">
+
+                <div class="form-floating col-12 mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="نام و نام خانوادگی">
+                    <label for="floatingInput">نام و نام خانوادگی</label>
                 </div>
 
-                <div class="col-sm-12 mb-3 mx-0">
-                    <label for="text-input" class="form-label">شماره واحد</label>
-                    <input class="form-control w-25" type="text" id="text-input">
+                <div class="form-floating col-12 mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="شماره واحد">
+                    <label for="floatingInput">شماره واحد</label>
                 </div>
 
-                <div class="col-sm-12 mb-3 mx-0">
-                    <label for="text-input" class="form-label">شماره تماس</label>
-                    <input class="form-control w-75" type="text" id="text-input">
+
+                <div class="form-floating col-12 mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="شماره تماس">
+                    <label for="floatingInput">شماره تماس</label>
                 </div>
 
 
