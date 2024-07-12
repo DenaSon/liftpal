@@ -24,7 +24,7 @@
             <div class="flex-column align-items-center justify-content-center col-lg-5 col-md-6">
                 <div class="ms-md-5 mb-md-5 mb-0 justify-content-center text-center text-justify" >
                     <h1 class="mb-3 text-md-start"> سیستم EED</h1>
-                    <p class="mb-0 fs-base text-center text-muted text-justify">
+                    <p class="mb-0 fs-base text-muted text-justify" style="line-height: 32px">
                         سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
                         تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
                         کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
@@ -150,14 +150,12 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-            <script data-navigate-once src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
-        <!-- Main theme script-->
-        <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
-            <script data-navigate-once src="{{ asset('assets/js/select2.min.js') }}"></script>
+            <script  src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
+            <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+            <!-- Main theme script-->
+            <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
+            <script  src="{{ asset('assets/js/select2.min.js') }}"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
