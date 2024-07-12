@@ -7,10 +7,7 @@ class CombinableMatcherTest extends \Hamcrest\AbstractMatcherTest
     private $_either_3_or_4;
     private $_not_3_and_not_4;
 
-    /**
-     * @before
-     */
-    protected function setUpTest()
+    protected function setUp()
     {
         $this->_either_3_or_4 = \Hamcrest\Core\CombinableMatcher::either(equalTo(3))->orElse(equalTo(4));
         $this->_not_3_and_not_4 = \Hamcrest\Core\CombinableMatcher::both(not(equalTo(3)))->andAlso(not(equalTo(4)));

@@ -41,9 +41,6 @@ abstract class Type
         return $type;
     }
 
-    /**
-     * @psalm-param non-empty-string $typeName
-     */
     public static function fromName(string $typeName, bool $allowsNull): self
     {
         return match (strtolower($typeName)) {
@@ -189,9 +186,6 @@ abstract class Type
 
     abstract public function isAssignable(self $other): bool;
 
-    /**
-     * @psalm-return non-empty-string
-     */
     abstract public function name(): string;
 
     abstract public function allowsNull(): bool;

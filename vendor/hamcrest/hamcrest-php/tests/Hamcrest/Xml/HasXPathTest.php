@@ -7,10 +7,7 @@ class HasXPathTest extends \Hamcrest\AbstractMatcherTest
     protected static $doc;
     protected static $html;
 
-    /**
-     * @beforeClass
-     */
-    public static function setUpBeforeClassTest()
+    public static function setUpBeforeClass()
     {
         self::$xml = <<<XML
 <?xml version="1.0"?>

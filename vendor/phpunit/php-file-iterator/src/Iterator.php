@@ -28,7 +28,7 @@ final class Iterator extends FilterIterator
 {
     public const PREFIX = 0;
     public const SUFFIX = 1;
-    private false|string $basePath;
+    private string|false $basePath;
 
     /**
      * @psalm-var list<string>

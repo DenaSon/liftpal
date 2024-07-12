@@ -51,7 +51,7 @@
     "extra": {
         "bamarni-bin": {
             "bin-links": true,
-            "forward-command": false
+            "forward-command": true
         },
         "branch-alias": {
             "dev-master": "5.6-dev"

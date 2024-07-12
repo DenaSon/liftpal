@@ -6,10 +6,7 @@ class IsEqualIgnoringWhiteSpaceTest extends \Hamcrest\AbstractMatcherTest
 
     private $_matcher;
 
-    /**
-     * @before
-     */
-    protected function setUpTest()
+    protected function setUp()
     {
         $this->_matcher = \Hamcrest\Text\IsEqualIgnoringWhiteSpace::equalToIgnoringWhiteSpace(
             "Hello World   how\n are we? "

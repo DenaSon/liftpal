@@ -15,7 +15,6 @@ use Termwind\Enums\Color;
 use Termwind\Exceptions\ColorNotFound;
 use Termwind\Exceptions\InvalidStyle;
 use Termwind\Repositories\Styles as StyleRepository;
-
 use function Termwind\terminal;
 
 /**
@@ -54,6 +53,7 @@ final class Styles
     }
 
     /**
+     * @param  Element  $element
      * @return $this
      */
     public function setElement(Element $element): self

@@ -12,8 +12,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
+use Throwable;
 
 
 class CartModal extends Component
@@ -39,10 +38,10 @@ class CartModal extends Component
     public $province;
     public $country;
     public $city;
-    public $postalAddress;
-    public $postalCode;
-    public $buildingNumber;
-    public $unitNumber;
+    public $postal_address;
+    public $postal_code;
+    public $building_number;
+    public $unit_number;
 
     public function mount()
     {
@@ -172,7 +171,6 @@ class CartModal extends Component
         if (!userAddressExist($authId))
         {
 
-            $this->alert('warning', 'آدرس محل ارسال را انتخاب کنید', ['position' => 'bottom-left']);
             $this->dispatch('getAddressModal');
 
 
@@ -222,7 +220,6 @@ class CartModal extends Component
 
                 session()->put('orderNumber',$order->order_number);
 
-                Cart::whereUserId(auth()->id())->delete();
                 $this->redirectRoute('checkout',['status'=>'beforePay'],true,true);
             }
             else
@@ -232,27 +229,37 @@ class CartModal extends Component
         }
     }
 
-    //This method runs if the user doesn't have an address set.
-
     public function saveAddress()
     {
-        // Validate the fields
-        $validatedData = $this->validate([
-            'province' => 'required|string|max:255',
-            'country' => 'nullable|string|max:255',
-            'city' => 'required|string|max:255',
-            'postalAddress' => 'required|string|max:255',
-            'postalCode' => 'required|numeric|digits:10',
-            'buildingNumber' => 'required|string|max:10',
-            'unitNumber' => 'nullable|string|max:10',
-        ]);
-        $validatedData['is_default'] = 1;
 
-        // Save the validated data to the Addresses table
-        Address::create($validatedData);
+        try {
+            $authId = auth()->id();
+            // Validate the fields
+            $validatedData = $this->validate([
+                'province' => 'required|string|max:255',
+                'country' => 'nullable|string|max:255',
+                'city' => 'required|string|max:255',
+                'postal_address' => 'required|string|max:255',
+                'postal_code' => 'required|string|digits:10',
+                'building_number' => 'nullable|string|max:10',
+                'unit_number' => 'nullable|string|max:10',
+            ]);
+            // Setting default values
 
-        // Optionally, you can reset the form fields or show a success message
-        $this->reset(['province', 'country', 'city', 'postalAddress', 'postalCode', 'buildingNumber', 'unitNumber']);
+            $validatedData['is_default'] = 1;
+            $validatedData['country'] = 'ایران';
+            $validatedData['user_id'] = $authId;
+            // Save the validated data to the Addresses table
+            if (Address::create($validatedData)) {
+                $this->reset(['province', 'country', 'city', 'postal_address', 'postal_code', 'building_number', 'unit_number']);
+                $this->alert('success', 'آدرس شما با موفقیت ثبت شد', ['position' => 'center']);
+                // here add codes
+                $this->redirectRoute('checkout', [], true, true);
+            }
+
+        } catch (Throwable $e) {
+            $this->alert('error', $e->getMessage(), ['position' => 'center']);
+        }
 
 
     }

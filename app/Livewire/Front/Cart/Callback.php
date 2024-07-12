@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Front\Cart;
 
+use App\Models\Cart;
+use App\Models\History;
 use App\Models\Order;
 use App\Models\Transaction;
+use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
 
 class Callback extends Component
@@ -20,6 +22,7 @@ class Callback extends Component
     public function mount()
     {
 
+
         session()->regenerate();
 
         if (!auth()->check())
@@ -31,7 +34,7 @@ class Callback extends Component
         if (!session()->has('callbackToken') )
         {
 
-            abort(403);
+            // abort(403);
         }
 
         try
@@ -59,9 +62,7 @@ class Callback extends Component
             }
             else
             {
-                session()->regenerate();
-                session()->regenerateToken();
-                session()->forget('callbackToken');
+
                 // True if success transaction
                 $this->success = true;
                 $this->transaction = Transaction::whereTransactionId($authority)->first();
@@ -81,6 +82,9 @@ class Callback extends Component
                 $this->order->payment_transaction_id = $response->referenceId();
                 $this->order->save();
 
+                //Transfer data to user history
+                $this->transferToHistory($this->order->id);
+
 
 
 
@@ -96,6 +100,56 @@ class Callback extends Component
 
 
     }
+
+    private function transferToHistory($order_id)
+    {
+        $user_id = auth()->id();
+
+        // Eager load product and type relationships
+        $carts = Cart::where('user_id', $user_id)->with(['product', 'type'])->get(['user_id', 'product_id', 'type_id', 'quantity']);
+
+        if ($carts->isEmpty()) {
+            \Log::info('No carts found for user_id: ' . $user_id);
+            return;
+        }
+
+        $historyData = [];
+        $now = Carbon::now();
+
+        foreach ($carts as $cart) {
+            if (!$cart->product || !$cart->type) {
+                \Log::warning('Missing product or type for cart item: ' . $cart->id);
+                continue; // Skip this cart item if relationships are missing
+            }
+
+            $historyData[] = [
+                'order_id' => $order_id,
+                'product_id' => $cart->product->id,
+                'user_id' => $cart->user_id,
+                'quantity' => $cart->quantity,
+                'price' => $cart->type->price,
+                'product_name' => $cart->product->name ?? '',
+                'type_name' => $cart->type->name ?? '',
+                'created_at' => $now,
+            ];
+        }
+
+        if (empty($historyData)) {
+            \Log::info('No valid cart data to insert into history for user_id: ' . $user_id);
+            return;
+        }
+
+        \DB::transaction(function () use ($historyData, $user_id) {
+            // Insert all records in one query for better performance
+            History::insert($historyData);
+
+            // Clear the user's cart
+            Cart::where('user_id', $user_id)->delete();
+        });
+
+        \Log::info('Transferred ' . count($historyData) . ' cart items to history for user_id: ' . $user_id);
+    }
+
 
 
 

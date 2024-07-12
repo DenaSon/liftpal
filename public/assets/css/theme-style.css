@@ -1,7 +1,55 @@
-.no-arrow {
-    appearance: none;
+.no-arrow-homedrop {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    background-image: none !important;
+}
+
+.no-spinner {
+    /* برای مرورگرهای وب‌کیت مانند کروم و سافاری */
     -webkit-appearance: none;
-    -moz-appearance: none;
-    background: transparent;
-    background-image: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* برای فایرفاکس */
+.no-spinner {
+    -moz-appearance: textfield;
+}
+
+.dropdown-menu-center-hompage {
+    right: 50% !important;
+    left: auto !important;
+    transform: translateX(50%) !important;
+}
+
+.custom-hr-title-panel {
+    border: none;
+    height: 1px; /* عرض خط */
+    background: linear-gradient(to left, orangered 3cm, black 3cm);
+    margin-top: 10px; /* فاصله از بالا */
+}
+
+.custom-hr-title-panel {
+    border: none;
+    height: 1px; /* عرض خط */
+    background: linear-gradient(to left, orangered 3.5cm, rgba(96, 85, 75, 0.22) 3cm);
+    margin-top: 10px; /* فاصله از بالا */
+}
+
+.dropdown-toggle-addressbtnedit::after {
+    display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1110px) {
+    .fixed-height-eedcard {
+        height: 350px !important;
+    }
 }

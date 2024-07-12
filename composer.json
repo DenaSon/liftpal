@@ -13,7 +13,7 @@
         "google-gemini-php/laravel": "dev-main",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^3.2",
-        "jantinnerezo/livewire-alert": "^3.0",
+        "jantinnerezo/livewire-alert": "dev-master",
         "jumbaeric/laragpt": "dev-master",
         "laravel/fortify": "^1.20",
         "laravel/framework": "^10.10",
@@ -87,6 +87,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": false
 }

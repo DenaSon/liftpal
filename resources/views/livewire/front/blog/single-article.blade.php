@@ -1,6 +1,6 @@
 <div>
 
-    <livewire:front.cart.cart-modal/>
+
     @include('livewire.front.home-inc.header')
 
     <article class="container mt-5 mb-md-4 py-5" id="{{ $post->id }}">

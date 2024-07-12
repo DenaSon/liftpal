@@ -184,7 +184,7 @@ return [
     |
     */
 
-    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', false),
+    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -198,7 +198,7 @@ return [
 
         'autoClose' => env('SWEET_ALERT_MIDDLEWARE_AUTO_CLOSE', false),
 
-        'toast_position' => env('SWEET_ALERT_MIDDLEWARE_TOAST_POSITION', 'top-end'),
+        'toast_position' => env('SWEET_ALERT_MIDDLEWARE_TOAST_POSITION', 'center'),
 
         'toast_close_button' => env('SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON', true),
 

@@ -7,7 +7,6 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 ### Added
 
 * `ComplexityCollection::sortByDescendingCyclomaticComplexity()`
-* Support for `match` arms
 
 ### Changed
 

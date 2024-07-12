@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -119,6 +120,11 @@ use Laravel\Sanctum\HasApiTokens;
     ];
 
 
+     public function images() : MorphToMany
+     {
+         return $this->morphToMany(Image::class, 'imageable');
+     }
+
     // Define the relationship: Each user has one profile
     public function profile(): HasOne
     {
@@ -209,7 +215,6 @@ use Laravel\Sanctum\HasApiTokens;
          return $this->hasMany(Post::class);
      }
 
-
      public function addresses(): HasMany
      {
         return $this->hasMany(Address::class);
@@ -218,6 +223,10 @@ use Laravel\Sanctum\HasApiTokens;
      public function accounts(): HasMany
      {
          return $this->hasMany(Financial::class);
+     }
+     public function skills(): BelongsToMany
+     {
+         return $this->belongsToMany(Skill::class);
      }
 
 

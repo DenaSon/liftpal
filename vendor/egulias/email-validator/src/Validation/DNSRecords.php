@@ -5,7 +5,7 @@ namespace Egulias\EmailValidator\Validation;
 class DNSRecords
 {
     /**
-     * @param list<array<array-key, mixed>> $records
+     * @param array $records
      * @param bool $error
      */
     public function __construct(private readonly array $records, private readonly bool $error = false)
@@ -13,7 +13,7 @@ class DNSRecords
     }
 
     /**
-     * @return list<array<array-key, mixed>>
+     * @return array
      */
     public function getRecords(): array
     {

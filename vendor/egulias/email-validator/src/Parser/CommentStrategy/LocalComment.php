@@ -8,12 +8,11 @@ use Egulias\EmailValidator\Result\ValidEmail;
 use Egulias\EmailValidator\Warning\CFWSNearAt;
 use Egulias\EmailValidator\Result\InvalidEmail;
 use Egulias\EmailValidator\Result\Reason\ExpectingATEXT;
-use Egulias\EmailValidator\Warning\Warning;
 
 class LocalComment implements CommentStrategy
 {
     /**
-     * @var array<int, Warning>
+     * @var array
      */
     private $warnings = [];
 

@@ -10,7 +10,6 @@
 namespace SebastianBergmann\Type;
 
 use function array_pop;
-use function assert;
 use function explode;
 use function implode;
 use function substr;
@@ -19,15 +18,8 @@ use ReflectionClass;
 final class TypeName
 {
     private ?string $namespaceName;
-
-    /**
-     * @psalm-var non-empty-string
-     */
     private string $simpleName;
 
-    /**
-     * @psalm-param class-string $fullClassName
-     */
     public static function fromQualifiedName(string $fullClassName): self
     {
         if ($fullClassName[0] === '\\') {
@@ -39,8 +31,6 @@ final class TypeName
         $simpleName    = array_pop($classNameParts);
         $namespaceName = implode('\\', $classNameParts);
 
-        assert($simpleName !== '');
-
         return new self($namespaceName, $simpleName);
     }
 
@@ -48,13 +38,10 @@ final class TypeName
     {
         return new self(
             $type->getNamespaceName(),
-            $type->getShortName(),
+            $type->getShortName()
         );
     }
 
-    /**
-     * @psalm-param non-empty-string $simpleName
-     */
     public function __construct(?string $namespaceName, string $simpleName)
     {
         if ($namespaceName === '') {
@@ -70,17 +57,11 @@ final class TypeName
         return $this->namespaceName;
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
     public function simpleName(): string
     {
         return $this->simpleName;
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
     public function qualifiedName(): string
     {
         return $this->namespaceName === null

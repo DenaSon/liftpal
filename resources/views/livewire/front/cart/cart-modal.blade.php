@@ -36,11 +36,11 @@
             @foreach($carts as $cart)
                 <div wire:key="{{ $cart->id }}" class="">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img class="img-thumbnail" src="{{ asset($cart->product->images->first()->file_path) }}"
-                                 alt="{{ $cart->product->name }}">
+                        <div class="col-md-5">
+                            <img class="img-thumbnail h-100" src="{{ asset($cart->product->images->first()?->file_path ?? '') }}" alt="{{ $cart->product->name }}">
+
                         </div>
-                        <div class="col-md-8 shadow-sm">
+                        <div class="col-md-7 shadow-sm">
                             <span class="small p-0">{{ $cart->product->name }} - {{ $cart->type->name }}</span>
                             <hr>
                             <div class="m-3">
@@ -198,7 +198,7 @@
         var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
 
         offcanvasInstance.hide();
-        // Show the modal
+
         var modalElement = new bootstrap.Modal(document.getElementById('get-address-modal'));
         modalElement.show();
 

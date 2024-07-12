@@ -150,9 +150,6 @@ class Product extends Model
 
 
 
-
-
-
     // Define the reviews relationship (one-to-many)
     public function reviews(): HasMany
     {

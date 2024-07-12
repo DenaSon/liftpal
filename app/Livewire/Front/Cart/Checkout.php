@@ -2,8 +2,6 @@
 
 namespace App\Livewire\Front\Cart;
 
-use App\Models\Address;
-use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
@@ -136,8 +134,6 @@ class Checkout extends Component
         }
 
     }
-
-
 
 
     public function render()

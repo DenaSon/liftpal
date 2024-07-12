@@ -61,7 +61,7 @@ class EmailLexer extends AbstractLexer
     /**
      * US-ASCII visible characters not valid for atext (@link http://tools.ietf.org/html/rfc5322#section-3.2.3)
      *
-     * @var array<string, int>
+     * @var array
      */
     protected $charValue = [
         '{'    => self::S_OPENCURLYBRACES,
@@ -177,6 +177,7 @@ class EmailLexer extends AbstractLexer
      * @throws \UnexpectedValueException
      * @return boolean
      *
+     * @psalm-suppress InvalidScalarArgument
      */
     public function find($type): bool
     {

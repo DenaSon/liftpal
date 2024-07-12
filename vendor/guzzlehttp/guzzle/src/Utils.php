@@ -71,7 +71,7 @@ final class Utils
             return \STDOUT;
         }
 
-        return Psr7\Utils::tryFopen('php://output', 'w');
+        return \GuzzleHttp\Psr7\Utils::tryFopen('php://output', 'w');
     }
 
     /**

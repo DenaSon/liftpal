@@ -15,25 +15,16 @@
         <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/nouislider/dist/nouislider.min.css') }}"/>
         <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/tiny-slider/dist/tiny-slider.css') }}"/>
 
-        <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
-        <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme-style.css') }}">
     @endsection
 
 
-
-    <livewire:front.cart.cart-modal/>
-
     @include('livewire.front.home-inc.header')
-
         @include('livewire.front.home-inc.hero')
         @include('livewire.front.home-inc.categories')
         @include('livewire.front.home-inc.services')
         @include('livewire.front.home-inc.posts')
         @include('livewire.front.home-inc.elevator-calc')
         @include('livewire.front.home-inc.logos')
-
-
-
 
 
     @include('livewire.front.home-inc.footer')
@@ -49,4 +40,17 @@
             <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
 
 @endsection
+        @script
+        <script>
+
+
+            $wire.on('login-action', () => {
+
+                var loginModal = new bootstrap.Modal(document.getElementById('signin-modal'));
+                loginModal.show();
+
+            });
+        </script>
+
+        @endscript
 </div>

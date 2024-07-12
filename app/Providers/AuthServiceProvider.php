@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Address;
+use App\Policies\AddressPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 class AuthServiceProvider extends ServiceProvider
@@ -11,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        Address::class => AddressPolicy::class,
+
     ];
 
     /**

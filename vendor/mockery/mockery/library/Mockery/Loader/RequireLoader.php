@@ -1,78 +1,80 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Mockery (https://docs.mockery.io/)
  *
  * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
- * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
- * @link      https://github.com/mockery/mockery for the canonical source repository
+ * @license https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link https://github.com/mockery/mockery for the canonical source repository
  */
 
 namespace Mockery\Loader;
 
 use Mockery\Generator\MockDefinition;
-use RuntimeException;
+
+use function array_diff;
+use function class_exists;
+use function file_exists;
+use function file_put_contents;
+use function glob;
+use function realpath;
+use function sprintf;
+use function sys_get_temp_dir;
+use function uniqid;
+use function unlink;
 
 use const DIRECTORY_SEPARATOR;
 
-/**
- * @see \Mockery\Tests\Unit\Mockery\LoaderTest
- */
-final class RequireLoader implements Loader
+class RequireLoader implements Loader
 {
     /**
      * @var string
      */
-    private $lastPath;
+    protected $lastPath = '';
 
     /**
      * @var string
      */
-    private $path;
+    protected $path;
 
-    public function __construct(?string $path = null)
+    /**
+     * @param string|null $path
+     */
+    public function __construct($path = null)
     {
-        $this->lastPath = $this->path = realpath($path ?? sys_get_temp_dir()) ?: sys_get_temp_dir();
+        if ($path === null) {
+            $path = sys_get_temp_dir();
+        }
 
-        register_shutdown_function([$this, '__destruct']);
+        $this->path = realpath($path);
     }
 
     public function __destruct()
     {
-        $files = array_diff(
-            glob($this->path . DIRECTORY_SEPARATOR . 'Mockery_*.php') ?: [],
-            [$this->lastPath]
-        );
+        $files = array_diff(glob($this->path . DIRECTORY_SEPARATOR . 'Mockery_*.php') ?: [], [$this->lastPath]);
 
         foreach ($files as $file) {
-            if (! is_file($file)) {
-                continue;
-            }
-
             @unlink($file);
         }
     }
 
-    public function load(MockDefinition $definition): void
+    /**
+     * Load the given mock definition
+     *
+     * @return void
+     */
+    public function load(MockDefinition $definition)
     {
         if (class_exists($definition->getClassName(), false)) {
             return;
         }
 
-        $lastPath = &$this->lastPath;
+        $this->lastPath = sprintf('%s%s%s.php', $this->path, DIRECTORY_SEPARATOR, uniqid('Mockery_', false));
 
-        $lastPath = sprintf('%s%s%s.php', $this->path, DIRECTORY_SEPARATOR, uniqid('Mockery_'));
+        file_put_contents($this->lastPath, $definition->getCode());
 
-        $saved = file_put_contents($lastPath, $definition->getCode());
-
-        if (false === $saved) {
-            throw new RuntimeException(sprintf('Unable to write file "%s"', $lastPath));
-        }
-
-        if (file_exists($lastPath)) {
-            require $lastPath;
+        if (file_exists($this->lastPath)) {
+            require $this->lastPath;
         }
     }
 }

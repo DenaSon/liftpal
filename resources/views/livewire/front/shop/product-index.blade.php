@@ -74,7 +74,7 @@
                                 <div class=" card-img-top card-img-hover">
 
                                     <div class="position-absolute start-0 top-0 pt-3 ps-3"><span
-                                            class="d-table badge bg-success">{{ $product->categories->first()->name }}</span>
+                                            class="d-table badge bg-success">{{ $product->categories->first()->name ?? 'ثبت نشده' }}</span>
                                     </div>
                                     <div class="content-overlay end-0 top-0 pt-3 pe-3">
                                         <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle"
@@ -123,7 +123,6 @@
 
                 <br/>
 
-                <button class="btn btn-danger" wire:click="showai">Show AI</button>
 
             </div>
         </div>

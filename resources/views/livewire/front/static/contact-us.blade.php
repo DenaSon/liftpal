@@ -8,7 +8,7 @@
 
     @endsection
 
-        <livewire:front.cart.cart-modal/>
+
     @include('livewire.front.home-inc.header')
 
 

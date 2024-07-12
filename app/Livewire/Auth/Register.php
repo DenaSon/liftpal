@@ -7,8 +7,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Number;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -146,7 +144,7 @@ class Register extends Component
                         $profile->save();
                         Auth::login($user, $remember = true);
                         $this->alert('success', 'ثبت نام شما با موفقیت انجام شد', ['position' => 'center', '']);
-                        $this->redirectRoute('home');
+                        return redirect()->route('panel', ['page' => 'profile']);
                     }
 
 
