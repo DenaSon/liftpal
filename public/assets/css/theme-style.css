@@ -53,3 +53,9 @@
         height: 350px !important;
     }
 }
+
+@media (max-width: 925px) {
+    .hidden-pic-footer {
+        display: none;
+    }
+}

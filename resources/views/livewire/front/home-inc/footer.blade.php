@@ -51,9 +51,9 @@
 
                             <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.samandehi.png') }}" width="110" height="100" alt="Samandehi">
 
-                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.etehadie.png') }}" width="90" height="90" alt="Samandehi">
+                            <img class="img-thumbnail hidden-pic-footer" src="{{ asset('assets/img/footer/logo.etehadie.png') }}" width="90" height="90" alt="Samandehi">
 
-                            <img class="img-thumbnail" src="{{ asset('assets/img/footer/logo.asnaf.png') }}" width="90" height="90" alt="Samandehi">
+
                     </div>
 
             </div>
