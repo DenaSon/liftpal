@@ -271,6 +271,7 @@ return [
         'skill' => 'مهارت',
         'skills' => 'مهارت ها',
         'education' => 'تحصیلات',
+        'errorCode' => 'کد خطا'
 
 
     ],

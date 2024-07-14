@@ -1,38 +1,39 @@
-<div class="card mb-4 shadow-sm">
+<div class="card mb-4 shadow-lg">
     <div class="card-header">
         خطا یاب
     </div>
-    <form class="card-body" wire:submit.debounce.50="fetchError">
-        <div class="my-2" wire:ignore>
+    <div class="card-body">
+        <div class="my-2 mb-2" wire:ignore>
             <label for="errorCode" class="form-label text-muted"> کد خطا </label>
-            <select class="select2-error  select2 " wire:model="errorCode" style="width: 100%" id="errorCode">
-                <option value="AL" disabled selected>کد خطا را وارد کنید</option>
+            <select class="select2-error select2" wire:model.live.debounce.1s="errorCode" style="width: 100%" id="errorCode">
                 @foreach($errors as $error)
-                    <option value="{{ $error->code }}">{{ $error->code }}</option>
+                    <option value="{{ $error->id }}">{{ $error->code }}</option>
                 @endforeach
 
             </select>
         </div>
 
-        <div>
-            <button type="submit" class="btn btn-primary d-block w-100 my-5">جستجو</button>
+
+        <div class="text-center">
+        <div wire:loading class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         </div>
 
+        @if($this->result)
 
-        <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading fs-lg">
-                <span class="fs-lg">دسته‌ :</span>
-                <span class="fs-sm">
-                  مکانیکی
-               </span>
+            <div class="alert alert-info mt-3" role="alert">
+                <h4 class="alert-heading fs-sm">
+                    خطا در دسته :   {{ $type }}
+                </h4>
+                <p>
+                    {{ $result->description ?? '...' }}
 
-            </h4>
+                </p>
+            </div>
 
 
-            <p>
-                {{ $result->description ?? '...' }}
-            </p>
+        @endif
 
-        </div>
-    </form>
+    </div>
 </div>

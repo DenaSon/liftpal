@@ -3,15 +3,19 @@
 namespace App\Livewire\Front\Static;
 
 use App\Models\Error;
+use Illuminate\Support\Facades\RateLimiter;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Throwable;
 
 class EED extends Component
 {
     use LivewireAlert;
     public $errors =[];
+    public $result  = null;
     public $errorCode;
-    public $result;
+    public $type;
 
     public function mount()
     {
@@ -19,26 +23,84 @@ class EED extends Component
 
     }
 
-    public function fetchError()
+    public function updatedErrorCode($value): void
     {
         try
         {
 
-            $this->validate([
-                'errorCode' => 'required|string|min:2|max:45|exists:errors,code',
-            ]);
+            $executed = RateLimiter::attempt(
+                'request-eed'.session()->getId(),
+                5,
+                function() use($value)
+                {
 
-            $this->result = Error::where('code', $this->errorCode)->first();
+                    $this->validate(['errorCode' => 'required|exists:errors,id|numeric']);
 
-            if (!$this->result) {
-                $this->alert('error', 'Error not found');
+                    $existCode = Error::whereId($value)->first();
+                    if($existCode)
+                    {
+                        $this->result = $existCode;
+                        switch ($this->result->type)
+                        {
+                            case 'mechanical':
+                                $this->type = 'مکانیک';
+                                break;
+
+                            case 'electrical':
+                                $this->type = 'الکترونیک';
+                                break;
+
+                            case 'software':
+                                $this->type = 'نرم افزاری';
+                                break;
+
+                            case 'environmental':
+                                $this->type = 'محیطی';
+                                break;
+
+                            case 'human':
+                                $this->type = 'انسانی';
+                                break;
+
+                            case 'other':
+                                $this->type = 'عمومی';
+                                break;
+
+                            default:
+                                $this->type = 'نامشخص';
+                                break;
+                        }
+
+                    }
+                    else
+                    {
+                        $this->alert('warning','کد خطا وجود ندارد');
+                    }
+                }
+            );
+
+            if (! $executed) {
+                $this->alert('warning', 'لطفا 1 دقیقه دیگر مجدد سعی کنید', [
+                    'text' => 'در هر دقیقه 5 بررسی می توانید انجام دهید',
+                    'timer' => 3500 // Display for 10 seconds
+                ]);
             }
+
+
+
+
         }
-        catch (\Throwable $e)
+        catch (Throwable $e)
         {
-            $this->alert('error',$e->getMessage());
+            $this->alert('warning',$e->getMessage());
         }
+
     }
+
+
+
+
+
 
 
     public function render()
