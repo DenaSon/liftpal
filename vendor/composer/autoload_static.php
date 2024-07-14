@@ -382,8 +382,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\ImageOptimizer\\' => 
         array (
@@ -391,8 +391,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -819,12 +819,12 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Livewire\\Front\\Home' => __DIR__ . '/../..' . '/app/Livewire/Front/Home.php',
         'App\\Livewire\\Front\\Home\\AdviceForm' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/AdviceForm.php',
         'App\\Livewire\\Front\\Home\\Book' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Book.php',
-        'App\\Livewire\\Front\\Home\\Calculator' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Calculator.php',
         'App\\Livewire\\Front\\Home\\CategoriesMenu' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/CategoriesMenu.php',
         'App\\Livewire\\Front\\Home\\Search' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Search.php',
         'App\\Livewire\\Front\\Home\\Subscriber' => __DIR__ . '/../..' . '/app/Livewire/Front/Home/Subscriber.php',
         'App\\Livewire\\Front\\Panel\\Clientarea' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Clientarea.php',
         'App\\Livewire\\Front\\Panel\\Components\\Address' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Address.php',
+        'App\\Livewire\\Front\\Panel\\Components\\Building' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Building.php',
         'App\\Livewire\\Front\\Panel\\Components\\Favorite' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Favorite.php',
         'App\\Livewire\\Front\\Panel\\Components\\Invoice' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Invoice.php',
         'App\\Livewire\\Front\\Panel\\Components\\Main' => __DIR__ . '/../..' . '/app/Livewire/Front/Panel/Components/Main.php',
@@ -835,6 +835,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Livewire\\Front\\Shop\\Single\\CartModal' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/Single/CartModal.php',
         'App\\Livewire\\Front\\Shop\\Single\\SingleProduct' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/Single/SingleProduct.php',
         'App\\Livewire\\Front\\Static\\ContactUs' => __DIR__ . '/../..' . '/app/Livewire/Front/Static/ContactUs.php',
+        'App\\Livewire\\Front\\Static\\EED' => __DIR__ . '/../..' . '/app/Livewire/Front/Static/EED.php',
         'App\\Mail\\AdminMessage' => __DIR__ . '/../..' . '/app/Mail/AdminMessage.php',
         'App\\Mail\\ContactMail' => __DIR__ . '/../..' . '/app/Mail/ContactMail.php',
         'App\\Mail\\LogMail' => __DIR__ . '/../..' . '/app/Mail/LogMail.php',
@@ -848,6 +849,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\Coupon' => __DIR__ . '/../..' . '/app/Models/Coupon.php',
+        'App\\Models\\Error' => __DIR__ . '/../..' . '/app/Models/Error.php',
         'App\\Models\\Favorite' => __DIR__ . '/../..' . '/app/Models/Favorite.php',
         'App\\Models\\Financial' => __DIR__ . '/../..' . '/app/Models/Financial.php',
         'App\\Models\\Help' => __DIR__ . '/../..' . '/app/Models/Help.php',
@@ -888,7 +890,6 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Models\\Type' => __DIR__ . '/../..' . '/app/Models/Type.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Wallet' => __DIR__ . '/../..' . '/app/Models/Wallet.php',
-        'App\\Models\\errors' => __DIR__ . '/../..' . '/app/Models/errors.php',
         'App\\Notifications\\WelcomeEmail' => __DIR__ . '/../..' . '/app/Notifications/WelcomeEmail.php',
         'App\\Notifications\\sendPasswordNotify' => __DIR__ . '/../..' . '/app/Notifications/sendPasswordNotify.php',
         'App\\Notifications\\userRegisterNotify' => __DIR__ . '/../..' . '/app/Notifications/userRegisterNotify.php',
@@ -3886,6 +3887,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'Laravel\\Fortify\\Http\\Responses\\PasswordUpdateResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/PasswordUpdateResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\ProfileInformationUpdatedResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/ProfileInformationUpdatedResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\RecoveryCodesGeneratedResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/RecoveryCodesGeneratedResponse.php',
+        'Laravel\\Fortify\\Http\\Responses\\RedirectAsIntended' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/RedirectAsIntended.php',
         'Laravel\\Fortify\\Http\\Responses\\RegisterResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/RegisterResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\SimpleViewResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/SimpleViewResponse.php',
         'Laravel\\Fortify\\Http\\Responses\\SuccessfulPasswordResetLinkRequestResponse' => __DIR__ . '/..' . '/laravel/fortify/src/Http/Responses/SuccessfulPasswordResetLinkRequestResponse.php',
