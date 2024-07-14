@@ -1,4 +1,5 @@
-<div class="card mb-4 shadow-lg">
+
+<div class="card  mb-4 shadow-lg mt-5">
     <div class="card-header">
         خطا یاب
     </div>
@@ -13,6 +14,7 @@
             </select>
         </div>
 
+    </div>
 
         <div class="text-center">
         <div wire:loading class="spinner-grow text-primary" role="status">
@@ -22,7 +24,7 @@
 
         @if($this->result)
 
-            <div class="alert alert-info mt-3" role="alert">
+            <div class="alert alert-info mt-3 text-center overflow-auto mx-2 scrollable-alert-eed"  role="alert">
                 <h4 class="alert-heading fs-sm">
                     خطا در دسته :   {{ $type }}
                 </h4>
@@ -36,4 +38,4 @@
         @endif
 
     </div>
-</div>
+
