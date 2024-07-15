@@ -65,3 +65,33 @@
         display: none;
     }
 }
+
+
+.small-font-eed {
+    font-size:0.9rem ; /* تغییر اندازه فونت به 75% اندازه پایه */
+}
+
+.scrollable-alert-eed {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #0c6af3 !important; /* رنگ مرز مشابه رنگ alert-info */
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* سایه */
+    padding: 1rem;
+}
+/* زیباسازی نوار اسکرول */
+.scrollable-alert-eed::-webkit-scrollbar {
+    width: 8px;
+}
+.scrollable-alert-eed::-webkit-scrollbar-thumb {
+    background-color: #0d6efd;
+    border-radius: 4px;
+}
+.scrollable-alert-eed::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+.custom-offset-eed {
+    margin-right: calc(8.33333% / 2); /* نصف ستون برای سیستم 12 ستونی */
+}

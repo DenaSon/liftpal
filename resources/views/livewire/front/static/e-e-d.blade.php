@@ -24,7 +24,7 @@
 <div class="flex-column align-items-center justify-content-center col-lg-5 col-md-6">
 <div class="ms-md-5 mb-md-5 mb-0 justify-content-center text-center text-justify" >
     <h1 class="mb-3 text-md-start"> سیستم EED</h1>
-    <p class="mb-0 fs-base text-muted text-justify" style="line-height: 32px">
+    <p class="mb-0  text-muted text-justify small-font-eed border border-radius-20 p-3 shadow-sm" style="line-height: 32px">
         سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
         تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
         کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
@@ -38,7 +38,7 @@
      src="{{ asset('assets/img/liftpal/eed-pic.jpg') }}" alt="Illustration">
 </div>
 </div>
-<div class="col-md-6 offset-lg-1 order-1">
+<div class="col-md-6 flex-column align-items-center justify-content-center custom-offset-eed  order-1">
 
 @include('livewire.front.static.eed-inc.eed-form')
 
@@ -47,8 +47,8 @@
 </section>
 
 
-<section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-<div class="row mx-1">
+<section class="container mb-5 pb-2 pb-md-4 pb-lg-5 mt-3">
+<div class="row mt-3 mx-1">
 <!-- Item-->
 <div class="card m-auto shadow-sm col-md-3 fixed-height-eedcard">
     <div class="card-body">
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div>
-            <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً محاسبات فنی مربوط به آسانسورها را انجام دهند.  </p>
+            <p class="text-dark mt-2 fs-6 text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً محاسبات فنی مربوط به آسانسورها را انجام دهند.  </p>
         </div>
 
         <div class="d-flex justify-content-center ">
