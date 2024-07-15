@@ -74,17 +74,18 @@
 .scrollable-alert-eed {
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid #0c6af3 !important; /* رنگ مرز مشابه رنگ alert-info */
+    border: 1px solid #075dd8 !important;
     border-radius: 0.25rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* سایه */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
+    line-height: 2.5; /
 }
 /* زیباسازی نوار اسکرول */
 .scrollable-alert-eed::-webkit-scrollbar {
     width: 8px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-thumb {
-    background-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.65);
     border-radius: 4px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-track {
