@@ -82,7 +82,12 @@ class EED extends Component
             if (! $executed) {
                 $this->alert('warning', 'لطفا 1 دقیقه دیگر مجدد سعی کنید', [
                     'text' => 'در هر دقیقه 5 بررسی می توانید انجام دهید',
-                    'timer' => 3500 // Display for 10 seconds
+                    'showConfirmButton' => true,
+                    'ConfirmButtonText' => 'تایید',
+                    'timer' => 50000,
+                    'timerProgressBar' =>true,
+
+
                 ]);
             }
 

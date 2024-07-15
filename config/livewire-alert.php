@@ -11,7 +11,8 @@ return [
         'toast' => true,
         'text' => null,
         'showCancelButton' => false,
-        'showConfirmButton' => false
+        'showConfirmButton' => false,
+        'confirmButtonText' => 'تایید',
     ],
     'confirm' => [
         'icon' => 'question',
