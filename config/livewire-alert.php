@@ -13,6 +13,7 @@ return [
         'showCancelButton' => false,
         'showConfirmButton' => false,
         'confirmButtonText' => 'تایید',
+        'cancelButtonText' => 'لغو',
     ],
     'confirm' => [
         'icon' => 'question',

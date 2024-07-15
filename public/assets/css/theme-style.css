@@ -72,27 +72,32 @@
 }
 
 .scrollable-alert-eed {
-    max-height: 200px;
+    max-height: 230px;
     overflow-y: auto;
-    border: 1px solid #075dd8 !important;
-    border-radius: 0.25rem;
+    border: 1px solid rgba(7, 93, 216, 0.62) !important;
+    border-radius: 0.10rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    line-height: 2.5; /
+    line-height: 2;
+/
 }
 /* زیباسازی نوار اسکرول */
 .scrollable-alert-eed::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-thumb {
-    background-color: rgba(13, 110, 253, 0.65);
+    background-color: rgba(13, 110, 253, 0.47);
     border-radius: 4px;
+    height: 10px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-track {
     background-color: #f1f1f1;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
+.scrollable-alert-eed::-webkit-scrollbar {
+    height: 5px !important; /* This will make the horizontal scrollbar thinner */
+}
 .custom-offset-eed {
     margin-right: calc(8.33333% / 2); /* نصف ستون برای سیستم 12 ستونی */
 }
