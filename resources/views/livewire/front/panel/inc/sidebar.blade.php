@@ -59,10 +59,30 @@
                    href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
                         class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
-                <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
-                   href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
-                        class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
 
+
+
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
+                                   href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
+                                            class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+
+                                <a wire:navigate class="card-nav-link d-block" href="#"><i class="fi-bell opacity-60 me-2"></i>مدل آسانسور</a>
+                                <a wire:navigate class="card-nav-link d-block" href="#"><i class="fi-user-plus opacity-60 me-2"></i>ثبت عضو</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
                    href="{{ route('panel',['page'=>'notification']) }}"><i

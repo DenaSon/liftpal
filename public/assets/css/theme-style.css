@@ -101,3 +101,10 @@
 .custom-offset-eed {
     margin-right: calc(8.33333% / 2); /* نصف ستون برای سیستم 12 ستونی */
 }
+
+.custom-select-height-building {
+    height: 50px !important; /* ارتفاع مورد نظر شما */
+    padding-top: 0px !important;
+    padding-buttom: 0px !important;
+}
+

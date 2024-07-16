@@ -2,16 +2,12 @@
 
     @if($products->isNotEmpty())
 
-        {{--            <h1 class="h2 mb-0"></h1><a wire:click.debounce="confirmDelete" href="javascript:void(0)" class="fw-bold text-decoration-none mt-2">--}}
-        {{--                <i class="fi-x fs-xs mt-n1 me-2"></i> حذف همه</a>--}}
-
-
         <div class="d-flex align-items-center justify-content-end mb-4 pb-2">
 
 
-            <button wire:click.debounce="confirmDelete" type="button" class="btn btn-outline-primary  mt-3">
+            <button  wire:click.debounce="confirmDelete" type="button" class="btn btn-outline-primary  mt-3">
 
-                <i class="fi-trash "></i> حذف همه
+                <i class="fi-trash me-2 "></i>حذف همه
             </button>
         </div>
     @else
