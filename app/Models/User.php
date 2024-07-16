@@ -3,8 +3,10 @@
 namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -228,6 +230,47 @@ use Laravel\Sanctum\HasApiTokens;
      {
          return $this->belongsToMany(Skill::class);
      }
+     public function buildings() : HasMany
+     {
+         return $this->hasMany(Building::class, 'technician_id');
+     }
+     public function elevators(): HasManyThrough
+     {
+         return $this->hasManyThrough(Elevator::class, Building::class);
+     }
 
+     public function isAdmin(): bool
+     {
+         return $this->role === 'admin';
+     }
 
+     public function isAuthor(): bool
+     {
+         return $this->role === 'author';
+     }
+
+     public function isCustomer(): bool
+     {
+         return $this->role === 'customer';
+     }
+
+     public function isTechnician(): bool
+     {
+         return $this->role === 'technician';
+     }
+
+     public function isCompany(): bool
+     {
+         return $this->role === 'company';
+     }
+
+     public function isManager(): bool
+     {
+         return $this->role === 'manager';
+     }
+
+     public function isMaster(): bool
+     {
+         return $this->role === 'master';
+     }
 }
