@@ -10,19 +10,17 @@ class Building extends Model
 {
     use HasFactory;
 
+
     public function technician(): BelongsTo
     {
         return $this->belongsTo(User::class, 'technician_id');
     }
 
 
-
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
 
 
 }

@@ -9,9 +9,9 @@
         <div class="d-flex align-items-center justify-content-end mb-4 pb-2">
 
 
-            <button type="button" class="btn btn-outline-primary  mt-3">
-                <a wire:click.debounce="confirmDelete" href="javascript:void(0)"></a>
-                <i class="fi-trash ">&nbspحذف همه</i>
+            <button wire:click.debounce="confirmDelete" type="button" class="btn btn-outline-primary  mt-3">
+
+                <i class="fi-trash "></i> حذف همه
             </button>
         </div>
     @else

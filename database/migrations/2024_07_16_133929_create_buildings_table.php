@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete(); // Foreign key to the users table
+            $table->foreignId('user_id')->constrained('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->foreignId('technician_id')->constrained('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-
-            $table->string('name',120)->nullable();
+            $table->string('manager_name');
+            $table->string('manager_contact');
+            $table->string('emergency_contact')->nullable();
+            $table->string('builder_name',120)->nullable();
             $table->integer('floors');
             $table->integer('units');
             $table->text('address')->nullable();

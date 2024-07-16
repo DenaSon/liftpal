@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            
             $table->string('model');
             $table->integer('capacity');
             $table->enum('type', ['passenger', 'freight', 'service', 'panoramic','other']);
