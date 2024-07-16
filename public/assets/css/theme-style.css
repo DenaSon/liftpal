@@ -108,3 +108,15 @@
     padding-buttom: 0px !important;
 }
 
+/*حذف افزونه های این\وت های شماره ای */
+/* برای مرورگرهای مدرن */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+/* برای فایرفاکس */
+input[type="number"] {
+    -moz-appearance: textfield !important;
+}

@@ -4,15 +4,15 @@
 
 
         <div class="card">
-            <div class="card-header bg-success">
+            <div class="card-header bg-secondary ">
                 ثبت ساختمان
             </div>
             <div class="card-body">
 
 
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="آدرس ساختمان:" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">آدرس ساختمان:</label>
+                    <textarea class="form-control" placeholder="آدرس ساختمان" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">آدرس ساختمان</label>
                 </div>
 
                 <div>
@@ -30,23 +30,23 @@
                         </div>
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="تعداد طبقه">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="تعداد طبقه">
                             <label for="floatingInput">تعداد طبقات</label>
                         </div>
 
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="تعداد واحد">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="تعداد واحد">
                             <label for="floatingInput">تعداد واحد</label>
                         </div>
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="شماره تماس مدیر">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="شماره تماس مدیر">
                             <label for="floatingInput">شماره تماس مدیر</label>
                         </div>
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="شماره تماس اضطراری">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="شماره تماس اضطراری">
                             <label for="floatingInput">شماره تماس اضطراری</label>
                         </div>
 
@@ -54,7 +54,7 @@
 
                 </div>
 
-                <div class="container mt-4 d-flex justify-content-end">
+                <div class="container mt-4 d-flex justify-content-center">
 
                     <button type="button" class="btn btn-success  "><i class="fi-building me-3"></i>ثبت ساختمان جدید</button>
                 </div>
@@ -103,7 +103,7 @@
                                     </div>
 
                                     <div class="form-floating col-12 mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder="ظرفیت">
+                                        <input type="number" class="form-control" id="floatingInput" placeholder="ظرفیت">
                                         <label for="floatingInput">ظرفیت</label>
                                     </div>
 
