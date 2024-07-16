@@ -33,28 +33,36 @@
                     </div>
                     <a wire:navigate class="dropdown-item" href="{{ route('panel') }}">
                         <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
-                    <a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>گذرواژه
-                        و امنیتی</a>
-                    <a class="dropdown-item" href="real-estate-account-properties.html">
-                        <i class="fi-home opacity-60 me-2"></i>املاک من</a>
-                    <a class="dropdown-item" href="real-estate-account-wishlist.html"><i
-                            class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
-                    <a class="dropdown-item" href="real-estate-account-reviews.html">
-                        <i class="fi-star opacity-60 me-2">
 
-                        </i>نظرات</a><a class="dropdown-item"
-                                        href="real-estate-account-notifications.html"><i
-                            class="fi-bell opacity-60 me-2">
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'profile']) }}"><i
+                                class="fi-lock opacity-60 me-2"></i>ویرایش پروفایل</a>
 
-                        </i>اطلاعیه ها</a>
+
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'favorite']) }}"><i
+                                class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
+
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'address']) }}"><i
+                                class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
+
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'building']) }}"><i
+                                class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
+
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'notification']) }}"><i
+                                class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
+
+
+
+
                     <div class="dropdown-divider"></div>
 
 
-                    <a class="dropdown-item active" href="#">پشتیبانی</a>
+                    <a class="dropdown-item active" href="{{ route('panel',['page'=>'support']) }}"><i
+                                class="fi-help opacity-60 me-2"></i>پشتیبانی</a>
 
 
                     @auth
                         <a class="dropdown-item" href="javascript:void(0)">
+                            <i class="fi-logout opacity-60 me-2"></i>
                             @livewire('auth.logout')
                         </a>
                     @endauth

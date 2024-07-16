@@ -1,9 +1,18 @@
 <div>
 
     @if($products->isNotEmpty())
-        <div class="d-flex align-items-center justify-content-between mb-4 pb-2">
-            <h1 class="h2 mb-0"></h1><a wire:click.debounce="confirmDelete" href="javascript:void(0)" class="fw-bold text-decoration-none mt-2">
-                <i class="fi-x fs-xs mt-n1 me-2"></i> حذف همه</a>
+
+        {{--            <h1 class="h2 mb-0"></h1><a wire:click.debounce="confirmDelete" href="javascript:void(0)" class="fw-bold text-decoration-none mt-2">--}}
+        {{--                <i class="fi-x fs-xs mt-n1 me-2"></i> حذف همه</a>--}}
+
+
+        <div class="d-flex align-items-center justify-content-end mb-4 pb-2">
+
+
+            <button type="button" class="btn btn-outline-primary  mt-3">
+                <a wire:click.debounce="confirmDelete" href="javascript:void(0)"></a>
+                <i class="fi-trash ">&nbspحذف همه</i>
+            </button>
         </div>
     @else
 
