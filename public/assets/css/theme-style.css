@@ -1,3 +1,9 @@
+
+.swal2-timer-progress-bar {
+    background: rgba(239, 126, 46, 0.52) !important; /* Replace #ff0000 with your desired color */
+}
+
+
 .no-arrow-homedrop {
     appearance: none !important;
     -webkit-appearance: none !important;
@@ -60,31 +66,38 @@
     }
 }
 
+
 .small-font-eed {
     font-size:0.9rem ; /* تغییر اندازه فونت به 75% اندازه پایه */
 }
 
 .scrollable-alert-eed {
-    max-height: 200px;
+    max-height: 230px;
     overflow-y: auto;
-    border: 1px solid #0c6af3 !important; /* رنگ مرز مشابه رنگ alert-info */
-    border-radius: 0.25rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* سایه */
+    border: 1px solid rgba(7, 93, 216, 0.62) !important;
+    border-radius: 0.10rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
+    line-height: 2;
+/
 }
 /* زیباسازی نوار اسکرول */
 .scrollable-alert-eed::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-thumb {
-    background-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.47);
     border-radius: 4px;
+    height: 10px;
 }
 .scrollable-alert-eed::-webkit-scrollbar-track {
     background-color: #f1f1f1;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
+.scrollable-alert-eed::-webkit-scrollbar {
+    height: 5px !important; /* This will make the horizontal scrollbar thinner */
+}
 .custom-offset-eed {
     margin-right: calc(8.33333% / 2); /* نصف ستون برای سیستم 12 ستونی */
 }

@@ -5,7 +5,6 @@ namespace App\Livewire\Front\Static;
 use App\Models\Error;
 use Illuminate\Support\Facades\RateLimiter;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Throwable;
 
@@ -39,6 +38,7 @@ class EED extends Component
                     $existCode = Error::whereId($value)->first();
                     if($existCode)
                     {
+                        $this->errorCode = $existCode->code;
                         $this->result = $existCode;
                         switch ($this->result->type)
                         {
@@ -82,11 +82,14 @@ class EED extends Component
             if (! $executed) {
                 $this->alert('warning', 'لطفا 1 دقیقه دیگر مجدد سعی کنید', [
                     'text' => 'در هر دقیقه 5 بررسی می توانید انجام دهید',
-                    'timer' => 3500 // Display for 10 seconds
+                    'showConfirmButton' => true,
+                    'ConfirmButtonText' => 'تایید',
+                    'timer' => 50000,
+                    'timerProgressBar' =>true,
+
+
                 ]);
             }
-
-
 
 
         }
@@ -96,11 +99,6 @@ class EED extends Component
         }
 
     }
-
-
-
-
-
 
 
     public function render()
