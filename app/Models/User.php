@@ -230,10 +230,7 @@ use Laravel\Sanctum\HasApiTokens;
      {
          return $this->belongsToMany(Skill::class);
      }
-     public function buildings() : HasMany
-     {
-         return $this->hasMany(Building::class, 'technician_id');
-     }
+
      public function elevators(): HasManyThrough
      {
          return $this->hasManyThrough(Elevator::class, Building::class);
