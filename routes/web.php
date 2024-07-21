@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Blog\PostController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Elevator\eedController;
 use App\Http\Controllers\Admin\Global\ChartController;
 use App\Http\Controllers\Admin\Global\LogController;
 use App\Http\Controllers\Admin\Global\MediaController;
@@ -60,6 +61,9 @@ Route::middleware('throttle:25,1')->post('/logout', [Logout::class, 'logout'])->
 Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(function ()
 {
 
+
+
+
     Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::get('getChartData/new', [ChartController::class,'getChartData'])->name('get-chart-data');
     Route::get('getSalesDiff',[DashboardController::class,'getSalesDifference'])->name('getSalesDiff');
@@ -83,6 +87,8 @@ Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(func
     Route::get('multimedia/delete/{id}', [MediaController::class,'destroy'])->name('multimedia.destroy');
     Route::post('multimedia/store', [MediaController::class,'store'])->name('multimedia.store');
 
+    //Elevator features Routes
+    Route::resource('eed',eedController::class);
 
     //Store Routes Group
     Route::prefix('store')->group(function ()
