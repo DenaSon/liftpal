@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
-use App\Models\User;
 use App\Traits\globalFunctionality;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Locked;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Throwable;
 
+#[Lazy]
 class Address extends Component
 {
 
