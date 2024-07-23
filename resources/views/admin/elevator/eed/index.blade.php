@@ -10,7 +10,18 @@
 
 @endsection
 @section('content')
-
+    @if ($errors->any())
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Error',
+                    text: `{!! implode(" - ", $errors->all()) !!}`,
+                    icon: 'warning', // You can use 'success', 'error', 'warning', etc.
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+    @endif
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
@@ -38,7 +49,7 @@
 
                     </thead>
                     <tbody>
-                    @foreach($errors as $index => $error)
+                    @foreach($eed_errors as $index => $error)
                      <tr>
                          <td>  {{ $index }} </td>
                          <td>  {{ $error->code }} </td>
@@ -46,9 +57,14 @@
                          <td title="{{ $error->description }}">  {{ \Illuminate\Support\Str::limit($error->description,25,'...') }} </td>
                          <td>  {{ jdate($error->created_at)->toFormattedDateString()  }} </td>
                          <td>
-                             <button class="btn btn-outline-danger btn-xs">
-                                 <i class="mdi mdi-close"></i>
-                             </button>
+                             <form action="{{ route('eed.destroy', ['eed' => $error->id]) }}" method="POST" style="display: inline;">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn btn-outline-danger btn-xs">
+                                     <i class="mdi mdi-close"></i>
+                                 </button>
+                             </form>
+
                          </td>
                      </tr>
                     @endforeach
@@ -56,12 +72,16 @@
 
                 </table>
 
-            </div> <!-- end .responsive-table-plugin-->
+            </div>
+
+            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#custom-modal">افزودن خطای جدید</button>
+
+
         </div>
 
 
     </div>
-
+@include('admin.elevator.eed.inc._create')
 @endsection
 
 @section('CustomJs')
