@@ -115,7 +115,9 @@
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
                                         </select>
+
                                     </div>
+
 
                                     <div class="form-floating col-12 mb-3">
                                         <input type="text" class="form-control" id="floatingInput" placeholder="کارخانه">
