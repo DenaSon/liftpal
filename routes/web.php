@@ -38,6 +38,7 @@ use App\Livewire\Front\Shop\ProductIndex;
 use App\Livewire\Front\Shop\Single\SingleProduct;
 use App\Livewire\Front\Static\ContactUs;
 use App\Livewire\Front\Static\EED;
+use App\Livewire\Front\User\Expert;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,6 +90,8 @@ Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(func
 
     //Elevator features Routes
     Route::resource('eed',eedController::class);
+
+    Route::resource('expert/profile',expert::class);
 
     //Store Routes Group
     Route::prefix('store')->group(function ()
