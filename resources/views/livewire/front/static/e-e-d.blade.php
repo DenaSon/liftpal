@@ -31,12 +31,12 @@
                         فراهم می‌سازد.
                     </p>
 
-                    <img class="d-none d-md-flex align-items-center justify-content-center pt-3 me-0 " style="width:500px; height: 250px;"
-                         src="{{ asset('assets/img/liftpal/error-icon-2048x1280-jqrs5jz4.png') }}" alt="Illustration">
-                </div>
-{{--                <div class="d-md-flex align-items-center justify-content-center mt-0 pt-0">--}}
 
-{{--                </div>--}}
+                </div>
+                <div class="d-md-flex align-items-center justify-content-center mt-0 pt-0">
+                    <img class="d-none d-md-flex align-items-center justify-content-center pt-0 ms-5 " style="width:250px; height: 250px;"
+                         src="{{ asset('assets/img/liftpal/—Pngtree—3d illustration of automated testing_14603361.png') }}" alt="Illustration">
+                </div>
             </div>
             <div class="col-md-6 flex-column mx-auto align-items-center justify-content-center custom-offset-eed order-1">
 
