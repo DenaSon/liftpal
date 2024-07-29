@@ -91,7 +91,7 @@ Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(func
     //Elevator features Routes
     Route::resource('eed',eedController::class);
 
-    Route::resource('expert/profile',expert::class);
+
 
     //Store Routes Group
     Route::prefix('store')->group(function ()
@@ -171,6 +171,10 @@ Route::prefix('')->group(function ()
         Route::get('panel', Clientarea::class)->name('panel');
 
     });
+
+
+    //Users routes // Expert
+    Route::get('expert/profile/{id}/{name}', expert::class)->name('singleExpert');
 
 // public front routes for
 

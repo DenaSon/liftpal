@@ -1,137 +1,88 @@
 <div>
 
-    @push('styles')
-        <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
-    @endpush
 
     @include('livewire.front.home-inc.header')
+    @include('livewire.front.user.expert-inc.navigation')
 
 
-    <div class="container mt-5 mb-md-4 pt-5">
-        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a wire:navigate href="{{ route('home') }}">خانه</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> سیستم خطایاب آسانسور</li>
-            </ol>
-        </nav>
-    </div>
-
-
-    <!-- ============================ Contact Detail ================================== -->
-
-    <section class="container  pb-md-4 pb-lg-5">
-        <div class="row container align-items-md-start align-items-center justify-content-center mx-auto ">
-            <div class="flex-column align-items-center justify-content-center col-lg-5 col-md-6 mx-auto">
-                <div class="ms-md-5 mb-md-5 mb-0  justify-content-center text-center text-justify">
-                    <h1 class="mb-3 text-md-start"> سیستم EED</h1>
-                    <p class="mb-0  text-muted text-justify small-font-eed border border-radius-20 p-3 shadow-sm" style="line-height: 32px">
-                        سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
-                        تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
-                        کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
-                        فراهم می‌سازد.
-
-
-                    </p>
+    <section class="container mb-5 pb-1">
+        <div class="row">
+            <div class="col-md-7 mb-md-0 mb-4"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
+                <h2 class="h4 mb-4 pb-4 border-bottom">2,150,000 تومان<span class="d-inline-block ms-1 fs-base fw-normal text-body">/ماهیانه</span></h2>
+                <!-- Overview-->
+                <div class="mb-4 pb-md-3">
+                    <h3 class="h5">توضیحات</h3>
+                    <p class="mb-1 line-h18">طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این نوشتار
+                        به‌عنوان عنصری از ترکیب‌بندی برای پُر کردن صفحه و ارائهٔ اولیهٔ شکل ظاهری و کلیِ طرح سفارش‌گرفته‌شده‌استفاده می‌کند، تا ازنظر گرافیکی نشانگر چگونگی نوع
+                        و اندازهٔ قلم و ظاهرِ متن باشد. </p>
+                    <div class="collapse" id="seeMoreOverview">
+                        <p class="mb-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون
+                            و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
+                    </div>
+                    <a class="collapse-label collapsed" href="#seeMoreOverview" data-bs-toggle="collapse" data-bs-label-collapsed="مشاهده بیشتر" data-bs-label-expanded="بستن"
+                       role="button" aria-expanded="false" aria-controls="seeMoreOverview"></a>
                 </div>
-                <div class="d-md-flex align-items-center justify-content-center">
-                    <img class="d-none d-md-flex align-items-center justify-content-center  pt-0 me-0 ms-5" style="width: 250px; height: 250px;"
-                         src="{{ asset('assets/img/liftpal/eed-pic.jpg') }}" alt="Illustration">
+
+                <!-- Amenities-->
+                <div class="mb-sm-3">
+                    <h3 class="h5">مهارت ها</h3>
+                    <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
+                        <li class="col"><i class="fi-wifi mt-n1 me-2 fs-lg align-middle"></i>وای فای</li>
+                        <li class="col"><i class="fi-thermometer mt-n1 me-2 fs-lg align-middle"></i>سیستم گرمایشی</li>
+                        <li class="col"><i class="fi-dish mt-n1 me-2 fs-lg align-middle"></i>استخر</li>
+                        <li class="col"><i class="fi-parking mt-n1 me-2 fs-lg align-middle"></i>پارکینگ</li>
+                        <li class="col"><i class="fi-snowflake mt-n1 me-2 fs-lg align-middle"></i>تهویه هوا</li>
+                        <li class="col"><i class="fi-iron mt-n1 me-2 fs-lg align-middle"></i>گاز رومیزی</li>
+                        <li class="col"><i class="fi-tv mt-n1 me-2 fs-lg align-middle"></i>تلویزیون</li>
+                        <li class="col"><i class="fi-laundry mt-n1 me-2 fs-lg align-middle"></i>ماشین لباسشویی</li>
+                        <li class="col"><i class="fi-cctv mt-n1 me-2 fs-lg align-middle"></i>دوربین مداربسته</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="col-md-6 flex-column mx-auto align-items-center justify-content-center custom-offset-eed  order-1">
 
-                @include('livewire.front.static.eed-inc.eed-form')
+                <hr class="mb-2"/>
 
-            </div>
-        </div>
-    </section>
+                @include('livewire.front.user.expert-inc.comment-form')
 
 
-    <section class="container mb-5 pb-2 pb-md-4 pb-lg-5 mt-3">
-        <div class="row mt-3 mx-1">
-            <!-- Item-->
-            <div class="card m-auto shadow-sm col-md-3 fixed-height-eedcard">
-                <div class="card-body">
-
-                    <div class="icon-box text-center">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
-                                <i class="fi-laundry"></i>
-                            </div>
-                            <h6 class="ms-3 icon-box-title fs-sm mb-0">محاسبات فنی مهندسی </h6>
+                <div class="mb-4 pb-4 border-bottom">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="d-flex align-items-center pe-2">
+                            <div class="ps-2">
+                                <h6 class="fs-base mb-0">فلوید مایلز</h6><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i
+                                        class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
+                                        class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+                    </div>
                         </div>
-                    </div>
-                    <div>
-                        <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً
-                            محاسبات فنی مربوط به آسانسورها را انجام دهند. </p>
-                    </div>
-
-                    <div class="d-flex justify-content-center ">
-
-                        <button type="button" class="btn btn-outline-primary">شروع کن</button>
-
-                    </div>
-
-
-                </div>
+                        <span class="text-muted fs-sm">14 شهریور , 1399</span>
             </div>
-            <!-- Item-->
-            <div class="card my-2 shadow-sm  col-md-3 fixed-height-eedcard">
-                <div class="card-body">
-                    <div class="icon-box text-center">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
-                                <i class="fi-user-plus"></i>
-                            </div>
-                            <h6 class="ms-3 icon-box-title fs-sm mb-0">یافتن متخصص</h6>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-dark mt-4 mb-5  text-justify">
-                            لیفت‌پال به شما کمک می کند تا بهترین متخصصان آسانسور، مجریان و نصابان را در منطقه خود پیدا کنید.
-
-                        </p>
-
-                        <div class="d-flex justify-content-center ">
-
-                            <button type="button" class="btn btn-outline-primary align-self-start">شروع کن</button>
-
-                        </div>
-
+                    <p>رکتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+                        الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
+                        پایان رسد</p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn-like" type="button"><i class="fi-like"></i><span>(2)</span></button>
+                        <div class="border-end me-1">&nbsp;</div>
+                        <button class="btn-dislike" type="button"><i class="fi-dislike"></i><span>(1)</span></button>
                     </div>
                 </div>
+
+                <!-- Pagination-->
+                <nav class="mt-2 mb-4" aria-label="Reviews pagination">
+                    <ul class="pagination">
+                        <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+                        <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">صفحه جاری</span></span></li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item d-none d-sm-block">...</li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">8</a></li>
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
             </div>
-            <!-- Item-->
-            <div class="card m-auto shadow-sm col-md-3 fixed-height-eedcard">
-                <div class="card-body">
-
-                    <div class="icon-box text-center">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-box-media bg-faded-primary text-primary rounded-circle  ">
-                                <i class="fi-apartment"></i>
-                            </div>
-                            <h6 class="ms-3 icon-box-title fs-sm mb-0">ثبت ساختمان</h6>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-dark mt-4 mb-5  text-justify mt-0">
-                            لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
-                        </p>
-                    </div>
-
-                    <div class="d-flex justify-content-center ">
-                        <button type="button" class="btn btn-outline-primary ">شروع کن</button>
-
-                    </div>
-
-
-                </div>
-            </div>
+            <!-- Sidebar-->
+            @include('livewire.front.user.expert-inc.sidebar')
         </div>
 
     </section>
-
-
 
 
     @include('livewire.front.home-inc.footer')

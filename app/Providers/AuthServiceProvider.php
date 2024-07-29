@@ -5,6 +5,7 @@ use App\Models\Address;
 use App\Policies\AddressPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -58,6 +59,18 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        Gate::define('technician', function ($user) {
+
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('technician'))) {
+                return true;
+
+            }
+            return false;
+        });
+
+
+
         //Check truest user for cart
 
         Gate::define('cart-modify', function ($user, $cart) {

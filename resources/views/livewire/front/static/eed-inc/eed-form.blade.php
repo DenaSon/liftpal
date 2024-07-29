@@ -86,6 +86,7 @@
         // Find the alert element
         var alertElement = document.getElementById('eed-alert');
         alertElement.style.display = "none";
+        alert("dena");
 
     });
 </script>
