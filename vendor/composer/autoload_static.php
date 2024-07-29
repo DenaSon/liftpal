@@ -382,8 +382,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
         ),
         'Spatie\\ImageOptimizer\\' => 
         array (
@@ -391,8 +391,8 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            1 => __DIR__ . '/..' . '/spatie/ignition/src',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -837,6 +837,7 @@ class ComposerStaticInit3a3d060e7b959c6900f3c7fcbcf3b98c
         'App\\Livewire\\Front\\Shop\\Single\\SingleProduct' => __DIR__ . '/../..' . '/app/Livewire/Front/Shop/Single/SingleProduct.php',
         'App\\Livewire\\Front\\Static\\ContactUs' => __DIR__ . '/../..' . '/app/Livewire/Front/Static/ContactUs.php',
         'App\\Livewire\\Front\\Static\\EED' => __DIR__ . '/../..' . '/app/Livewire/Front/Static/EED.php',
+        'App\\Livewire\\Front\\User\\Expert' => __DIR__ . '/../..' . '/app/Livewire/Front/User/Expert.php',
         'App\\Mail\\AdminMessage' => __DIR__ . '/../..' . '/app/Mail/AdminMessage.php',
         'App\\Mail\\ContactMail' => __DIR__ . '/../..' . '/app/Mail/ContactMail.php',
         'App\\Mail\\LogMail' => __DIR__ . '/../..' . '/app/Mail/LogMail.php',

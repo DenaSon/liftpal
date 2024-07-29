@@ -51,21 +51,44 @@
             </div>
 
         @endif
+        <div class="col-12 d-flex align-items-center justify-content-center mt-0 pt-0">
+            <img class="d-md-block pt-0 pb-4"
+                 src="{{ asset('assets/img/inspect-eed.png') }}" alt="SEARCH" style="opacity: 0.2; position:absolute" id="inspect-image">
+
+
+        </div>
 
     </div>
 
-{{--    <div class="col-12  align-items-center justify-content-center mt-0 pt-0">--}}
-{{--        <img class="d-none d-md-flex align-items-center justify-content-center pt-0 "--}}
-{{--             src="{{ asset('assets/img/liftpal/Alert-Graphics-for-MW_ALERT-750x450.jpg') }}" alt="Illustration">--}}
-{{--    </div>--}}
 
     <!-- Accent alert -->
-    <div class="alert alert-primary" role="alert">
-        <h4 class="pt-2 alert-heading">خوش آمدید</h4>
-        <p>سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به تفسیر دقیق و روش حل آن دست یابید</p>
+    <div class="alert alert-primary opacity-75" role="alert" id="eed-alert">
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
         <hr>
-        <p class="pt-3 mb-2">لطفا کد خطای آسانسور خود را در فیلد بالا وارد نمایید</p>
+        <p class="pt-1 text-justify">
+            با سیستم خطایاب EED، تکنسین‌ها می‌توانند زمان خرابی را کاهش داده و عملکرد بهینه و ایمن آسانسورها را تضمین کنند. EED یک ابزار ضروری برای هر تیم پشتیبانی آسانسور است
+            که به دنبال بهبود کارایی و کیفیت خدمات خود هستند.
+
+        </p>
+
+
     </div>
 
 
 </div>
+
+@script
+<script>
+    // Listen for the Livewire event
+    $wire.on('remove-alert', () => {
+        // Find the alert element
+        var alertElement = document.getElementById('eed-alert');
+
+        alertElement.style.display = "none";
+
+
+    });
+</script>
+@endscript

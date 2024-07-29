@@ -110,6 +110,7 @@ return array(
     'App\\Livewire\\Front\\Shop\\Single\\SingleProduct' => $baseDir . '/app/Livewire/Front/Shop/Single/SingleProduct.php',
     'App\\Livewire\\Front\\Static\\ContactUs' => $baseDir . '/app/Livewire/Front/Static/ContactUs.php',
     'App\\Livewire\\Front\\Static\\EED' => $baseDir . '/app/Livewire/Front/Static/EED.php',
+    'App\\Livewire\\Front\\User\\Expert' => $baseDir . '/app/Livewire/Front/User/Expert.php',
     'App\\Mail\\AdminMessage' => $baseDir . '/app/Mail/AdminMessage.php',
     'App\\Mail\\ContactMail' => $baseDir . '/app/Mail/ContactMail.php',
     'App\\Mail\\LogMail' => $baseDir . '/app/Mail/LogMail.php',

@@ -38,6 +38,7 @@ class EED extends Component
                     $existCode = Error::whereId($value)->first();
                     if($existCode)
                     {
+                        $this->dispatch('remove-alert');
                         $this->errorCode = $existCode->code;
                         $this->result = $existCode;
                         switch ($this->result->type)
@@ -70,6 +71,7 @@ class EED extends Component
                                 $this->type = 'نامشخص';
                                 break;
                         }
+
 
                     }
                     else
