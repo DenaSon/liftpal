@@ -85,9 +85,7 @@
     $wire.on('remove-alert', () => {
         // Find the alert element
         var alertElement = document.getElementById('eed-alert');
-
         alertElement.style.display = "none";
-
 
     });
 </script>
