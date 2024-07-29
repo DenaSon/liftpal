@@ -12,9 +12,9 @@
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">رزومه کارشناس فنی</h3>
-                    <p class="mb-1 line-h18">طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این نوشتار
-                        به‌عنوان عنصری از ترکیب‌بندی برای پُر کردن صفحه و ارائهٔ اولیهٔ شکل ظاهری و کلیِ طرح سفارش‌گرفته‌شده‌استفاده می‌کند، تا ازنظر گرافیکی نشانگر چگونگی نوع
-                        و اندازهٔ قلم و ظاهرِ متن باشد. </p>
+                    <p class="mb-1 line-h18">
+                    {{ $user->profile?->resume }}
+                    </p>
 
                 </div>
 
@@ -22,10 +22,11 @@
                 <div class="mb-sm-3">
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>نصاب اسانسور</li>
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>خطایاب بورد</li>
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>نصاب اسانسور</li>
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>خطایاب بورد</li>
+                        @foreach($user?->skills as $skill)
+
+
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill->name }}</li>
+                        @endforeach
 
                     </ul>
                 </div>

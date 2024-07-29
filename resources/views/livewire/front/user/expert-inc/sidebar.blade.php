@@ -35,10 +35,16 @@
 
                 @endif
 
-                <li>
-                    <a class="nav-link fw-normal p-0" href="#"><i class="fi-award mt-n1 me-2 align-middle "><span class=" fs-sm ms-2">تاریخ شروع کار</span> </i>
-                    </a>
-                </li>
+                @if($passedDays > 0 )
+                    <li>
+                        <a class="nav-link fw-normal p-0" href="#"><i class="fi-route mt-n1 me-2 align-middle "> </i> <span class="fs-sm">مدت همکاری :
+
+
+                {{ $passedDays  }} روز </span>
+                        </a>
+                    </li>
+                @endif
+
             </ul>
             <!-- Contact form-->
             <form class="needs-validation" novalidate="">
