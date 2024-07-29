@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-dark mt-4 mb-5  text-justify">
+                        <p class="text-dark mt-4 mb-5  text-justify mt-0">
                             لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
                         </p>
                     </div>
