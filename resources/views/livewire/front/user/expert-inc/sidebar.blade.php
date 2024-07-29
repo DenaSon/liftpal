@@ -15,9 +15,9 @@
                         {{ $user->profile?->education }}
                     </p></a>
                 <div class="me-4 flex-shrink-0">
-                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-whatsapp"></i></a>
+                    <a target="_blank" class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2"  href="https://wa.me/{{$user->phone}}?text=Liftpal:"><i class="fi-whatsapp"></i></a>
                     <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-instagram"></i></a>
-                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-phone"></i></a>
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="tel:{{$user?->phone}}"><i class="fi-phone"></i></a>
 
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-md-4 pt-5">
+<div class="container mt-5 mb-md-4 pt-5 ">
     <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a wire:navigate href="{{ route('home') }}">خانه</a></li>

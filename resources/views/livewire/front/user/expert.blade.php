@@ -8,7 +8,7 @@
     <section class="container mb-5 pb-1 ">
         <div class="row">
             <div class="col-12 col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
-                <h2 class="h4 mb-4 pb-4 border-bottom ">میلاد اسدپور</h2>
+                <h2 class="h4 mb-4 pb-4 border-bottom ">{{ $user->profile?->name }} {{ $user->profile?->last_name }}</h2>
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">رزومه کارشناس فنی</h3>
@@ -23,9 +23,7 @@
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
                         @foreach($user?->skills as $skill)
-
-
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill->name }}</li>
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill?->name }}</li>
                         @endforeach
 
                     </ul>
