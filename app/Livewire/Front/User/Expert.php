@@ -15,7 +15,7 @@ class Expert extends Component
     public function mount($id, $name)
     {
 
-        $this->user = User::with('profile')
+        $this->user = User::with('profile', 'comments')
             ->whereRole('technician')
             ->findOrFail($id);
     }
@@ -23,6 +23,9 @@ class Expert extends Component
 
     public function render()
     {
-        return view('livewire.front.user.expert');
+        $title = $this->user->profile->name . ' ' . $this->user->profile->last_name;
+        $text = 'کارشناس فنی ';
+
+        return view('livewire.front.user.expert')->title($text . ' ' . $title);
     }
 }

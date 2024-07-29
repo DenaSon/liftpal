@@ -3,7 +3,6 @@
 namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -14,7 +13,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 
- class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -43,6 +42,16 @@ use Laravel\Sanctum\HasApiTokens;
      public function hasVerifiedPhone(): bool
      {
          return !is_null($this->phone_verified_at);
+     }
+
+     // Other methods and properties...
+     public function getFormattedPhoneAttribute(): ?string
+     {
+         if ($this->phone) {
+             return substr($this->phone, 0, 4) . '-' . substr($this->phone, 4, 3) . '-' . substr($this->phone, 7);
+
+         }
+         return null;
      }
 
      public function favorites()

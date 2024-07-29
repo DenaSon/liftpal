@@ -1,16 +1,19 @@
 <aside class="col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2 ">
     <!-- Contact card-->
-    <div class="card shadow-sm mb-4 order-sm-1">
+    <div class="card shadow mb-4 order-sm-1">
         <div class="card-body">
             <div class="d-flex align-items-start justify-content-between"><a class="text-decoration-none" href="real-estate-vendor-properties.html"><img
                         class="rounded-circle mb-2" src="{{ asset('assets/img/avatars/49.jpg') }}" width="60" alt="Avatar">
-                    <h5 class="mb-1 d-md-none">میلاد اسدپور</h5>
+                    <h5 class="mb-1 d-md-none">{{ $user->profile?->name ?? ''}} {{ $user->profile?->last_name ?? '' }} </h5>
                     <div class="mb-1"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
-                                class="star-rating-icon fi-star-filled active"></i></span><span class="me-1 fs-sm text-muted">(45 نظر ثبت شده)</span>
+                                class="star-rating-icon fi-star-filled active"></i></span><span class="me-1 fs-sm text-muted">({{ $user->comments->count() }} دیدگاه ثبت شده)
+                        </span>
                     </div>
 
-                    <p class="text-body">نماینده شرکت آسانسور حمیدی</p></a>
+                    <p class="text-body">
+                        {{ $user->profile?->education }}
+                    </p></a>
                 <div class="me-4 flex-shrink-0">
                     <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-whatsapp"></i></a>
                     <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-instagram"></i></a>
@@ -19,9 +22,15 @@
                 </div>
             </div>
             <ul class="list-unstyled border-bottom mb-4 pb-4">
-                <li><a class="nav-link fw-normal p-0" href="tel:3025550107"><i class="fi-phone mt-n1 me-2 align-middle opacity-80"></i>(302) 555-0107</a></li>
-                <li><a class="nav-link fw-normal p-0" href="mailto:floyd_miles@email.com"><i class="fi-mail mt-n1 me-2 align-middle opacity-80"></i>floyd_miles@email.com</a>
+                <li><a class="nav-link fw-normal p-0" href="tel:{{$user?->phone}}"><i class="fi-phone mt-n1 me-2 align-middle opacity-80"></i>{{ $user->formattedPhone
+                }}</a>
                 </li>
+                @if($user->email)
+                    <li><a class="nav-link fw-normal p-0" href="{{ $user?->email }}"><i class="fi-mail mt-n1 me-2 align-middle opacity-80"></i>
+                            {{ $user?->email }}
+                        </a>
+                </li>
+                @endif
             </ul>
             <!-- Contact form-->
             <form class="needs-validation" novalidate="">
