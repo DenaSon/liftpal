@@ -123,7 +123,7 @@ input[type="number"] {
 
 @media (max-width: 768px) {
     .half-height-mobile-sidebarexpert {
-        height:50px !important;
-
+        height:50% !important;
+        margin-bottom: 20px !important;
     }
 }

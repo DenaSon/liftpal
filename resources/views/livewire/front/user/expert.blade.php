@@ -5,9 +5,9 @@
     @include('livewire.front.user.expert-inc.navigation')
 
 
-    <section class="container mb-5 pb-1">
+    <section class="container mb-5 pb-1 ">
         <div class="row">
-            <div class="col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
+            <div class="col-12 col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
                 <h2 class="h4 mb-4 pb-4 border-bottom ">میلاد اسدپور</h2>
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">

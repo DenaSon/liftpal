@@ -1,6 +1,6 @@
-<aside class="col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2 ">
+<aside class=" col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2 ">
     <!-- Contact card-->
-    <div class="card shadow mb-4 order-sm-1">
+    <div class="card shadow mb-4 order-sm-1 ">
         <div class="card-body">
             <div class="d-flex align-items-start justify-content-between"><a class="text-decoration-none" href="real-estate-vendor-properties.html"><img
                         class="rounded-circle mb-2" src="{{ asset('assets/img/avatars/49.jpg') }}" width="60" alt="Avatar">
