@@ -22,15 +22,23 @@
                 </div>
             </div>
             <ul class="list-unstyled border-bottom mb-4 pb-4">
-                <li><a class="nav-link fw-normal p-0" href="tel:{{$user?->phone}}"><i class="fi-phone mt-n1 me-2 align-middle opacity-80"></i>{{ $user->formattedPhone
+                <li><a class="nav-link fw-normal p-0" href="tel:{{$user?->phone}}"><i class="fi-phone mt-n1 me-2 align-middle "></i>{{ $user->formattedPhone
                 }}</a>
                 </li>
                 @if($user->email)
-                    <li><a class="nav-link fw-normal p-0" href="{{ $user?->email }}"><i class="fi-mail mt-n1 me-2 align-middle opacity-80"></i>
+                    <li><a class="nav-link fw-normal p-0" href="{{ $user?->email }}"><i class="fi-mail mt-n1 me-2 align-middle "></i>
                             {{ $user?->email }}
                         </a>
                 </li>
+
+
+
                 @endif
+
+                <li>
+                    <a class="nav-link fw-normal p-0" href="#"><i class="fi-award mt-n1 me-2 align-middle "><span class=" fs-sm ms-2">تاریخ شروع کار</span> </i>
+                    </a>
+                </li>
             </ul>
             <!-- Contact form-->
             <form class="needs-validation" novalidate="">
@@ -54,10 +62,12 @@
         </div>
     </div>
     <!-- Location (Map)-->
-    <div class="pt-2">
-        <div class="position-relative mb-2"><img class="rounded-3" src="{{ asset('assets/img/real-estate/single/map.jpg') }}" alt="Map">
+
+    <div class="pt-2 half-height-mobile-sidebarexpert mb-1">
+        <div class="position-relative mb-2 ">
+            <img class="rounded-3 " src="{{ asset('assets/img/real-estate/single/map.jpg') }}" alt="Map">
             <div class="d-flex w-100 h-100 align-items-center justify-content-center position-absolute top-0 start-0">
-                <a target="_blank" class="btn btn-primary stretched-link"
+                <a target="_blank" class="btn btn-primary stretched-link "
                    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6145424811048!2d-73.93999278406218!3d40.74850644331743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2592979d4827f%3A0x3a5d8b3cf779f3b6!2s28%20Jackson%20Ave%2C%20Long%20Island%20City%2C%20NY%2011101%2C%20USA!5e0!3m2!1sen!2sua!4v1618074552281!5m2!1sen!2sua"
                    data-iframe="true" data-bs-toggle="lightbox"
                    lg-uid="lg1"><i class="fi-route me-2"></i>مسیریابی
@@ -65,4 +75,5 @@
         </div>
         <p class="mb-0 fs-sm text-center">ایران، تهران میدان آزادی</p>
     </div>
+
 </aside>

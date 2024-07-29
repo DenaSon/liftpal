@@ -120,3 +120,10 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield !important;
 }
+
+@media (max-width: 768px) {
+    .half-height-mobile-sidebarexpert {
+        height:50px !important;
+
+    }
+}

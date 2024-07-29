@@ -8,10 +8,10 @@
     <section class="container mb-5 pb-1">
         <div class="row">
             <div class="col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
-                <h2 class="h4 mb-4 pb-4 border-bottom">میلاد اسدپور</h2>
+                <h2 class="h4 mb-4 pb-4 border-bottom ">میلاد اسدپور</h2>
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">
-                    <h3 class="h5">رزومه کارشناس فنی</h3>
+                    <h3 class="h5 d-flex justify-content-center justify-content-md-start">رزومه کارشناس فنی</h3>
                     <p class="mb-1 line-h18">طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این نوشتار
                         به‌عنوان عنصری از ترکیب‌بندی برای پُر کردن صفحه و ارائهٔ اولیهٔ شکل ظاهری و کلیِ طرح سفارش‌گرفته‌شده‌استفاده می‌کند، تا ازنظر گرافیکی نشانگر چگونگی نوع
                         و اندازهٔ قلم و ظاهرِ متن باشد. </p>
@@ -20,7 +20,7 @@
 
                 <!-- Amenities-->
                 <div class="mb-sm-3">
-                    <h3 class="h5">مهارت ها</h3>
+                    <h3 class="h5 d-flex justify-content-center justify-content-md-start">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
                         <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>نصاب اسانسور</li>
                         <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>خطایاب بورد</li>
@@ -39,7 +39,7 @@
                     <div class="d-flex justify-content-between mb-3 mt-4">
                         <div class="d-flex align-items-center pe-2">
                             <div class="ps-2 ">
-                                <h6 class="fs-base mb-0">محمد اسدی قله مرکزی</h6><span class="star-rating mt-1">
+                                <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">محمد اسدی قله مرکزی</h6><span class="star-rating mt-1">
                                     <i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
