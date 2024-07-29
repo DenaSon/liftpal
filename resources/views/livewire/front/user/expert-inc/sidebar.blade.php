@@ -1,43 +1,45 @@
-<aside class="col-lg-4 col-md-5 ms-lg-auto pb-1">
+<aside class="col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2 ">
     <!-- Contact card-->
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow-sm mb-4 order-sm-1">
         <div class="card-body">
             <div class="d-flex align-items-start justify-content-between"><a class="text-decoration-none" href="real-estate-vendor-properties.html"><img
                         class="rounded-circle mb-2" src="{{ asset('assets/img/avatars/49.jpg') }}" width="60" alt="Avatar">
-                    <h5 class="mb-1"> کاف تات میلانو</h5>
+                    <h5 class="mb-1 d-md-none">میلاد اسدپور</h5>
                     <div class="mb-1"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i></span><span class="me-1 fs-sm text-muted">(45 نظر ثبت شده)</span>
                     </div>
-                    <p class="text-body">نماینده گروه امپراتوری املاک</p></a>
-                <div class="me-4 flex-shrink-0"><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" href="#"><i class="fi-facebook"></i></a><a
-                        class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" href="#"><i class="fi-linkedin"></i></a></div>
+
+                    <p class="text-body">نماینده شرکت آسانسور حمیدی</p></a>
+                <div class="me-4 flex-shrink-0">
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-whatsapp"></i></a>
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-instagram"></i></a>
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-phone"></i></a>
+
+                </div>
             </div>
             <ul class="list-unstyled border-bottom mb-4 pb-4">
-                <li><a class="nav-link fw-normal p-0" href="tel:3025550107"><i class="fi-phone mt-n1 me-2 align-middle opacity-60"></i>(302) 555-0107</a></li>
-                <li><a class="nav-link fw-normal p-0" href="mailto:floyd_miles@email.com"><i class="fi-mail mt-n1 me-2 align-middle opacity-60"></i>floyd_miles@email.com</a>
+                <li><a class="nav-link fw-normal p-0" href="tel:3025550107"><i class="fi-phone mt-n1 me-2 align-middle opacity-80"></i>(302) 555-0107</a></li>
+                <li><a class="nav-link fw-normal p-0" href="mailto:floyd_miles@email.com"><i class="fi-mail mt-n1 me-2 align-middle opacity-80"></i>floyd_miles@email.com</a>
                 </li>
             </ul>
             <!-- Contact form-->
             <form class="needs-validation" novalidate="">
-                <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="نام شما*" required="">
-                    <div class="invalid-feedback">نام خود را وارد کنید</div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name">
+                    <label for="floatingInput">نام و نام خانوادگی</label>
                 </div>
-                <div class="mb-3">
-                    <input class="form-control" type="email" placeholder="پست الکترونیکی*" required="">
-                    <div class="invalid-feedback">یک ایمیل معتبر وارد کنید</div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingPassword" placeholder="number">
+                    <label for="floatingPassword">شماره تلفن</label>
                 </div>
-                <input class="form-control mb-3" type="tel" placeholder="+9893998765432">
-                <div class="input-group mb-3">
-                    <input class="form-control rounded pe-5 pwt-datepicker-input-element" type="text" id="real-estate-date"><i
-                        class="fi-calendar position-absolute top-50 end-0 translate-middle-y me-3"></i>
+
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">پیام خود را وارد نمایید</label>
                 </div>
-                <textarea class="form-control mb-3" rows="3" placeholder="پیام" style="resize: none;"></textarea>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" id="form-submit" type="checkbox" checked="">
-                    <label class="form-check-label fs-sm" for="form-submit">ارسال اخبار ، نکات و تبلیغات از سایت به ایمیل من</label>
-                </div>
+
                 <button class="btn btn-lg btn-primary d-block w-100" type="submit">ارسال درخواست</button>
             </form>
         </div>

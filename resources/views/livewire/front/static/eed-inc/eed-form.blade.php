@@ -35,7 +35,7 @@
 
         @if($this->result)
 
-            <div class="alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
+            <div class="milad alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
                 <h4 class="alert-heading fs-sm">
                     <span class="float-end text-info">      دسته :   {{ $type }} </span>
                     <span class="fs-xs float-start">{{ $errorCode }}</span>
@@ -62,7 +62,7 @@
 
 
     <!-- Accent alert -->
-    <div class="alert alert-primary opacity-75" role="alert" id="eed-alert">
+    <div class=" alert alert-primary opacity-75" role="alert" id="eed-alert">
 
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 

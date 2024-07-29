@@ -7,48 +7,40 @@
 
     <section class="container mb-5 pb-1">
         <div class="row">
-            <div class="col-md-7 mb-md-0 mb-4"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
-                <h2 class="h4 mb-4 pb-4 border-bottom">2,150,000 تومان<span class="d-inline-block ms-1 fs-base fw-normal text-body">/ماهیانه</span></h2>
+            <div class="col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
+                <h2 class="h4 mb-4 pb-4 border-bottom">میلاد اسدپور</h2>
                 <!-- Overview-->
-                <div class="mb-4 pb-md-3">
-                    <h3 class="h5">توضیحات</h3>
+                <div class="mb-3 pb-md-3">
+                    <h3 class="h5">رزومه کارشناس فنی</h3>
                     <p class="mb-1 line-h18">طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این نوشتار
                         به‌عنوان عنصری از ترکیب‌بندی برای پُر کردن صفحه و ارائهٔ اولیهٔ شکل ظاهری و کلیِ طرح سفارش‌گرفته‌شده‌استفاده می‌کند، تا ازنظر گرافیکی نشانگر چگونگی نوع
                         و اندازهٔ قلم و ظاهرِ متن باشد. </p>
-                    <div class="collapse" id="seeMoreOverview">
-                        <p class="mb-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون
-                            و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
-                    </div>
-                    <a class="collapse-label collapsed" href="#seeMoreOverview" data-bs-toggle="collapse" data-bs-label-collapsed="مشاهده بیشتر" data-bs-label-expanded="بستن"
-                       role="button" aria-expanded="false" aria-controls="seeMoreOverview"></a>
+
                 </div>
 
                 <!-- Amenities-->
                 <div class="mb-sm-3">
                     <h3 class="h5">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
-                        <li class="col"><i class="fi-wifi mt-n1 me-2 fs-lg align-middle"></i>وای فای</li>
-                        <li class="col"><i class="fi-thermometer mt-n1 me-2 fs-lg align-middle"></i>سیستم گرمایشی</li>
-                        <li class="col"><i class="fi-dish mt-n1 me-2 fs-lg align-middle"></i>استخر</li>
-                        <li class="col"><i class="fi-parking mt-n1 me-2 fs-lg align-middle"></i>پارکینگ</li>
-                        <li class="col"><i class="fi-snowflake mt-n1 me-2 fs-lg align-middle"></i>تهویه هوا</li>
-                        <li class="col"><i class="fi-iron mt-n1 me-2 fs-lg align-middle"></i>گاز رومیزی</li>
-                        <li class="col"><i class="fi-tv mt-n1 me-2 fs-lg align-middle"></i>تلویزیون</li>
-                        <li class="col"><i class="fi-laundry mt-n1 me-2 fs-lg align-middle"></i>ماشین لباسشویی</li>
-                        <li class="col"><i class="fi-cctv mt-n1 me-2 fs-lg align-middle"></i>دوربین مداربسته</li>
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>نصاب اسانسور</li>
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>خطایاب بورد</li>
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>نصاب اسانسور</li>
+                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i>خطایاب بورد</li>
+
                     </ul>
                 </div>
 
-                <hr class="mb-2"/>
+                <hr class="mb-3">
 
                 @include('livewire.front.user.expert-inc.comment-form')
 
 
                 <div class="mb-4 pb-4 border-bottom">
-                    <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex justify-content-between mb-3 mt-4">
                         <div class="d-flex align-items-center pe-2">
-                            <div class="ps-2">
-                                <h6 class="fs-base mb-0">فلوید مایلز</h6><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i
+                            <div class="ps-2 ">
+                                <h6 class="fs-base mb-0">محمد اسدی قله مرکزی</h6><span class="star-rating mt-1">
+                                    <i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
                     </div>
