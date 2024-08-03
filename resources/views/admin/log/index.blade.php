@@ -185,12 +185,12 @@
                                     </li>
                                     <li class="list-group-item"><span class="label label-default font-12">Max Memory Usage (RAM) :</span><span
                                             class=""> {{ number_format(round(memory_get_peak_usage() / (10240),0),0) ?? null }} MB</span>
-                                    </li>
-                                    <li class="list-group-item"><span class="label label-default font-12">Total Disk Space (HDD) :</span><span
-                                            class=""> {{ number_format(round(disk_total_space(public_path()) / (1024*1024*1024),0),0) ?? null }} MB</span>
-                                    </li>
-                                    <li class="list-group-item"><span class="label label-default font-12">Free Disk Space (HDD) :</span><span
-                                            class=""> {{ number_format( round(disk_free_space(public_path()) / (1024*1024*1024),0),0) ?? null }} MB</span>
+{{--                                    </li>--}}
+{{--                                    <li class="list-group-item"><span class="label label-default font-12">Total Disk Space (HDD) :</span><span--}}
+{{--                                            class=""> {{ number_format(round(disk_total_space(public_path()) / (1024*1024*1024),0),0) ?? null }} MB</span>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="list-group-item"><span class="label label-default font-12">Free Disk Space (HDD) :</span><span--}}
+{{--                                            class=""> {{ number_format( round(disk_free_space(public_path()) / (1024*1024*1024),0),0) ?? null }} MB</span>--}}
                                     </li>
 
 
@@ -214,6 +214,10 @@
                                     <li class="list-group-item"><span
                                             class="label label-default font-12"> Host Name:</span><span
                                             class=""> {{ php_uname('n') ?? null }}</span></li>
+
+                                    <li class="list-group-item"><span
+                                            class="label label-default font-12"> System Developer:</span><span
+                                            class=""> Mohammad Asadi</span></li>
 
                                 </ul>
                             </div>
