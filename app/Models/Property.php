@@ -12,7 +12,7 @@ class Property extends Model
 
     public function propertyvalues()
     {
-        return $this->hasMany(PropertyValue::class, 'property_id');
+        return $this->hasMany(Propertyvalue::class, 'property_id');
     }
 
     public function products()
