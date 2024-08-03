@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    use HasFactory;
+
     public $guarded =[];
 
-    public function propertyValues()
+    public function propertyvalues()
     {
         return $this->hasMany(PropertyValue::class, 'property_id');
     }
