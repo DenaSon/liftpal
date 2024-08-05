@@ -18,6 +18,7 @@ class CheckAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         if (Gate::allows('customer-access') || Gate::allows('technician'))
         {
 
