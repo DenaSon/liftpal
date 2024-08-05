@@ -5,7 +5,7 @@
                 <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button"
                         data-bs-dismiss="modal"></button>
                 <div class="row mx-0 align-items-center">
-                    <div class="col-md-6 border-end-md p-4 p-sm-5">
+                    <div class="d-none d-md-block col-md-6 border-end-md p-4 p-sm-5">
                         <h2 class="h3 mb-4 mb-sm-5">در سایت ما با اطمینان ثبت نام کنید.</h2>
                         <ul class="list-unstyled mb-4 mb-sm-5">
                             <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>مدیریت پروژه های آسانسوری</span>
