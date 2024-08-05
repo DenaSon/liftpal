@@ -25,11 +25,11 @@
                      src="{{ asset('assets/img/real-estate/illustrations/checkout.png') }}" alt="Illustration"
                      height="200">
             </div>
-            <div class="col-md-8 gx-lg-3">
+            <div class="col-md-8 gx-lg-3 ">
                 <div class="card border-0 bg-white p-sm-3 p-2">
-                    <div class="card-body m-1">
+                    <div class="card-body  m-1">
 
-                        <ul class="list-group ">
+                        <ul class="list-group p-0 m-auto">
                             <li class="bg-primary border  text-white list-group-item d-flex justify-content-between align-items-center">
                         <span>
                          شماره سفارش
@@ -80,7 +80,7 @@
                         </ul>
 
                         <div class="d-flex justify-content-center align-items-center ">
-                            <button wire:offline.attr="disabled" wire:loading.attr="disabled" wire:click.debounce.150ms="startPayment" type="button" class="btn btn-primary w-25  mt-5">پرداخت </button>
+                            <button wire:offline.attr="disabled" wire:loading.attr="disabled" wire:click.debounce.150ms="startPayment" type="button" class="btn btn-primary w-auto  mt-5">پرداخت </button>
 
 
                         </div>

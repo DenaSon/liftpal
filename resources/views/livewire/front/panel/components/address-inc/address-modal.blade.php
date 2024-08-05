@@ -32,22 +32,21 @@
 
             </div>
 
+            <div class="col mb-3">
+                <label for="postal-code" class="form-label ">کد پستی</label>
+                <span class="text-danger">*</span>
+                <input wire:model="postal_code" type="number" class="form-control no-spinner" id="postal-code" placeholder="کد 10 رقمی">
+
+            </div>
             <div class="row align-items-center">
 
-                <div class="col-4 mb-3">
-                    <label for="postal-code" class="form-label ">کد پستی</label>
-                    <span class="text-danger">*</span>
-                    <input wire:model="postal_code" type="number" class="form-control no-spinner" id="postal-code" placeholder="کد 10 رقمی">
-
-                </div>
-
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                     <label for="building-number" class="form-label">پلاک</label>
                     <input wire:model="building_number" type="number" class="form-control no-spinner" id="building-number" placeholder="اختیاری">
 
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                     <label for="unit-number" class="form-label">شماره واحد</label>
                     <input wire:model="unit_number" type="number" class="form-control no-spinner" id="unit-number" placeholder="اختیاری">
 

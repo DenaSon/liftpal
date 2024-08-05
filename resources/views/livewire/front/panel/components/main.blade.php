@@ -1,24 +1,21 @@
 <div>
 
-    <div id="paginated-orders" class="container mx-auto text-center row border d-flex rounded-bottom p-3  mt-5 mb-2 ps-2 justify-content-center align-items-center" style="border:1px solid rgba(251,86,49,0.19)
-    !important;">
+    <div id="paginated-orders" class="container m-auto text-center row border border-secondary border-5 shadow-sm d-flex rounded p-3 p-auto mt-5 mb-2  justify-content-center align-items-center">
 
-        <div class="col-sm-12 col-md-4  col-flex justify-content-md-between align-items-center ">
-
-
-            <button class="btn btn-outline-info mb-3" wire:click.debounce.500ms="getSended">
+        <div class="col-sm-12 col-md-4 col-flex justify-content-between align-items-center ">
+            <button class="btn btn-outline-info px-0 mb-3 w-50" wire:click.debounce.500ms="getSended">
                 <i class="fi fi-truck me-2"></i>
                 <span>ارسال شده</span>
             </button>
         </div>
-        <div class="col-sm-12 col-md-4 col-flex justify-content-between ">
+        <div class="col-sm-12 col-md-4 col-flex justify-content-between align-items-center">
 
-            <button wire:click.debounce.500ms="getDelivered" class="btn btn-outline-success mb-3">
-                <i class="fi fi-check-circle me-2"></i>
+            <button wire:click.debounce.500ms="getDelivered" class="btn btn-outline-success px-0 mb-3 w-50">
+                <i class="fi fi-check-circle p-0"></i>
                  دریافت شده</button>
         </div>
-        <div class="col-sm-12 col-md-4 col-flex justify-content-between mb-3">
-            <button class="btn btn-outline-warning " wire:click.debounce.500ms="getReturn">
+        <div class="col-sm-12 col-md-4 col-flex justify-content-between align-items-center ">
+            <button class="btn btn-outline-warning px-0 mb-3 w-50" wire:click.debounce.500ms="getReturn">
                 <i class="fi-login  me-2 "></i>
                 مرجوعی
             </button>
