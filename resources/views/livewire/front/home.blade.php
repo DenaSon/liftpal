@@ -51,6 +51,15 @@
 
             });
         </script>
+        <script type="module">
+            import {tns} from '{{asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js')}}';
 
+            var slider = tns({
+                container: '.my-slider',
+                items: 3,
+                slideBy: 'page',
+                autoplay: true
+            });
+        </script>
         @endscript
 </div>
