@@ -171,7 +171,7 @@
                     <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
         <span>
         <i class="fi-sidebar-left text-success me-2"></i>
-       مدل ممد باگی
+       مدل ممد 0
         </span>
                         <a href="#" class="">
                             <i class=" btn-xs fi fi-trash"></i>
@@ -180,7 +180,7 @@
                     <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
         <span>
         <i class="fi-sidebar-left text-success me-2"></i>
-       مدل ممد سکسی
+       مدل ممد
         </span>
                         <a href="#" class="" >
                             <i class=" btn-xs fi fi-trash"></i>
@@ -189,7 +189,7 @@
                     <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
         <span>
         <i class="fi-sidebar-left text-success me-2"></i>
-        مدل ممد فرمونی
+        مدل ممد 2
         </span>
                         <a href="#" class="">
                             <i class=" btn-xs fi fi-trash"></i>
@@ -301,7 +301,7 @@
                 <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
         <span>
         <i class="fi-user-check text-success me-2"></i>
-       محمد سکسی
+       محمد اسدی
         </span>
                     <a href="#" class="" >
                         <i class=" btn-xs fi fi-trash"></i>
