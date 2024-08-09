@@ -14,7 +14,7 @@
             <form wire:submit="search" class="form-group d-block panel-search">
                 <div class="row g-0 ms-sm-n2">
                     <div class="col-md-10 d-sm-flex ">
-                        <div class="dropdown w-sm-100 border-end-sm">
+                        <div class="dropdown w-md-25 w-sm-100 border-end-sm">
                             <input type="text" class="form-control" wire:model="search" placeholder="جستجو...">
 
                         </div>
@@ -22,15 +22,14 @@
                         <div class="input-group">
 
                             <select class="form-select no-arrow-homedrop">
-                                <option class="small">انتخاب گزینه جستجو</option>
-                                <option>مجری</option>
-                                <option>نصاب</option>
-                                <option>تعمیرکار</option>
-                                <option class="text-info highlight">فروشگاه</option>
+                                <option class="small">جستجوی تکنسین</option>
+                                <option>شماره 1</option>
+                                <option>شماره 2</option>
+                                <option>شماره 3</option>
                             </select>
                         </div>
 
-                        <hr class="d-sm-none my-2">
+
 
                     </div>
                     <hr class="d-md-none mt-4">
