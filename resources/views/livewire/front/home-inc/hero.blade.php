@@ -5,16 +5,16 @@
             @include('livewire.front.home-inc.hero-slider')
 
 
-        <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center">
+        <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center mt-2">
             <h1 class="display-4 mt-lg-5 mb-md-4 mb-3 pt-md-4 pb-lg-2"> {{ getSetting('meta_description') }} </h1>
             <p class="position-relative lead ms-lg-n5 fs-6">{{ getMenu('top_description') }}</p>
         </div>
 
-        <div class="col-xl-8 col-lg-10 order-3 mt-lg-n5">
+        <div class="col-xl-8 col-lg-10 order-3 mt-lg-5">
             <form wire:submit="search" class="form-group d-block panel-search">
                 <div class="row g-0 ms-sm-n2">
                     <div class="col-md-10 d-sm-flex ">
-                        <div class="dropdown w-sm-100 border-end-sm">
+                        <div class="dropdown w-md-25 w-sm-100 border-end-sm">
                             <input type="text" class="form-control" wire:model="search" placeholder="جستجو...">
 
                         </div>
@@ -22,15 +22,14 @@
                         <div class="input-group">
 
                             <select class="form-select no-arrow-homedrop">
-                                <option class="small">انتخاب گزینه جستجو</option>
-                                <option>مجری</option>
-                                <option>نصاب</option>
-                                <option>تعمیرکار</option>
-                                <option class="text-info highlight">فروشگاه</option>
+                                <option class="small">جستجوی تکنسین</option>
+                                <option>شماره 1</option>
+                                <option>شماره 2</option>
+                                <option>شماره 3</option>
                             </select>
                         </div>
 
-                        <hr class="d-sm-none my-2">
+
 
                     </div>
                     <hr class="d-md-none mt-4">
