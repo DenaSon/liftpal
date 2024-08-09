@@ -10,7 +10,7 @@
             <p class="position-relative lead ms-lg-n5 fs-6">{{ getMenu('top_description') }}</p>
         </div>
 
-        <div class="col-xl-8 col-lg-10 order-3 mt-lg-5">
+        <div class="col-xl-8 col-lg-10 order-3 mt-lg-5 mt-lg-5 w-100 mx-auto d-block">
             <form wire:submit="search" class="form-group d-block panel-search">
                 <div class="row g-0 ms-sm-n2">
                     <div class="col-md-10 d-sm-flex ">
