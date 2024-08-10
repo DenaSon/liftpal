@@ -19,7 +19,7 @@
             <div class="col-lg-8 col-md-7 mb-5 account">
 
                 <h1 class="fw-normal fs-5"> {{ $pageTitle ?? 'اطلاعات حساب کاربری' }} </h1>
-                <hr dir="rtl" class=" custom-hr-title-panel mt-2" >
+                <hr dir="rtl" class=" custom-hr-title-panel mt-2">
 
                 @if(request()->input('page') == 'profile')
                     <livewire:front.panel.components.profile/>
@@ -28,15 +28,15 @@
                 @elseif(request()->input('page') == 'invoice' && !empty(request()->input('order')))
                     <livewire:front.panel.components.invoice/>
                 @elseif(request()->input('page') == 'support' )
-                    <livewire:front.panel.components.support>
-                        @elseif(request()->input('page') == 'favorite' )
-                            <livewire:front.panel.components.favorite>
-                                @elseif(request()->input('page') == 'address' )
-                                    <livewire:front.panel.components.address>
-                                        @elseif(request()->input('page') == 'address' )
-                                            <livewire:front.panel.components.notifications>
-                                                @elseif(request()->input('page') == 'building' )
-                                                    <livewire:front.panel.components.building>
+                <livewire:front.panel.components.support>
+                @elseif(request()->input('page') == 'favorite' )
+                <livewire:front.panel.components.favorite>
+                @elseif(request()->input('page') == 'address' )
+                <livewire:front.panel.components.address>
+                @elseif(request()->input('page') == 'notification' )
+                <livewire:front.panel.components.notifications>
+                @elseif(request()->input('page') == 'building' )
+                <livewire:front.panel.components.building>
                 @endif
 
 
