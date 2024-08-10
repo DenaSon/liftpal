@@ -24,17 +24,19 @@
 
         {{--            </div>--}}
 
-        <div class="col card mx-2">
-            <img src="{{ asset('assets/img/home-img/hero-image.jpg') }}" class="card-img-top" alt="Card image">
-            <div class="card-body">
-                <h5 class="card-title">لیفت پال</h5>
-                <p class="card-text fs-sm">یا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را پوشش می‌دهد.</p>
+        <div class="col  mx-2">
+            <div>
+                <img src="{{ asset('assets/img/home-img/hero-image.jpg') }}" class="h-75" ></div>
+
+            <div class=" bg-dark bg-opacity-50 text-white mt-3 rounded p-3">
+                <h5 class="">لیفت پال</h5>
+                <p class=" fs-sm">یا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را پوشش می‌دهد.</p>
                 <a href="#" class="btn btn-sm btn-primary">لیفت پال</a>
             </div>
         </div>
 
-        <div class=" card mx-2">
-            <img src="{{ asset('assets/img/home-img/sky-profile-picture-2.jpg') }}" class="card-img-top" alt="Card image">
+        <div class="col card mx-2">
+            <img src="{{ asset('assets/img/home-img/sky-profile-picture-2.jpg') }}" class="card-img-top" alt="Card image" >
             <div class="card-body">
                 <h5 class="card-title">لیفت پال</h5>
                 <p class="card-text fs-sm">یا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را پوشش می‌دهد.</p>
@@ -45,7 +47,7 @@
 
         <div class="col card mx-2">
             <img src="{{ asset('assets/img/home-img/Interesting-facts-about-the-elevator.jpg') }}" class="card-img-top " alt="Card image">
-            <div class="card-body">
+            <div class="m card-body">
                 <h5 class="card-title">لیفت پال</h5>
                 <p class="card-text fs-sm">یا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را پوشش می‌دهد.</p>
                 <a href="#" class="btn btn-sm btn-primary">لیفت پال</a>
