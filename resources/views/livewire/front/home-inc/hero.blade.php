@@ -5,16 +5,13 @@
             @include('livewire.front.home-inc.hero-slider')
 
 
-        <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center mt-2">
-            <h1 class="display-4 mt-lg-5 mb-md-4 mb-3 pt-md-4 pb-lg-2"> {{ getSetting('meta_description') }} </h1>
-            <p class="position-relative lead ms-lg-n5 fs-6">{{ getMenu('top_description') }}</p>
-        </div>
+
 
         <div class="col-xl-8 col-lg-10 order-3 mt-lg-5 mt-lg-5 w-100 mx-auto d-block">
             <form wire:submit="search" class="form-group d-block panel-search">
                 <div class="row g-0 ms-sm-n2">
                     <div class="col-md-10 d-sm-flex ">
-                        <div class="dropdown w-md-25 w-sm-100 border-end-sm">
+                        <div class="dropdown  w-sm-100 border-end-sm">
                             <input type="text" class="form-control" wire:model="search" placeholder="جستجو...">
 
                         </div>

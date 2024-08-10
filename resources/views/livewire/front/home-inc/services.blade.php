@@ -36,7 +36,7 @@
 </div>
 <div class="col">
     <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
-            class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/online-shopping.svg') }}"
+            class="d-block mx-auto my-3" src="{{ asset('assets/img/liftpal/—Pngtree—3d illustration of automated testing_14603361.png') }}"
             width="256" alt="Illustration">
         <div class="card-body">
             <h2 class="h5 card-title">سیستم خطایاب اسانسور</h2>
