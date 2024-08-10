@@ -19,12 +19,12 @@
 
 
         <div class="col mx-2 position-relative" style="height: 400px;">
-            <img src="{{ asset('media/eleliftvator.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+            <img src="{{ asset('assets/media/eleliftvator.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
 
             <div class=" menu-overlay bg-dark bg-opacity-50 text-white rounded p-3 position-absolute bottom-0 w-100">
 
                 <p class="text-center fs-sm">
-                    آیا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند و جامع است که تمامی نیازهای شما را پوشش می‌دهد.
+                    آیا آماده‌اید تا تجربه‌ای جدید از مدیریت آسانسورهای ساختمان خود داشته باشید؟ سامانه آنلاین ما، یک پلتفرم هوشمند ، جامع است که تمامی نیازهای شما را پوشش می‌دهد.
                 </p>
                 <div class="d-flex justify-content-center">
                 <a href="#" class="btn btn-sm btn-outline-light w-25 ">جستجو</a>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col mx-2 position-relative" style="height: 400px;">
-            <img src="{{ asset('media/teamwork.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+            <img src="{{ asset('assets/media/teamwork.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
 
             <div class=" menu-overlay bg-dark bg-opacity-50 text-white rounded p-3 position-absolute bottom-0 w-100">
 
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col mx-2 position-relative" style="height: 400px;">
-            <img src="{{ asset('media/sakhteman.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+            <img src="{{ asset('assets/media/sakhteman.jpg') }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
 
             <div class=" menu-overlay bg-dark bg-opacity-50 text-white rounded p-3 position-absolute bottom-0 w-100">
 
