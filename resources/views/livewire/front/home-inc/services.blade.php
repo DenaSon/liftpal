@@ -1,5 +1,5 @@
 <section class="container mb-5 mt-n3 mt-lg-0">
-<div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-n2" dir="ltr">
+<div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-2" dir="ltr">
 <div class="tns-carousel-inner row gx-4 mx-0 py-3"
  data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}}}">
 <div class="col">
