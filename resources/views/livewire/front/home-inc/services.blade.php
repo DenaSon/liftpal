@@ -13,7 +13,7 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link"
-                                                  href="real-estate-catalog-sale.html"> ثبت ساختمان</a>
+                                                  href=""> ثبت ساختمان</a>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a wire:navigate class="btn btn-outline-primary stretched-link"
-                                                  href="real-estate-catalog-rent.html"> شروع مشاوره </a></div>
+                                                  href=""> شروع مشاوره </a></div>
     </div>
 </div>
 <div class="col">
@@ -49,7 +49,7 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a wire:navigate.hover class="btn btn-outline-primary stretched-link"
-                                                  href="#"> خطایاب </a></div>
+                                                  href=""> خطایاب </a></div>
     </div>
 </div>
 
