@@ -111,7 +111,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false"> تماس باما </a>
                 </li>
 
-                <li class="nav-item "><a class="nav-link d-lg-none" href="#signin-modal" data-bs-toggle="modal"></i>ورود به حساب </a></li>
+                <li class="nav-item "><a class="nav-link d-lg-none" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a></li>
 
 
 {{--                <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i--}}
