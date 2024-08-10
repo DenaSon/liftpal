@@ -12,10 +12,12 @@
         @if(auth()->check())
             <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
-                    <i class="fs-lg fw-bold fi fi-user"></i>
+                    <img class="rounded-circle" src="{{ asset('assets/img/avatars/49.jpg') }}" width="40" alt="">
+
+{{--                    <i class="fs-lg fw-bold fi fi-user me-5"></i>--}}
                 </a>
-                <div class="dropdown-menu  dropdown-menu-center-hompage ">
-                    <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
+                <div class="dropdown-menu  dropdown-menu-center-hompage me-5">
+                    <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2 " style="width: 16rem;">
                         <i class="fi fi-user fs-lg"></i>
                         <div class="ps-2 text-end">
                             <h6 class="fs-base mb-0"> {{ auth()->user()->profile->name ?? '' }} {{ auth()->user()->profile->last_name ?? '' }} </h6>
@@ -23,14 +25,14 @@
                         <i class="star-rating-icon fi-star-filled active">
 
                         </i>
-                        <i
-                                class="star-rating-icon fi-star-filled active"></i>
                         <i class="star-rating-icon fi-star-filled active"></i>
-                        <i class="star-rating-icon fi-star-filled active">
+                                <i class="star-rating-icon fi-star-filled active"></i>
+                                <i class="star-rating-icon fi-star-filled active"></i>
+                            </span>
 
-                        </i></span>
                             <div class="fs-xs muted">{{ auth()?->user()?->phone }}<br>{{ auth()?->user()?->email ?? 'ایمیل ثبت نشده' }}</div>
                         </div>
+
                     </div>
                     <a wire:navigate class="dropdown-item" href="{{ route('panel') }}">
                         <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
@@ -55,7 +57,7 @@
                     <div class="dropdown-divider"></div>
 
 
-                    <a class="dropdown-item active" href="{{ route('panel',['page'=>'support']) }}"><i
+                    <a class="dropdown-item" href="{{ route('panel',['page'=>'support']) }}"><i
                                 class="fi-help opacity-60 me-2"></i>پشتیبانی</a>
 
 
@@ -70,15 +72,12 @@
             </div>
 
         @else
-            <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i
-                        class="fi-user me-2"></i>ورود</a>
+            <a class="btn btn-sm text-primary d-none d-lg-block  me-5" href="#signin-modal" data-bs-toggle="modal"><i
+                        class="fi-user me-5"></i>ورود</a>
         @endif
 
-        <a wire:navigate class="btn btn-xs btn-primary d-none d-md-block ms-2 order-lg-3 "
-           href="{{ route('singleExpert',['id'=>10,'name'=>'dena']) }}"><i
-                    class="fi-education"></i></a>
 
-        <div wire:ignore class="collapse navbar-collapse order-lg-2" id="navbarNav">
+        <div wire:ignore class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
 
                 <li class="nav-item "><a wire:navigate class="nav-link" href="{{ route('shop') }}"
@@ -110,6 +109,11 @@
 
                 <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i
                                 class="fi-user me-2"></i>ورود به حساب </a></li>
+
+
+{{--                <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i--}}
+{{--                                class="fi-logout me-2"></i>خروج از حساب </a></li>--}}
+{{--                @livewire('auth.logout')--}}
 
 
             </ul>

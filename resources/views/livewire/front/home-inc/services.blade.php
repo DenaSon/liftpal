@@ -7,7 +7,7 @@
             class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/buy.svg') }}"
             width="256" alt="Illustration">
         <div class="card-body">
-            <h2 class="h5 card-title">ثبت ساختمان</h2>
+            <h2 class="h5 card-title mt-3">ثبت ساختمان</h2>
             <p class="card-text fs-sm">
                 لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
             </p>
@@ -24,7 +24,7 @@
             class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/support.svg') }}"
             width="256" alt="Illustration">
         <div class="card-body">
-            <h2 class="h5 card-title"> پشتیبانی و مشاوره</h2>
+            <h2 class="h5 card-title mt-2"> پشتیبانی و مشاوره</h2>
             <p class="card-text fs-sm">
                 لیفت‌پال فقط یک سامانه جستجوی متخصصان آسانسور نیست، بلکه حامی شما در انتخاب و نگهداری آسانسور نیز می باشد.
                 از مشاوره رایگان متخصصان ما بهره مند شوید.
@@ -36,14 +36,14 @@
 </div>
 <div class="col">
     <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
-            class="d-block mx-auto my-3" src="{{ asset('assets/img/liftpal/—Pngtree—3d illustration of automated testing_14603361.png') }}"
+            class="d-block mx-auto my-3" src="{{ asset('assets/img/liftpal/eed-illustratin.png') }}"
             width="256" alt="Illustration">
         <div class="card-body">
             <h2 class="h5 card-title">سیستم خطایاب اسانسور</h2>
             <p class="card-text fs-sm">
 
                 با سیستم خطایاب EED، تکنسین‌ها می‌توانند زمان خرابی را کاهش داده و عملکرد بهینه و ایمن آسانسورها را تضمین کنند. EED یک ابزار ضروری برای هر تیم پشتیبانی آسانسور است
-                که به دنبال بهبود کارایی و کیفیت خدمات خود هستند.
+                .
 
 
             </p>
