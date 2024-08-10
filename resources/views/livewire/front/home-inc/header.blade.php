@@ -72,21 +72,21 @@
             </div>
 
         @else
-            <a class="btn btn-sm text-primary d-none d-lg-block  me-5" href="#signin-modal" data-bs-toggle="modal"><i
-                        class="fi-user me-5"></i>ورود</a>
+            <a class=" text-decoration-none d-none d-lg-block " href="#signin-modal" data-bs-toggle="modal">ورود به حساب</a>
         @endif
 
 
         <div wire:ignore class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
 
+                <!-- Menu items-->
+
+
                 <li class="nav-item "><a wire:navigate class="nav-link" href="{{ route('shop') }}"
                                          role="button"
                                          data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
                 </li>
 
-
-                <!-- Menu items-->
 
                 @if(auth()->check())
                     <li class="nav-item "><a wire:navigate class="nav-link" href="{{ route('panel') }}"
@@ -95,6 +95,10 @@
                     </li>
 
                 @endif
+
+{{--                <li class="nav-item "><a class="btn btn-sm text-primary d-none d-lg-block " href="#signin-modal" data-bs-toggle="modal">ورود به حساب</a>--}}
+{{--                </li>--}}
+
 
                 @foreach(getPagesName('header')->take(5) as $page)
                     <li class="nav-item">
@@ -107,8 +111,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false"> تماس باما </a>
                 </li>
 
-                <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i
-                                class="fi-user me-2"></i>ورود به حساب </a></li>
+                <li class="nav-item "><a class="nav-link d-lg-none" href="#signin-modal" data-bs-toggle="modal"></i>ورود به حساب </a></li>
 
 
 {{--                <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i--}}
