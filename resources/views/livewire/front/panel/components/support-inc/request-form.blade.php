@@ -3,12 +3,12 @@
         <form class="needs-validation" novalidate="">
 
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="نام خانوادگی">
-                <label for="floatingInput">نام خانوادگی</label>
+                <input type="email" class="form-control" id="floatingInput" placeholder="نام و نام خانوادگی">
+                <label for="floatingInput">نام و نام خانوادگی</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="نام خانوادگی">
+                <input type="email" class="form-control" id="floatingInput" placeholder="آدرس الکترونیکی">
                 <label for="floatingInput">آدرس الکترونیکی</label>
             </div>
 
