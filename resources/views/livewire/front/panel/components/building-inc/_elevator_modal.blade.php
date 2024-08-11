@@ -130,13 +130,22 @@
 
     </div>
 
-    <div class="row container mt-3 collapse" id="showMoreelevator" style="">
-        <!-- List group with icons and badges -->
-        <ul class="list-group">
-            @foreach($elevator_list as $index => $elevator)
 
 
-            <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
+    <div class="accordion mt-2" id="accordionelevator">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    آسانسور های ثبت شده
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionelevator">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        @foreach($elevator_list as $index => $elevator)
+
+
+                            <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
                 <span>
                     <i class="fi-sidebar-left text-success me-2"></i>
                     آسانسور
@@ -145,27 +154,19 @@
                     ({{ $elevator->model }})
                     ساختمان : {{ $elevator->building()->first()->builder_name }}
                     </span>
-                <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
-            @endforeach
+                                <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
+                                    <i class=" btn-xs fi fi-trash"></i>
+                                </a>
+                            </li>
+                        @endforeach
 
-        </ul>
-
-    </div>
-
-    <div class="container mt-2">
-        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
-
-            <a class="collapse-label d-inline-block fs-md fw-bold text-success text-decoration-none pt-2 pb-3 mx-auto mx-md-0 ms-md-2 collapsed"
-               href="#showMoreelevator" data-bs-toggle="collapse" data-bs-label-collapsed="آسانسور های ثبت شده"
-               data-bs-label-expanded="بستن" role="button" aria-expanded="false"
-               aria-controls="showMoreelevator">
-                <i class="fi-arrow-down me-2"></i>
-            </a>
+                    </ul>
+                </div>
+            </div>
         </div>
+
     </div>
+
 
 </div>
 

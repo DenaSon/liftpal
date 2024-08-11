@@ -75,50 +75,49 @@
 
     </div>
 
-    <div class="row container mt-3 collapse" id="showMoreuser" style="">
-        <!-- List group with icons and badges -->
-        <ul class="list-group">
+    <div class="accordion mt-2" id="accordionmember">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    مشاهده اعضا
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionmember">
+                <div class="accordion-body">
+                    <ul class="list-group">
 
-            <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
+                        <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
 <span>
 <i class="fi-user-check text-success me-2"></i>
 میلاد اسدی
 </span>
-                <a href="#" class="">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
-            <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
+                            <a href="#" class="">
+                                <i class=" btn-xs fi fi-trash"></i>
+                            </a>
+                        </li>
+                        <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
 <span>
 <i class="fi-user-check text-success me-2"></i>
 محمد اسدی
 </span>
-                <a href="#" class="">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
-            <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
+                            <a href="#" class="">
+                                <i class=" btn-xs fi fi-trash"></i>
+                            </a>
+                        </li>
+                        <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
 <span>
 <i class="fi-user-check text-success me-2"></i>
 مسلم حمیدی
 </span>
-                <a href="#" class="">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
-        </ul>
-
-    </div>
-
-    <div class="container mt-2">
-        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
-
-            <a class="collapse-label d-inline-block fs-md fw-bold text-success text-decoration-none pt-2 pb-3 mx-auto mx-md-0 ms-md-2 collapsed"
-               href="#showMoreuser" data-bs-toggle="collapse" data-bs-label-collapsed="مشاهده اعضا"
-               data-bs-label-expanded="بستن" role="button" aria-expanded="false" aria-controls="showMoreuser">
-                <i class="fi-arrow-down me-2"></i>
-            </a>
+                            <a href="#" class="">
+                                <i class=" btn-xs fi fi-trash"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
     </div>
 
 </div>

@@ -4,16 +4,17 @@
  data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}}}">
 <div class="col">
     <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
-            class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/buy.svg') }}"
+            class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/calculator.svg') }}"
             width="256" alt="Illustration">
+
         <div class="card-body">
-            <h2 class="h5 card-title mt-3">ثبت ساختمان</h2>
+            <h2 class="h5 card-title mt-3">ماشین حساب</h2>
             <p class="card-text fs-sm">
-                لیفت‌پال به عنوان یک سامانه جامع، خدمات متنوعی را برای مدیران ساختمان ارائه می دهد.
+                با استفاده از ماشین حساب آنلاین ما، هزینه‌های تخمینی تعمیر و نگهداری آسانسور خود را به‌سرعت و با دقت محاسبه کنید. کافی است اطلاعات مربوطه را وارد کنید تا از هزینه‌ها مطلع شوید.
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link"
-                                                  href=""> ثبت ساختمان</a>
+                                                  href=""> شروع کن</a>
         </div>
     </div>
 </div>
@@ -30,8 +31,19 @@
                 از مشاوره رایگان متخصصان ما بهره مند شوید.
             </p>
         </div>
-        <div class="card-footer pt-0 border-0"><a wire:navigate class="btn btn-outline-primary stretched-link"
-                                                  href=""> شروع مشاوره </a></div>
+        <div class="card-footer pt-0 border-0">
+            <a  class="btn btn-outline-primary">شروع</a>
+
+
+        </div>
+
+
+
+
+
+
+
+
     </div>
 </div>
 <div class="col">
