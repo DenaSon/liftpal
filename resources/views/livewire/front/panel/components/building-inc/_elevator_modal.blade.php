@@ -34,6 +34,18 @@
                     <div class="modal-body">
 
                         <div class="row ">
+
+                            <div class="col-12 mb-4">
+                            <select class="form-select border border-danger" aria-label="Default select example">
+                                <option selected>انتخاب ساختمان</option>
+                                <option value="1">شماره 1</option>
+                                <option value="2">شماره 2</option>
+                                <option value="3">شماره 3</option>
+                            </select>
+                            </div>
+
+
+
                             <div class="form-floating col-12 mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="مدل">
                                 <label for="floatingInput">مدل</label>
