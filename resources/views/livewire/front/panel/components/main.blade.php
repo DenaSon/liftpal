@@ -1,6 +1,7 @@
 <div>
-
+    @if(!$orders->isEmpty())
     <div id="paginated-orders" class="container m-auto text-center row border border-secondary border-5 shadow-sm d-flex rounded p-3 p-auto mt-5 mb-2  justify-content-center align-items-center">
+
 
         <div class="col-sm-12 col-md-4 col-flex justify-content-between align-items-center ">
             <button class="btn btn-outline-info px-0 mb-3 w-50" wire:click.debounce.500ms="getSended">
@@ -24,7 +25,7 @@
 
 
     </div>
-
+    @endif
 
     <div class="table-responsive">
         <table class="container table mt-4  @if(!$orders->isEmpty()) table-hover  @endif">
@@ -45,7 +46,7 @@
                 <th colspan="1" class="text-center">مبلغ
                     <span class="fs-xs muted fw-normal">(تومان)</span>
                 <th colspan="1" class="text-center">زمان</th>
-                </th>
+
             </tr>
             </thead>
             <tbody class="table-group-divider fw-bold bold-divider">
