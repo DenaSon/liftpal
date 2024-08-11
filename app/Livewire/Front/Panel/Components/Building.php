@@ -125,6 +125,7 @@ class Building extends Component
         $building = \App\Models\Building::find($id);
 
         if ($building) {
+            $building->elevators()->delete();
             $building->delete();
             $this->alert('info', 'ساختمان حذف شد');
         } else {

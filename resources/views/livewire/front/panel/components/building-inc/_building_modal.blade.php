@@ -160,6 +160,7 @@
     </div>
 </div>
 
+@include('livewire.front.panel.components.building-inc._building_edit')
 
 
 @script
