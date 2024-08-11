@@ -12,24 +12,35 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('elevators', function (Blueprint $table) {
-
             $table->id();
+
             $table->foreignId('user_id')->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            
+
+            $table->foreignId('building_id')->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
             $table->string('model');
             $table->integer('capacity');
-            $table->enum('type', ['passenger', 'freight', 'service', 'panoramic','other']);
+            $table->enum('type', ['passenger',
+                'freight',
+                'service',
+                'hospital',
+                'panoramic',
+                'dumbwaiter',
+                'home',
+                'vehicle',
+                'other']);
             $table->string('manufacturer')->nullable();
             $table->date('last_inspection_date')->nullable();
-            $table->date('installation_date');
+
             $table->enum('status', ['active', 'inactive', 'maintenance'])->default('active');
 
-            $table->date('last_maintenance_date')->nullable();
-            $table->date('next_maintenance_date')->nullable();
-            $table->timestamps();
 
+
+            $table->timestamps();
         });
     }
 
