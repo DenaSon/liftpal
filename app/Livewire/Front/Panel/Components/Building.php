@@ -5,12 +5,16 @@ namespace App\Livewire\Front\Panel\Components;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Throwable;
 
 #[Lazy]
 class Building extends Component
 {
-    use LivewireAlert;
+    use LivewireAlert,WithPagination;
+
+    // building fields;
+    public $building_list =[];
    public $building_address;
    public $manager_name;
    public $manager_contact;
@@ -19,7 +23,21 @@ class Building extends Component
    public $building_units;
    public $emergency_contact;
 
-   public function addBuilding()
+   //elevator_fields
+
+    public $building_id;
+    public $model;
+    public $capacity;
+    public $type;
+    public $manufacturer;
+    public $last_inspection_date;
+    public $installation_date;
+    public $status;
+    public $last_maintenance_date;
+    public $next_maintenance_date;
+
+
+    public function addBuilding()
    {
 
        try
@@ -45,6 +63,9 @@ class Building extends Component
            $building->emergency_contact = $this->emergency_contact;
            $building->user_id = auth()->user()->id;
            $building->save();
+           $this->alert('success', 'ساختمان جدید افزوده شد');
+           $this->reset();
+           $this->dispatch('building_added');
 
 
        }
@@ -56,10 +77,81 @@ class Building extends Component
 
    }
 
+   public function addElevator(): void
+   {
+       try {
+
+
+           $this->validate([
+               'building_id' => 'required|integer',
+               'model' => 'required|string|max:255',
+               'capacity' => 'required|integer',
+               'type' => 'required|string|max:255',
+               'manufacturer' => 'required|string|max:255',
+               'last_inspection_date' => 'required',
+               'installation_date' => 'required',
+               'status' => 'required|string|max:255',
+               'last_maintenance_date' => 'nullable',
+               'next_maintenance_date' => 'nullable',
+           ]);
+
+           \App\Models\Elevator::create([
+               'user_id' => auth()->user()->id,
+               'building_id' => $this->building_id,
+               'model' => $this->model,
+               'capacity' => $this->capacity,
+               'type' => $this->type,
+               'manufacturer' => $this->manufacturer,
+               'last_inspection_date' => $this->last_inspection_date,
+               'installation_date' => $this->installation_date,
+               'status' => $this->status,
+               'last_maintenance_date' => $this->last_maintenance_date,
+               'next_maintenance_date' => $this->next_maintenance_date,
+           ]);
+
+           $this->alert('success', 'آسانسور جدید افزوده شد');
+           $this->reset();
+           $this->dispatch('elevator_added');
+       }
+       catch (Throwable $e)
+       {
+           $this->alert('info', $e->getMessage());
+
+       }
+   }
+
+    public function removeBuilding($id): void
+    {
+        $building = \App\Models\Building::find($id);
+
+        if ($building) {
+            $building->delete();
+            $this->alert('info', 'ساختمان حذف شد');
+        } else {
+            $this->alert('warning', 'ساختمان یافت نشد');
+        }
+    }
+    public function removeElevator($id): void
+    {
+        $building = \App\Models\Elevator::find($id);
+
+        if ($building) {
+            $building->delete();
+            $this->alert('info', 'آسانسور حذف شد');
+        } else {
+            $this->alert('warning', 'آسانسور یافت نشد');
+        }
+    }
+
 
     public function render()
     {
 
-        return view('livewire.front.panel.components.building');
+       $this->building_list = \App\Models\Building::whereUserId(auth()->user()->id)->latest('id')->take(10)->get();
+       $this->elevator_list = \App\Models\Elevator::whereUserId(auth()->user()->id)->latest('id')->take(10)->get();
+
+        return view('livewire.front.panel.components.building',
+                ['building_list' => $this->building_list,
+                'elevator_list' => $this->elevator_list]);
     }
 }

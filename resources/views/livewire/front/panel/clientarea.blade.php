@@ -58,6 +58,9 @@
         <x-livewire-alert::scripts/>
         <script data-navigate-once
                 src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script data-navigate-once
+                src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}"></script>
+
         <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
         <script data-navigate-once
                 src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>

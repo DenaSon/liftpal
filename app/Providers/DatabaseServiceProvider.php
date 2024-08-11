@@ -40,7 +40,10 @@ class DatabaseServiceProvider extends ServiceProvider
             'profile' => 'App\Models\Profile',
             'tag' => 'App\Models\Tag',
             'cart' => 'App\Models\Cart',
-            'error' => 'App\Models\Error'
+            'error' => 'App\Models\Error',
+            'building' => 'App\Models\Building',
+            'elevator' => 'App\Models\Elevator',
+
         ]);
 
 

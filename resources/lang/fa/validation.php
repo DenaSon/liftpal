@@ -279,6 +279,16 @@ return [
         'building_floors'     => 'تعداد طبقات ساختمان',
         'building_units'      => 'تعداد واحدهای ساختمان',
         'emergency_contact'   => 'تماس اضطراری',
+        'building_id' => 'شناسه ساختمان',
+        'model' => 'مدل',
+        'capacity' => 'ظرفیت',
+
+        'manufacturer' => 'سازنده',
+        'last_inspection_date' => 'تاریخ آخرین بازرسی',
+        'installation_date' => 'تاریخ نصب',
+
+        'last_maintenance_date' => 'تاریخ آخرین تعمیر و نگهداری',
+        'next_maintenance_date' => 'تاریخ تعمیر و نگهداری بعدی',
 
 
     ],

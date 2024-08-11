@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 d-flex justify-content-center">
                 <div class=" ps-2 text-center">
-                    <label class="form-label fw-bold">افزودن آسانسور</label>
-                    <div id="skill-value">3 آسانسور ثبت شده</div>
+                    <label class="form-label fw-bold">مدیریت آسانسور</label>
+                    <div id="elevator_count">{{ $elevator_list->count() }} آسانسور ثبت شده</div>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="add-elevator" data-bs-backdrop="static" data-bs-keyboard="false"
+        <div wire:ignore class="modal fade" id="add-elevator" data-bs-backdrop="static" data-bs-keyboard="false"
              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -36,71 +36,80 @@
                         <div class="row ">
 
                             <div class="col-12 mb-4">
-                            <select class="form-select border border-danger" aria-label="Default select example">
-                                <option selected>انتخاب ساختمان</option>
-                                <option value="1">شماره 1</option>
-                                <option value="2">شماره 2</option>
-                                <option value="3">شماره 3</option>
+                            <select wire:model="building_id" class="form-select border border-danger" aria-label="Default select example">
+                                <option selected disabled>انتخاب ساختمان</option>
+                                @foreach($building_list as  $index => $building)
+                                <option wire:key="{{ $building->id }}" value="{{ $building->id }}"> {{ $index+1 }} - ({{ $building->builder_name }})
+                                <span class="fs-xxs"> {{ \Illuminate\Support\Str::limit($building->address,25) }}</span>
+                                </option>
+
+                                @endforeach
                             </select>
                             </div>
 
 
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="مدل">
+                                <input wire:model="model" type="text" class="form-control" id="floatingInput" placeholder="مدل">
                                 <label for="floatingInput">مدل</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="number" class="form-control" id="floatingInput"
-                                       placeholder="ظرفیت">
-                                <label for="floatingInput">ظرفیت</label>
+                                <input wire:model="capacity" type="number" class="form-control" id="floatingInput"
+                                       placeholder="ظرفیت (نفر)">
+                                <label for="floatingInput">ظرفیت (نفر)</label>
                             </div>
 
 
                             <div class="form-floating col-12 mb-3">
-                                <select class="form-select custom-select-height-building "
+                                <select wire:model="type" class="form-select custom-select-height-building "
                                         aria-label="Default select example">
-                                    <option selected class="m-auto">نوع آسانسور خود را انتخاب کنید</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+
+                                    <option value="" disabled selected> انتخاب مدل  </option>
+                                    <option value="passenger">آسانسور مسافری</option>
+                                    <option value="freight">آسانسور باربری</option>
+                                    <option value="service">آسانسور خدماتی</option>
+                                    <option value="hospital">آسانسور بیمارستانی</option>
+                                    <option value="panoramic">آسانسور پانوراما (شیشه‌ای)</option>
+                                    <option value="dumbwaiter">آسانسور غذا بر (دوم ویتور)</option>
+                                    <option value="home">آسانسور خانگی</option>
+                                    <option value="vehicle">آسانسور خودرویی</option>
                                 </select>
 
                             </div>
 
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="text" class="form-control" id="floatingInput"
+                                <input wire:model="manufacturer" type="text" class="form-control" id="floatingInput"
                                        placeholder="کارخانه">
                                 <label for="floatingInput">کارخانه</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="text" class="form-control" id="floatingInput"
+                                <input wire:model="installation_date" type="text" class="form-control" id="floatingInput"
                                        placeholder="تاریخ نصب">
                                 <label for="floatingInput">تاریخ نصب</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="text" class="form-control" id="floatingInput"
+                                <input wire:model="last_inspection_date" type="text" class="form-control" id="floatingInput"
                                        placeholder="تاریخ آخرین بازرسی">
                                 <label for="floatingInput">تاریخ آخرین بازرسی</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">
-                                <input type="text" class="form-control" id="floatingInput"
+                                <input wire:model="last_maintenance_date" type="text" class="form-control" id="floatingInput"
                                        placeholder="تاریخ تعمیر">
                                 <label for="floatingInput">تاریخ تعمیر</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">
-                                <select class="form-select custom-select-height-building" id="customSelect"
+                                <select wire:model="status" class="form-select custom-select-height-building" id="customSelect"
                                         aria-label="Default select example">
                                     <option selected class="m-auto">وضعیت آسانسور</option>
-                                    <option value="1"> فعال</option>
-                                    <option value="2">غیر فعال</option>
-                                    <option value="3">درحال تعمیر</option>
+                                    <option value="active"> فعال</option>
+                                    <option value="deactivate">غیر فعال</option>
+                                    <option value="maintenance">درحال تعمیر</option>
                                 </select>
                             </div>
 
@@ -109,7 +118,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success btn-xs w-25">ثبت</button>
+                        <button wire:click.debounce.250="addElevator" type="button" class="btn btn-success btn-xs w-25">ثبت</button>
                         <button type="button" class="btn btn-primary btn-xs" data-bs-dismiss="modal">بستن
                         </button>
 
@@ -124,34 +133,24 @@
     <div class="row container mt-3 collapse" id="showMoreelevator" style="">
         <!-- List group with icons and badges -->
         <ul class="list-group">
+            @foreach($elevator_list as $index => $elevator)
 
-            <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-sidebar-left text-success me-2"></i>
-مدل ممد 0
-</span>
-                <a href="#" class="">
+
+            <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
+                <span>
+                    <i class="fi-sidebar-left text-success me-2"></i>
+                    آسانسور
+                    {{ $elevator->capacity }} نفره
+              مدل
+                    ({{ $elevator->model }})
+                    ساختمان : {{ $elevator->building()->first()->builder_name }}
+                    </span>
+                <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
                     <i class=" btn-xs fi fi-trash"></i>
                 </a>
             </li>
-            <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-sidebar-left text-success me-2"></i>
-مدل ممد
-</span>
-                <a href="#" class="">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
-            <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-sidebar-left text-success me-2"></i>
-مدل ممد 2
-</span>
-                <a href="#" class="">
-                    <i class=" btn-xs fi fi-trash"></i>
-                </a>
-            </li>
+            @endforeach
+
         </ul>
 
     </div>
@@ -169,3 +168,12 @@
     </div>
 
 </div>
+
+@script
+<script>
+    $wire.on('elevator_added', () => {
+        $('#add-elevator').modal('hide');
+
+    });
+</script>
+@endscript

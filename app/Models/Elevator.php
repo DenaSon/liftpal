@@ -7,7 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Elevator extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'building_id',
+        'model',
+        'capacity',
+        'type',
+        'manufacturer',
+        'last_inspection_date',
+        'installation_date',
+        'status',
+        'last_maintenance_date',
+        'next_maintenance_date',
+    ];
+
 
     public function building()
     {
