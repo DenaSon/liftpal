@@ -39,6 +39,12 @@ class Building extends Component
            $building->address = $this->building_address;
            $building->manager_name = $this->manager_name;
            $building->manager_contact = $this->manager_contact;
+           $building->builder_name = $this->building_name;
+           $building->floors = $this->building_floors;
+           $building->units = $this->building_units;
+           $building->emergency_contact = $this->emergency_contact;
+           $building->user_id = auth()->user()->id;
+           $building->save();
 
 
        }

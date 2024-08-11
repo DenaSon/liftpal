@@ -27,7 +27,7 @@
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="add-elevator" data-bs-backdrop="static" data-bs-keyboard="false"
+                <div wire:ignore class="modal fade" id="add-elevator" data-bs-backdrop="static" data-bs-keyboard="false"
                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -40,10 +40,10 @@
 
 
                                 <div class="modal-body">
-                                    <!-- Caff Milano | Edit From Here -->
+
 
                                     <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="آدرس ساختمان"
+                                    <textarea wire:model="building_address" class="form-control" placeholder="آدرس ساختمان"
                                               id="floatingTextarea"></textarea>
                                         <label for="floatingTextarea">آدرس ساختمان</label>
                                     </div>
@@ -52,14 +52,14 @@
                                         <div class="row">
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="text" class="form-control" id="floatingInput"
+                                                <input wire:model="manager_name" type="text" class="form-control" id="floatingInput"
                                                        placeholder="نام و نام خانوادگی مدیر">
                                                 <label for="floatingInput">نام و نام خانوادگی مدیر</label>
                                             </div>
 
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="text" class="form-control" id="floatingInput"
+                                                <input wire:model="building_name" type="text" class="form-control" id="floatingInput"
                                                        placeholder="نام ساختمان">
                                                 <label for="floatingInput">
 
@@ -70,26 +70,26 @@
                                             </div>
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="number" class="form-control" id="floatingInput"
+                                                <input wire:model="building_floors" type="number" class="form-control" id="floatingInput"
                                                        placeholder="تعداد طبقه">
                                                 <label for="floatingInput">تعداد طبقات</label>
                                             </div>
 
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="number" class="form-control" id="floatingInput"
+                                                <input wire:model="building_units" type="number" class="form-control" id="floatingInput"
                                                        placeholder="تعداد واحد">
                                                 <label for="floatingInput">تعداد واحد</label>
                                             </div>
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="number" class="form-control" id="floatingInput"
+                                                <input wire:model="manager_contact" type="number" class="form-control" id="floatingInput"
                                                        placeholder="شماره تماس مدیر">
                                                 <label for="floatingInput">شماره تماس مدیر</label>
                                             </div>
 
                                             <div class="form-floating col-12 mb-3">
-                                                <input type="number" class="form-control" id="floatingInput"
+                                                <input wire:model="emergency_contact" type="number" class="form-control" id="floatingInput"
                                                        placeholder="شماره تماس اضطراری">
                                                 <label for="floatingInput">شماره تماس اضطراری</label>
                                             </div>
@@ -101,7 +101,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-xs w-25">ثبت</button>
+                                    <button wire:click.debounce.250="addBuilding" type="button" class="btn btn-success btn-xs w-25">ثبت</button>
                                     <button type="button" class="btn btn-primary btn-xs" data-bs-dismiss="modal">بستن
                                     </button>
 

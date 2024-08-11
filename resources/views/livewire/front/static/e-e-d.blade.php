@@ -24,20 +24,26 @@
             <div class="flex-column align-items-center justify-content-center col-lg-5 col-md-6 mx-auto">
                 <div class="ms-md-5 mb-md-5 mb-0  justify-content-center text-center text-justify">
                     <h1 class="mb-3 text-md-start"> سیستم EED</h1>
-                    <p class="mb-0  text-muted text-justify small-font-eed border border-radius-20 p-3 shadow-sm" style="line-height: 32px">
-                        سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
-                        تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
-                        کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
+                    <p class="mb-0  text-muted text-justify small-font-eed border border-radius-20 p-3 shadow-sm"
+                       style="line-height: 32px">
+                        سیستم EED، راهکاری هوشمند و نوآورانه برای شناسایی و رفع خطاهای آسانسور، به شما این امکان را
+                        می‌دهد که با وارد کردن شماره خطای صادر شده از آسانسور، به
+                        تفسیر دقیق و روش حل آن دست یابید. این سیستم با بهره‌گیری از یک پایگاه داده بزرگ و وسیع، اطلاعات
+                        جامعی را در اختیار شما قرار می‌دهد. EED به تکنسین‌ها و
+                        کاربران کمک می‌کند تا مشکلات فنی آسانسور را به سرعت و به سادگی شناسایی و برطرف نمایند. با دقت
+                        بالا و رابط کاربری ساده، EED تجربه‌ای کارآمد و مطمئن را
                         فراهم می‌سازد.
                     </p>
 
                 </div>
                 <div class="d-md-flex align-items-center justify-content-center mt-0 pt-0">
-                    <img class="d-none d-md-flex align-items-center justify-content-center pt-0 ms-5 " style="width:250px; height: 250px;"
+                    <img class="d-none d-md-flex align-items-center justify-content-center pt-0 ms-5 "
+                         style="width:250px; height: 250px;"
                          src="{{ asset('assets/img/liftpal/eed-illustratin.png') }}" alt="Illustration">
                 </div>
             </div>
-            <div class="col-md-6 flex-column mx-auto align-items-center justify-content-center custom-offset-eed order-1">
+            <div
+                class="col-md-6 flex-column mx-auto align-items-center justify-content-center custom-offset-eed order-1">
 
                 @include('livewire.front.static.eed-inc.eed-form')
 
@@ -61,7 +67,8 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً
+                        <p class="text-dark mt-2  text-justify">ماشین حساب لیفت پال یک سرویس محاسباتی آنلاین است که به
+                            مهندسین و فن‌آوران اجازه می‌دهد تا به راحتی و سریعاً
                             محاسبات فنی مربوط به آسانسورها را انجام دهند. </p>
                     </div>
 
@@ -87,7 +94,8 @@
                     </div>
                     <div>
                         <p class="text-dark mt-4 mb-5  text-justify">
-                            لیفت‌پال به شما کمک می کند تا بهترین متخصصان آسانسور، مجریان و نصابان را در منطقه خود پیدا کنید.
+                            لیفت‌پال به شما کمک می کند تا بهترین متخصصان آسانسور، مجریان و نصابان را در منطقه خود پیدا
+                            کنید.
 
                         </p>
 
@@ -148,7 +156,8 @@
         <!-- All Jquery -->
         <!-- ============================================================== -->
         <script data-navigate-once src="{{ asset('assets/vendor/jquery-3.6.0.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script data-navigate-once
+                src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
         <!-- Main theme script-->
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
@@ -184,7 +193,7 @@
             });
         </script>
 
-        @endsection
+    @endsection
 
 
 </div>

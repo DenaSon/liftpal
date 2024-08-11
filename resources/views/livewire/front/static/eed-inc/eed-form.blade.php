@@ -15,7 +15,8 @@
                     <i class="fi-search me-2"></i>
                     <span class="fs-xs">جستجو خطا</span>
                 </label>
-                <select dir="ltr" class="select2-error select2 text-center" wire:model.live.debounce.1s="errorCode" style="width: 100%" id="errorCode">
+                <select dir="ltr" class="select2-error select2 text-center" wire:model.live.debounce.1s="errorCode"
+                        style="width: 100%" id="errorCode">
                     <option value="0" selected>ورودی شماره خطا</option>
                     @foreach($errors as $error)
 
@@ -53,7 +54,8 @@
         @endif
         <div class="col-12 d-flex align-items-center justify-content-center mt-0 pt-0">
             <img class="d-md-block pt-0 pb-4"
-                 src="{{ asset('assets/img/inspect-eed.png') }}" alt="SEARCH" style="opacity: 0.2; position:absolute" id="inspect-image">
+                 src="{{ asset('assets/img/inspect-eed.png') }}" alt="SEARCH" style="opacity: 0.2; position:absolute"
+                 id="inspect-image">
 
 
         </div>
@@ -68,7 +70,8 @@
 
         <hr>
         <p class="pt-1 text-justify">
-            با سیستم خطایاب EED، تکنسین‌ها می‌توانند زمان خرابی را کاهش داده و عملکرد بهینه و ایمن آسانسورها را تضمین کنند. EED یک ابزار ضروری برای هر تیم پشتیبانی آسانسور است
+            با سیستم خطایاب EED، تکنسین‌ها می‌توانند زمان خرابی را کاهش داده و عملکرد بهینه و ایمن آسانسورها را تضمین
+            کنند. EED یک ابزار ضروری برای هر تیم پشتیبانی آسانسور است
             که به دنبال بهبود کارایی و کیفیت خدمات خود هستند.
 
         </p>
