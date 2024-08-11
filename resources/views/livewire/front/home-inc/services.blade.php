@@ -14,7 +14,7 @@
                 با استفاده از ماشین حساب آنلاین ما، هزینه‌های تخمینی تعمیر و نگهداری آسانسور خود را به‌سرعت و با دقت محاسبه کنید. کافی است اطلاعات مربوطه را وارد کنید تا از هزینه‌ها مطلع شوید.
             </p>
         </div>
-        <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link"
+        <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary "
                                                   href=""> شروع کن</a>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="card-footer pt-0 border-0">
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#support-home-Modal">
                شروع
             </button>
 
@@ -59,7 +59,7 @@
 
             </p>
         </div>
-        <div class="card-footer pt-0 border-0"><a  wire:navigate.hover class="btn btn-outline-primary stretched-link"
+        <div class="card-footer pt-0 border-0"><a  wire:navigate.hover class="btn btn-outline-primary "
                                                   href=""> خطایاب </a></div>
     </div>
 </div>
