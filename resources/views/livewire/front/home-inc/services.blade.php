@@ -17,6 +17,7 @@
         <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link"
                                                   href=""> شروع کن</a>
         </div>
+
     </div>
 </div>
 
@@ -38,7 +39,6 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                شروع
             </button>
-
 
         </div>
 

@@ -75,14 +75,14 @@
 
     </div>
 
-    <div class="accordion mt-2" id="accordionmember">
+    <div class="accordion mt-2" id="accordion-member">
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h2 class="accordion-header" id="headingOneMember">
+                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneMember" aria-expanded="true" aria-controls="collapseOneMember">
                     مشاهده اعضا
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionmember">
+            <div id="collapseOneMember" class="accordion-collapse collapse show" aria-labelledby="headingOneMember" data-bs-parent="#accordion-member">
                 <div class="accordion-body">
                     <ul class="list-group">
 

@@ -114,14 +114,14 @@
             </div>
 
 
-            <div class="accordion mt-2" id="accordionbuilding">
+            <div class="accordion mt-2" id="accordion-building">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h2 class="accordion-header" id="headingOneBuilding">
+                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneBuilding" aria-expanded="true" aria-controls="collapseOneBuilding">
                             ساختمان های ثبت شده
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionbuilding">
+                    <div id="collapseOneBuilding" class="accordion-collapse collapse show" aria-labelledby="headingOneBuilding" data-bs-parent="#accordion-building">
                         <div class="accordion-body">
                             <ul class="list-group ">
 
