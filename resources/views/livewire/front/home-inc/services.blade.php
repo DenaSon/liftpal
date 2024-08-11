@@ -19,7 +19,6 @@
     </div>
 </div>
 
-
 <div class="col">
     <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
             class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/support.svg') }}"
