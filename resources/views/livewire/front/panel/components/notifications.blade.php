@@ -1,9 +1,6 @@
 <div class="container">
     <div class=" mt-5">
-        <h1 class="h2">لیست اطلاعیه ها</h1>
-        <p class="pt-1 mb-3">دریافت به روزرسانی های واقعی در مورد خدمات مورد نیاز ساختمان شما</p>
 
-        <hr class="mb-4 alert-dark">
 
                 <div class="d-flex justify-content-between mb-4">
                     <div class="me-2">

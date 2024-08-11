@@ -20,8 +20,8 @@
             </div>
 
 
-            <div class="pt-sm-2 pt-1">
-                <button class="btn btn-lg btn-primary w-sm-auto w-100" type="submit">ارسال فرم</button>
+            <div class="pt-sm-2 pt-1 mt-3 d-flex justify-content-center">
+                <button class="btn  btn-primary w-sm-auto w-100" type="submit">ارسال </button>
             </div>
         </form>
     </div>

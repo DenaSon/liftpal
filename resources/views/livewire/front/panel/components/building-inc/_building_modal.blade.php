@@ -36,10 +36,8 @@
 
 
                         <div class="modal-body">
-
-
                             <div class="form-floating mb-3">
-                <textarea wire:model="building_address" class="form-control"
+                          <textarea wire:model="building_address" class="form-control"
                           placeholder="آدرس ساختمان"
                           id="floatingTextarea"></textarea>
                                 <label for="floatingTextarea">آدرس ساختمان</label>
@@ -96,11 +94,8 @@
                                                placeholder="شماره تماس اضطراری">
                                         <label for="floatingInput">شماره تماس اضطراری</label>
                                     </div>
-
                                 </div>
-
                             </div>
-
 
                         </div>
                         <div class="modal-footer">
@@ -118,25 +113,83 @@
 
             </div>
 
-            <div class="row container mt-3 collapse" id="showMorebuilding" style="">
+
+
+{{--            <div class="accordion mt-2" id="accordionExample">--}}
+{{--                <div class="accordion-item">--}}
+{{--                    <h2 class="accordion-header" id="headingOne">--}}
+{{--                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">--}}
+{{--                            ساختمان های ثبت شده--}}
+{{--                        </button>--}}
+{{--                    </h2>--}}
+{{--                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">--}}
+{{--                        <div class="accordion-body">--}}
+{{--                            <ul class="list-group ">--}}
+
+{{--                                @foreach($building_list as $index => $building)--}}
+
+{{--                                    <li wire:key="{{ $building->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">--}}
+{{--            <span>--}}
+{{--            <i class="fi-apartment text-success me-2"></i>--}}
+{{--                {{ $index+1 }} ---}}
+{{--               <span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>--}}
+{{--                <span class="fs-xs muted"> {{ \Illuminate\Support\Str::limit($building->address,45) }}</span>--}}
+{{--            </span>--}}
+
+
+{{--                                        <div class="d-flex">--}}
+{{--                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-building" class="d-block me-3">--}}
+{{--                                                <i class="btn-xs fi fi-edit"></i>--}}
+{{--                                            </a>--}}
+
+{{--                                            <a href="javascript:void(0)" class="d-block me-0" wire:click="removeBuilding({{ $building->id }})">--}}
+{{--                                                <i class="btn-xs fi fi-trash"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </div>--}}
+
+{{--                                    </li>--}}
+{{--                                @endforeach--}}
+
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--            </div>--}}
+
+
+
+
+
+
+
+
+            <div class="row container mt-3 collapse show" id="showMorebuilding" style="">
                 <!-- List group with icons and badges -->
                 <ul class="list-group">
 
-                        @foreach($building_list as $index => $building)
+                    @foreach($building_list as $index => $building)
 
-                    <li wire:key="{{ $building->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
+                        <li wire:key="{{ $building->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
             <span>
             <i class="fi-apartment text-success me-2"></i>
                 {{ $index+1 }} -
                <span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>
                 <span class="fs-xs muted"> {{ \Illuminate\Support\Str::limit($building->address,45) }}</span>
             </span>
-                        <a href="javascript:void(0)" class="" wire:click="removeBuilding({{ $building->id }})">
-                            <i class="btn-xs fi fi-trash"></i>
-                        </a>
 
 
-                    </li>
+                            <div class="d-flex">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-building" class="d-block me-3">
+                                    <i class="btn-xs fi fi-edit"></i>
+                                </a>
+
+                                <a href="javascript:void(0)" class="d-block me-0" wire:click="removeBuilding({{ $building->id }})">
+                                    <i class="btn-xs fi fi-trash"></i>
+                                </a>
+                            </div>
+
+                        </li>
                     @endforeach
 
                 </ul>
@@ -150,7 +203,7 @@
                        href="#showMorebuilding" data-bs-toggle="collapse" data-bs-label-collapsed="ساختمان های ثبت شده"
                        data-bs-label-expanded="بستن" role="button" aria-expanded="false"
                        aria-controls="showMorebuilding">
-                        <i class="fi-arrow-down me-2"></i>
+{{--                        <i class="fi-arrow-down me-2"></i>--}}
                     </a>
                 </div>
             </div>
