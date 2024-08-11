@@ -3,7 +3,7 @@
     <div class=" mt-3">
 
 
-        <div class="modal fade" id="add-building" data-bs-backdrop="static" data-bs-keyboard="false"
+        <div wire:ignore class="modal fade" id="add-building" data-bs-backdrop="static" data-bs-keyboard="false"
              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -76,7 +76,7 @@
 
                                 <div class="container mt-4 d-flex justify-content-center">
 
-                                    <button type="button" class="btn btn-success"><i class="fi-building me-3"></i>ثبت
+                                    <button wire:click="addBuilding" type="button" class="btn btn-success"><i class="fi-building me-3"></i>ثبت
                                         ساختمان
                                     </button>
                                 </div>

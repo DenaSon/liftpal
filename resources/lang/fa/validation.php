@@ -271,7 +271,14 @@ return [
         'skill' => 'مهارت',
         'skills' => 'مهارت ها',
         'education' => 'تحصیلات',
-        'errorCode' => 'کد خطا'
+        'errorCode' => 'کد خطا',
+        'building_address'    => 'آدرس ساختمان',
+        'manager_name'        => 'نام مدیر',
+        'manager_contact'     => 'اطلاعات تماس مدیر',
+        'building_name'       => 'نام ساختمان',
+        'building_floors'     => 'تعداد طبقات ساختمان',
+        'building_units'      => 'تعداد واحدهای ساختمان',
+        'emergency_contact'   => 'تماس اضطراری',
 
 
     ],
