@@ -51,6 +51,7 @@ class Building extends Component
        catch (Throwable $e)
        {
            $this->alert('info', $e->getMessage());
+
        }
 
    }
