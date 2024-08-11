@@ -1,12 +1,12 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" data-scroll-header>
-    <div class="container ">
-        <a target="_self" wire:navigate class="navbar-brand ms-3 ms-xl-4 logo"
-                              href="{{ route('home') }}"><img
-                    class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
+    <div class="container  d-flex">
+        <a target="_self" wire:navigate class="navbar-brand ms-3 ms-xl-4 logo" href="{{ route('home') }}">
+            <img class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
+
         <button data-no-turbolink class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=" navbar-toggler-icon"></span></button>
+            <span class="navbar-toggler-icon"></span></button>
 
 
         @if(auth()->check())
@@ -14,7 +14,7 @@
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
                     <img class="rounded-circle" src="{{ asset('assets/img/avatars/49.jpg') }}" width="40" alt="">
 
-{{--                    <i class="fs-lg fw-bold fi fi-user me-5"></i>--}}
+
                 </a>
                 <div class="dropdown-menu  dropdown-menu-center-hompage me-5">
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2 " style="width: 16rem;">
@@ -72,12 +72,12 @@
             </div>
 
         @else
-            <a class=" text-decoration-none d-none d-lg-block " href="#signin-modal" data-bs-toggle="modal">ورود به حساب</a>
+{{--            <a class=" text-decoration-none d-none d-lg-block me-auto" href="#signin-modal" data-bs-toggle="modal">ورود به حساب</a>--}}
         @endif
 
 
         <div wire:ignore class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+            <ul class="navbar-nav navbar-nav-scroll w-100" style="max-height: 35rem;">
 
                 <!-- Menu items-->
 
@@ -89,15 +89,13 @@
 
 
                 @if(auth()->check())
-                    <li class="nav-item "><a wire:navigate class="nav-link" href="{{ route('panel') }}"
+                    <li class="nav-item"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
                                              role="button"
                                              data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
                     </li>
 
                 @endif
 
-{{--                <li class="nav-item "><a class="btn btn-sm text-primary d-none d-lg-block " href="#signin-modal" data-bs-toggle="modal">ورود به حساب</a>--}}
-{{--                </li>--}}
 
 
                 @foreach(getPagesName('header')->take(5) as $page)
@@ -111,12 +109,9 @@
                        data-bs-toggle="dropdown" aria-expanded="false"> تماس باما </a>
                 </li>
 
-                <li class="nav-item "><a class="nav-link d-lg-none" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a></li>
+                <li class="nav-item active ms-lg-auto"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a>
+                </li>
 
-
-{{--                <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i--}}
-{{--                                class="fi-logout me-2"></i>خروج از حساب </a></li>--}}
-{{--                @livewire('auth.logout')--}}
 
 
             </ul>
