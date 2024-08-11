@@ -148,7 +148,7 @@
         <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
 
             <a class="collapse-label d-inline-block fs-md fw-bold text-success text-decoration-none pt-2 pb-3 mx-auto mx-md-0 ms-md-2 collapsed"
-               href="#showMoreelevator" data-bs-toggle="collapse" data-bs-label-collapsed="آسانسور هاس ثبت شده"
+               href="#showMoreelevator" data-bs-toggle="collapse" data-bs-label-collapsed="آسانسور های ثبت شده"
                data-bs-label-expanded="بستن" role="button" aria-expanded="false"
                aria-controls="showMoreelevator">
                 <i class="fi-arrow-down me-2"></i>

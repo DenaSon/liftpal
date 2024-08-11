@@ -30,7 +30,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header ">
-                            <h1 class="modal-title fs-5 bg-soft-success" id="add-building">افزودن اعضای ساختمان</h1>
+                            <h1 class="modal-title fs-5 bg-soft-success" id="add-building">افزودن  ساختمان</h1>
                             <button type="button" class="btn-close me-0" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>

@@ -3,8 +3,6 @@
 
     @include('livewire.front.panel.components.building-inc._building_modal')
 
-
-
     @include('livewire.front.panel.components.building-inc._elevator_modal')
 
 
