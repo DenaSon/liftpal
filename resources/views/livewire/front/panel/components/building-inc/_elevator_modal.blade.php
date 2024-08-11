@@ -85,23 +85,23 @@
                                 <label for="floatingInput">کارخانه</label>
                             </div>
 
-                            <div class="form-floating col-12 mb-3">
-                                <input wire:model="installation_date" type="text" class="form-control" id="floatingInput"
-                                       placeholder="تاریخ نصب">
-                                <label for="floatingInput">تاریخ نصب</label>
-                            </div>
+{{--                            <div class="form-floating col-12 mb-3">--}}
+{{--                                <input wire:model="installation_date" type="text" class="form-control" id="floatingInput"--}}
+{{--                                       placeholder="تاریخ نصب">--}}
+{{--                                <label for="floatingInput">تاریخ نصب</label>--}}
+{{--                            </div>--}}
 
-                            <div class="form-floating col-12 mb-3">
-                                <input wire:model="last_inspection_date" type="text" class="form-control" id="floatingInput"
-                                       placeholder="تاریخ آخرین بازرسی">
-                                <label for="floatingInput">تاریخ آخرین بازرسی</label>
-                            </div>
+{{--                            <div class="form-floating col-12 mb-3">--}}
+{{--                                <input wire:model="last_inspection_date" type="text" class="form-control" id="floatingInput"--}}
+{{--                                       placeholder="تاریخ آخرین بازرسی">--}}
+{{--                                <label for="floatingInput">تاریخ آخرین بازرسی</label>--}}
+{{--                            </div>--}}
 
-                            <div class="form-floating col-12 mb-3">
-                                <input wire:model="last_maintenance_date" type="text" class="form-control" id="floatingInput"
-                                       placeholder="تاریخ تعمیر">
-                                <label for="floatingInput">تاریخ تعمیر</label>
-                            </div>
+{{--                            <div class="form-floating col-12 mb-3">--}}
+{{--                                <input wire:model="last_maintenance_date" type="text" class="form-control" id="floatingInput"--}}
+{{--                                       placeholder="تاریخ تعمیر">--}}
+{{--                                <label for="floatingInput">تاریخ تعمیر</label>--}}
+{{--                            </div>--}}
 
                             <div class="form-floating col-12 mb-3">
                                 <select wire:model="status" class="form-select custom-select-height-building" id="customSelect"
@@ -148,10 +148,10 @@
                             <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
                 <span>
                     <i class="fi-sidebar-left text-success me-2"></i>
-                    آسانسور
+              آسانسور      {{ $elevator->getType($elevator->type) }}
                     {{ $elevator->capacity }} نفره
               مدل
-                    ({{ $elevator->model }})
+                    <span class="text-muted">({{ $elevator->model }})</span> -
                     ساختمان : {{ $elevator->building()->first()->builder_name }}
                     </span>
                                 <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">

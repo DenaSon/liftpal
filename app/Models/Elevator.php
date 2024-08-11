@@ -32,6 +32,33 @@ class Elevator extends Model
         return $this->hasOneThrough(User::class, Building::class, 'id', 'id', 'building_id', 'user_id');
     }
 
+    public function getType($type)
+    {
+        switch ($type) {
+            case 'passenger':
+                return 'مسافربر';
+            case 'freight':
+                return 'باربر';
+            case 'service':
+                return 'خدماتی';
+            case 'hospital':
+                return 'بیمارستانی';
+            case 'panoramic':
+                return 'پانورامیک';
+            case 'dumbwaiter':
+                return 'دمبویتر';
+            case 'home':
+                return 'خانگی';
+            case 'vehicle':
+                return 'خودروبر';
+            case 'other':
+                return 'سایر';
+            default:
+                return 'نامشخص'; // If the type doesn't match any case
+        }
+    }
+
+
     public function isActive(): bool
     {
         return $this->type === 'active';

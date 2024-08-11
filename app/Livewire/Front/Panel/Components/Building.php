@@ -88,11 +88,9 @@ class Building extends Component
                'capacity' => 'required|integer',
                'type' => 'required|string|max:255',
                'manufacturer' => 'nullable|string|max:255',
-               'last_inspection_date' => 'nullable|required',
-               'installation_date' => 'nullable',
                'status' => 'required|string|max:255',
-               'last_maintenance_date' => 'nullable',
-               'next_maintenance_date' => 'nullable',
+
+
            ]);
 
            \App\Models\Elevator::create([
@@ -102,11 +100,8 @@ class Building extends Component
                'capacity' => $this->capacity,
                'type' => $this->type,
                'manufacturer' => $this->manufacturer,
-               'last_inspection_date' => $this->last_inspection_date,
-               'installation_date' => $this->installation_date,
                'status' => $this->status,
-               'last_maintenance_date' => $this->last_maintenance_date,
-               'next_maintenance_date' => $this->next_maintenance_date,
+
            ]);
 
            $this->alert('success', 'آسانسور جدید افزوده شد');

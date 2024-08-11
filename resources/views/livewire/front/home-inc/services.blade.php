@@ -1,3 +1,4 @@
+@include('livewire.front.home-inc.support-inc.support-modal')
 <section class="container mb-5 mt-n3 mt-lg-0">
 <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-2" dir="ltr">
 <div class="tns-carousel-inner row gx-4 mx-0 py-3"
@@ -20,6 +21,7 @@
 </div>
 
 <div class="col">
+
     <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
             class="d-block mx-auto my-3" src="{{ asset('assets/img/real-estate/illustrations/support.svg') }}"
             width="256" alt="Illustration">
@@ -31,16 +33,14 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0">
-            <a  class="btn btn-outline-primary">شروع</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               شروع
+            </button>
 
 
         </div>
-
-
-
-
-
-
 
 
     </div>
@@ -59,7 +59,7 @@
 
             </p>
         </div>
-        <div class="card-footer pt-0 border-0"><a wire:navigate.hover class="btn btn-outline-primary stretched-link"
+        <div class="card-footer pt-0 border-0"><a  wire:navigate.hover class="btn btn-outline-primary stretched-link"
                                                   href=""> خطایاب </a></div>
     </div>
 </div>
