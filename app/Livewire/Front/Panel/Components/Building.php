@@ -35,6 +35,7 @@ class Building extends Component
     public $status;
     public $last_maintenance_date;
     public $next_maintenance_date;
+    public $building;
 
 
     public function addBuilding()
@@ -76,6 +77,57 @@ class Building extends Component
        }
 
    }
+
+   public function editBuilding($id)
+   {
+       $building = \App\Models\Building::find($id);
+       $this->building_id = $building->id;
+       $this->building_name = $building->builder_name;
+       $this->building_address = $building->address;
+       $this->manager_name = $building->manager_name;
+       $this->manager_contact = $building->manager_contact;
+       $this->building_floors = $building->floors;
+       $this->building_units = $building->units;
+       $this->emergency_contact = $building->emergency_contact;
+
+   }
+
+    public function updateBuilding()
+    {
+        // اعتبارسنجی ورودی‌ها
+        $this->validate([
+            'building_name' => 'required|string|max:255',
+            'building_address' => 'required|string|max:255',
+            'manager_name' => 'required|string|max:255',
+            'manager_contact' => 'required|string|max:255',
+            'building_floors' => 'required|integer|min:1',
+            'building_units' => 'required|integer|min:1',
+            'emergency_contact' => 'required|string|max:255',
+        ]);
+
+
+        $building = \App\Models\Building::find($this->building_id);
+
+
+        $building->builder_name = $this->building_name;
+        $building->address = $this->building_address;
+        $building->manager_name = $this->manager_name;
+        $building->manager_contact = $this->manager_contact;
+        $building->floors = $this->building_floors;
+        $building->units = $this->building_units;
+        $building->emergency_contact = $this->emergency_contact;
+
+
+        $building->save();
+
+
+        $this->alert('success','اطلاعات ساختمان با موفقیت ویرایش شد');
+
+
+        $this->dispatch('buildingUpdated');
+    }
+
+
 
    public function addElevator(): void
    {

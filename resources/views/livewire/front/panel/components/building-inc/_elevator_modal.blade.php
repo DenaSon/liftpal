@@ -142,10 +142,11 @@
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionelevator">
                 <div class="accordion-body">
                     <ul class="list-group">
-                        @foreach($elevator_list as $index => $elevator)
+                 @if($elevator_list->count() > 0)
+                            @foreach($elevator_list as $index => $elevator)
 
 
-                            <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
+                                <li wire:key="{{ $elevator->id }}" class="list-group-item d-flex justify-content-between align-items-center  ">
                 <span>
                     <i class="fi-sidebar-left text-success me-2"></i>
               آسانسور      {{ $elevator->getType($elevator->type) }}
@@ -154,11 +155,16 @@
                     <span class="text-muted">({{ $elevator->model }})</span> -
                     ساختمان : {{ $elevator->building()->first()->builder_name }}
                     </span>
-                                <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
-                                    <i class=" btn-xs fi fi-trash"></i>
-                                </a>
-                            </li>
-                        @endforeach
+                                    <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
+                                        <i class=" btn-xs fi fi-trash"></i>
+                                    </a>
+                                </li>
+                            @endforeach
+                 @else
+
+                     <span class="text-muted">آسانسوری ثبت نشده است</span>
+
+                 @endif
 
                     </ul>
                 </div>

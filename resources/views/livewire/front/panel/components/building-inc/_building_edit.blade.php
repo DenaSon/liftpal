@@ -13,7 +13,9 @@
                 <div class="form-floating mb-3">
                           <textarea wire:model="building_address" class="form-control"
                                     placeholder="آدرس ساختمان"
-                                    id="floatingTextarea"></textarea>
+                                    id="floatingTextarea">
+
+                          </textarea>
                     <label for="floatingTextarea">آدرس ساختمان</label>
                 </div>
 
@@ -73,7 +75,14 @@
 
             </div>
             <div class="modal-footer">
-                <button wire:click.debounce.250="editBuilding" type="button"
+
+                <div wire:loading class="text-start">
+                    <div wire:loading class="spinner-border" role="status">
+                        <span wire:loading class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+
+                <button wire:click.debounce.500ms="updateBuilding" type="button"
                         class="btn btn-success btn-xs w-25">ویرایش
                 </button>
                 <button type="button" class="btn btn-primary btn-xs" data-bs-dismiss="modal">بستن
@@ -86,3 +95,11 @@
 
 
 </div>
+@script
+<script>
+    $wire.on('buildingUpdated', () => {
+        $('#edit-building').modal('hide');
+
+    });
+</script>
+@endscript
