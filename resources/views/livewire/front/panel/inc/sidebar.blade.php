@@ -11,7 +11,7 @@
                 </div>
 
             @else
-                <img class="rounded-circle" src="{{ asset($photo) }} }}" width="48" alt="">
+                <img class="rounded-circle" src="{{ asset("$photo") }}" width="48" alt="">
             @endif
 
             <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">

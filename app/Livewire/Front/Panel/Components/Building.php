@@ -45,9 +45,7 @@ class Building extends Component
     public $role;
     public $is_active;
 
-    /**
-     * @var \App\Models\Elevator[]|\LaravelIdea\Helper\App\Models\_IH_Elevator_C
-     */
+
 
 
     public function addBuilding()

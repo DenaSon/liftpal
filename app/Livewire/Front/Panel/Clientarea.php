@@ -32,10 +32,10 @@ class Clientarea extends Component
         ]);
 
         if ($this->photo) {
-            // Generate a unique filename
+
             $imageName = Str::random(10) . '_' . $this->photo->getClientOriginalName();
 
-            // Determine the correct directory
+
             $directory = 'media';
 
             // Store the file in the 'public/media' directory
@@ -43,15 +43,15 @@ class Clientarea extends Component
                 Storage::disk('public')->makeDirectory($directory);
             }
 
-            // Store the file in the 'public/media' directory
+
             $path = $this->photo->storeAs($directory, $imageName, 'public');
 
-            // Prepare the image data for saving
-            $albumId = 'blog_' . Auth::id();
+
+            $albumId = 'profile_' . Auth::id();
             $imageData = [
                 'album_id' => $albumId,
                 'file_name' => Str::replace(' ', '_', Str::limit($imageName, 18, '')),
-                'file_path' => $path,
+                'file_path' => 'storage/'.$path,
                 'is_index' => 0,
             ];
 
@@ -63,7 +63,7 @@ class Clientarea extends Component
         }
 
         // Flash success message
-        alert()->flash('success', 'Photo successfully uploaded.');
+        $this->flash('success', 'Photo successfully uploaded.');
     }
 
     public function mount()
