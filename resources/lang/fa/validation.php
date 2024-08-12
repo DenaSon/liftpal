@@ -282,13 +282,12 @@ return [
         'building_id' => 'شناسه ساختمان',
         'model' => 'مدل',
         'capacity' => 'ظرفیت',
-
         'manufacturer' => 'سازنده',
         'last_inspection_date' => 'تاریخ آخرین بازرسی',
         'installation_date' => 'تاریخ نصب',
-
         'last_maintenance_date' => 'تاریخ آخرین تعمیر و نگهداری',
         'next_maintenance_date' => 'تاریخ تعمیر و نگهداری بعدی',
+        'full_name' => 'نام و نام خانوادگی'
 
 
     ],

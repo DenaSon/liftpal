@@ -43,6 +43,7 @@ class DatabaseServiceProvider extends ServiceProvider
             'error' => 'App\Models\Error',
             'building' => 'App\Models\Building',
             'elevator' => 'App\Models\Elevator',
+            'member' => 'App\Models\Member',
 
         ]);
 

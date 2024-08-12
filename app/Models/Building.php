@@ -29,5 +29,10 @@ class Building extends Model
         return $this->hasMany(Elevator::class);
     }
 
+    public function members(): HasMany
+    {
+        return $this->hasMany(Member::class);
+    }
+
 
 }

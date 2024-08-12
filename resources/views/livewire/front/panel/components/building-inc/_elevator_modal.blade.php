@@ -182,5 +182,6 @@
         $('#add-elevator').modal('hide');
 
     });
+
 </script>
 @endscript

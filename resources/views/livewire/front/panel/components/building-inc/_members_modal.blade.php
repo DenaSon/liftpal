@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 d-flex justify-content-center">
                 <div class=" ps-2 text-center">
-                    <label class="form-label fw-bold">افزودن اعضای ساختمان</label>
-                    <div id="skill-value">3 عضو ثبت شده</div>
+                    <label class="form-label fw-bold"> اعضای ساختمان</label>
+                    <div id="skill-value">{{ $member_list->count() }} عضو ثبت شده</div>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div wire:ignore class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -36,35 +36,49 @@
 
 
                         <div class="col-12 mb-4">
-                            <select class="form-select border border-danger" aria-label="Default select example">
-                                <option selected>انتخاب ساختمان</option>
-                                <option value="1">شماره 1</option>
-                                <option value="2">شماره 2</option>
-                                <option value="3">شماره 3</option>
+                            <select required wire:model="building_id" class="form-select border border-primary" aria-label="Default select example">
+                                <option selected disabled>انتخاب ساختمان</option>
+                                @foreach($building_list as  $index => $building)
+                                    <option wire:key="{{ $building->id }}" value="{{ $building->id }}"> {{ $index+1 }} - ({{ $building->builder_name }})
+                                        <span class="fs-xxs"> {{ \Illuminate\Support\Str::limit($building->address,25) }}</span>
+                                    </option>
+                                @endforeach
+
                             </select>
                         </div>
 
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput"
+                            <input wire:model="full_name" type="text" class="form-control" id="floatingInput"
                                    placeholder="نام و نام خانوادگی">
                             <label for="floatingInput">نام و نام خانوادگی</label>
                         </div>
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="شماره واحد">
-                            <label for="floatingInput">شماره واحد</label>
+                            <input wire:model="phone" type="number" class="form-control" id="floatingInput" placeholder="شماره تماس">
+                            <label for="floatingInput">شماره تماس</label>
                         </div>
 
                         <div class="form-floating col-12 mb-3">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="شماره تماس">
-                            <label for="floatingInput">شماره تماس</label>
+                            <input wire:model="unit" type="text" class="form-control" id="floatingInput" placeholder="شماره واحد">
+                            <label for="floatingInput">شماره واحد</label>
+                        </div>
+
+
+                        <div class="col-12 mb-4">
+                            <select wire:model="role" class="form-select" aria-label="Default select example">
+                                <option selected disabled> انتخاب نقش</option>
+                                <option value="owner">مالک</option>
+                                <option value="tenant">مستاجر</option>
+                                <option value="manager">مدیر</option>
+                                <option value="other">سایر</option>
+                            </select>
                         </div>
 
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success btn-xs w-25">ثبت</button>
+                        <button wire:click.debounce.300ms="addMember" type="button" class="btn btn-success btn-xs w-25">ثبت</button>
                         <button type="button" class="btn btn-primary btn-xs" data-bs-dismiss="modal">بستن</button>
 
                     </div>
@@ -78,41 +92,32 @@
     <div class="accordion mt-2" id="accordion-member">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOneMember">
-                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneMember" aria-expanded="true" aria-controls="collapseOneMember">
+                <button class="accordion-button text-success" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOneMember" aria-expanded="true" aria-controls="collapseOneMember">
                     مشاهده اعضا
                 </button>
             </h2>
-            <div id="collapseOneMember" class="accordion-collapse collapse show" aria-labelledby="headingOneMember" data-bs-parent="#accordion-member">
+            <div id="collapseOneMember" class="accordion-collapse collapse show" aria-labelledby="headingOneMember"
+                 data-bs-parent="#accordion-member">
                 <div class="accordion-body">
                     <ul class="list-group">
 
-                        <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-user-check text-success me-2"></i>
-میلاد اسدی
-</span>
-                            <a href="#" class="">
-                                <i class=" btn-xs fi fi-trash"></i>
-                            </a>
-                        </li>
-                        <li wire:key="3" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-user-check text-success me-2"></i>
-محمد اسدی
-</span>
-                            <a href="#" class="">
-                                <i class=" btn-xs fi fi-trash"></i>
-                            </a>
-                        </li>
-                        <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-user-check text-success me-2"></i>
-مسلم حمیدی
-</span>
-                            <a href="#" class="">
-                                <i class=" btn-xs fi fi-trash"></i>
-                            </a>
-                        </li>
+                @foreach($member_list as $index => $member)
+                <li wire:key="2" class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                        <i class="fi-user-check text-success me-2"></i>
+                        {{ $member->full_name }}
+                           <span class="text-muted fs-sm">
+                                از ساختمان
+                            {{ $member->building()->first()->builder_name }}
+                           </span>
+                        </span>
+                    <a href="#" class="" wire:click.debounce.250ms="removeMember('{{$member->id}}')" onclick="event.preventDefault();">
+                        <i class="btn-xs fi fi-trash"></i>
+                    </a>
+                </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
@@ -121,3 +126,12 @@
     </div>
 
 </div>
+@script
+<script>
+    $wire.on('member_added', () => {
+        $('#staticBackdrop').modal('hide');
+
+    });
+
+</script>
+@endscript
