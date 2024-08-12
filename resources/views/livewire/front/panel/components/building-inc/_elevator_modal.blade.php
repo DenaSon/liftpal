@@ -34,7 +34,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="row ">
+                        <div class="row">
 
                             <div class="col-12 mb-4">
                             <select @if($building_list->count() == 1) hidden="hidden" @endif wire:model="building_id" class="form-select border border-danger" aria-label="Default select example">
