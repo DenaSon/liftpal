@@ -3,7 +3,7 @@
 <section class="container mb-5 pb-md-4">
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="h3 mb-0 ">مقالات آموزشی</h2><a class="btn btn-link fw-normal p-0"
-                                                  href="real-estate-catalog-rent.html">مشاهده همه <i
+                                                  href="">مشاهده همه <i
                 class="fi-arrow-long-left ms-2"></i></a>
     </div>
     <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2" dir="ltr">
@@ -17,7 +17,7 @@
                         <div class="card-img-top card-img-hover"><a wire:navigate class="img-overlay"
                                                                     href="{{ route('singleArticle',['id'=>$post->id,'slug'=>slugMaker($post->title)]) }}"></a>
 
-                            <img src="{{ $post->images->first()->file_path }}" alt="Image" height="265"
+                            <img src="{{ $post->images?->first()?->file_path ?? ''}}" alt="Image" height="265"
                                  style="height:265px">
                         </div>
                         <div class="card-body position-relative pb-3">
