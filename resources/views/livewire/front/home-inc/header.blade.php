@@ -12,7 +12,7 @@
         @if(auth()->check())
             <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
-                    <img class="rounded-circle" src="{{ asset(auth()->user()?->images()?->first()->file_path ?? asset('admin/assets/libs/feather-icons/icons/user.svg')) }}" width="40" alt="">
+                    <img class="rounded-circle" src="{{ asset(auth()->user()?->images()?->first()->file_path ?? 'admin/assets/libs/feather-icons/icons/user.svg') }}" width="40" alt="">
 
 
                 </a>
