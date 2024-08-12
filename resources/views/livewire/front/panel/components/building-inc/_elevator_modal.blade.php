@@ -45,6 +45,8 @@
                                 <span class="fs-xxs"> {{ \Illuminate\Support\Str::limit($building->address,25) }}</span>
                                 </option>
 
+
+
                                 @endforeach
                             </select>
                                 @if($building_list->count() == 1)
