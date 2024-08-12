@@ -47,6 +47,18 @@ class Building extends Component
 
 
 
+    public function resetForm()
+    {
+
+        $this->building_id = null;
+        $this->building_name = null;
+        $this->building_address = null;
+        $this->manager_name = null;
+        $this->manager_contact = null;
+        $this->building_floors = null;
+        $this->building_units = null;
+        $this->emergency_contact = null;
+    }
 
     public function addBuilding()
     {
@@ -73,7 +85,7 @@ class Building extends Component
             $building->emergency_contact = $this->emergency_contact;
             $building->user_id = auth()->user()->id;
             $building->save();
-            $this->alert('success', 'ساختمان جدید افزوده شد');
+            $this->flash('success', 'ساختمان جدید افزوده شد',[],route('panel',['page'=>'building']));
             $this->reset();
             $this->dispatch('building_added');
 
@@ -101,7 +113,7 @@ class Building extends Component
 
     public function updateBuilding()
     {
-        // اعتبارسنجی ورودی‌ها
+
         $this->validate([
             'building_name' => 'required|string|max:255',
             'building_address' => 'required|string|max:255',
@@ -128,10 +140,9 @@ class Building extends Component
         $building->save();
 
 
-        $this->alert('success', 'اطلاعات ساختمان با موفقیت ویرایش شد');
-
-
+        $this->flash('success', 'اطلاعات ساختمان با موفقیت ویرایش شد',[],route('panel',['page'=>'building']));
         $this->dispatch('buildingUpdated');
+
     }
 
 
@@ -177,13 +188,14 @@ class Building extends Component
 
         try {
 
+
             $validatedData = $this->validate([
                 'full_name' => 'required|string|max:255',
                 'unit' => 'required|string|max:255',
                 'phone' => 'required|string|digits:11|unique:members,phone',
                 'role' => 'required|in:owner,tenant,manager,other',
                 'is_active' => 'nullable|boolean',
-                'building_id' => 'required|exists:buildings,id',
+               'building_id' => 'required|exists:buildings,id',
             ]);
 
 
@@ -211,7 +223,7 @@ class Building extends Component
             $building->elevators()->delete();
             $building->members()->delete();
             $building->delete();
-            $this->alert('info', 'ساختمان حذف شد');
+            $this->flash('info', 'ساختمان حذف شد',[],route('panel',['page'=>'building']));
         } else {
             $this->alert('warning', 'ساختمان یافت نشد');
         }
@@ -243,12 +255,20 @@ class Building extends Component
     }
 
 
+
+
     public function render()
     {
+
 
         $this->building_list = \App\Models\Building::whereUserId(auth()->user()->id)->latest('id')->take(10)->get();
         $this->elevator_list = \App\Models\Elevator::whereUserId(auth()->user()->id)->latest('id')->take(10)->get();
         $this->member_list = \App\Models\Member::whereUserId(auth()->user()->id)->latest('id')->take(25)->get();
+
+        if ($this->building_list->count() == 1)
+        {
+           $this->building_id = $this->building_list[0]->id;
+        }
 
 
         return view('livewire.front.panel.components.building',
@@ -258,4 +278,5 @@ class Building extends Component
                 'member_list' => $this->member_list
             ]);
     }
+
 }

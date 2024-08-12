@@ -28,6 +28,7 @@
                 <div class="modal-content">
                     <div class="modal-header ">
                         <h1 class="modal-title fs-5 bg-soft-success" id="add-elevator">افزودن آسانسور </h1>
+
                         <button type="button" class="btn-close me-0" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                     </div>
@@ -36,22 +37,28 @@
                         <div class="row ">
 
                             <div class="col-12 mb-4">
-                            <select wire:model="building_id" class="form-select border border-danger" aria-label="Default select example">
+                            <select @if($building_list->count() == 1) hidden="hidden" @endif wire:model="building_id" class="form-select border border-danger" aria-label="Default select example">
                                 <option selected disabled>انتخاب ساختمان</option>
                                 @foreach($building_list as  $index => $building)
-                                <option wire:key="{{ $building->id }}" value="{{ $building->id }}"> {{ $index+1 }} - ({{ $building->builder_name }})
+                                <option @if($building_list->count() == 1) selected
+                                        @endif wire:key="{{ $building->id }}" value="{{ $building->id }}"> {{ $index+1 }} - ({{ $building->builder_name }})
                                 <span class="fs-xxs"> {{ \Illuminate\Support\Str::limit($building->address,25) }}</span>
                                 </option>
 
                                 @endforeach
                             </select>
+                                @if($building_list->count() == 1)
+                                    <div class="text-center">
+                                        <span class="badge bg-secondary"> افزودن آسانسور ساختمان  {{ $building->builder_name }}  </span>
+                                    </div>
+                                @endif
                             </div>
 
 
 
                             <div class="form-floating col-12 mb-3">
                                 <input wire:model="model" type="text" class="form-control" id="floatingInput" placeholder="مدل">
-                                <label for="floatingInput">مدل</label>
+                                <label for="floatingInput">مدل آسانسور</label>
                             </div>
 
                             <div class="form-floating col-12 mb-3">

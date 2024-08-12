@@ -17,7 +17,7 @@
         <div class="container mt-3">
 
 
-            <button type="button" class="btn btn-success d-block w-100" data-bs-toggle="modal"
+            <button wire:click.debounce.200ms="resetForm" type="button" class="btn btn-success d-block w-100" data-bs-toggle="modal"
                     data-bs-target="#add-building">
                 <i class="fi-plus-circle me-1 fs-sm"></i>
                 ثبت ساختمان
