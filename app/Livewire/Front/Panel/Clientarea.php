@@ -63,7 +63,7 @@ class Clientarea extends Component
         }
 
         // Flash success message
-        $this->flash('success', 'Photo successfully uploaded.');
+        $this->alert('success', 'تصویر پروفایل آپلود شد');
     }
 
     public function mount()
