@@ -162,11 +162,12 @@
 
                                             </div>
 
-                                            <span wire:loading>لطفا صبر کنید.</span>
+
 
 
 
                                         </li>
+
                                     @endforeach
 
                                 @else
@@ -175,8 +176,11 @@
 
                                 @endif
 
-
                             </ul>
+                            <div class="d-flex justify-content-center">
+                                <span class="badge bg-warning text-center mt-2" wire:loading>درحال ارسال،لطفا صبر کنید...</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
