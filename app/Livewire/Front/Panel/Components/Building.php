@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
+use Cryptommer\Smsir\Objects\Parameters;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
 use Livewire\Attributes\Locked;
@@ -23,7 +24,7 @@ class Building extends Component
     public $building_floors;
     public $building_units;
     public $emergency_contact;
-
+    public $buildId;
     //elevator_fields
 
     public $building_id;
@@ -38,6 +39,7 @@ class Building extends Component
     public $next_maintenance_date;
     public \App\Models\Building $building;
 
+
     //members_fields
     public $member_list = [];
     public $full_name;
@@ -46,24 +48,41 @@ class Building extends Component
     public $role;
     public $is_active;
 
+    //For Delete
+    protected $listeners = ['sendBuildingAlert'];
 
 
-    private function sendSms($phone)
+    public function sendMemberBuildingAlert($id)
     {
-        sendVerifySms('1111',$phone,100000,'CODE');
+
+        $this->buildId = $id;
+        $this->confirm('آیا پیامک تعمیر فنی آسانسور برای اعضای ساختمان ارسال شود؟', ['onConfirmed' => 'sendBuildingAlert']);
     }
 
-    public function sendBuildingAlert($buildId)
+    public function sendBuildingAlert()
     {
-      $building = \App\Models\Building::with('members')->findOrFail($buildId);
-      foreach ($building->members as $member)
-      {
-         //$this->sendSms($member->phone);
-         sleep(2);
-         $this->alert('success','پیامک خرابی آسانسور به اعضا ارسال شد');
-      }
 
+
+        $building = \App\Models\Building::with('members')->findOrFail($this->buildId);
+
+        $buildingName = 'BUILDER';
+        $buildingValue = $building->builder_name;
+        $parameter1 = new \Cryptommer\Smsir\Objects\Parameters($buildingName, $buildingValue);
+        $parameter2 = new \Cryptommer\Smsir\Objects\Parameters('EMERGENCY', $building->emergency_contact);
+        $parameters = array($parameter1,$parameter2);
+
+        foreach ($building->members as $member)
+        {
+
+            sendVerifySms($member->phone, 663777, $parameters);
+            sleep(1);
+        }
+
+
+        $this->alert('success', 'پیامک تعمیر فنی آسانسور برای اعضا ارسال شد');
     }
+
+
 
     public function resetForm()
     {
@@ -254,7 +273,9 @@ class Building extends Component
         if ($building) {
             $building->delete();
             $this->alert('info', 'آسانسور حذف شد');
-        } else {
+        }
+        else
+        {
             $this->alert('warning', 'آسانسور یافت نشد');
         }
     }

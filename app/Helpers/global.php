@@ -98,26 +98,23 @@ function sendSms(string $value, string $phoneNumber, int $templateID, string $pa
 /**
 * Send SMS API
 *
-*@param string $value
+
 * @param string $phoneNumber
 * @param int $templateID
-* @param string $parameterName
+* @param array|string $parameterName
 * @return mixed
 */
 
-function sendVerifySms(string $value, string $phoneNumber, int $templateID, string $parameterName = 'CODE')
+function sendVerifySms( string $phoneNumber, int $templateID, array $parameters)
 {
+    $send = Smsir::send();
 
-
-        $send = Smsir::send();
-        $parameter = new Parameters($parameterName, $value);
-        $parameters = array($parameter);
-        $response = $send->Verify($phoneNumber, $templateID, $parameters);
-
-
+    // Send the verification SMS with the generated parameters
+    $response = $send->Verify($phoneNumber, $templateID, $parameters);
 
 
 }
+
 /**
  * Zarinpal Payment
  *
