@@ -166,7 +166,7 @@
 
                                 @else
 
-                                    <span class="text-muted">.ساختمانی ثبت نشده است</span>
+                                    <span class="text-muted">ساختمانی ثبت نشده است</span>
 
                                 @endif
 
