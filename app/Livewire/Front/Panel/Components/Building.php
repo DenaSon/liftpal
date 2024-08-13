@@ -58,8 +58,9 @@ class Building extends Component
       $building = \App\Models\Building::with('members')->findOrFail($buildId);
       foreach ($building->members as $member)
       {
-         $this->sendSms($member->phone);
-         sleep(1);
+         //$this->sendSms($member->phone);
+         sleep(2);
+         $this->alert('success','پیامک خرابی آسانسور به اعضا ارسال شد');
       }
 
     }

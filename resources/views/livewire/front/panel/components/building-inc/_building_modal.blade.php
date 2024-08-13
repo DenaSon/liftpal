@@ -162,6 +162,10 @@
 
                                             </div>
 
+                                            <span wire:loading>لطفا صبر کنید.</span>
+
+
+
                                         </li>
                                     @endforeach
 
