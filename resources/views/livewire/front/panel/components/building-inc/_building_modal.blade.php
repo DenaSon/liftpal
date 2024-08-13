@@ -130,19 +130,18 @@
                             <ul class="list-group ">
                                 @if($building_list->count() > 0)
                                     @foreach($building_list as $index => $building)
-
                                         <li wire:key="{{ $building->id }}"
-                                            class="list-group-item d-flex justify-content-between align-items-center  ">
-<span>
-<i class="fi-apartment text-success me-2"></i>
-{{ $index+1 }} -
-<span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>
-<span class="fs-xs muted"> {{ \Illuminate\Support\Str::limit($building->address,45) }}</span>
-</span>
+                                            class="list-group-item pt-0 m-0 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+
+                <span class="w-100 mt-3">
+                    <i class="fi-apartment text-success me-2"></i>
+                    {{ $index+1 }} -
+                    <span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>
+                    <span class="fs-xs muted d-none d-md-inline-block"> {{ \Illuminate\Support\Str::limit($building->address, 45) }}</span>
+                </span>
 
 
-                                            <div class="d-flex justify-content-between align-items-center">
-
+                                            <div class="d-flex  flex-md-row mx-auto mt-3 justify-content-center justify-content-md-end align-items-center w-100">
                                                 <a wire:click="editBuilding({{ $building->id }})"
                                                    href="javascript:void(0)"
                                                    data-bs-toggle="modal" data-bs-target="#edit-building"
@@ -156,10 +155,9 @@
                                                 </a>
 
                                                 <a href="javascript:void(0)" class="me-3"
-                                                   wire:click="sendMemberBuildingAlert({{ $building->id }})">
+                                                   wire:click="sendBuildingAlert({{ $building->id }})">
                                                     <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
                                                 </a>
-
                                             </div>
 
                                         </li>
