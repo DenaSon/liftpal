@@ -155,7 +155,7 @@
                                                 </a>
 
                                                 <a href="javascript:void(0)" class="me-3"
-                                                   wire:click="sendBuildingAlert({{ $building->id }})">
+                                                   wire:click="sendMemberBuildingAlert({{ $building->id }})">
                                                     <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
                                                 </a>
                                             </div>
@@ -172,7 +172,7 @@
 
                             </ul>
                             <div class="d-flex justify-content-center">
-                                <span class="badge bg-warning text-center mt-2" wire:loading.>درحال ارسال،لطفا صبر کنید...</span>
+                                <span class="badge bg-warning text-center mt-2" wire:loading>درحال ارسال،لطفا صبر کنید...</span>
                             </div>
 
                         </div>
