@@ -17,7 +17,8 @@
         <div class="container mt-3">
 
 
-            <button wire:click.debounce.200ms="resetForm" type="button" class="btn btn-success d-block w-100" data-bs-toggle="modal"
+            <button wire:click.debounce.200ms="resetForm" type="button" class="btn btn-success d-block w-100"
+                    data-bs-toggle="modal"
                     data-bs-target="#add-building">
                 <i class="fi-plus-circle me-1 fs-sm"></i>
                 ثبت ساختمان
@@ -38,8 +39,8 @@
                         <div class="modal-body">
                             <div class="form-floating mb-3">
                           <textarea wire:model="building_address" class="form-control"
-                          placeholder="آدرس ساختمان"
-                          id="floatingTextarea"></textarea>
+                                    placeholder="آدرس ساختمان"
+                                    id="floatingTextarea"></textarea>
                                 <label for="floatingTextarea">آدرس ساختمان</label>
                             </div>
 
@@ -117,14 +118,17 @@
             <div class="accordion mt-2" id="accordion-building">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOneBuilding">
-                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneBuilding" aria-expanded="true" aria-controls="collapseOneBuilding">
+                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOneBuilding" aria-expanded="true"
+                                aria-controls="collapseOneBuilding">
                             ساختمان های ثبت شده
                         </button>
                     </h2>
-                    <div id="collapseOneBuilding" class="accordion-collapse collapse show" aria-labelledby="headingOneBuilding" data-bs-parent="#accordion-building">
+                    <div id="collapseOneBuilding" class="accordion-collapse collapse show"
+                         aria-labelledby="headingOneBuilding" data-bs-parent="#accordion-building">
                         <div class="accordion-body">
                             <ul class="list-group ">
-                        @if($building_list->count() > 0)
+                                @if($building_list->count() > 0)
                                     @foreach($building_list as $index => $building)
 
                                         <li wire:key="{{ $building->id }}"
@@ -137,17 +141,25 @@
 </span>
 
 
-                                            <div class="d-flex">
-                                                <a wire:click="editBuilding({{ $building->id }})" href="javascript:void(0)"
+                                            <div class="d-flex justify-content-between align-items-center">
+
+                                                <a wire:click="editBuilding({{ $building->id }})"
+                                                   href="javascript:void(0)"
                                                    data-bs-toggle="modal" data-bs-target="#edit-building"
-                                                   class="d-block me-3">
-                                                    <i class="btn-xs fi fi-edit text-warning"></i>
+                                                   class="me-3">
+                                                    <i class="btn-xs fi fi-edit text-info fs-6"></i>
                                                 </a>
 
-                                                <a href="javascript:void(0)" class="d-block me-0"
+                                                <a href="javascript:void(0)" class="me-3"
                                                    wire:click="removeBuilding({{ $building->id }})">
-                                                    <i class="btn-xs fi fi-trash"></i>
+                                                    <i class="btn-xs fi fi-trash fs-6 text-danger"></i>
                                                 </a>
+
+                                                <a href="javascript:void(0)" class="me-3"
+                                                   wire:click="sendBuildingAlert({{ $building->id }})">
+                                                    <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
+                                                </a>
+
                                             </div>
 
                                         </li>
@@ -155,9 +167,9 @@
 
                                 @else
 
-                            <span class="text-muted">.ساختمانی ثبت نشده است</span>
+                                    <span class="text-muted">.ساختمانی ثبت نشده است</span>
 
-                        @endif
+                                @endif
 
 
                             </ul>

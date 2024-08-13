@@ -4,6 +4,7 @@ namespace App\Livewire\Front\Panel\Components;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Throwable;
@@ -35,7 +36,7 @@ class Building extends Component
     public $status;
     public $last_maintenance_date;
     public $next_maintenance_date;
-    public $building;
+    public \App\Models\Building $building;
 
     //members_fields
     public $member_list = [];
@@ -46,6 +47,22 @@ class Building extends Component
     public $is_active;
 
 
+
+    private function sendSms($phone)
+    {
+        sendVerifySms('1111',$phone,100000,'CODE');
+    }
+
+    public function sendBuildingAlert($buildId)
+    {
+      $building = \App\Models\Building::with('members')->findOrFail($buildId);
+      foreach ($building->members as $member)
+      {
+         $this->sendSms($member->phone);
+         sleep(1);
+      }
+
+    }
 
     public function resetForm()
     {

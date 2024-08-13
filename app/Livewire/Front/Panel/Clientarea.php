@@ -32,10 +32,7 @@ class Clientarea extends Component
         ]);
 
         if ($this->photo) {
-
             $imageName = Str::random(10) . '_' . $this->photo->getClientOriginalName();
-
-
             $directory = 'media';
 
             // Store the file in the 'public/media' directory
@@ -43,9 +40,7 @@ class Clientarea extends Component
                 Storage::disk('public')->makeDirectory($directory);
             }
 
-
             $path = $this->photo->storeAs($directory, $imageName, 'public');
-
 
             $albumId = 'profile_' . Auth::id();
             $imageData = [
