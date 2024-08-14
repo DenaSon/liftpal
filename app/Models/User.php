@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -34,7 +35,7 @@ class User extends Authenticatable implements MustVerifyEmail
          'role'
      ];
 
-    public function company()
+    public function company(): HasOneThrough
     {
         return $this->hasOneThrough(
             Company::class,  // مدل هدف (شرکت)
@@ -46,10 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
         )->where('users.role', 'technician');
     }
 
-    public function requests()
+    public function requests(): HasMany
     {
         return $this->hasMany(Request::class, 'technician_id');
     }
+
 
 
 

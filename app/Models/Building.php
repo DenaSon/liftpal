@@ -34,5 +34,20 @@ class Building extends Model
         return $this->hasMany(Member::class);
     }
 
+    public function technicians()
+    {
+        return $this->belongsToMany(User::class, 'building_technician')
+            ->withPivot('company_id')
+            ->withTimestamps();
+    }
+
+
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class, 'building_technician', 'building_id', 'company_id')
+            ->withPivot('user_id')
+            ->withTimestamps();
+    }
+
 
 }

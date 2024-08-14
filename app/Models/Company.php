@@ -38,4 +38,14 @@ class Company extends Model
         );
     }
 
+
+    public function buildings()
+    {
+        return $this->belongsToMany(Building::class, 'building_technician')
+            ->withPivot('user_id')
+            ->withTimestamps();
+    }
+
+
+
 }

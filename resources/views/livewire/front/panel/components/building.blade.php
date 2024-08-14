@@ -9,6 +9,4 @@
     @include('livewire.front.panel.components.building-inc._members_modal')
     @endif
 
-
-
     </div>
