@@ -34,6 +34,27 @@ class User extends Authenticatable implements MustVerifyEmail
          'role'
      ];
 
+    public function company()
+    {
+        return $this->hasOneThrough(
+            Company::class,  // مدل هدف (شرکت)
+            Profile::class,  // مدل واسط (پروفایل)
+            'user_id',       // کلید خارجی در جدول profiles که به جدول users اشاره دارد
+            'id',            // کلید خارجی در جدول companies که به جدول profiles اشاره دارد
+            'id',            // کلید اصلی در جدول users
+            'company_id'     // کلید خارجی در جدول profiles که به جدول companies اشاره دارد
+        )->where('users.role', 'technician');
+    }
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'technician_id');
+    }
+
+
+
+
+
      /**
       * Determine if the user's phone number has been verified.
       *

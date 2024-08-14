@@ -38,9 +38,9 @@
 
                         <div class="modal-body">
                             <div class="form-floating mb-3">
-                          <textarea wire:model="building_address" class="form-control"
-                                    placeholder="آدرس ساختمان"
-                                    id="floatingTextarea"></textarea>
+              <textarea wire:model="building_address" class="form-control"
+                        placeholder="آدرس ساختمان"
+                        id="floatingTextarea"></textarea>
                                 <label for="floatingTextarea">آدرس ساختمان</label>
                             </div>
 
@@ -133,15 +133,17 @@
                                         <li wire:key="{{ $building->id }}"
                                             class="list-group-item pt-0 m-0 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
 
-                <span class="w-100 mt-3">
-                    <i class="fi-apartment text-success me-2"></i>
-                    {{ $index+1 }} -
-                    <span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>
-                    <span class="fs-xs muted d-none d-md-inline-block"> {{ \Illuminate\Support\Str::limit($building->address, 45) }}</span>
-                </span>
+    <span class="w-100 mt-3">
+        <i class="fi-apartment text-success me-2"></i>
+        {{ $index+1 }} -
+        <span class="fw-bold badge bg-faded-primary ms-1 me-2"> {{ $building->builder_name }}</span>
+        <span
+            class="fs-xs muted d-none d-md-inline-block"> {{ \Illuminate\Support\Str::limit($building->address, 45) }}</span>
+    </span>
 
 
-                                            <div class="d-flex  flex-md-row mx-auto mt-3 justify-content-center justify-content-md-end align-items-center w-100">
+                                            <div
+                                                class="d-flex  flex-md-row mx-auto mt-3 justify-content-center justify-content-md-end align-items-center w-100">
                                                 <a wire:click="editBuilding({{ $building->id }})"
                                                    href="javascript:void(0)"
                                                    data-bs-toggle="modal" data-bs-target="#edit-building"
@@ -159,7 +161,9 @@
                                                     <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
                                                 </a>
 
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#teqnician-action-building" class="me-3">
+                                                <a wire:click="setBuilding({{ $building->id }})"
+                                                   href="javascript:void(0)" data-bs-toggle="modal"
+                                                   data-bs-target="#teqnician-action-building" class="me-3">
                                                     <i class="btn-xs fi fi-bell-on fs-6 text-primary"></i>
                                                 </a>
 
@@ -177,7 +181,7 @@
 
                             </ul>
                             <div class="d-flex justify-content-center">
-                                <span class="badge bg-warning text-center mt-2" wire:loading>درحال ارسال،لطفا صبر کنید...</span>
+                                <span class="badge bg-warning text-center mt-2" wire:loading>لطفا صبر کنید...</span>
                             </div>
 
                         </div>
@@ -192,7 +196,7 @@
 </div>
 
 @include('livewire.front.panel.components.building-inc._building_edit')
-@include('livewire.front.panel.components.building-inc._building_edit_teqnician_action')
+@include('livewire.front.panel.components.building-inc.building_technician_action')
 
 
 @script

@@ -87,7 +87,9 @@ class Register extends Component
                 session()->put('phone_number',$phone_number);
                 session()->put('temp_code',$random_code);
                 $template_id = getSetting('verify_sms_template') ?? 100000;
-                sendVerifySms($random_code,$phone_number,$template_id,'CODE');
+                $parameter = new \Cryptommer\Smsir\Objects\Parameters('CODE',$random_code);
+                $parameters = array($parameter);
+                sendVerifySms($phone_number,$template_id,$parameters);
 
                 $this->alert('info','کد یکبار مصرف با موفقیت ارسال شد');
                 $this->messageSended = 1;

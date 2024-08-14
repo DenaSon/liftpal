@@ -9,7 +9,13 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Profile extends Model
 {
-    use HasFactory;
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+
     protected $guarded = [];
 
     // Define the relationship: Each profile belongs to one user

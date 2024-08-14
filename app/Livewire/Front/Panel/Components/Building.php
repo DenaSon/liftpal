@@ -2,11 +2,9 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
-use App\Traits\technicianAction;
-use Cryptommer\Smsir\Objects\Parameters;
+use App\Traits\building\technicianAction;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
-use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Throwable;
@@ -15,10 +13,11 @@ use Throwable;
 class Building extends Component
 {
     use LivewireAlert, WithPagination,technicianAction;
+    protected $listeners = ['sendBuildingAlert'];
 
     // building fields;
     public $building_list = [];
-    public $building_address;
+    public $building_address ;
     public $manager_name;
     public $manager_contact;
     public $building_name;
@@ -26,6 +25,8 @@ class Building extends Component
     public $building_units;
     public $emergency_contact;
     public $buildId;
+    public $bid;
+
     //elevator_fields
 
     public $building_id;
@@ -48,16 +49,44 @@ class Building extends Component
     public $phone;
     public $role;
     public $is_active;
+   //for technician modal.select elevator.
 
-    //For Delete
-    protected $listeners = ['sendBuildingAlert'];
 
+    /**
+     * @var \App\Models\Elevator[]|\Illuminate\Support\HigherOrderCollectionProxy|\LaravelIdea\Helper\App\Models\_IH_Elevator_C|mixed
+     */
+
+    public function mount()
+    {
+
+
+
+    }
 
     public function sendMemberBuildingAlert($id)
     {
-
         $this->buildId = $id;
-        $this->confirm('آیا پیامک تعمیر فنی آسانسور برای اعضای ساختمان ارسال شود؟', ['onConfirmed' => 'sendBuildingAlert']);
+        $building = \App\Models\Building::with('members')->findOrFail($this->buildId);
+
+        if ($building->members->count() == 0)
+        {
+            $this->alert('warning','برای ساختمان شما عضوی تعریف نشده است');
+        }
+        else
+        {
+
+            $this->confirm('آیا پیامک تعمیر فنی آسانسور برای اعضای ساختمان ارسال شود؟', ['onConfirmed' => 'sendBuildingAlert']);
+        }
+
+
+    }
+
+
+    public function setBuilding($id)
+    {
+        $building  = \App\Models\Building::find($id);
+        $this->building_name = $building->builder_name;
+
     }
 
     public function sendBuildingAlert()
@@ -193,9 +222,9 @@ class Building extends Component
                 'building_id' => 'required|integer',
                 'model' => 'required|string|max:255',
                 'capacity' => 'required|integer',
-                'type' => 'required|string|max:255',
+                'type' => 'required|string|in:passenger,freight,service,hospital,panoramic,dumbwaiter,home,vehicle',
                 'manufacturer' => 'nullable|string|max:255',
-                'status' => 'required|string|max:255',
+                'status' => 'required|in:active,inactive,maintenance',
 
 
             ]);

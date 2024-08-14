@@ -72,7 +72,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <select wire:model="type" class="form-select custom-select-height-building "
                         aria-label="Default select example">
 
-                    <option value="" disabled selected> انتخاب مدل  </option>
+                    <option value="" selected> انتخاب مدل  </option>
                     <option value="passenger">آسانسور مسافری</option>
                     <option value="freight">آسانسور باربری</option>
                     <option value="service">آسانسور خدماتی</option>

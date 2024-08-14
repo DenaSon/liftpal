@@ -288,7 +288,11 @@ return [
         'last_maintenance_date' => 'تاریخ آخرین تعمیر و نگهداری',
         'next_maintenance_date' => 'تاریخ تعمیر و نگهداری بعدی',
         'full_name' => 'نام و نام خانوادگی',
-        'role' => 'نقش'
+        'role' => 'نقش',
+        'broken_elevator_id' => 'آسانسور',
+        'failure_cause' => 'علت خرابی',
+        'failure_description' => ' توضیحات',
+
 
 
     ],

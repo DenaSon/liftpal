@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            // Create foreign key reference to users table
+            $table->foreignId('company_id')->nullable()->constrained('companies')->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->references('id')
-            ->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+                ->on('users')->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->string('name',150)->nullable();
             $table->string('last_name',150)->nullable();
@@ -25,7 +25,6 @@ return new class extends Migration
 
             //indexes :
             $table->index('user_id');
-
         });
     }
 

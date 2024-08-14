@@ -1,6 +1,23 @@
 # Release Notes for 10.x
 
-## [Unreleased](https://github.com/laravel/framework/compare/v10.48.16...10.x)
+## [Unreleased](https://github.com/laravel/framework/compare/v10.48.19...10.x)
+
+## [v10.48.19](https://github.com/laravel/framework/compare/v10.48.18...v10.48.19) - 2024-08-06
+
+* Add compatible query type to `Model::resolveRouteBindingQuery` by [@sebj54](https://github.com/sebj54) in https://github.com/laravel/framework/pull/52339
+* [10.x] Fix `Factory::afterCreating` callable argument type by [@villfa](https://github.com/villfa) in https://github.com/laravel/framework/pull/52335
+* [10.x] backport #52204 by [@calebdw](https://github.com/calebdw) in https://github.com/laravel/framework/pull/52389
+* [10.x] In MySQL, harvest last insert ID immediately after query is executed by [@piurafunk](https://github.com/piurafunk) in https://github.com/laravel/framework/pull/52390
+
+## [v10.48.18](https://github.com/laravel/framework/compare/v10.48.17...v10.48.18) - 2024-07-30
+
+* [10.x] backport #52188 by [@calebdw](https://github.com/calebdw) in https://github.com/laravel/framework/pull/52293
+* [10.x] Fix runPaginationCountQuery not working properly for union queries by [@chinleung](https://github.com/chinleung) in https://github.com/laravel/framework/pull/52314
+
+## [v10.48.17](https://github.com/laravel/framework/compare/v10.48.16...v10.48.17) - 2024-07-23
+
+* [10.x] Fix PHP_CLI_SERVER_WORKERS warning by suppressing it by [@pelomedusa](https://github.com/pelomedusa) in https://github.com/laravel/framework/pull/52094
+* [10.x]  Backport #51615  by [@GrahamCampbell](https://github.com/GrahamCampbell) in https://github.com/laravel/framework/pull/52215
 
 ## [v10.48.16](https://github.com/laravel/framework/compare/v10.48.15...v10.48.16) - 2024-07-09
 

@@ -32,9 +32,10 @@ class Elevator extends Model
         return $this->hasOneThrough(User::class, Building::class, 'id', 'id', 'building_id', 'user_id');
     }
 
-    public function getType($type)
+    public function getType(): string
     {
-        switch ($type) {
+
+        switch ($this->type) {
             case 'passenger':
                 return 'مسافربر';
             case 'freight':
