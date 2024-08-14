@@ -1,8 +1,6 @@
 <div wire:ignore class="modal fade" id="teqnician-action-building" data-bs-backdrop="static" data-bs-keyboard="false"
      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
-
-
     @if($building?->count()> 0 )
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -31,7 +29,9 @@
                 @else
 
                     <select wire:model="broken_elevator_id" id="elevator_faults" class="form-select">
+                        <option value="" selected>انتخاب آسانسور</option>
                       @foreach($elevator_list as $elevator)
+
                           <option value="{{ $elevator->id  }}"> {{ $elevator->model . '    ' . $elevator->getType() }}  </option>
                       @endforeach
                     </select>
@@ -40,7 +40,8 @@
                 <div class="mt-2">
 
                     <select wire:model="failure_cause" id="elevator_faults" class="form-select">
-                        <option selected value="نامشخص">علت نامشخص</option>
+                        <option selected value="نامشخص">انتخاب علت ایراد</option>
+                        <option value="نامشخص">علت نامشخص</option>
                         <option value="خرابی درب‌ها">خرابی درب‌ها</option>
                         <option value="خرابی موتور">خرابی موتور</option>
                         <option value="خرابی تابلو فرمان">خرابی تابلو فرمان</option>

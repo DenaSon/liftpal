@@ -37,6 +37,8 @@
                 <livewire:front.panel.components.notifications>
                 @elseif(request()->input('page') == 'building' )
                 <livewire:front.panel.components.building>
+                @elseif(request()->input('page') == 'fault-alert' )
+                <livewire:front.panel.components.fault-alert>
                 @endif
 
 
