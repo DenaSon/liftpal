@@ -158,6 +158,11 @@
                                                    wire:click="sendMemberBuildingAlert({{ $building->id }})">
                                                     <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
                                                 </a>
+
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#teqnician-action-building" class="me-3">
+                                                    <i class="btn-xs fi fi-bell-on fs-6 text-primary"></i>
+                                                </a>
+
                                             </div>
 
                                         </li>
@@ -187,6 +192,7 @@
 </div>
 
 @include('livewire.front.panel.components.building-inc._building_edit')
+@include('livewire.front.panel.components.building-inc._building_edit_teqnician_action')
 
 
 @script
