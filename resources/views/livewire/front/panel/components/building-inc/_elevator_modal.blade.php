@@ -187,8 +187,6 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 <script>
 $wire.on('elevator_added', () => {
 $('#add-elevator').modal('hide');
-
 });
-
 </script>
 @endscript

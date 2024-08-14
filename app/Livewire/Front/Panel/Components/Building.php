@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
+use App\Traits\technicianAction;
 use Cryptommer\Smsir\Objects\Parameters;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
@@ -13,7 +14,7 @@ use Throwable;
 #[Lazy]
 class Building extends Component
 {
-    use LivewireAlert, WithPagination;
+    use LivewireAlert, WithPagination,technicianAction;
 
     // building fields;
     public $building_list = [];
