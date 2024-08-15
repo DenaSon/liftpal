@@ -38,7 +38,9 @@ class Building extends Model
     {
         return $this->belongsToMany(User::class, 'building_technician')
             ->withPivot('company_id')
-            ->withTimestamps();
+            ->withTimestamps()
+            ->as('technician')
+            ->where('role', 'technician');
     }
 
 

@@ -11,15 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
 class CheckAccess
 {
     use LivewireAlert;
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Closure(Request): (\Symfony\Component\HttpFoundation\Response) $next
-     */
+
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Gate::allows('admin-access') || Gate::allows('author'))
+        if (Gate::allows('admin-access') || Gate::allows('author') || Gate::allows('manager') || Gate::allows('technician'))
         {
             return $next($request);
         }

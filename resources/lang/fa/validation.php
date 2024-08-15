@@ -292,6 +292,8 @@ return [
         'broken_elevator_id' => 'آسانسور',
         'failure_cause' => 'علت خرابی',
         'failure_description' => ' توضیحات',
+        'elevator_id' => ' آسانسور',
+        'fault_cause' =>'علت خرابی'
 
 
 

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('building_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('technician_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('status')->default('pending');

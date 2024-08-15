@@ -69,6 +69,15 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
+        Gate::define('manager', function ($user) {
+
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('manager'))) {
+                return true;
+
+            }
+            return false;
+        });
+
 
 
         //Check truest user for cart

@@ -19,14 +19,13 @@ class CheckAuth
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Gate::allows('customer-access') || Gate::allows('technician'))
+        if (Gate::allows('customer-access') || Gate::allows('technician') || Gate::allows('manager') || Gate::allows('admin'))
         {
-
          return $next($request);
         }
         else
         {
-            $this->flash('warning', 'لطفا وارد حساب کاربری خود شوید', ['position' => 'center']);
+            $this->flash('warning', 'لطفا وارد حساب کاربری خود ', ['position' => 'center']);
             return redirect()->route('home', ['action' => 'login']);
         }
     }
