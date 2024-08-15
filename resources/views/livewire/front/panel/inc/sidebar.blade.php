@@ -33,8 +33,14 @@
             </div>
         </div>
         <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3" href="{{ route('panel',['page'=>'fault-alert']) }}"><i
-                class="fi-shop me-2"></i>  اعلام خرابی آسانسور </a><a
-            class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav"
+                class="fi-shop me-2"></i>  اعلام خرابی آسانسور </a>
+
+        <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3" href="#"><i
+                    class="fi-bell-on me-2"></i>  لیست درخواست ها <span class="badge rounded-pill bg-success ms-1">18</span></a>
+
+
+
+        <a class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav"
             data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>منو</a>
         <div class="collapse d-md-block mt-3" id="account-nav">
             <div class="card-nav">

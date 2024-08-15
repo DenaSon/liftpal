@@ -69,10 +69,10 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
 
             <div class="form-floating col-12 mb-3">
-                <select wire:model="type" class="form-select custom-select-height-building "
+                <select wire:model="type" class="form-select " id="floatingSelect" aria-label="Floating label select example"
                         aria-label="Default select example">
 
-                    <option value="" selected> انتخاب مدل  </option>
+                    <option selected> انتخاب مدل  </option>
                     <option value="passenger">آسانسور مسافری</option>
                     <option value="freight">آسانسور باربری</option>
                     <option value="service">آسانسور خدماتی</option>
@@ -82,6 +82,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <option value="home">آسانسور خانگی</option>
                     <option value="vehicle">آسانسور خودرویی</option>
                 </select>
+                <label for="floatingSelect">انتخاب مدل</label>
 
             </div>
 
@@ -111,13 +112,14 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 {{--                            </div>--}}
 
             <div class="form-floating col-12 mb-3">
-                <select wire:model="status" class="form-select custom-select-height-building" id="customSelect"
+                <select wire:model="status" class="form-select " id="floatingSelect"
                         aria-label="Default select example">
                     <option selected class="m-auto">وضعیت آسانسور</option>
                     <option value="active"> فعال</option>
                     <option value="deactivate">غیر فعال</option>
                     <option value="maintenance">درحال تعمیر</option>
                 </select>
+                <label for="floatingSelect">وضعیت آسانسور</label>
             </div>
 
         </div>

@@ -14,10 +14,25 @@
                             <option value="{{ $building->id }}">ساختمان {{ $building->builder_name }} {{ $building->floors }} طبقه</option>
                         @endforeach
                     </select>
+
                     <label for="floatingSelect">
                         انتخاب ساختمان
                         <span class="text-danger">*</span>
                     </label>
+                </div>
+
+                <div class="row mt-3">
+
+                <div class="form-floating col-6 ">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="عرض جغرافیایی">
+                    <label for="floatingInput">عرض جغرافیایی</label>
+                </div>
+
+                <div class="form-floating col-6 ">
+                    <input type="number" class="form-control" id="floatingInput"
+                           placeholder="طول جغرافیایی">
+                    <label for="floatingInput">طول جغرافیایی</label>
+                </div>
                 </div>
 
                 @if($elevator_list)
@@ -76,8 +91,21 @@
                 </button>
             </div>
 
-
-
         </div>
     </form>
+
+
+    <div class="card mt-3 shadow-lg">
+        <div class="row card-body d-flex justify-content-center">
+
+            <!-- Primary spinner -->
+            <div class="spinner-grow  text-primary" role="status" style="width: 5rem; height: 5rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div>
+            <p class="col card-text text-center my-3 fs-4">در انتظار تایید تکنسین</p>
+            </div>
+        </div>
+    </div>
+
 </div>

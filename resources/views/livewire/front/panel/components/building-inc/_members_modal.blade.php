@@ -73,14 +73,15 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
         </div>
 
 
-        <div class="col-12 mb-4">
-            <select wire:model="role" class="form-select" aria-label="Default select example">
-                <option selected disabled> انتخاب نقش</option>
+        <div class="form-floating col-12 mb-4">
+            <select wire:model="role" class="form-select" id="floatingSelect" aria-label="Default select example">
+
                 <option value="owner">مالک</option>
                 <option value="tenant">مستاجر</option>
                 <option value="manager">مدیر</option>
                 <option value="other">سایر</option>
             </select>
+            <label for="floatingSelect">انتخاب نقش</label>
         </div>
 
 
