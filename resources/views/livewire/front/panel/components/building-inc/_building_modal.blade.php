@@ -44,6 +44,23 @@
                                 <label for="floatingTextarea">آدرس ساختمان</label>
                             </div>
 
+
+                            <div class="row mt-2 mb-3">
+
+                                <div class="form-floating col-6 ">
+                                    <input type="number" class="form-control" id="floatingInput" placeholder="عرض جغرافیایی">
+                                    <label for="floatingInput">عرض جغرافیایی</label>
+                                </div>
+
+                                <div class="form-floating col-6 ">
+                                    <input type="number" class="form-control" id="floatingInput"
+                                           placeholder="طول جغرافیایی">
+                                    <label for="floatingInput">طول جغرافیایی</label>
+                                </div>
+                            </div>
+
+
+
                             <div>
                                 <div class="row">
 
@@ -196,7 +213,6 @@
 </div>
 
 @include('livewire.front.panel.components.building-inc._building_edit')
-@include('livewire.front.panel.components.building-inc.building_technician_action')
 
 
 @script

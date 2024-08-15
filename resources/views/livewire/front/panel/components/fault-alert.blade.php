@@ -21,19 +21,7 @@
                     </label>
                 </div>
 
-                <div class="row mt-3">
 
-                <div class="form-floating col-6 ">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="عرض جغرافیایی">
-                    <label for="floatingInput">عرض جغرافیایی</label>
-                </div>
-
-                <div class="form-floating col-6 ">
-                    <input type="number" class="form-control" id="floatingInput"
-                           placeholder="طول جغرافیایی">
-                    <label for="floatingInput">طول جغرافیایی</label>
-                </div>
-                </div>
 
                 @if($elevator_list)
                     <div class="form-floating mt-3">
