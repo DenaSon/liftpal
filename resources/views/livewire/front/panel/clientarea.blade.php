@@ -39,6 +39,8 @@
                 <livewire:front.panel.components.building>
                 @elseif(request()->input('page') == 'fault-alert' )
                 <livewire:front.panel.components.fault-alert>
+                    @elseif(request()->input('page') == 'get-location' )
+                        <livewire:front.panel.components.get-location>
                 @endif
 
 

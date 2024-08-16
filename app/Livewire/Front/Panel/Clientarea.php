@@ -101,6 +101,9 @@ class Clientarea extends Component
             case 'fault-alert':
                 $this->pageTitle = 'اعلام خرابی آسانسور';
                 break;
+            case 'get-location':
+                $this->pageTitle = 'ثبت آدرس ساختمان';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }

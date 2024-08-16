@@ -8,6 +8,8 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Throwable;
 
 
@@ -372,6 +374,26 @@ class Building extends Component
             $this->alert('warning', 'عضو یافت نشد');
         }
     }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function getLocation($id)
+    {
+
+        $building_id = \App\Models\Building::find($id)->id;
+
+
+        session()->put('building_id', $building_id);
+
+
+        usleep(500000);
+
+
+        $this->redirectRoute('panel', ['page' => 'get-location'], false, true);
+    }
+
 
 
     public function render()
