@@ -4,11 +4,13 @@ namespace App\Livewire\Front\Panel\Components;
 
 use App\Models\Elevator;
 use App\Models\Request;
+use App\Services\NeshanService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Throwable;
+
 
 class FaultAlert extends Component
 {
@@ -24,6 +26,7 @@ class FaultAlert extends Component
     public $fault_cause;
 
     public $elevator_list;
+
 
 
 

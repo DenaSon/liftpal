@@ -16,6 +16,20 @@ class EED extends Component
     public $errorCode;
     public $type;
 
+
+
+    public $lat = '55.156476611281';
+    public $lng = '37.082999580804';
+
+
+    public function setlocation()
+    {
+        $this->lat = '30.66439741244777';
+        $this->lng = '51.582633722338954';
+
+
+    }
+
     public function mount()
     {
         $this->errors = Error::all();

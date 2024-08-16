@@ -3,11 +3,13 @@
 namespace App\Livewire\Front\Panel\Components;
 
 use App\Traits\building\technicianAction;
+use Illuminate\Support\Facades\Http;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Throwable;
+
 
 #[Lazy]
 class Building extends Component
@@ -62,6 +64,54 @@ class Building extends Component
 
 
     }
+
+    public function showMap()
+    {
+        $lat = '30.660650411722187';
+        $lon = '51.59603159190746';
+
+
+        $response = Http::withHeaders([
+            'Api-Key' => config('neshan.Api-key'),
+        ])->get('https://api.neshan.org/v5/reverse',[
+            'lat'=> $lat,
+                'lng'=> $lon
+            ]);
+
+
+        if ($response->successful() && $response->json('status') === 'OK') {
+            $location = $response->json('location');
+        $address = $response->json('formatted_address');
+        dd($address);
+
+
+        }
+        else {
+           dd($response->body());
+        }
+    }
+
+    public function showCode()
+    {
+        $apiKey ="service.f0b032318487462a8dfa467aff93408a";
+        $response = Http::withHeaders([
+            'Api-Key' => $apiKey,
+        ])->get('https://api.neshan.org/v4/geocoding', [
+            'address' =>'یاسوج،شصت متری،گلستان 8',
+        ]);
+
+        if ($response->successful() && $response->json('status') === 'OK') {
+            $location = $response->json('location');
+            dd($location);
+
+
+        } else {
+            $this->alert('warning','Error location'. $response->body(). app()->currentLocale());
+
+        }
+
+    }
+
 
     public function sendMemberBuildingAlert($id)
     {
