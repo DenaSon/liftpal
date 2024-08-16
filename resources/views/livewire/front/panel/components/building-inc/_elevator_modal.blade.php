@@ -165,7 +165,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     ساختمان : {{ $elevator->building()->first()->builder_name }}
     </span>
                     <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
-                        <i class=" btn-xs fi fi-trash"></i>
+                        <i class=" btn-xs fi fi-trash" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"></i>
                     </a>
                 </li>
             @endforeach

@@ -60,26 +60,25 @@
     </div>
 
 
-
     <div class="card mt-3" style="width: 100%;">
-
         <div class="card-body">
-
             <div class="row">
-
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-8 mt-2">
                     <input placeholder="آدرس ساختمان شما" wire:model="str_address" class="form-control">
                 </div>
-                <div class="col-12 col-md-4">
-                    <button wire:confirm="از آدرس انتخاب شده اطمینان دارید؟" wire:click="showLocation" class="w-100 btn btn-outline-info m-2 btn-sm"> استعلام آدرس </button>
+                <div class="col-12 col-md-4 mt-4 mt-md-2">
+                    <button wire:confirm="از آدرس انتخاب شده اطمینان دارید؟" wire:click="showLocation" class="w-100 btn btn-outline-info  py-2  btn-sm"> استعلام آدرس </button>
                 </div>
             </div>
-
-
         </div>
     </div>
 
-
+    <div>
+        <button type="button" class="btn btn-success d-block w-100 my-3" >
+            <i class="fi-plus-circle me-1 fs-sm"></i>
+            ثبت آدرس
+        </button>
+    </div>
 
     <script>
         // Function to initialize the map

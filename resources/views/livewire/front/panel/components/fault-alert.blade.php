@@ -85,7 +85,6 @@
 
     <div class="card mt-3 shadow-lg">
         <div class="row card-body d-flex justify-content-center">
-
             <!-- Primary spinner -->
             <div class="spinner-grow  text-primary" role="status" style="width: 5rem; height: 5rem;">
                 <span class="visually-hidden">Loading...</span>

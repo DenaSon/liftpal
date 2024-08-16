@@ -30,38 +30,15 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header ">
-                            <h1 class="modal-title fs-5 bg-soft-success" id="add-building">افزودن ساختمان</h1>
+                            <h1 class="modal-title fs-5 bg-soft-success" id="add-building">مشخصات ساختمان</h1>
                             <button type="button" class="btn-close me-0" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
 
 
                         <div class="modal-body">
-                            <div class="form-floating mb-3">
-              <textarea wire:model="building_address" class="form-control"
-                        placeholder="آدرس ساختمان"
-                        id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">آدرس ساختمان</label>
-                            </div>
 
 
-                            <div class="row mt-2 mb-3">
-
-                                <div class="form-floating col-6 ">
-                                    <input type="number" class="form-control" id="floatingInput" placeholder="عرض جغرافیایی">
-                                    <label for="floatingInput">عرض جغرافیایی</label>
-                                </div>
-
-                                <div class="form-floating col-6 ">
-                                    <input type="number" class="form-control" id="floatingInput"
-                                           placeholder="طول جغرافیایی">
-                                    <label for="floatingInput">طول جغرافیایی</label>
-                                </div>
-                            </div>
-
-
-
-                            <div>
                                 <div class="row">
 
                                     <div class="form-floating col-12 mb-3">
@@ -95,16 +72,10 @@
                                     <div class="form-floating col-12 mb-3">
                                         <input wire:model="building_units" type="number" class="form-control"
                                                id="floatingInput"
-                                               placeholder="تعداد واحد">
-                                        <label for="floatingInput">تعداد واحد</label>
+                                               placeholder="شماره پلاک">
+                                        <label for="floatingInput">شماره پلاک</label>
                                     </div>
 
-                                    <div class="form-floating col-12 mb-3">
-                                        <input wire:model="manager_contact" type="number" class="form-control"
-                                               id="floatingInput"
-                                               placeholder="شماره تماس مدیر">
-                                        <label for="floatingInput">شماره تماس مدیر</label>
-                                    </div>
 
                                     <div class="form-floating col-12 mb-3">
                                         <input wire:model="emergency_contact" type="number" class="form-control"
@@ -113,7 +84,7 @@
                                         <label for="floatingInput">شماره تماس اضطراری</label>
                                     </div>
                                 </div>
-                            </div>
+
 
                         </div>
                         <div class="modal-footer">
@@ -164,23 +135,23 @@
                                                 <a wire:click="editBuilding({{ $building->id }})"
                                                    href="javascript:void(0)"
                                                    data-bs-toggle="modal" data-bs-target="#edit-building"
-                                                   class="me-3">
-                                                    <i class="btn-xs fi fi-edit text-info fs-6"></i>
+                                                   class="me-3" >
+                                                    <i class="btn-xs fi fi-edit text-info fs-6" data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش اطلاعات ساختمان"></i>
                                                 </a>
 
                                                 <a href="javascript:void(0)" class="me-3"
-                                                   wire:click="removeBuilding({{ $building->id }})">
+                                                   wire:click="removeBuilding({{ $building->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
                                                     <i class="btn-xs fi fi-trash fs-6 text-danger"></i>
                                                 </a>
 
                                                 <a href="javascript:void(0)" class="me-3"
                                                    wire:click="sendMemberBuildingAlert({{ $building->id }})">
-                                                    <i class="btn-xs fi fi-alert-triange fs-6 text-warning"></i>
+                                                    <i class="btn-xs fi fi-alert-triange fs-6 text-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="اعلام خرابی آسانسور به اعضا"></i>
                                                 </a>
 
                                                 <a  href="javascript:void(0)" wire:click="getLocation({{ $building->id}})"
                                                   class="me-3">
-                                                    <i class="btn-xs fi-plus-square fs-6 text-success"></i>
+                                                    <i class="btn-xs fi-plus-square fs-6 text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="ثبت ادرس ساختمان"></i>
                                                 </a>
 
                                             </div>
@@ -222,4 +193,15 @@
     });
 </script>
 @endscript
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+
+
 

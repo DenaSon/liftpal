@@ -125,7 +125,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
         </span>
                 <a href="#" class="" wire:click.debounce.250ms="removeMember('{{$member->id}}')"
                    onclick="event.preventDefault();">
-                    <i class="btn-xs fi fi-trash"></i>
+                    <i class="btn-xs fi fi-trash" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"></i>
                 </a>
             </li>
         @endforeach
