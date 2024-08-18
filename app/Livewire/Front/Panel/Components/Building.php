@@ -129,9 +129,9 @@ class Building extends Component
         $this->building_name = null;
         $this->building_address = null;
         $this->manager_name = null;
-
+        $this->manager_contact = null;
         $this->building_floors = null;
-
+        $this->building_units = null;
         $this->emergency_contact = null;
     }
 
