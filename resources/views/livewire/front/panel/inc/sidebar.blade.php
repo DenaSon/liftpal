@@ -25,7 +25,7 @@
                         class="star-rating-icon fi-star-filled active"></i><i
                         class="star-rating-icon fi-star-filled active"></i></span>
                 <ul class="list-unstyled fs-sm mt-3 mb-0">
-                    <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ?? '' }}"><i
+                    <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ??  '' }}"><i
                                 class="fi-phone opacity-60 me-2"></i>{{ $authUser->phone ?? '' }}</a></li>
                     <li><a class="nav-link fw-normal p-0" href="mailto:{{ $authUser->email ?? '' }}"><i
                                 class="fi-mail opacity-60 me-2"></i>{{ $authUser->email ?? '' }}</a></li>
