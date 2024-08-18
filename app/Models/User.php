@@ -52,15 +52,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Request::class, 'technician_id');
     }
 
-    public function activeRequests()
+    public function activeRequests(): HasMany
     {
         return $this->hasMany(Request::class, 'user_id');
 
     }
 
-    public function hasRequests(): bool
+    public function hasBuilderRequests(): bool
     {
-       return $this->activeRequests()->count() > 0;
+       return $this->activeRequests()->count() > 0 && $this->activeRequests()->where('status', 'pending')->exists();
     }
 
 

@@ -69,6 +69,13 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
+
+        Gate::define('isTechnician', function ($user) {
+
+             return   $user->role === 'technician';
+        });
+
+
         Gate::define('manager', function ($user) {
 
             if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('manager'))) {

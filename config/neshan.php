@@ -8,6 +8,7 @@ return [
     |
     */
 
-    'Api-key' => env('NESHAN_API_KEY'),
+    'Api-service_key' => env('NESHAN_API_SERVICE_KEY'),
+    'Api-web_key' => env('NESHAN_API_WEB_KEY'),
 
 ];

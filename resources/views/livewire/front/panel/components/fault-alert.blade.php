@@ -1,11 +1,10 @@
 <div>
+    @if(!auth()->user()->hasBuilderRequests())
     <form wire:submit.debounce.500ms="sendRequest">
         <div class="card shadow-lg mt-3">
 
             <div class="card-body mt-2">
-                <div class="text-center">
-                    <div class="badge bg-warning fs-xs" wire:loading>لطفا صبر کنید...</div>
-                </div>
+
 
                 <div class="form-floating mt-3">
                     <select wire:model.live.500ms="building_id" class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -24,7 +23,7 @@
 
 
                 @if($elevator_list)
-                    <div class="form-floating mt-3">
+                    <div class="form-floating mt-3 ">
                         <select wire:model.live.500ms="elevator_id" class="form-select" id="elevatorSelect" aria-label="Floating label select example">
                             <option value="" selected>انتخاب آسانسور</option>
                             @foreach($elevator_list as $elevator)
@@ -83,16 +82,72 @@
     </form>
 
 
-    <div class="card mt-3 shadow-lg">
-        <div class="row card-body d-flex justify-content-center">
-            <!-- Primary spinner -->
-            <div class="spinner-grow  text-primary" role="status" style="width: 5rem; height: 5rem;">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <div>
-            <p class="col card-text text-center my-3 fs-4">در انتظار تایید تکنسین</p>
+
+    @else
+        <style>
+
+        </style>
+        <div class="card mt-3 shadow-lg waiting-card">
+            <div class="row card-body d-flex justify-content-center align-items-center flex-column">
+                <p class="col card-text text-center fs-4 text-waiting text-primary mb-1">در انتظار تایید کارشناس فنی</p>
+                <div class="spinner-border fs-4 text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="text-muted text-center mt-4">
+                    <p>
+                       درخواست شما به شماره برای کارشناسان فنی ارسال شد
+                    </p>
+                    <b>
+                        {{ $request_created }}
+                        </b>
+                </div>
             </div>
         </div>
-    </div>
+
+@endif
+
+        @if(auth()->user()->activeRequests()->count() > 0 )
+
+
+        <div class="card shadow mt-4">
+            <div class="card-header">
+                <h5 class="fs-6 h5">آخرین درخواست ها</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive mt-1">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>زمان</th>
+                            <th>شماره</th>
+                            <th>ساختمان</th>
+                            <th>کارشناس فنی</th>
+                            <th>درخواست</th>
+                        </tr>
+                        </thead>
+                        <tbody wire:poll.visible>
+                        @foreach($request_list as $index => $request)
+                            <tr class="table-active">
+                                <th scope="row">{{ $index +1 }}</th>
+                                <td class="fs-xs">{{ jdate($request->created_at)->ago() }}</td>
+                                <td>{{ $request->referral }}</td>
+                                <td>{{ $request->building->builder_name}}</td>
+                                <td>
+                                    {{ $request->technician->profile->name }}
+                                    {{ $request->technician->profile->last_name }}
+                                </td>
+                                <td> {{ $request->getStatus() }} </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @endif
+
+
 
 </div>

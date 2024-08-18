@@ -50,19 +50,6 @@
                         </div>
 
 
-                        <div class="form-floating col-12 mb-3">
-                            <input wire:model="building_units" type="number" class="form-control"
-                                   id="floatingInput"
-                                   placeholder="تعداد واحد">
-                            <label for="floatingInput">تعداد واحد</label>
-                        </div>
-
-                        <div class="form-floating col-12 mb-3">
-                            <input wire:model="manager_contact" type="number" class="form-control"
-                                   id="floatingInput"
-                                   placeholder="شماره تماس مدیر">
-                            <label for="floatingInput">شماره تماس مدیر</label>
-                        </div>
 
                         <div class="form-floating col-12 mb-3">
                             <input wire:model="emergency_contact" type="number" class="form-control"

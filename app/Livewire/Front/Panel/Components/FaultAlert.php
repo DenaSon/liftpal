@@ -5,21 +5,25 @@ namespace App\Livewire\Front\Panel\Components;
 use App\Models\Elevator;
 use App\Models\Request;
 use App\Services\NeshanService;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Number;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
 use Throwable;
 
 
 class FaultAlert extends Component
 {
 
-    use LivewireAlert;
+    use LivewireAlert,WithoutUrlPagination;
 
     public $elevator_id;
     public $list;
-    public $building_list;
+    public $building_list =[];
     public $building_id;
     public $description;
     public $technician_list;
@@ -27,7 +31,10 @@ class FaultAlert extends Component
 
     public $elevator_list;
 
-
+    public $building;
+    public $referral;
+    public $request_created;
+    public $request_list =[];
 
 
 
@@ -55,14 +62,16 @@ class FaultAlert extends Component
                     2,
                     function() use ($building, $elevator)
                     {
+                        $random_int  =  random_int(1000000,9999999);
                         foreach($building->technicians as $technician)
                         {
                             //send request
                             $request = new Request();
                             $request->user_id = Auth::id();
+                            $request->referral = $random_int;
                             $request->technician_id = $technician->id;
                             $request->building_id = $building->id;
-                            $request->status = 'pendding';
+                            $request->status = 'pending';
 
                             $elevatorAlert = 'گزارش خرابی آسانسور' . $elevator->getType() . ' ' . $elevator->model;
                             $cause = ' به علت : ' . $this->fault_cause .'.';
@@ -74,7 +83,14 @@ class FaultAlert extends Component
                             $request->save();
 
                         }
-                        $this->alert('success','درخواست شما با موفقیت ثبت شد،بزودی تکنسین های ما با شما تماس خواهند گرفت');
+
+                        $this->referral = $request->referral;
+
+                       // $now = Carbon::now();
+                       // $difference  = $now->diffInSeconds($request->created_at);
+                        $this->request_created = jdate($request->created_at)->toTimeString();
+
+                        $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
                     }
                 );
 
@@ -114,12 +130,10 @@ class FaultAlert extends Component
 
     public function mount()
     {
-        if (auth()->user()->hasRequests())
-        {
-            $this->alert('warning','درخواست شما در حال بررسی است');
-        }
 
-        $this->building_list = \App\Models\Building::whereUserId(Auth::id())->get();
+        $this->building_list = \App\Models\Building::whereUserId(auth()->id())->get();
+        $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
+
 
     }
 

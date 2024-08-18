@@ -20,11 +20,11 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
             $table->string('manager_name');
-            $table->string('manager_contact');
+
             $table->string('emergency_contact')->nullable();
             $table->string('builder_name',120)->nullable();
             $table->integer('floors');
-            $table->integer('units');
+
             $table->text('address')->nullable();
             $table->string('latitude');
             $table->string('longitude');

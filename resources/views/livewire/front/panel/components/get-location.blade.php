@@ -17,7 +17,7 @@
         /* Optional: Add a loading indicator */
         #map::before {
             content: 'درحال آماده سازی نقشه...';
-            color: #d55d5d;
+            color: #6f5bf1;
             font-size: 12px;
             font-family: 'tahoma', sans-serif;
             position: absolute;
@@ -36,7 +36,7 @@
     <div wire:ignore id="map" class="map shadow">
     <div class="text-center">
         <a  wire:navigate.hover href="{{ route('panel',['page'=>'get-location']) }}">
-            <i class="fi-refresh"></i>
+            <i class="fi-refresh fs-4 mt-2"></i>
         </a>
     </div>
     </div>
@@ -63,18 +63,19 @@
     <div class="card mt-3" style="width: 100%;">
         <div class="card-body">
             <div class="row">
-                <div class="col-12 col-md-8 mt-2">
-                    <input placeholder="آدرس ساختمان شما" wire:model="str_address" class="form-control">
-                </div>
-                <div class="col-12 col-md-4 mt-4 mt-md-2">
-                    <button wire:confirm="از آدرس انتخاب شده اطمینان دارید؟" wire:click="showLocation" class="w-100 btn btn-outline-info  py-2  btn-sm"> استعلام آدرس </button>
+                <div class="col-12 col-md-12 mt-4 mt-md-2 form-group">
+                    <input  class="form-control" type="text" placeholder="آدرس ساختمان شما" wire:model="str_address">
+                    <button  wire:confirm="از آدرس انتخاب شده اطمینان دارید؟" wire:click="showLocation" class="w-25 fs-xs btn btn-outline-info  py-2  btn-sm">
+                        <i class="fi fi-map-pin me-1 me-md-2"></i>
+                        استعلام
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <div>
-        <button type="button" class="btn btn-success d-block w-100 my-3" >
+        <button wire:click.debounce.200ms="saveLocation" type="button" class="btn btn-success d-block w-100 my-3" >
             <i class="fi-plus-circle me-1 fs-sm"></i>
             ثبت آدرس
         </button>
@@ -84,7 +85,7 @@
         // Function to initialize the map
         function initMap() {
             const neshanMap = new L.Map("map", {
-                key: "web.434e560e4ebd4ded9f7630d248ca0b05", // Your API Key
+                key: "{{config('neshan.Api-web_key')}}",
                 maptype: "osm-bright",
                 poi: true,
                 traffic: true,

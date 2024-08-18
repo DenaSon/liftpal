@@ -17,6 +17,26 @@ class Request extends Model
         'description'
     ];
 
+    public function getStatus()
+    {
+        switch ($this->status) {
+            case 'pending':
+                return 'در انتظار';
+                break;
+            case  'expired' :
+                return 'منقضی شده';
+            case 'accepted':
+                return 'پذیرفته شده';
+            case 'rejected' :
+                'رد شده';
+            case 'unknown':
+                return 'نامشخص';
+                break;
+            default :
+                  return 'نامشخص';
+        }
+    }
+
     public function building(): BelongsTo
     {
         return $this->belongsTo(Building::class);

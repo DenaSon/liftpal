@@ -1,11 +1,19 @@
 <div>
     <form wire:submit.debounce.1000ms="updateProfileInfo">
 
-        <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label>
+
+
+
+
+
+        @can('technician') <label class="form-label pt-2 text-muted fs-xs" for="account-bio">توضیح مختصر بیوگرافی</label> @endcan
+
         <div class="row pb-2">
+            @can('technician')
             <div class="col-lg-12 col-sm-12 mb-4">
                 <textarea wire:model="resume" class="form-control fs-sm text-justify" id="account-bio" rows="2" placeholder="{{ $resume ?? 'معرفی کوتاه...' }}"></textarea>
             </div>
+            @endcan
 
         </div>
         <div class="border rounded-3 p-3 mb-4" id="personal-info">
@@ -69,6 +77,7 @@
             </div>
 
             <!-- Company name-->
+          @can('technician')
             <div class="border-bottom pb-3 mb-3">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="ps-2">
@@ -94,6 +103,7 @@
                     </select>
                 </div>
             </div>
+            @endcan
 
 
             <div class="d-flex align-items-center justify-content-center mt-4 pt-4 pb-1">
@@ -108,6 +118,7 @@
     </form>
 
     <!-- skills-->
+    @can('technician')
     <div class="border rounded shadow-sm p-4">
         <div class="container position-relative">
             <div class="row justify-content-center">
@@ -178,6 +189,7 @@
             </div>
         @endif
     </div>
+        @endcan
 
 </div>
 
