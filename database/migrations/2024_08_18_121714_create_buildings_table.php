@@ -24,10 +24,11 @@ return new class extends Migration
             $table->string('emergency_contact')->nullable();
             $table->string('builder_name',120)->nullable();
             $table->integer('floors');
+            $table->integer('identify')->nullable();
 
             $table->text('address')->nullable();
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }

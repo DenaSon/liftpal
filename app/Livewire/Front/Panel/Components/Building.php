@@ -23,11 +23,12 @@ class Building extends Component
     public $building_list = [];
     public $building_address ;
     public $manager_name;
-    public $manager_contact;
+
     public $building_name;
     public $building_floors;
-    public $building_units;
+
     public $emergency_contact;
+    public $building_identify;
     public $buildId;
     public $bid;
 
@@ -67,52 +68,7 @@ class Building extends Component
 
     }
 
-    public function showMap()
-    {
-        $lat = '30.660650411722187';
-        $lon = '51.59603159190746';
 
-
-        $response = Http::withHeaders([
-            'Api-Key' => config('neshan.Api-key'),
-        ])->get('https://api.neshan.org/v5/reverse',[
-            'lat'=> $lat,
-                'lng'=> $lon
-            ]);
-
-
-        if ($response->successful() && $response->json('status') === 'OK') {
-            $location = $response->json('location');
-        $address = $response->json('formatted_address');
-        dd($address);
-
-
-        }
-        else {
-           dd($response->body());
-        }
-    }
-
-    public function showCode()
-    {
-        $apiKey ="service.f0b032318487462a8dfa467aff93408a";
-        $response = Http::withHeaders([
-            'Api-Key' => $apiKey,
-        ])->get('https://api.neshan.org/v4/geocoding', [
-            'address' =>'یاسوج،شصت متری،گلستان 8',
-        ]);
-
-        if ($response->successful() && $response->json('status') === 'OK') {
-            $location = $response->json('location');
-            dd($location);
-
-
-        } else {
-            $this->alert('warning','Error location'. $response->body(). app()->currentLocale());
-
-        }
-
-    }
 
 
     public function sendMemberBuildingAlert($id)
@@ -173,9 +129,9 @@ class Building extends Component
         $this->building_name = null;
         $this->building_address = null;
         $this->manager_name = null;
-        $this->manager_contact = null;
+
         $this->building_floors = null;
-        $this->building_units = null;
+
         $this->emergency_contact = null;
     }
 
@@ -184,12 +140,12 @@ class Building extends Component
 
         try {
             $this->validate([
-                'building_address' => 'required|string',
+                'building_address' => 'nullable|string',
                 'manager_name' => 'required|string',
-                'manager_contact' => 'required|digits:11',
                 'building_name' => 'required|string|nullable',
                 'building_floors' => 'required|numeric|max:50',
-                'building_units' => 'required|numeric|max:50',
+                'building_identify' => 'nullable|numeric|max:50',
+
                 'emergency_contact' => 'required|digits:11',
 
             ]);
@@ -197,10 +153,9 @@ class Building extends Component
             $building = new \App\Models\Building();
             $building->address = $this->building_address;
             $building->manager_name = $this->manager_name;
-            $building->manager_contact = $this->manager_contact;
             $building->builder_name = $this->building_name;
             $building->floors = $this->building_floors;
-            $building->units = $this->building_units;
+            $building->identify = $this->building_identify;
             $building->emergency_contact = $this->emergency_contact;
             $building->user_id = auth()->user()->id;
             $building->save();
@@ -223,9 +178,9 @@ class Building extends Component
         $this->building_name = $building->builder_name;
         $this->building_address = $building->address;
         $this->manager_name = $building->manager_name;
-        $this->manager_contact = $building->manager_contact;
+        $this->building_identify = $building->identify;
         $this->building_floors = $building->floors;
-        $this->building_units = $building->units;
+
         $this->emergency_contact = $building->emergency_contact;
 
     }
@@ -235,11 +190,10 @@ class Building extends Component
 
         $this->validate([
             'building_name' => 'required|string|max:255',
-            'building_address' => 'required|string|max:255',
+            'building_address' => 'nullable|string|max:255',
             'manager_name' => 'required|string|max:255',
-            'manager_contact' => 'required|string|max:255',
-            'building_floors' => 'required|integer|min:1',
-            'building_units' => 'required|integer|min:1',
+            'building_floors' => 'required|integer|min:1|max:200',
+            'building_identify' => 'nullable|numeric|min:1|max:255',
             'emergency_contact' => 'required|string|max:255',
         ]);
 
@@ -250,9 +204,9 @@ class Building extends Component
         $building->builder_name = $this->building_name;
         $building->address = $this->building_address;
         $building->manager_name = $this->manager_name;
-        $building->manager_contact = $this->manager_contact;
+        $building->identify = $this->building_identify;
         $building->floors = $this->building_floors;
-        $building->units = $this->building_units;
+
         $building->emergency_contact = $this->emergency_contact;
 
 
