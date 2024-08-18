@@ -48,6 +48,12 @@
                                    placeholder="تعداد طبقه">
                             <label for="floatingInput">تعداد طبقات</label>
                         </div>
+                        <div class="form-floating col-12 mb-3">
+                            <input wire:model="building_identify" type="number" class="form-control"
+                                   id="building_identify"
+                                   placeholder=" پلاک ساختمان">
+                            <label for="building_identify">پلاک ساختمان </label>
+                        </div>
 
 
 

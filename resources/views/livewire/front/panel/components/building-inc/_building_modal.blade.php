@@ -70,10 +70,10 @@
 
 
             <div class="form-floating col-12 mb-3">
-                <input wire:model="building_units" type="number" class="form-control"
+                <input wire:model="building_identify" type="number" class="form-control"
                        id="floatingInput"
-                       placeholder="شماره پلاک">
-                <label for="floatingInput">شماره پلاک</label>
+                       placeholder="پلاک ساختمان">
+                <label for="floatingInput"> پلاک ساختمان</label>
             </div>
 
 
