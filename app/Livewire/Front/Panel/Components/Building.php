@@ -184,9 +184,9 @@ class Building extends Component
 
         try {
             $this->validate([
-                'building_address' => 'required|string',
+                'building_address' => 'nullable|string',
                 'manager_name' => 'required|string',
-                'manager_contact' => 'required|digits:11',
+                'manager_contact' => 'nullable|digits:11',
                 'building_name' => 'required|string|nullable',
                 'building_floors' => 'required|numeric|max:50',
                 'building_units' => 'required|numeric|max:50',
@@ -235,7 +235,7 @@ class Building extends Component
 
         $this->validate([
             'building_name' => 'required|string|max:255',
-            'building_address' => 'required|string|max:255',
+            'building_address' => 'nullable|string|max:255',
             'manager_name' => 'required|string|max:255',
             'manager_contact' => 'required|string|max:255',
             'building_floors' => 'required|integer|min:1',
