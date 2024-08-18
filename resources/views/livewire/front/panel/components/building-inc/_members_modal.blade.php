@@ -120,7 +120,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
         {{ $member->full_name }}
            <span class="text-muted fs-sm">
                 از ساختمان
-            {{ $member->building()->first()->builder_name }}
+            {{ $member->building()?->first()?->builder_name ?? '' }}
            </span>
         </span>
                 <a href="#" class="" wire:click.debounce.250ms="removeMember('{{$member->id}}')"

@@ -162,7 +162,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     {{ $elevator->capacity }} نفره
 مدل
     <span class="text-muted">({{ $elevator->model }})</span> -
-    ساختمان : {{ $elevator->building()->first()->builder_name }}
+    ساختمان : {{ $elevator->building()->first()?->builder_name ?? '' }}
     </span>
                     <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">
                         <i class=" btn-xs fi fi-trash" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"></i>
