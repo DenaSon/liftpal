@@ -25,7 +25,7 @@
                         class="star-rating-icon fi-star-filled active"></i><i
                         class="star-rating-icon fi-star-filled active"></i></span>
                 <ul class="list-unstyled fs-sm mt-3 mb-0">
-                    <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ?? '' }}"><i
+                    <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ??  '' }}"><i
                                 class="fi-phone opacity-60 me-2"></i>{{ $authUser->phone ?? '' }}</a></li>
                     <li><a class="nav-link fw-normal p-0" href="mailto:{{ $authUser->email ?? '' }}"><i
                                 class="fi-mail opacity-60 me-2"></i>{{ $authUser->email ?? '' }}</a></li>
@@ -36,8 +36,8 @@
         <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3" href="{{ route('panel',['page'=>'fault-alert']) }}"><i
                 class="fi-shop me-2"></i>  اعلام خرابی آسانسور </a>
         @elseif(Auth::user()->isRole('technician'))
-        <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3" href="#"><i
-                    class="fi-bell-on me-2"></i>  لیست درخواست ها <span class="badge rounded-pill bg-danger ms-1">{{ Auth::user()->requests->count() }}</span></a>
+        <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3" href="{{ route('panel',['page'=>'request-list'])}}">
+            <i class="fi-bell-on me-2"></i>  لیست درخواست ها <span class="badge rounded-pill bg-danger ms-1">{{ Auth::user()->requests->count() }}</span></a>
         @endif
 
 

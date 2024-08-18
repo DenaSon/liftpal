@@ -104,6 +104,9 @@ class Clientarea extends Component
             case 'get-location':
                 $this->pageTitle = 'ثبت آدرس ساختمان';
                 break;
+            case 'request-list':
+                $this->pageTitle = 'لیست درخواست ها';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }
