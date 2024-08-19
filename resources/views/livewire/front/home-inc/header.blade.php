@@ -20,44 +20,39 @@
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2 " style="width: 16rem;">
                         <i class="fi fi-user fs-lg"></i>
                         <div class="ps-2 text-end">
-                            <h6 class="fs-base mb-0"> {{ auth()->user()->profile->name ?? '' }} {{ auth()->user()->profile->last_name ?? '' }} </h6>
-                            <span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i>
-                        <i class="star-rating-icon fi-star-filled active">
+                            <h6 class="fs-base mb-0"> {{ auth()->user()->profile->name ?? '' }} {{ auth()->user()->profile->last_name ?? '' }}
+                                <span class="badge bg-faded-info fs-xxs me-2">{{ auth()->user()->getRole() }}</span></h6>
 
-                        </i>
-                        <i class="star-rating-icon fi-star-filled active"></i>
-                                <i class="star-rating-icon fi-star-filled active"></i>
-                                <i class="star-rating-icon fi-star-filled active"></i>
-                            </span>
 
-                            <div class="fs-xs muted">{{ auth()?->user()?->phone }}<br>{{ auth()?->user()?->email ?? 'ایمیل ثبت نشده' }}</div>
+
+
                         </div>
 
                     </div>
                     <a wire:navigate class="dropdown-item" href="{{ route('panel') }}">
                         <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'profile']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'profile']) }}"><i
                                 class="fi-lock opacity-60 me-2"></i>ویرایش پروفایل</a>
 
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'favorite']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'favorite']) }}"><i
                                 class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'address']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'address']) }}"><i
                                 class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'building']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'building']) }}"><i
                                 class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'notification']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'notification']) }}"><i
                                 class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
 
 
                     <div class="dropdown-divider"></div>
 
 
-                    <a class="dropdown-item" href="{{ route('panel',['page'=>'support']) }}"><i
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'support']) }}"><i
                                 class="fi-help opacity-60 me-2"></i>پشتیبانی</a>
 
 
