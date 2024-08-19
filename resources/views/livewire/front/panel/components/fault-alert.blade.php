@@ -123,28 +123,33 @@
 
     @if(auth()->user()->activeRequests()->count() > 0 )
 
-        <div class="card shadow mt-4">
-            <div class="card-header">
-                <h5 class="fs-6 h5">آخرین درخواست ها</h5>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive mt-1">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>شماره</th>
-                            <th>زمان</th>
+            <div class="accordion mt-3 shadow-lg rounded-3" id="accordion-requestlist">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            آخرین درخواست ها
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-requestlist">
+                        <div class="accordion-body">
 
-                            <th>ساختمان</th>
-                            <th>کارشناس </th>
-                            <th>درخواست</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($request_list as $index => $request)
+                            <div class="table-responsive mt-1">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>شماره</th>
+                                        <th>زمان</th>
 
-                            <tr class="
+                                        <th>ساختمان</th>
+                                        <th>کارشناس </th>
+                                        <th>درخواست</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($request_list as $index => $request)
+
+                                        <tr class="
                             @switch($request->status)
                             @case('accepted')
                              bg-faded-success border-success
@@ -162,25 +167,34 @@
                               bg-faded-primary
                             @endswitch
                             ">
-                                <th scope="row">{{ $index +1 }}</th>
-                                <td>{{ $request->referral }}</td>
-                                <td class="fs-xs text-waiting">{{ jdate($request->created_at)->ago() }}</td>
+                                            <th scope="row">{{ $index +1 }}</th>
+                                            <td>{{ $request->referral }}</td>
+                                            <td class="fs-xs text-waiting">{{ jdate($request->created_at)->ago() }}</td>
 
-                                <td>{{ $request->building->builder_name}}</td>
-                                <td>
-                                    {{ $request->technician->profile->name }}
-                                    {{ $request->technician->profile->last_name }}
-                                </td>
-                                <td> {{ $request->getStatus() }} </td>
-                            </tr>
-                            <div wire:poll.visible.10s="requestsTimeout"></div>
+                                            <td>{{ $request->building->builder_name}}</td>
+                                            <td>
+                                                {{ $request->technician->profile->name }}
+                                                {{ $request->technician->profile->last_name }}
+                                            </td>
+                                            <td> {{ $request->getStatus() }} </td>
+                                        </tr>
+                                        <div wire:poll.visible.10s="requestsTimeout"></div>
 
-                        @endforeach
-                        </tbody>
-                    </table>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </div>
+
+
+
+
+
+
 
     @endif
 
