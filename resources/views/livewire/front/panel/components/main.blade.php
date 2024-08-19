@@ -108,7 +108,7 @@
     </div>
 
 
-
+@can('manager')
         <div class="row">
 
             <div class="col-md-6 mb-2">
@@ -213,6 +213,7 @@
             </div>
 
         </div>
+        @endcan
 
 
 
