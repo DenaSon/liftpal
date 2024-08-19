@@ -293,7 +293,8 @@ return [
         'failure_cause' => 'علت خرابی',
         'failure_description' => ' توضیحات',
         'elevator_id' => ' آسانسور',
-        'fault_cause' =>'علت خرابی'
+        'fault_cause' =>'علت خرابی',
+        'fullname' => 'نام ‌و ‌نام‌خانوادگی'
 
 
 

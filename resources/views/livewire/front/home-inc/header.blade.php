@@ -109,9 +109,12 @@
                        data-bs-toggle="dropdown" aria-expanded="false"> تماس باما </a>
                 </li>
 
-                <li class="nav-item active ms-lg-auto"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a>
-                </li>
 
+                @if(!auth()->check())
+                <li class="nav-item active ms-lg-auto"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a> </li>
+
+
+                @endif
 
 
             </ul>

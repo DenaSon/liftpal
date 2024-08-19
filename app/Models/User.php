@@ -35,15 +35,39 @@ class User extends Authenticatable implements MustVerifyEmail
          'role'
      ];
 
+     public function getRole()
+     {
+         switch ($this->role)
+         {
+             case 'admin':
+                 return 'مدیر';
+             case 'author':
+                 return 'نویسنده';
+             case 'customer':
+                 return 'کاربر';
+             case 'company':
+                 return 'شرکت';
+             case 'technician':
+                 return 'کارشناس فنی';
+             case 'master':
+                 return 'مدیرکل';
+             case 'manager':
+                 return 'کارفرما';
+             default :
+                 return 'نامشخص';
+         }
+     }
+
+
     public function company(): HasOneThrough
     {
         return $this->hasOneThrough(
-            Company::class,  // مدل هدف (شرکت)
-            Profile::class,  // مدل واسط (پروفایل)
-            'user_id',       // کلید خارجی در جدول profiles که به جدول users اشاره دارد
-            'id',            // کلید خارجی در جدول companies که به جدول profiles اشاره دارد
-            'id',            // کلید اصلی در جدول users
-            'company_id'     // کلید خارجی در جدول profiles که به جدول companies اشاره دارد
+            Company::class,
+            Profile::class,
+            'user_id',
+            'id',
+            'id',
+            'company_id'
         )->where('users.role', 'technician');
     }
 

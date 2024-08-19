@@ -1,5 +1,5 @@
 <!-- Footer-->
-<footer class="footer pt-2 bg-secondary">
+<footer class="footer d-none pt-2 bg-secondary @if(request()->route()->getName() == 'panel') d-md-block @endif">
     <div class="container pt-lg-4 pb-1  bg-secondary">
         <!-- Links-->
 

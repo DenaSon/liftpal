@@ -1,4 +1,4 @@
-<div wire:poll.visible="refreshList">
+<div wire:poll.visible.2s="refreshList">
 
     <div class="row d-flex justify-content-around">
 
@@ -50,7 +50,8 @@
 
                     <div class="d-flex justify-content-center mt-4 mx-auto">
                         <div class="d-flex">
-                            <button type="button" class="w-50 me-2 btn btn-success">
+                            <button type="button" class="w-50 me-2 btn btn-success"
+                                    wire:confirm="درخواست تایید شود؟" wire:click.debounce.400ms="acceptRequest({{$request->id}},{{$request->referral}})">
                                 <i class="fi-like me-1"></i>
                                 تایید
                             </button>
@@ -77,11 +78,6 @@
 
     </div>
 
-    <script>
-        setInterval(() => {
-            $wire.$refresh()
-        }, 1000)
-    </script>
 
 
 </div>

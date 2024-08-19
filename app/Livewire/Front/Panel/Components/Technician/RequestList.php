@@ -12,12 +12,14 @@ class RequestList extends Component
     use LivewireAlert;
 
     public $request_list = [];
-    public $zoom;
     public $id;
+    public $referral;
 
     public function mount()
     {
-        $this->request_list = Request::whereTechnicianId(\Auth::id())
+
+        $this->request_list = Request::with(['building'])
+       ->whereTechnicianId(\Auth::id())
             ->where('status', 'pending')
             ->get();
 
@@ -30,7 +32,7 @@ class RequestList extends Component
             ->get();
     }
 
-    public function cancelRequest($id)
+    public function cancelRequest($id): void
     {
         $this->id = $id;
         try {
@@ -44,10 +46,29 @@ class RequestList extends Component
 
     }
 
-    public function zoomIn()
+    public function acceptRequest($id,$referral): void
     {
-        $this->zoom += 1;
+        $this->id = $id;
+        $this->referral = $referral;
+        try {
+            $this->validate(['id' => 'required|numeric|exists:requests,id' ,'referral' => 'required|numeric|exists:requests,referral']);
+          Request::whereReferral($referral)
+              ->whereId($id)
+              ->whereStatus('pending')
+              ->update(['status' => 'accepted']);
+
+            Request::whereReferral($referral)
+                ->whereStatus('pending')
+                ->update(['status' => 'cancelled']);
+
+            $this->alert('info', 'درخواست تایید شد');
+        }
+        catch (Throwable $e) {
+            $this->alert('error', $e->getMessage());
+        }
     }
+
+
 
     public function render()
     {

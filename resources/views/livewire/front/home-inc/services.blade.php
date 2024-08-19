@@ -1,5 +1,5 @@
 @include('livewire.front.home-inc.support-inc.support-modal')
-<section class="container mb-5 mt-n3 mt-lg-0">
+<section wire:ignore class="container mb-5 mt-n3 mt-lg-0">
 <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-2" dir="ltr">
 <div class="tns-carousel-inner row gx-4 mx-0 py-3"
  data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}}}">
@@ -15,7 +15,7 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary "
-                                                  href=""> شروع کن</a>
+                                                  href="{{ route('calcMain') }}"> شروع </a>
         </div>
 
     </div>
@@ -60,7 +60,7 @@
             </p>
         </div>
         <div class="card-footer pt-0 border-0"><a  wire:navigate.hover class="btn btn-outline-primary "
-                                                  href=""> خطایاب </a></div>
+                                                  href="{{ route('EED') }}"> شروع </a></div>
     </div>
 </div>
 

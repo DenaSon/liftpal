@@ -34,7 +34,7 @@
                     <td class="text-center" colspan="100%">
                         <span class="fw-bold fs-lg mb-5">هنوز سفارشی ثبت نشده است</span>
                         <div class="clearfix"></div>
-                        <a wire:navigate class="btn btn-outline-primary btn-lg w-50 mt-5" href="{{ route('shop') }}"><i class="fi-cart me-2"></i> خرید از فروشگاه </a>
+                        <a wire:navigate class="btn btn-outline-primary btn-lg w-50 mt-5" href="{{ route('shop') }}"><i class="fi-cart me-2"></i> خرید  </a>
                     </td>
 
                 </tr>
