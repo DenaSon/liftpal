@@ -117,16 +117,15 @@
                         <div class="row p-0">
                             <div class="col-6 d-flex align-items-center justify-content-center px-0 mx-0">
                                 <div class="icon-box text-center ">
-                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto fs-2">
+                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto ">
                                         <i class="fi-apartment"></i>
                                     </div>
                                    </div>
                                </div>
-
                             <div class="col-6">
-                                <div class="mt-3 fs-5">
-                                    <p class=" mb-3 text-center">تعداد ساختمان</p>
-                                    <h3 class="text-dark mt-1 text-center"><span>2</span></h3>
+                                <div class="mt-3">
+                                    <p class="mb-3 text-center">تعداد ساختمان</p>
+                                    <h6 class="text-dark mt-1 text-center"><span>2</span></h6>
 
                                 </div>
                             </div>
@@ -143,16 +142,16 @@
                         <div class="row p-0">
                             <div class="col-6 d-flex align-items-center justify-content-center px-0 mx-0">
                                 <div class="icon-box text-center ">
-                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto fs-3">
+                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto">
                                         <i class="fi-sidebar-left"></i>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6">
-                                <div class="mt-3 fs-6">
+                                <div class="mt-3">
                                     <p class="mb-3 text-center">تعداد آسانسور</p>
-                                    <h3 class="text-dark mt-1 text-center"><span>2</span></h3>
+                                    <h6 class="text-dark mt-1 text-center"><span>2</span></h6>
 
                                 </div>
                             </div>
@@ -168,16 +167,16 @@
                         <div class="row p-0">
                             <div class="col-6 d-flex align-items-center justify-content-center px-0 mx-0">
                                 <div class="icon-box text-center">
-                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto fs-3">
+                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto">
                                         <i class="fi-friends"></i>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6">
-                                <div class=" mt-3 fs-5">
+                                <div class=" mt-3">
                                     <p class="mb-3 text-center">اعضای ساختمان</p>
-                                    <h3 class="text-dark mt-1 text-center"><span>20</span></h3>
+                                    <h6 class="text-dark mt-1 text-center"><span>20</span></h6>
 
                                 </div>
                             </div>
@@ -193,16 +192,16 @@
                         <div class="row p-0">
                             <div class="col-6 d-flex align-items-center justify-content-center px-0 mx-0">
                                 <div class="icon-box text-center ">
-                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto fs-3">
+                                    <div class="icon-box-media bg-faded-success text-success rounded-circle mx-auto">
                                         <i class="fi-user"></i>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6">
-                                <div class="text-end mt-3 fs-6">
+                                <div class="text-end mt-3">
                                     <p class=" mb-3 text-center">تعداد تکنسین</p>
-                                    <h3 class="text-dark mt-1 text-center"><span>2</span></h3>
+                                    <h6 class="text-dark mt-1 text-center"><span>2</span></h6>
 
                                 </div>
                             </div>
