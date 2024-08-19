@@ -13,8 +13,6 @@
             <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3">
                 <a class="d-inline me-3 py-2" href="javascript:void(0)">
                     <img class="rounded-circle" src="{{ asset(auth()->user()?->images()?->first()?->file_path ?? 'admin/assets/libs/feather-icons/icons/user.svg') }}" width="40" alt="">
-
-
                 </a>
                 <div class="dropdown-menu  dropdown-menu-center-hompage me-5">
                     <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2 " style="width: 16rem;">
