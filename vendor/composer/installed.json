@@ -2015,17 +2015,17 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.7.2",
-            "version_normalized": "3.7.2.0",
+            "version": "3.8.0",
+            "version_normalized": "3.8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "5451ff9f909c2fc836722e5ed6831b9f9a6db68c"
+                "reference": "1786ad5e1789050939d73cd195de4b8eaeeb34ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/5451ff9f909c2fc836722e5ed6831b9f9a6db68c",
-                "reference": "5451ff9f909c2fc836722e5ed6831b9f9a6db68c",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/1786ad5e1789050939d73cd195de4b8eaeeb34ed",
+                "reference": "1786ad5e1789050939d73cd195de4b8eaeeb34ed",
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2043,7 @@
             "suggest": {
                 "ext-exif": "Recommended to be able to read EXIF data properly."
             },
-            "time": "2024-07-05T13:35:01+00:00",
+            "time": "2024-08-16T14:57:26+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2074,7 +2074,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.7.2"
+                "source": "https://github.com/Intervention/image/tree/3.8.0"
             },
             "funding": [
                 {
@@ -2084,6 +2084,10 @@
                 {
                     "url": "https://github.com/Intervention",
                     "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/interventionphp",
+                    "type": "ko_fi"
                 }
             ],
             "install-path": "../intervention/image"
@@ -2972,17 +2976,17 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.5.2",
-            "version_normalized": "2.5.2.0",
+            "version": "2.5.3",
+            "version_normalized": "2.5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767"
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
-                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/b650144166dfa7703e62a22e493b853b58d874b0",
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0",
                 "shasum": ""
             },
             "require": {
@@ -2995,8 +2999,8 @@
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
-                "commonmark/cmark": "0.31.0",
-                "commonmark/commonmark.js": "0.31.0",
+                "commonmark/cmark": "0.31.1",
+                "commonmark/commonmark.js": "0.31.1",
                 "composer/package-versions-deprecated": "^1.8",
                 "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
@@ -3015,7 +3019,7 @@
             "suggest": {
                 "symfony/yaml": "v2.3+ required if using the Front Matter extension"
             },
-            "time": "2024-08-14T10:56:57+00:00",
+            "time": "2024-08-16T11:46:16+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
