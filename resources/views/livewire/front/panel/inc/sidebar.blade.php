@@ -37,7 +37,11 @@
                 class="fi-shop me-2"></i>  اعلام خرابی آسانسور </a>
         @elseif(Auth::user()->isRole('technician'))
         <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3" href="{{ route('panel',['page'=>'request-list'])}}">
-            <i class="fi-bell-on me-2"></i>  لیست درخواست ها <span class="badge rounded-pill bg-danger ms-1">{{ Auth::user()->requests->count() }}</span></a>
+            <i class="fi-bell-on me-2"></i>  لیست درخواست ها <span class="badge rounded-pill bg-danger ms-1">
+                {{
+    Auth::user()->requests->where('status','pending')
+    ->count() }}
+            </span></a>
         @endif
 
 

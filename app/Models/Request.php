@@ -28,7 +28,10 @@ class Request extends Model
             case 'accepted':
                 return 'پذیرفته شده';
             case 'rejected' :
-                'رد شده';
+               return 'رد شده';
+               break;
+            case 'cancelled' :
+                return 'لغو شده';
             case 'unknown':
                 return 'نامشخص';
                 break;

@@ -59,7 +59,7 @@ class Clientarea extends Component
 
         // Flash success message
         $this->alert('success', 'تصویر پروفایل آپلود شد');
-        $this->redirectRoute('clientarea');
+        $this->redirectRoute('panel');
     }
 
     public function mount()

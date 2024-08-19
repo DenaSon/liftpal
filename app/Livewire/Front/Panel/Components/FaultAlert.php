@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
+use App\Jobs\panel\jobRequest;
 use App\Models\Elevator;
 use App\Models\Request;
 use App\Services\NeshanService;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Number;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Throwable;
@@ -35,6 +37,7 @@ class FaultAlert extends Component
     public $referral;
     public $request_created;
     public $request_list =[];
+    public $timeout;
 
 
 
@@ -73,25 +76,25 @@ class FaultAlert extends Component
                             $request->building_id = $building->id;
                             $request->status = 'pending';
 
-                            $elevatorAlert = 'گزارش خرابی آسانسور' . $elevator->getType() . ' ' . $elevator->model;
+                            $elevatorAlert = 'آسانسور : ' . $elevator->getType() . ' ' . $elevator->model;
                             $cause = ' به علت : ' . $this->fault_cause .'.';
-                            $buildingId = ' ساختمان :' . $building->builder_name . ' . ';
-                            $address = 'به آدرس : ' . $building->address . ' .';
                             $causeDescription = "\nتوضیحات: " . $this->description;
-                            $full_description = $elevatorAlert . $cause . $buildingId . $address . $causeDescription;
+                            $full_description = $elevatorAlert .' '. $cause .' '. $causeDescription;
                             $request->description = $full_description;
                             $request->save();
 
                         }
+                        $technician_count = $building->technicians->count();
+                        $this->alert('info',' درخواست شما برای ' . $technician_count . ' '. 'کارشناس فنی ارسال شد');
 
                         $this->referral = $request->referral;
 
-                       // $now = Carbon::now();
-                       // $difference  = $now->diffInSeconds($request->created_at);
                         $this->request_created = jdate($request->created_at)->toTimeString();
-
                         $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
+
                     }
+
+
                 );
 
                 if (! $executed) {
@@ -128,8 +131,35 @@ class FaultAlert extends Component
 
     }
 
+
+
+
+    public function requestsTimeout(): void
+    {
+        if (auth()->user()->activeRequests()->count() > 0) {
+
+            $requests = Request::whereUserId(auth()->id())
+                ->where('created_at', '<=', Carbon::now()->subMinutes(14))
+                ->where('status', 'pending')
+                ->get();
+
+            foreach ($requests as $request)
+            {
+                $request->status = 'cancelled';
+                $request->save();
+
+
+
+            }
+        }
+    }
+
+
     public function mount()
     {
+
+
+
 
         $this->building_list = \App\Models\Building::whereUserId(auth()->id())->get();
         $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
