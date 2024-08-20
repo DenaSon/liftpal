@@ -1,5 +1,5 @@
 @extends('admin.panel.layouts.master')
-@section('page-title',' مدیریت مشتری ها')
+@section('page-title',' مدیریت کارشناسان فنی ها')
 @section('CustomCss')
 
 <script src="{{ asset('vendor/ckstandard/ckeditor.js') }}"></script>
@@ -35,8 +35,8 @@
     </div>
     <div class="col-6">
         <div class="text-end">
-            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::where('role','customer')->count('id') }}</span></h3>
-            <p class="text-muted mb-0 text-truncate">مشتری</p>
+            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::where('role','technician')->count('id') }}</span></h3>
+            <p class="text-muted mb-0 text-truncate">کارشناس فنی</p>
         </div>
     </div>
 </div>
@@ -57,7 +57,7 @@
         <div class="text-end">
             <h3 class="text-dark my-1"><span data-plugin="counterup">
 
-                     {{\App\Models\User::whereBetween('created_at', [now()->subDay(), now()])->where('role','customer')->count('id') }}
+                     {{\App\Models\User::whereBetween('created_at', [now()->subDay(), now()])->where('role','technician')->count('id') }}
 
                 </span></h3>
             <p class="text-muted mb-0 text-truncate">ثبت نام امروز</p>
@@ -79,7 +79,7 @@
     <div class="col-6">
         <div class="text-end">
             <h3 class="text-dark my-1"><span data-plugin="counterup">
-               {{\App\Models\User::whereBetween('created_at', [now()->subWeek(), now()])->where('role','customer')->count('id') }}
+               {{\App\Models\User::whereBetween('created_at', [now()->subWeek(), now()])->where('role','technician')->count('id') }}
                 </span></h3>
             <p class="text-muted mb-0 text-truncate">ثبت نام هفته</p>
         </div>
@@ -101,7 +101,7 @@
         <div class="text-end">
             <h3 class="text-dark my-1">
                 <span data-plugin="counterup">
-                    {{\App\Models\User::whereBetween('created_at', [now()->subMonth(), now()])->where('role','customer')->count('id') }}
+                    {{\App\Models\User::whereBetween('created_at', [now()->subMonth(), now()])->where('role','technician')->count('id') }}
                 </span> </h3>
             <p class="text-muted mb-0 text-truncate">  ثبت نام ماه </p>
         </div>
