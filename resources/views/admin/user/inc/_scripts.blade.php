@@ -33,7 +33,7 @@
         var newButton = document.createElement('button');
         newButton.type = 'button';
         newButton.className = 'btn btn-sm btn-outline-primary';
-        newButton.textContent = 'ایجاد مشتری جدید ';
+        newButton.textContent = 'ایجاد کاربر جدید ';
         newButton.setAttribute('data-bs-toggle', 'modal');
         newButton.setAttribute('data-bs-target', '#custom-modal');
 
