@@ -33,7 +33,7 @@ class CustomerController extends Controller
 
 
 
-        $users = User::query()->where('role', 'customer')
+        $users = User::query()->where('role', 'technician')
             ->where(function ($query) {
                 $query->whereNotNull('phone_verified_at')
                     ->orWhereNotNull('email_verified_at');
@@ -69,12 +69,7 @@ class CustomerController extends Controller
                     $query->where('last_name', 'like', '%' . $search . '%');
                 });
             })
-            ->when($filter == 'expertise', function ($query) use( $search ) {
 
-                $query->whereHas('profile', function ( $query ) use ( $search ) {
-                    $query->where('expertise', 'like', '%' . $search . '%');
-                });
-            })
 
             ->paginate(getSetting('default_pagination_number') ?? 10)->appends(request()->query());
 
