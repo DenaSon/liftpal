@@ -78,7 +78,7 @@
 
 
                     <li>
-                        <a href="{{ route('user.index') }}"> مدیران  </a>
+                        <a href="{{ route('user.index') }}"> همه  </a>
                     </li>
 
 
