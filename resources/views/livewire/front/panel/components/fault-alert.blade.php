@@ -155,7 +155,7 @@
                              bg-faded-success border-success
                              @break
                              @case('cancelled')
-                            bg-faded-info
+                            bg-faded-dark
                             @break
                              @case('rejected')
                               bg-faded-danger
@@ -163,6 +163,7 @@
                               @case('pending')
                               bg-faded-warning
                               @break
+                              
                               @default
                               bg-faded-primary
                             @endswitch
