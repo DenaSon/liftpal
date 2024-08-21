@@ -13,11 +13,11 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-# PhpStorm specific ignores
+# PhpStorm
 /.idea
 /.phpstorm.meta.php
 /.vscode
 
-# Ignore JetBrains Rider IDE configuration
+# Ignore
 /.idea/
 /.idea/*
