@@ -72,12 +72,60 @@
 
         @if($request_list->where('status','pending')->count() == 0)
             <div class="text-center mt-5">
-                <p class="text-info fs-5">درخواست فعالی وجود ندارد</p>
+                <p class="text-info fs-5 fw-bolder">درخواست فعالی وجود ندارد</p>
             </div>
         @endif
 
+
+        <hr class="m-2">
+
     </div>
+    <div class="accordion mt-3 shadow-lg rounded-3" id="accordion-requestlist">
+        <div class="accordion-item" x-data="{ open: false }" x-init="$watch('open', value => { if(value) { $refs.collapse.classList.add('show'); } else { $refs.collapse.classList.remove('show'); } })">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" @click="open = !open" :aria-expanded="open" aria-controls="collapseOne">
+                    سابقه درخواست
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" x-ref="collapse" :class="{ 'show': open }" aria-labelledby="headingOne" data-bs-parent="#accordion-requestlist">
+                <div class="accordion-body">
 
+                    <div class="table-responsive mt-1">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>شماره</th>
+                                <th>زمان</th>
+                                <th>ساختمان</th>
+                                <th>وضعیت</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($request_history as $index => $request)
+                                <tr class="
+                                @switch($request->status)
+                                    @case('accepted') bg-faded-success border-success @break
+                                    @case('cancelled') bg-faded-dark @break
+                                    @case('rejected') bg-faded-danger @break
+                                    @case('pending') bg-faded-warning @break
+                                    @default bg-faded-primary
+                                @endswitch
+                            ">
+                                    <th scope="row">{{ $index +1 }}</th>
+                                    <td>{{ $request->referral }}</td>
+                                    <td class="fs-xs text-waiting">{{ jdate($request->created_at)->toFormattedDateTimeString() }}</td>
+                                    <td>{{ $request->building->builder_name}}</td>
+                                    <td>{{ $request->getStatus() }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
