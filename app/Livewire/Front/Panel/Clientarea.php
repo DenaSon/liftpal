@@ -33,8 +33,13 @@ class Clientarea extends Component
 
         if ($this->photo) {
             $imageName = Str::random(10) . '_' . $this->photo->getClientOriginalName();
-            $directory = 'media';
-
+            if (app()->isLocal()) {
+                $directory = 'media';
+            }
+            else
+            {
+                $directory = '../../public_html/media'; // Adjust path to point to public_html
+            }
             // Store the file in the 'public/media' directory
             if (!Storage::disk('public')->exists($directory)) {
                 Storage::disk('public')->makeDirectory($directory);
