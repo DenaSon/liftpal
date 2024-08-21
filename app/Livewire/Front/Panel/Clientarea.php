@@ -36,10 +36,10 @@ class Clientarea extends Component
 
             // Determine directory based on environment
             if (app()->isLocal()) {
-                $directory = 'media'; // Local development directory
+                $directory = 'media';
                 $disk = 'public';
             } else {
-                $directory = ''; // Use root of the custom disk 'public_html_media'
+                $directory = 'media/'; // Use root of the custom disk 'public_html_media'
                 $disk = 'public_html_media'; // Custom disk defined in filesystem
             }
 
