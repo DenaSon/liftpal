@@ -28,7 +28,7 @@ class Clientarea extends Component
     public function updatedPhoto()
     {
         $this->validate([
-            'photo' => 'image|max:1024', // 1MB Max
+            'photo' => 'image|max:512',
         ]);
 
         if ($this->photo) {

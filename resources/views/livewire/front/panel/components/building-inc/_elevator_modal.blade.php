@@ -57,8 +57,8 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
 
             <div class="form-floating col-12 mb-3">
-                <input wire:model="model" type="text" class="form-control" id="floatingInput" placeholder="مدل">
-                <label for="floatingInput">مدل آسانسور</label>
+                <input wire:model="national_code" type="number" max="10" class="form-control" id="floatingInput" placeholder="شناسه ملی">
+                <label for="floatingInput">شناسه ملی </label>
             </div>
 
             <div class="form-floating col-12 mb-3">
@@ -74,12 +74,12 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
                     <option selected> انتخاب مدل  </option>
                     <option value="passenger">آسانسور مسافری</option>
+                    <option value="home">آسانسور خانگی</option>
                     <option value="freight">آسانسور باربری</option>
                     <option value="service">آسانسور خدماتی</option>
                     <option value="hospital">آسانسور بیمارستانی</option>
                     <option value="panoramic">آسانسور پانوراما (شیشه‌ای)</option>
                     <option value="dumbwaiter">آسانسور غذا بر (دوم ویتور)</option>
-                    <option value="home">آسانسور خانگی</option>
                     <option value="vehicle">آسانسور خودرویی</option>
                 </select>
                 <label for="floatingSelect">انتخاب مدل</label>
@@ -87,11 +87,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             </div>
 
 
-            <div class="form-floating col-12 mb-3">
-                <input wire:model="manufacturer" type="text" class="form-control" id="floatingInput"
-                       placeholder="کارخانه">
-                <label for="floatingInput">کارخانه</label>
-            </div>
+
 
 {{--                            <div class="form-floating col-12 mb-3">--}}
 {{--                                <input wire:model="installation_date" type="text" class="form-control" id="floatingInput"--}}
@@ -160,8 +156,8 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <i class="fi-sidebar-left text-success me-2"></i>
 آسانسور      {{ $elevator->getType($elevator->type) }}
     {{ $elevator->capacity }} نفره
-مدل
-    <span class="text-muted">({{ $elevator->model }})</span> -
+شناسه ملی
+    <span class="text-muted">({{ $elevator->national_code }})</span> -
     ساختمان : {{ $elevator->building()->first()?->builder_name ?? '' }}
     </span>
                     <a href="javascript:void(0)" class="" wire:click="removeElevator({{ $elevator->id }})">

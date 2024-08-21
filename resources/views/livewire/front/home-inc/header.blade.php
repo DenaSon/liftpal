@@ -22,8 +22,6 @@
                                 <span class="badge bg-faded-info fs-xxs me-2">{{ auth()->user()->getRole() }}</span></h6>
 
 
-
-
                         </div>
 
                     </div>
@@ -31,24 +29,27 @@
                         <i class="fi-user opacity-60 me-2"></i> پنل کاربری</a>
 
                     <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'profile']) }}"><i
-                                class="fi-lock opacity-60 me-2"></i>ویرایش پروفایل</a>
+                                class="fi-lock opacity-60 me-2"></i> پروفایل</a>
 
 
-                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'favorite']) }}"><i
-                                class="fi-heart opacity-60 me-2"></i>موردعلاقه ها</a>
+
+                    @can('manager')
+                        <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'building']) }}"><i
+                                class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
+                    @endcan
 
                     <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'address']) }}"><i
                                 class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
 
-                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'building']) }}"><i
-                                class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
+
 
                     <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'notification']) }}"><i
-                                class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
+                                class="fi-bell opacity-60 me-2"></i>اطلاعیه‌ها</a>
 
+                    <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'favorite']) }}"><i
+                            class="fi-heart opacity-60 me-2"></i>مورد‌علاقه</a>
 
                     <div class="dropdown-divider"></div>
-
 
                     <a wire:navigate class="dropdown-item" href="{{ route('panel',['page'=>'support']) }}"><i
                                 class="fi-help opacity-60 me-2"></i>پشتیبانی</a>
@@ -81,13 +82,13 @@
                 </li>
 
 
-                @if(auth()->check())
+                @auth
                     <li class="nav-item"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
                                              role="button"
                                              data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
                     </li>
 
-                @endif
+                @endauth
 
 
 

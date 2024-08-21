@@ -294,7 +294,8 @@ return [
         'failure_description' => ' توضیحات',
         'elevator_id' => ' آسانسور',
         'fault_cause' =>'علت خرابی',
-        'fullname' => 'نام ‌و ‌نام‌خانوادگی'
+        'fullname' => 'نام ‌و ‌نام‌خانوادگی',
+        'national_code' => 'شناسه ملی'
 
 
 
