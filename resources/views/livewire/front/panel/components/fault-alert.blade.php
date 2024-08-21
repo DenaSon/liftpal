@@ -31,7 +31,7 @@
                                 <option value="" selected>انتخاب آسانسور</option>
                                 @foreach($elevator_list as $elevator)
                                     <option value="{{ $elevator->id }}">
-                                        {{ $elevator->getType() }} ({{ $elevator->model }})
+                                        {{ $elevator->getType() }} ({{ $elevator->national_code }})
                                     </option>
                                 @endforeach
                             </select>
