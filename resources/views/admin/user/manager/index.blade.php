@@ -228,10 +228,10 @@
 <div class="me-sm-3">
 <select class="form-select my-1 my-lg-0" id="filter" name = "filter">
 <option value="admin">مدیرکل</option>
-<option value="admin">کارشناس فنی</option>
-<option value="author">مدیر ساختمان</option>
-<option value="visitor">شرکت</option>
-<option value="stock">انبار</option>
+<option value="technician">کارشناس فنی</option>
+<option value="manager">مدیر ساختمان</option>
+<option value="company">شرکت</option>
+
 
 </select>
 </div>
