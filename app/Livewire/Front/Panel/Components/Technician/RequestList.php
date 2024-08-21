@@ -14,6 +14,7 @@ class RequestList extends Component
     public $request_list = [];
     public $id;
     public $referral;
+    public $request_history = [];
 
     public function mount()
     {
@@ -26,8 +27,12 @@ class RequestList extends Component
             ->where('status', 'pending')
             ->get();
 
+        $this->request_history = auth()->user()->requests()->latest()->take(20)->get();
+
 
     }
+
+
 
     public function refreshList()
     {

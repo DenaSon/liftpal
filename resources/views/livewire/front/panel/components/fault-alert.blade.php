@@ -143,7 +143,7 @@
 
                                         <th>ساختمان</th>
                                         <th>کارشناس </th>
-                                        <th>درخواست</th>
+                                        <th>وضعیت</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -163,7 +163,7 @@
                               @case('pending')
                               bg-faded-warning
                               @break
-                              
+
                               @default
                               bg-faded-primary
                             @endswitch
