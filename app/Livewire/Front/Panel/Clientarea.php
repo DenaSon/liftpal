@@ -56,7 +56,7 @@ class Clientarea extends Component
             $imageData = [
                 'album_id' => $albumId,
                 'file_name' => Str::replace(' ', '_', Str::limit($imageName, 18, '')),
-                'file_path' => $disk === 'public' ? 'storage/' . $path : $path, // Adjust the path based on disk
+                'file_path' => $disk === 'public' ? 'storage/' . $path : 'media/'.$path,
                 'is_index' => 0,
             ];
 
