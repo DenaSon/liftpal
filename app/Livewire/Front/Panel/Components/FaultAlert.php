@@ -83,6 +83,14 @@ class FaultAlert extends Component
                             $request->description = $full_description;
                             $request->save();
 
+                            $technician_name = $technician->profile->name;
+
+                            $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
+                            $parameters = array($parameter1);
+                            sendVerifySms($technician, config('sms.technician_alert_template_id'), $parameters);
+
+
+
                         }
                         $technician_count = $building->technicians->count();
                         $this->alert('info',' درخواست شما برای ' . $technician_count . ' '. 'کارشناس فنی ارسال شد');
@@ -91,6 +99,7 @@ class FaultAlert extends Component
 
                         $this->request_created = jdate($request->created_at)->toTimeString();
                         $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
+
 
                     }
 
