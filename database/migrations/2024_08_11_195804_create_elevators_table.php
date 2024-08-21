@@ -22,7 +22,7 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->string('model');
+            $table->string('national_code',11);
             $table->integer('capacity');
             $table->enum('type', ['passenger',
                 'freight',

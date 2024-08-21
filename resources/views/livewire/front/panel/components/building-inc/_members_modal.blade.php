@@ -121,6 +121,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
            <span class="text-muted fs-sm">
                 از ساختمان
             {{ $member->building()?->first()?->builder_name ?? '' }}
+               <a href="tel:{{ $member->phone }}" class=" ms-2 badge bg-faded-secondary">{{ $member->phone }}</a>
            </span>
         </span>
                 <a href="#" class="" wire:click.debounce.250ms="removeMember('{{$member->id}}')"

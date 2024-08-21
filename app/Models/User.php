@@ -87,6 +87,17 @@ class User extends Authenticatable implements MustVerifyEmail
        return $this->activeRequests()->count() > 0 && $this->activeRequests()->where('status', 'pending')->exists();
     }
 
+    public function buildings(): HasMany
+    {
+        return $this->hasMany(Building::class, 'user_id');
+
+    }
+
+    public function members(): HasMany
+    {
+        return $this->hasMany(Member::class, 'user_id');
+    }
+
 
 
      /**

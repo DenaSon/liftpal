@@ -10,7 +10,7 @@ class Elevator extends Model
     protected $fillable = [
         'user_id',
         'building_id',
-        'model',
+        'national_code',
         'capacity',
         'type',
         'manufacturer',

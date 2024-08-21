@@ -17,11 +17,15 @@ class RequestList extends Component
 
     public function mount()
     {
-
+        if (!$this->authorize('technician'))
+        {
+            abort(403,'دسترسی شما در سیستم به عنوان کارشناس فنی ثبت نشده است.');
+        }
         $this->request_list = Request::with(['building'])
        ->whereTechnicianId(\Auth::id())
             ->where('status', 'pending')
             ->get();
+
 
     }
 

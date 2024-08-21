@@ -35,7 +35,8 @@ class Building extends Component
     //elevator_fields
 
     public $building_id;
-    public $model;
+    public $national_code;
+
     public $capacity;
     public $type;
     public $manufacturer;
@@ -226,7 +227,7 @@ class Building extends Component
 
             $this->validate([
                 'building_id' => 'required|integer',
-                'model' => 'required|string|max:255',
+                'national_code' => 'required|numeric|digits:10',
                 'capacity' => 'required|integer',
                 'type' => 'required|string|in:passenger,freight,service,hospital,panoramic,dumbwaiter,home,vehicle',
                 'manufacturer' => 'nullable|string|max:255',
@@ -238,7 +239,7 @@ class Building extends Component
             \App\Models\Elevator::create([
                 'user_id' => auth()->user()->id,
                 'building_id' => $this->building_id,
-                'model' => $this->model,
+                'national_code' => $this->national_code,
                 'capacity' => $this->capacity,
                 'type' => $this->type,
                 'manufacturer' => $this->manufacturer,
@@ -251,6 +252,7 @@ class Building extends Component
             $this->dispatch('elevator_added');
         } catch (Throwable $e) {
             $this->alert('info', $e->getMessage());
+            dd($e->getMessage());
 
         }
     }

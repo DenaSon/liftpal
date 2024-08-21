@@ -158,9 +158,10 @@ class FaultAlert extends Component
     public function mount()
     {
 
-
-
-
+        if (!$this->authorize('manager'))
+        {
+            abort(403,'دسترسی شما در سیستم به عنوان مدیر ساختمان ثبت نشده است.');
+        }
         $this->building_list = \App\Models\Building::whereUserId(auth()->id())->get();
         $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
 
