@@ -1,2 +1,23 @@
-/.env
+# Laravel specific ignores
+/node_modules
+/public/hot
 /public/
+/public/storage
+/storage/*.key
+/vendor
+/.env
+/.env.backup
+/.env.*.backup
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# PhpStorm specific ignores
+/.idea
+/.phpstorm.meta.php
+/.vscode
+
+# Ignore JetBrains Rider IDE configuration
+/.idea/
+/.idea/*
