@@ -35,6 +35,12 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
+        'public_html_media' => [
+            'driver' => 'local',
+            'root' => '/home/liftpal/public_html/media',
+            'url' => env('APP_URL') . '/media',
+            'visibility' => 'public',
+        ],
 
         'public' => [
             'driver' => 'local',

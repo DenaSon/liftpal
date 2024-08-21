@@ -45,7 +45,7 @@ class Clientarea extends Component
                 Storage::disk('public')->makeDirectory($directory);
             }
 
-            $path = $this->photo->storeAs($directory, $imageName, 'public');
+            $path = $this->photo->storeAs($directory, $imageName, 'public_html_media');
 
             $albumId = 'profile_' . Auth::id();
             $imageData = [
