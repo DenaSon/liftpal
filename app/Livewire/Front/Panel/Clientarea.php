@@ -33,25 +33,30 @@ class Clientarea extends Component
 
         if ($this->photo) {
             $imageName = Str::random(10) . '_' . $this->photo->getClientOriginalName();
+
+            // Determine directory based on environment
             if (app()->isLocal()) {
-                $directory = 'media';
-            }
-            else
-            {
-                $directory = '../../public_html/media'; // Adjust path to point to public_html
-            }
-            // Store the file in the 'public/media' directory
-            if (!Storage::disk('public')->exists($directory)) {
-                Storage::disk('public')->makeDirectory($directory);
+                $directory = 'media'; // Local development directory
+                $disk = 'public';
+            } else {
+                $directory = ''; // Use root of the custom disk 'public_html_media'
+                $disk = 'public_html_media'; // Custom disk defined in filesystem
             }
 
-            $path = $this->photo->storeAs($directory, $imageName, 'public_html_media');
+            // Ensure the directory exists
+            if (!Storage::disk($disk)->exists($directory)) {
+                Storage::disk($disk)->makeDirectory($directory);
+            }
 
+            // Store the file in the specified directory
+            $path = $this->photo->storeAs($directory, $imageName, $disk);
+
+            // Prepare image data for database insertion
             $albumId = 'profile_' . Auth::id();
             $imageData = [
                 'album_id' => $albumId,
                 'file_name' => Str::replace(' ', '_', Str::limit($imageName, 18, '')),
-                'file_path' => 'storage/'.$path,
+                'file_path' => $disk === 'public' ? 'storage/' . $path : $path, // Adjust the path based on disk
                 'is_index' => 0,
             ];
 
@@ -66,6 +71,7 @@ class Clientarea extends Component
         $this->alert('success', 'تصویر پروفایل آپلود شد');
         $this->redirectRoute('panel');
     }
+
 
     public function mount()
     {
