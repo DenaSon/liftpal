@@ -20,16 +20,9 @@
                         <input value="{{ old('code') }}" type="text" class="form-control" id="code" placeholder="کد خطا" name='code'>
                     </div>
                     <div class="mb-3">
-                        <label for="category" class="form-label">نوع</label>
+                        <label for="type" class="form-label">نوع تابلو</label>
 
-                        <select id="category" name="type" class="form-control">
-                            <option value="mechanical">Mechanical</option>
-                            <option value="electrical">Electrical</option>
-                            <option value="software">Software</option>
-                            <option value="environmental">Environmental</option>
-                            <option value="human">Human</option>
-                            <option value="other">Other</option>
-                        </select>
+                       <input name="type" id="type" class="form-control">
 
                     </div>
                     <div class="mb-3">

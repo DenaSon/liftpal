@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Elevator;
 use App\Http\Controllers\Controller;
 use App\Models\Error;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class eedController extends Controller
 {
@@ -33,10 +34,18 @@ class eedController extends Controller
     {
         // Validate the input fields
         $validatedData = $request->validate([
-            'code' => 'required|string|max:255|unique:errors,code',
+            'code' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('errors', 'code')->where(function ($query) use ($request) {
+                    return $query->where('type', $request->type);
+                }),
+            ],
             'type' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
+
 
         // Create a new error record
         $error = new Error();
