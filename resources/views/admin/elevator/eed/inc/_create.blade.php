@@ -7,7 +7,7 @@
 
                     &nbsp;
 
-                    افزودن کد خطای جدید</h4>
+                    افزودن خطا  </h4>
 
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
