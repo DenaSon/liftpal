@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('errors', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->enum('type', ['mechanical', 'electrical', 'software', 'environmental', 'human','other'])->default('other');
+            $table->string('type');
             $table->text('description')->nullable();
             $table->timestamps();
+
+
         });
+
     }
 
     /**

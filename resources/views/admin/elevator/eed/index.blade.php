@@ -40,7 +40,7 @@
                     <tr>
                         <th>ردیف</th>
                         <th data-priority="1"> کد خطا</th>
-                        <th data-priority="1"> نوع</th>
+                        <th data-priority="1"> نوع تایلو</th>
                         <th data-priority="4">توضیح</th>
                         <th data-priority="6">تاریخ ایجاد</th>
                         <th data-priority="2" style="width:35px"> اقدامات</th>
