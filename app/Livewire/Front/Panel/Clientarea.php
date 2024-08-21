@@ -36,10 +36,10 @@ class Clientarea extends Component
 
             // Determine directory based on environment
             if (app()->isLocal()) {
-                $directory = 'media';
+                $directory = 'media'; // Local development directory
                 $disk = 'public';
             } else {
-                $directory = 'media/'; // Use root of the custom disk 'public_html_media'
+                $directory = ''; // Use root of the custom disk 'public_html_media'
                 $disk = 'public_html_media'; // Custom disk defined in filesystem
             }
 
@@ -56,7 +56,7 @@ class Clientarea extends Component
             $imageData = [
                 'album_id' => $albumId,
                 'file_name' => Str::replace(' ', '_', Str::limit($imageName, 18, '')),
-                'file_path' => $disk === 'public' ? 'storage/' . $path : 'media/'.$path,
+                'file_path' => $disk === 'public' ? 'storage/' . $path : 'media/'.$path, // Adjust the path based on disk
                 'is_index' => 0,
             ];
 
