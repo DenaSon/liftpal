@@ -16,7 +16,6 @@ class Expert extends Component
 
     public function mount($id, $name='')
     {
-
         $this->user = User::with('profile', 'comments','skills','addresses','images')
             ->whereRole('technician')
             ->findOrFail($id);
