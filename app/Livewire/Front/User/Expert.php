@@ -14,10 +14,10 @@ class Expert extends Component
     public $passedDays;
     use LivewireAlert;
 
-    public function mount($id, $name)
+    public function mount($id, $name='')
     {
 
-        $this->user = User::with('profile', 'comments','skills','addresses')
+        $this->user = User::with('profile', 'comments','skills','addresses','images')
             ->whereRole('technician')
             ->findOrFail($id);
 

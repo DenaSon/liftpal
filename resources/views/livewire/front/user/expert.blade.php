@@ -7,13 +7,19 @@
 
     <section class="container mb-5 pb-1 ">
         <div class="row">
-            <div class="col-12 col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1"><span class="badge bg-success me-2 mb-3">تایید</span><span class="badge bg-info me-2 mb-3">جدید</span>
-                <h2 class="h4 mb-4 pb-4 border-bottom ">{{ $user->profile?->name }} {{ $user->profile?->last_name }}</h2>
+            <div class="col-12 col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1">
+
+                <h2 class="h4 mb-4 pb-4 border-bottom d-flex justify-content-between align-items-center">
+                    <span>{{ $user->profile?->name }} {{ $user->profile?->last_name }}</span>
+                    <span class="fs-xs badge bg-success me-2 mb-3">تایید</span>
+                </h2>
+
+
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">رزومه کارشناس فنی</h3>
                     <p class="mb-1 line-h18">
-                    {{ $user->profile?->resume }}
+                        {{ $user->profile?->resume }}
                     </p>
 
                 </div>
@@ -23,7 +29,8 @@
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
                         @foreach($user?->skills as $skill)
-                        <li class="col"><i class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill?->name }}</li>
+                            <li class="col"><i
+                                    class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill?->name }}</li>
                         @endforeach
 
                     </ul>
@@ -38,16 +45,21 @@
                     <div class="d-flex justify-content-between mb-3 mt-4">
                         <div class="d-flex align-items-center pe-2">
                             <div class="ps-2 ">
-                                <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">محمد اسدی قله مرکزی</h6><span class="star-rating mt-1">
+                                <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">محمد
+                                    اسدی قله مرکزی</h6><span class="star-rating mt-1">
                                     <i class="star-rating-icon fi-star-filled active"></i><i
-                                        class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
-                                        class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
-                    </div>
+                                        class="star-rating-icon fi-star-filled active"></i><i
+                                        class="star-rating-icon fi-star-filled active"></i><i
+                                        class="star-rating-icon fi-star-filled active"></i><i
+                                        class="star-rating-icon fi-star-filled active"></i></span>
+                            </div>
                         </div>
                         <span class="text-muted fs-sm">14 شهریور , 1399</span>
-            </div>
-                    <p>رکتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                        الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
+                    </div>
+                    <p>رکتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با
+                        نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+                        الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام
+                        و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
                         پایان رسد</p>
                     <div class="d-flex align-items-center">
                         <button class="btn-like" type="button"><i class="fi-like"></i><span>(2)</span></button>
@@ -60,12 +72,14 @@
                 <nav class="mt-2 mb-4" aria-label="Reviews pagination">
                     <ul class="pagination">
                         <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
-                        <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">صفحه جاری</span></span></li>
+                        <li class="page-item active d-none d-sm-block" aria-current="page"><span
+                                class="page-link">1<span class="visually-hidden">صفحه جاری</span></span></li>
                         <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
                         <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
                         <li class="page-item d-none d-sm-block">...</li>
                         <li class="page-item d-none d-sm-block"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
+                                    class="fi-chevron-right"></i></a></li>
                     </ul>
                 </nav>
             </div>
@@ -77,9 +91,6 @@
 
 
     @include('livewire.front.home-inc.footer')
-
-
-
 
 
 </div>

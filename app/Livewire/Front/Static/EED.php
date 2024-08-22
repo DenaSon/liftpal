@@ -55,37 +55,7 @@ class EED extends Component
                         $this->dispatch('remove-alert');
                         $this->errorCode = $existCode->code;
                         $this->result = $existCode;
-                        switch ($this->result->type)
-                        {
-                            case 'mechanical':
-                                $this->type = 'مکانیک';
-                                break;
-
-                            case 'electrical':
-                                $this->type = 'الکترونیک';
-                                break;
-
-                            case 'software':
-                                $this->type = 'نرم افزاری';
-                                break;
-
-                            case 'environmental':
-                                $this->type = 'محیطی';
-                                break;
-
-                            case 'human':
-                                $this->type = 'انسانی';
-                                break;
-
-                            case 'other':
-                                $this->type = 'عمومی';
-                                break;
-
-                            default:
-                                $this->type = 'نامشخص';
-                                break;
-                        }
-
+                        $this->type = $existCode->type;
 
                     }
                     else

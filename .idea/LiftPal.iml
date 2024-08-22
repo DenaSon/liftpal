@@ -158,6 +158,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/google-gemini-php/client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/google-gemini-php/laravel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/_laravel_idea" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

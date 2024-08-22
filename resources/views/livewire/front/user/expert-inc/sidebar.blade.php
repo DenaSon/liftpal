@@ -2,8 +2,11 @@
     <!-- Contact card-->
     <div class="card shadow mb-4 order-sm-1 ">
         <div class="card-body">
-            <div class="d-flex align-items-start justify-content-between"><a class="text-decoration-none" href="real-estate-vendor-properties.html"><img
-                        class="rounded-circle mb-2" src="{{ asset('assets/img/avatars/49.jpg') }}" width="60" alt="Avatar">
+            <div class="d-flex align-items-start justify-content-between">
+                <a class="text-decoration-none"
+                           href="{{ route('singleExpert',['id'=>$user?->id,'name' =>$user->profile?->name . '-' . $user->profile?->last_name ]) }}">
+
+                    <img class="rounded-circle mb-2" src="{{ $user->images()->first()?->file_path }}" width="60" alt="Avatar">
                     <h5 class="mb-1 d-md-none">{{ $user->profile?->name ?? ''}} {{ $user->profile?->last_name ?? '' }} </h5>
                     <div class="mb-1"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
