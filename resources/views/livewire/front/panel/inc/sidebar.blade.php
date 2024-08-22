@@ -17,7 +17,12 @@
 
             <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                 <h2 class="fs-lg mb-0">
-                    {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}
+                   @if(auth()->user()->role == 'technician')
+                  <a class="text-decoration-none text-dark" wire:navigate href="{{ route('singleExpert',['id'=>$authUser?->id,'name' =>$authUser->profile?->name . '-' . $authUser->profile?->last_name ]) }}">
+                    {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}</a>
+                    @else
+                        {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}
+                    @endif
                     <span class="badge bg-faded-info text-waiting fs-xs fw-normal">{{ auth()->user()->getRole() }}</span>
                 </h2>
 
