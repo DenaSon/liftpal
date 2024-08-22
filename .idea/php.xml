@@ -164,6 +164,8 @@
       <path value="$PROJECT_DIR$/vendor/google-gemini-php/laravel" />
       <path value="$PROJECT_DIR$/vendor/google-gemini-php/client" />
       <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

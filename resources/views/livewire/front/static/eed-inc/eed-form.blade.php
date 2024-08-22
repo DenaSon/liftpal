@@ -38,7 +38,7 @@
 
             <div class="milad alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
                 <h4 class="alert-heading fs-sm">
-                    <span class="float-end text-info">      دسته :   {{ $type }} </span>
+                    <span class="float-end text-info">      نوع تابلو :   {{ $type }} </span>
                     <span class="fs-xs float-start">{{ $errorCode }}</span>
                 </h4>
                 <div class="clearfix"></div>
@@ -82,15 +82,3 @@
 
 </div>
 
-@script
-<script>
-    // Listen for the Livewire event
-    $wire.on('remove-alert', () => {
-        // Find the alert element
-        var alertElement = document.getElementById('eed-alert');
-        alertElement.style.display = "none";
-        alert("dena");
-
-    });
-</script>
-@endscript
