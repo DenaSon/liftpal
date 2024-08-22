@@ -48,6 +48,20 @@
                     </li>
                 @endif
 
+
+                    <li>
+                    <a class="nav-link fw-normal p-0" href="#"><i class="fi-check mt-n1 me-2 align-middle "> </i> <span class="fs-sm"> تعداد درخواست کار :
+                        {{ $user->requests()->count()  }} بار </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link fw-normal p-0" href="#"><i class="fi-checkbox-checked mt-n1 me-2 align-middle "> </i> <span class="fs-sm"> درخواست پذیرفته شده  :
+                        {{ $user->requests()->where('status','accepted')->count()  }}  </span>
+                    </a>
+                </li>
+
+
+
             </ul>
             <!-- Contact form-->
             <form class="needs-validation" novalidate="">
