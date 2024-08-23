@@ -233,7 +233,7 @@ class PostController extends Controller
                     return redirect()->back();
                 }
                 $image->move($directory, $imageName);
-               // $this->optimizeImage($directory,$imageName);
+                $this->optimizeImage($directory,$imageName);
 
 
 
