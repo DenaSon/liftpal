@@ -356,8 +356,8 @@ class PostController extends Controller
 
         $manager = new ImageManager(new Driver());
         $image = $manager->read($new_directory);
-        $rectangleWidth = 340;
-        $rectangleHeight = 240;
+        $rectangleWidth = 310;
+        $rectangleHeight = 280;
         $image->resize(width: $rectangleWidth, height: $rectangleHeight);
 
 
