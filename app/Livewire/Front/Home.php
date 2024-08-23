@@ -105,8 +105,8 @@ class Home extends Component
            if ($profiles->count() > 0 )
            {
                $userId = $profiles->first()?->user_id;
-               sleep(1);
-               return $this->redirectRoute('singleExpert',['id'=>$userId,'name'=> Str::replace(' ','-',$searchTerms) ]);
+
+               $this->redirectRoute('singleExpert',['id'=>$userId,'name'=> Str::replace(' ','-',$searchTerms) ]);
            }
            else
            {
