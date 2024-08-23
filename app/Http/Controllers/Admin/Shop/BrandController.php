@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 //use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\Drivers\Imagick\Driver;
 use Intervention\Image\ImageManager;
 use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
@@ -81,7 +82,7 @@ class BrandController extends Controller
 
                 $imageName = Str::random(10) . $logo->getClientOriginalName();
                 $logo->move($directory, $imageName);
-                //$this->optimizeImage($directory,$imageName);
+                $this->optimizeImage($directory,$imageName);
 
                 $fileName = Str::limit($request->input('name'), 18, '...');
                 $imageData = [

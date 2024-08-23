@@ -350,26 +350,26 @@ class PostController extends Controller
     /**
      * Optimize and ReScale Image
      */
-    private function optimizeImage($directory, $imageName)
+    private function optimizeImage($directory,$imageName)
     {
-        // مسیر کامل تصویر
-        $imagePath = $directory . '/' . $imageName;
+        $new_directory = $directory . '/' . $imageName;
 
-        // ایجاد یک نمونه از ImageManager و استفاده از driver صحیح
-        $manager = new \Intervention\Image\ImageManager(['driver' => 'imagick']);
+        $manager = new ImageManager(new Driver());
+        $image = $manager->read($new_directory);
+        $rectangleWidth = 340;
+        $rectangleHeight = 240;
+        $image->resize(width: $rectangleWidth, height: $rectangleHeight);
 
-        // بارگذاری تصویر
-        $image = $manager->make($imagePath);
 
-        // تغییر اندازه تصویر
-        $image->resize(400, 410, function ($constraint) {
-            $constraint->aspectRatio();
-            $constraint->upsize();
-        });
 
-        // ذخیره تصویر بهینه‌شده با کیفیت 90%
-        $image->save($imagePath, 90);
+        $imageWidth = $image->width();
+        $imageHeight = $image->height();
+
+        $startX = max(0, ($imageWidth - $rectangleWidth) / 2);
+        $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
+
+        $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
+        $image->save(null,90);
     }
-
 
 }
