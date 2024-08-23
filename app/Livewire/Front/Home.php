@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Throwable;
@@ -78,6 +79,44 @@ class Home extends Component
             ]);
         }
     }
+
+    public function userSearch()
+    {
+        try
+        {
+            $this->validate(['search'=>'required|string|min:0|max:200']);
+
+            $searchTerm = $this->search;
+
+            $searchTerms = explode(' ', $searchTerm);
+            $firstName = $searchTerms[0] ?? ''; // نام
+            $lastName = $searchTerms[1] ?? ''; // نام خانوادگی
+
+
+            $profiles = \App\Models\Profile::where(function($query) use ($firstName, $lastName) {
+                $query->where(function($q) use ($firstName) {
+                    $q->where('name', 'LIKE', '%' . $firstName . '%');
+                })
+                    ->where(function($q) use ($lastName) {
+                        $q->where('last_name', 'LIKE', '%' . $lastName . '%');
+                    });
+            })->get();
+
+           if ($profiles->count() > 0 )
+           {
+               $userId = $profiles->first()?->user_id;
+               sleep(1);
+               $this->redirectRoute('singleExpert',['id'=>$userId,'name'=> Str::replace(' ','-',$searchTerms) ]);
+           }
+
+
+        }
+        catch (Throwable $e)
+        {
+
+        }
+    }
+
 
 
     public function render()

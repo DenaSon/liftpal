@@ -6,6 +6,8 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\ImageManager;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -50,6 +52,7 @@ class Clientarea extends Component
 
             // Store the file in the specified directory
             $path = $this->photo->storeAs($directory, $imageName, $disk);
+            $this->optimizeImage($directory,$imageName);
 
             // Prepare image data for database insertion
             $albumId = 'profile_' . Auth::id();
@@ -79,6 +82,25 @@ class Clientarea extends Component
 
         $this->authUser = auth()?->user();
         $this->setPageTitle();
+    }
+
+
+    private function optimizeImage($directory,$imageName)
+    {
+        $new_directory = $directory . '/' . $imageName;
+        $manager = new ImageManager(new Driver());
+        $image = $manager->read($new_directory);
+        $rectangleWidth = 180;
+        $rectangleHeight = 190;
+        $image->resize(width: $rectangleWidth, height: $rectangleHeight);
+
+        $imageWidth = $image->width();
+        $imageHeight = $image->height();
+
+        $startX = max(0, ($imageWidth - $rectangleWidth) / 2);
+        $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
+        $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
+        $image->save(null,90);
     }
 
     private function setPageTitle()
