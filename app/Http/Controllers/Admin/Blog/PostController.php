@@ -14,11 +14,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Intervention\Image\Drivers\Imagick\Driver;
+
 use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
 use Intervention\Image\ImageManager;
-//use  Intervention\Image\Drivers\Imagick\Driver;
+use  Intervention\Image\Drivers\Imagick\Driver;
 
 class PostController extends Controller
 {
@@ -255,8 +255,6 @@ class PostController extends Controller
 
 
             }
-            //End Image Upload
-
 
             Alert::success('مقاله ویرایش شد', 'تغییرات مقاله با موفقیت اعمال شدند');
             return redirect()->back();
@@ -352,13 +350,26 @@ class PostController extends Controller
     /**
      * Optimize and ReScale Image
      */
-    private function optimizeImage($directory,$imageName)
+    private function optimizeImage($directory, $imageName)
     {
-        $new_directory = $directory . '/' . $imageName;
-        $manager = new ImageManager(new Driver());
-        $image = $manager->read($new_directory);
-        $image->scale(width: 400, height: 410);
-        $image->save(null, 90);
+        // مسیر کامل تصویر
+        $imagePath = $directory . '/' . $imageName;
+
+        // ایجاد یک نمونه از ImageManager و استفاده از driver صحیح
+        $manager = new \Intervention\Image\ImageManager(['driver' => 'imagick']);
+
+        // بارگذاری تصویر
+        $image = $manager->make($imagePath);
+
+        // تغییر اندازه تصویر
+        $image->resize(400, 410, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+
+        // ذخیره تصویر بهینه‌شده با کیفیت 90%
+        $image->save($imagePath, 90);
     }
+
 
 }

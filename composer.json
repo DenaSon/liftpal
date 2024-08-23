@@ -12,7 +12,7 @@
         "gemini-api-php/client": "dev-main",
         "google-gemini-php/laravel": "dev-main",
         "guzzlehttp/guzzle": "^7.9",
-        "intervention/image": "^3.2",
+        "intervention/image": "^3.8",
         "jantinnerezo/livewire-alert": "dev-master",
         "jumbaeric/laragpt": "dev-master",
         "laravel/fortify": "^1.20",
