@@ -106,7 +106,7 @@ class Home extends Component
            {
                $userId = $profiles->first()?->user_id;
 
-               $this->redirectRoute('singleExpert',['id'=>$userId,'name'=> Str::replace(' ','-',$searchTerms[0] ?? '' . ' ' . $searchTerms[1]  ?? '') ]);
+               $this->redirectRoute('singleExpert',['id'=>$userId,'name'=> Str::replace(' ','-',$searchTerms[0] ?? '' . ' ' . $searchTerms[1]  ?? '') ],true,true);
            }
            else
            {
