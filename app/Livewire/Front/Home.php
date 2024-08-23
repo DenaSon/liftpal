@@ -117,6 +117,7 @@ class Home extends Component
         }
         catch (Throwable $e)
         {
+            $this->alert('error', $e->getMessage());
 
         }
     }
