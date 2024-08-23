@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Imagick\Driver;
 use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
 use Intervention\Image\ImageManager;
@@ -121,7 +122,7 @@ class PostController extends Controller
                 }
                 $image->move($directory, $imageName);
 
-                //$this->optimizeImage($directory,$imageName);
+                $this->optimizeImage($directory,$imageName);
 
                 $uploadedImageNames[] = $imageName;
                 $fileName = Str::limit($post->title, 18, '');
@@ -354,13 +355,10 @@ class PostController extends Controller
     private function optimizeImage($directory,$imageName)
     {
         $new_directory = $directory . '/' . $imageName;
-           $manager = new ImageManager(new Driver());
+        $manager = new ImageManager(new Driver());
         $image = $manager->read($new_directory);
-        $image->scale(width:400,height: 410);
-        $image->save(null,90 );
+        $image->scale(width: 400, height: 410);
+        $image->save(null, 90);
     }
-
-
-
 
 }
