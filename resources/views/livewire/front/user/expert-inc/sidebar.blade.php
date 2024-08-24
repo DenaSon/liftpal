@@ -5,22 +5,23 @@
         <div class="card-body">
             <div class="d-flex align-items-start justify-content-between">
                 <a class="text-decoration-none"
-                   href="{{ route('singleExpert',['id'=>$user?->id,'name' =>$user->profile?->name . '-' . $user->profile?->last_name ]) }}">
+                           href="{{ route('singleExpert',['id'=>$user?->id,'name' =>$user->profile?->name . '-' . $user->profile?->last_name ]) }}">
 
-                    <img class="rounded-circle mb-2" src="{{ $user->images()->first()?->file_path }}" width="60" alt="Avatar">
+                    <img class="rounded-circle mb-2" src="{{ asset($user->images->first()?->file_path ?? asset('admin/assets/images/users/default.png')) }}" width="60" alt="Avatar">
                     <h5 class="mb-1 d-md-none">{{ $user->profile?->name ?? ''}} {{ $user->profile?->last_name ?? '' }} </h5>
                     <div class="mb-1"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
-                                class="star-rating-icon fi-star-filled active"></i></span><span class="me-1 fs-sm text-muted">({{ $comments_list->where('status','published')->count() }} دیدگاه  )
+                                class="star-rating-icon fi-star-filled active"></i>
+                        </span>
+                        <span class="me-1 fs-sm text-muted">({{ $comments_list->where('status','published')->count() }} دیدگاه )
                         </span>
                     </div>
 
-                    <p class="text-body">
-{{--   {{ $user->profile?->education }} --}}
-                    </p></a>
+
+                </a>
                 <div class="me-4 flex-shrink-0">
                     <a target="_blank" class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2"  href="https://wa.me/{{$user->phone}}?text=Liftpal:"><i class="fi-whatsapp"></i></a>
-                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-instagram"></i></a>
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="mailto:{{ $user?->email }}"><i class="fi-mail"></i></a>
                     <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="tel:{{$user?->phone}}"><i class="fi-phone"></i></a>
 
                 </div>
