@@ -3,9 +3,10 @@
 
     @section('meta')
 
+        <!-- SEO Meta Tags-->
         <meta name="description" content="{{ getSetting('meta_description') }}">
         <meta name="keywords" content="{{ getSetting('meta_keywords') }}">
-        <meta name="author" content="">
+        <meta name="author" content="Liftpal Systems">
 
     @endsection
 
@@ -16,7 +17,7 @@
     @endsection
 
 
-    @include('livewire.front.home-inc.header')
+        @include('livewire.front.home-inc.header')
         @include('livewire.front.home-inc.hero')
         @include('livewire.front.home-inc.categories')
         @include('livewire.front.home-inc.services')
