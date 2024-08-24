@@ -27,6 +27,8 @@
 </head>
 
 <body dir="rtl">
+@livewireScripts
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div id="main-wrapper">
 

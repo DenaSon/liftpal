@@ -7,18 +7,82 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\RateLimiter;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Throwable;
 
 
 class Expert extends Component
 {
+    use LivewireAlert,WithPagination;
 
     public $username = '';
     public $comment_text = '';
     public $user = null;
     public $passedDays;
-    use LivewireAlert;
+    public $comments_list;
+    #[Locked]
+    public $comment_id = 0;
+
+
+    public function like($comment_id)
+    {
+        $executed = RateLimiter::attempt(
+            'like-' . session()->getId() . '-' . $comment_id, // Unique key for each comment per session
+
+            1,
+            function () use ($comment_id)
+            {
+
+                $this->comment_id = $comment_id;
+                try
+                {
+                    $this->validate(['comment_id'=> 'numeric|exists:comments,id']);
+                    $comment = Comment::find($this->comment_id);
+                    $comment->likes += 1;
+                    $comment->save();
+                }
+                catch (Throwable $e)
+                {
+                    $this->alert('warning',$e->getMessage());
+                }
+            }
+            ,500
+        );
+
+    }
+
+    public function dislike($comment_id)
+    {
+        $executed = RateLimiter::attempt(
+            'like-' . session()->getId() . '-' . $comment_id, // Unique key for each comment per session
+
+            1,
+            function () use ($comment_id)
+            {
+
+                $this->comment_id = $comment_id;
+                try
+                {
+                    $this->validate(['comment_id'=> 'numeric|exists:comments,id']);
+                    $comment = Comment::find($this->comment_id);
+                   if ($comment > 0)
+                   {
+                       $comment->likes -= 1;
+                       $comment->save();
+                   }
+                }
+                catch (Throwable $e)
+                {
+                    $this->alert('warning',$e->getMessage());
+                }
+            }
+            ,600
+        );
+    }
+
+
 
 
     public function saveComment()
@@ -52,17 +116,16 @@ class Expert extends Component
                 }
                 catch (Throwable $e)
                 {
-                    $this->alert('error', $e->getMessage());
+                    $this->alert('warning', $e->getMessage());
                 }
-            }
+            },
+            300,
         );
 
         if (!$executed) {
-            $this->alert('error', 'تعداد درخواست های مجاز شما به اتمام رسیده است');
+            $this->alert('warning', 'تعداد درخواست های مجاز شما به اتمام رسیده است');
         }
     }
-
-
 
     public function mount($id, $name='')
     {
@@ -73,6 +136,7 @@ class Expert extends Component
         $createdAt = new Carbon($this->user->created_at);
         $currentDate = Carbon::now();
         $this->passedDays = $currentDate->diffInDays($createdAt);
+        $this->comments_list = Comment::where('commentable_type', User::class)->whereStatus('published')->latest()->take(20)->get();
     }
 
 

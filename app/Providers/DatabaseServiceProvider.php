@@ -45,11 +45,12 @@ class DatabaseServiceProvider extends ServiceProvider
             'elevator' => 'App\Models\Elevator',
             'member' => 'App\Models\Member',
             'request' => 'App\Models\Request',
+            'comment' => 'App\Models\Comment',
 
         ]);
 
 
-        // Change default string length for handle laravel errors
+
         Schema::defaultStringLength(191);
 
 
