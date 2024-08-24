@@ -18,7 +18,7 @@
                 <!-- Overview-->
                 <div class="mb-3 pb-md-3">
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">رزومه کارشناس فنی</h3>
-                    <p class="mb-1 line-h18">
+                    <p class="mb-1 line-h18 text-justify">
                         {{ $user->profile?->resume }}
                     </p>
 

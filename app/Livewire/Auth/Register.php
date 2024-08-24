@@ -110,8 +110,46 @@ class Register extends Component
         $executed = RateLimiter::attempt(
             'send-message'.session()->getId(),
             2,
-            function()
+            function() use($tempcode)
             {
+                if (strlen($tempcode) === 4)
+                {
+                    if (($tempcode == session()->get('temp_code')) && $this->phone == session()->get('phone_number'))
+                    {
+                        $user = User::where('phone',session()->get('phone_number'))->first();
+
+                        if(!$user)
+                        {
+
+                            $user = new User();
+                            $user->phone = $this->phone;
+                            $user->password = Hash::make($this->password); // Hashing the password
+                            $user->markRoleAsCustomer();
+                            $user->markEmailAsVerified();
+                            $user->markPhoneAsVerified();
+                            if ($user->save()) {
+                                $profile = new Profile();
+                                $profile->user_id = $user->id;
+                                $profile->name = $this->name;
+                                $profile->last_name = $this->last_name;
+                                $profile->save();
+                                Auth::login($user, $remember = true);
+                                $this->alert('success', 'ثبت نام شما با موفقیت انجام شد', ['position' => 'center', '']);
+                                return redirect()->route('panel', ['page' => 'profile']);
+                            }
+
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        $this->alert('warning','کد موقت وارد شده صحیح نمی باشد');
+                    }
+
+
+                }
 
             }
         );
@@ -123,48 +161,7 @@ class Register extends Component
 
 
 
-        if (strlen($tempcode) === 4)
-        {
-            if (($tempcode == session()->get('temp_code') || $tempcode == 1111) && $this->phone == session()->get('phone_number'))
-            {
-                $user = User::where('phone',session()->get('phone_number'))->first();
 
-                if(!$user)
-                {
-
-                    $user = new User();
-                    $user->phone = $this->phone;
-                    $user->password = Hash::make($this->password); // Hashing the password
-                    $user->markRoleAsCustomer();
-                    $user->markEmailAsVerified();
-                    $user->markPhoneAsVerified();
-                    if ($user->save()) {
-                        $profile = new Profile();
-                        $profile->user_id = $user->id;
-                        $profile->name = $this->name;
-                        $profile->last_name = $this->last_name;
-                        $profile->save();
-                        Auth::login($user, $remember = true);
-                        $this->alert('success', 'ثبت نام شما با موفقیت انجام شد', ['position' => 'center', '']);
-                        return redirect()->route('panel', ['page' => 'profile']);
-                    }
-
-
-                }
-
-
-            }
-            else
-            {
-                $this->alert('warning','کد موقت وارد شده صحیح نمی باشد');
-            }
-
-
-
-
-
-
-        }
 
 
     }
