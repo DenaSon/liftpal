@@ -11,16 +11,17 @@
                     <h5 class="mb-1 d-md-none">{{ $user->profile?->name ?? ''}} {{ $user->profile?->last_name ?? '' }} </h5>
                     <div class="mb-1"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
                                 class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i
-                                class="star-rating-icon fi-star-filled active"></i></span><span class="me-1 fs-sm text-muted">({{ $user->comments->count() }} دیدگاه ثبت شده)
+                                class="star-rating-icon fi-star-filled active"></i>
+                        </span>
+                        <span class="me-1 fs-sm text-muted">({{ $comments_list->where('status','published')->count() }} دیدگاه )
                         </span>
                     </div>
 
-                    <p class="text-body">
-                        {{ $user->profile?->education }}
-                    </p></a>
+
+                </a>
                 <div class="me-4 flex-shrink-0">
                     <a target="_blank" class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2"  href="https://wa.me/{{$user->phone}}?text=Liftpal:"><i class="fi-whatsapp"></i></a>
-                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="#"><i class="fi-instagram"></i></a>
+                    <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="mailto:{{ $user?->email }}"><i class="fi-mail"></i></a>
                     <a class="btn btn-icon btn-light-primary btn-xs shadow-lg rounded-circle ms-2 mb-2" href="tel:{{$user?->phone}}"><i class="fi-phone"></i></a>
 
                 </div>
@@ -30,7 +31,7 @@
                 }}</a>
                 </li>
                 @if($user->email)
-                    <li><a class="nav-link fw-normal p-0" href="{{ $user?->email }}"><i class="fi-mail mt-n1 me-2 align-middle "></i>
+                    <li><a class="nav-link fw-normal p-0" href="mailto:{{ $user?->email }}"><i class="fi-mail mt-n1 me-2 align-middle "></i>
                             {{ $user?->email }}
                         </a>
                 </li>
