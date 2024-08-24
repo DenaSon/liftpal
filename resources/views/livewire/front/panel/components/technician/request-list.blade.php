@@ -11,24 +11,24 @@
 
                     <li class="list-group-item d-flex justify-content-between align-items-center"
                         style="border:none !important;">
-    <span>
+<span>
 
-        <button class="btn btn-success btn-xs" type="button" disabled>
-  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  <span class="visually-hidden">Loading...</span>
+    <button class="btn btn-success btn-xs" type="button" disabled>
+<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+<span class="visually-hidden">Loading...</span>
 </button>
 
-    </span>
+</span>
                         <span class="badge bg-faded-primary">#{{ $request->referral }}</span>
                     </li>
                     <hr/>
 
                     <li class="list-group-item d-flex justify-content-between align-items-center"
                         style="border:none !important;">
-    <span class="text-justify fw-bold">
+<span class="text-justify fw-bold">
 
-     {{ \Illuminate\Support\Str::limit($request->description,255) }}
-    </span>
+ {{ \Illuminate\Support\Str::limit($request->description,255) }}
+</span>
                         <p class="text-muted"></p>
                     </li>
                     <hr/>
@@ -51,11 +51,14 @@
                     <div class="d-flex justify-content-center mt-4 mx-auto">
                         <div class="d-flex">
                             <button type="button" class="w-50 me-2 btn btn-success"
-                                    wire:confirm="درخواست تایید شود؟" wire:click.debounce.400ms="acceptRequest({{$request->id}},{{$request->referral}})">
+                                    wire:confirm="درخواست تایید شود؟"
+                                    wire:click.debounce.400ms="acceptRequest({{$request->id}},{{$request->referral}})">
                                 <i class="fi-like me-1"></i>
                                 تایید
                             </button>
-                            <button wire:confirm="درخواست رد شود؟" wire:click.debounce.400ms="cancelRequest({{$request->id}})" type="button" class="btn btn-outline-primary" data-bs-toggle="button">
+                            <button wire:confirm="درخواست رد شود؟"
+                                    wire:click.debounce.400ms="cancelRequest({{$request->id}})" type="button"
+                                    class="btn btn-outline-primary" data-bs-toggle="button">
                                 <i class="fi-dislike me-1"></i>
                                 لغو
                             </button>
@@ -78,13 +81,16 @@
 
     </div>
     <div class="accordion mt-3 shadow-lg rounded-3" id="accordion-requestlist">
-        <div class="accordion-item" x-data="{ open: false }" x-init="$watch('open', value => { if(value) { $refs.collapse.classList.add('show'); } else { $refs.collapse.classList.remove('show'); } })">
+        <div class="accordion-item" x-data="{ open: false }"
+             x-init="$watch('open', value => { if(value) { $refs.collapse.classList.add('show'); } else { $refs.collapse.classList.remove('show'); } })">
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" @click="open = !open" :aria-expanded="open" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" @click="open = !open" :aria-expanded="open"
+                        aria-controls="collapseOne">
                     سابقه درخواست
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" x-ref="collapse" :class="{ 'show': open }" aria-labelledby="headingOne" data-bs-parent="#accordion-requestlist">
+            <div id="collapseOne" class="accordion-collapse collapse" x-ref="collapse" :class="{ 'show': open }"
+                 aria-labelledby="headingOne" data-bs-parent="#accordion-requestlist">
                 <div class="accordion-body">
 
                     <div class="table-responsive mt-1">
@@ -101,14 +107,14 @@
                             <tbody>
                             @foreach($request_history as $index => $request)
                                 <tr class="
-                                @switch($request->status)
-                                    @case('accepted') bg-faded-success border-success @break
-                                    @case('cancelled') bg-faded-dark @break
-                                    @case('rejected') bg-faded-danger @break
-                                    @case('pending') bg-faded-warning @break
-                                    @default bg-faded-primary
-                                @endswitch
-                            ">
+                            @switch($request->status)
+                                @case('accepted') bg-faded-success border-success @break
+                                @case('cancelled') bg-faded-dark @break
+                                @case('rejected') bg-faded-danger @break
+                                @case('pending') bg-faded-warning @break
+                                @default bg-faded-primary
+                            @endswitch
+                        ">
                                     <th scope="row">{{ $index +1 }}</th>
                                     <td>{{ $request->referral }}</td>
                                     <td class="fs-xs text-waiting">{{ jdate($request->created_at)->toFormattedDateTimeString() }}</td>

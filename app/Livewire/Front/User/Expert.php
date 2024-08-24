@@ -19,8 +19,7 @@ class Expert extends Component
         $this->user = User::with('profile', 'comments','skills','addresses','images')
             ->whereRole('technician')
             ->findOrFail($id);
-
-        //Calculate passed date
+        
         $createdAt = new Carbon($this->user->created_at);
         $currentDate = Carbon::now();
         $this->passedDays = $currentDate->diffInDays($createdAt);

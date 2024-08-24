@@ -1,4 +1,5 @@
-<aside class=" col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2 ">
+
+<aside class=" col-lg-4 col-md-5 ms-lg-auto pb-1 order-1 order-md-2">
     <!-- Contact card-->
     <div class="card shadow mb-4 order-sm-1 ">
         <div class="card-body">

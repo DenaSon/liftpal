@@ -45,8 +45,8 @@
                     <div class="d-flex justify-content-between mb-3 mt-4">
                         <div class="d-flex align-items-center pe-2">
                             <div class="ps-2 ">
-                                <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">محمد
-                                    اسدی قله مرکزی</h6><span class="star-rating mt-1">
+                                <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">
+                                      </h6><span class="star-rating mt-1">
                                     <i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i
