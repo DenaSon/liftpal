@@ -21,8 +21,8 @@ class CheckAccess
         }
         else
         {
-            $this->flash('warning', 'لطفا وارد حساب کاربری خود شوید', ['position' => 'center']);
-            return redirect()->route('home', ['action' => 'login']);
+            $this->flash('warning', 'دسترسی غیر مجاز', ['position' => 'center']);
+            abort(403,'Access denied');
         }
 
     }

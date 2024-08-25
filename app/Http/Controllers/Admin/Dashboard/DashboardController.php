@@ -19,6 +19,11 @@ class DashboardController extends Controller
     public function index()
     {
 
+        if (!$this->authorize('admin-access'))
+        {
+            abort(403);
+        }
+
 
         //Calc today profit or sales percentage
         $todayDiffSales =  $this->getSalesDifference();
