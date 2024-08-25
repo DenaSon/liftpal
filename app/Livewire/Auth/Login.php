@@ -134,7 +134,19 @@ class Login extends Component
                 request()->session()->regenerate();
 
                 // Redirect the authenticated user to the intended page or dashboard
-                return redirect()->route('panel', ['page' => 'main']);
+                if ($this->authorize('admin-access'))
+                {
+                    $phone = auth()->user()?->phone;
+                    $date = jdate(now())->toFormattedDateString();
+                    $sessionId = session()->getId();
+                    setLog('Admin-Login','User Login As Admin : '.$phone .' at '. $date .' | '.'Session ID : ' . $sessionId,'warning');
+                    return redirect()->route('dashboard');
+
+                }
+                else
+                {
+                    return redirect()->route('panel', ['page' => 'main']);
+                }
 
             }
             $this->alert('warning', 'کاربری با این مشخصات یافت نشد', ['position' => 'center']);
