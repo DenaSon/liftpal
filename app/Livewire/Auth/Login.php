@@ -139,7 +139,7 @@ class Login extends Component
                     $phone = auth()->user()?->phone;
                     $date = jdate(now())->toDayDateTimeString();
                     $sessionId = session()->getId();
-                    setLog('Admin-Login','User Login As Admin : '.$phone .' Session Id '. $sessionId .' | '.' Date : ' . $date,'warning');
+                    setLog('Admin-Login','ورود کاربر با دسترسی مدیر با شماره :  '.$phone .' شناسه :  '. $sessionId .' | '.' تاریخ :  : ' . $date,'warning');
                     return redirect()->route('dashboard');
 
                 }
