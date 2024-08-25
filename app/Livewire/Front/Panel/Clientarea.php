@@ -25,6 +25,7 @@ class Clientarea extends Component
     #[Validate('image|max:1024')] // 1MB Max
 
     public $photo =null;
+    public $messagesCount = 0;
 
 
     public function updatedPhoto()
@@ -79,7 +80,7 @@ class Clientarea extends Component
     public function mount()
     {
         $this->photo = auth()->user()->images?->first()?->file_path ?? null;
-
+        $this->messagesCount = auth()->user()->messages()->count();
         $this->authUser = auth()?->user();
         $this->setPageTitle();
     }
@@ -139,6 +140,9 @@ class Clientarea extends Component
                 break;
             case 'request-list':
                 $this->pageTitle = 'لیست درخواست ها';
+                break;
+            case 'messages':
+                $this->pageTitle = 'پیام‌های دریافتی';
                 break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);

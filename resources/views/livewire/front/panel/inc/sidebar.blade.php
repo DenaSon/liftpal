@@ -81,9 +81,19 @@
 
 
 
+                <a wire:navigate class="card-nav-link @if(request()->input('page') == 'messages') active @endif"
+                   href="{{ route('panel', ['page' => 'messages']) }}">
+                    <i class="fi-mail opacity-60 me-2"></i>پیام‌ها
+                    @if($messagesCount > 0)
+                        <span class="badge bg-faded-danger ms-2 fw-bold">{{ $messagesCount }}</span>
+                    @endif
+                </a>
+
+
+
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
                    href="{{ route('panel',['page'=>'notification']) }}"><i
-                        class="fi-bell opacity-60 me-2"></i>اطلاعیه ها</a>
+                        class="fi-bell opacity-60 me-2"></i>اطلاعیه‌ها</a>
 
 
                 <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"

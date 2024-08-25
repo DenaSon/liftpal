@@ -134,7 +134,7 @@ class Login extends Component
                 request()->session()->regenerate();
 
                 // Redirect the authenticated user to the intended page or dashboard
-                if (auth()->user()->role == 'admin')
+                if (auth()->user()->isRole('admin'))
                 {
                     $phone = auth()->user()?->phone;
                     $date = jdate(now())->toDayDateTimeString();

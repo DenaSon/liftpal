@@ -99,6 +99,13 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class,'receiver_id');
+    }
+
+
+
 
      /**
       * Determine if the user's phone number has been verified.
