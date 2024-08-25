@@ -63,8 +63,6 @@ Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(func
 {
 
 
-
-
     Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::get('getChartData/new', [ChartController::class,'getChartData'])->name('get-chart-data');
     Route::get('getSalesDiff',[DashboardController::class,'getSalesDifference'])->name('getSalesDiff');

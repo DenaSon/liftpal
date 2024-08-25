@@ -15,7 +15,7 @@ class CheckAccess
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Gate::allows('admin-access') || Gate::allows('author') || Gate::allows('manager') || Gate::allows('technician'))
+        if (Gate::allows('admin-access'))
         {
             return $next($request);
         }
