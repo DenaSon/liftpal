@@ -10,7 +10,7 @@
             <div class="col-12 col-md-7 mb-md-0 mb-4 mt-2 order-2 order-md-1">
 
                 <h2 class="h4 mb-4 pb-4 border-bottom d-flex justify-content-between align-items-center">
-                    <span>{{ $user->profile?->name }} {{ $user->profile?->last_name }}</span>
+                    <span>{{ $user?->profile?->name }} {{ $user->profile?->last_name }}</span>
                     <span class="fs-xs badge bg-success me-2 mb-3">تایید</span>
                 </h2>
 
@@ -46,8 +46,9 @@
                         <div class="d-flex align-items-center pe-2">
                             <div class="ps-2 ">
                                 <h6 class="fs-base mb-0 d-flex justify-content-center justify-content-md-start">
-                                    {{ $comment->username ?? '' }}
-                                </h6><span class="star-rating mt-1">
+                                    {{ $comment?->username ?? '' }}
+                                </h6>
+                                <span class="star-rating mt-1">
                                     <i class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i
                                         class="star-rating-icon fi-star-filled active"></i><i
@@ -56,16 +57,16 @@
                                 </span>
                             </div>
                         </div>
-                        <span class="text-muted fs-sm">{{ jdate($comment->created_at)->toFormattedDateString() }}</span>
+                        <span class="text-muted fs-sm">{{ jdate($comment?->created_at)->toFormattedDateString() }}</span>
                     </div>
 
-                    <p class="text-justify"> {{ $comment->text }} </p>
+                    <p class="text-justify"> {{ $comment?->text }} </p>
 
                     <div wire:poll.visible class="d-flex align-items-center">
-                        <button wire:click.debounce.500ms="like({{$comment->id}})" class="btn-like" type="button"><i class="fi-like"></i><span></span></button>
+                        <button wire:click.debounce.500ms="like({{$comment?->id}})" class="btn-like" type="button"><i class="fi-like"></i><span></span></button>
                         <div class="border-end me-1">&nbsp;</div>
-                        <button  wire:click.debounce.500ms="dislike({{$comment->id}})" class="btn-dislike" type="button">
-                            <i class="fi-dislike"></i><span class="ms-2 @if($comment->likes > 0) text-success @else text-danger @endif ">({{$comment->likes}})</span></button>
+                        <button  wire:click.debounce.500ms="dislike({{$comment?->id}})" class="btn-dislike" type="button">
+                            <i class="fi-dislike"></i><span class="ms-2 @if($comment?->likes > 0) text-success @else text-danger @endif ">({{$comment->likes}})</span></button>
                     </div>
                 </div>
                 @endforeach

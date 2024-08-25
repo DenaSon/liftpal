@@ -3,6 +3,7 @@
 namespace App\Livewire\Front\User;
 
 use App\Models\Comment;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\RateLimiter;
@@ -18,13 +19,59 @@ class Expert extends Component
     use LivewireAlert,WithPagination;
 
     public $username = '';
+    public $fullName;
     public $comment_text = '';
     public $user = null;
     public $passedDays;
     public $comments_list;
     #[Locked]
     public $comment_id = 0;
+    public $title;
+    public $messageText;
 
+    public function sendMessage()
+    {
+        try
+        {
+            $this->validate(
+                [
+                    'fullName' => 'required|string|min:3',
+                    'title' => 'required|string|min:3|max:60',
+                    'messageText' => 'required|string|min:10|max:255',
+
+                ],
+            );
+           $execute =  RateLimiter::attempt(
+                'send-message',
+                1,function ()
+            {
+                $technician_id = $this->user->id;
+                $sender_id = auth()->user()->id;
+                $title = $this->title;
+                $fullName = $this->fullName;
+                $message = $this->messageText;
+
+                $messageModel = new Message();
+                $messageModel->sender_id = $sender_id;
+                $messageModel->receiver_id = $technician_id;
+                $messageModel->title = $title;
+                $messageModel->content = $fullName . ' : ' . $message;
+                $messageModel->save();
+                $this->alert('success','پیام شما با موفقیت ارسال شد');
+            }
+            ,300
+            );
+           if (!$execute)
+           {
+               $this->alert('warning','در هر 1 ساعت تنها یک پیام میتوانید ارسال کنید');
+           }
+        }
+        catch (Throwable $e)
+        {
+            $this->alert('warning',$e->getMessage());
+        }
+
+    }
 
     public function like($comment_id)
     {
@@ -67,8 +114,9 @@ class Expert extends Component
                 {
                     $this->validate(['comment_id'=> 'numeric|exists:comments,id']);
                     $comment = Comment::find($this->comment_id);
-                   if ($comment > 0)
+                   if ($comment->likes > 0)
                    {
+
                        $comment->likes -= 1;
                        $comment->save();
                    }
@@ -81,9 +129,6 @@ class Expert extends Component
             ,600
         );
     }
-
-
-
 
     public function saveComment()
     {
@@ -137,8 +182,10 @@ class Expert extends Component
         $currentDate = Carbon::now();
         $this->passedDays = $currentDate->diffInDays($createdAt);
         $this->comments_list = Comment::where('commentable_type', User::class)->whereStatus('published')->latest()->take(20)->get();
-    }
+        $this->username = auth()->user()?->profile?->name . ' ' . auth()->user()?->profile?->last_name ;
+        $this->fullName = $this->username;
 
+    }
 
     public function render()
     {
