@@ -1,5 +1,11 @@
 <div>
 
+    @if($message_list->count() == 0)
+        <div class="text-center mt-3">
+           هنوز پیامی دریافت نکرده اید
+        </div>
+    @endif
+
     @foreach($message_list as $message)
 
         <div class="card bg-secondary card-hover mt-3">
