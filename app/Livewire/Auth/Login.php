@@ -137,9 +137,9 @@ class Login extends Component
                 if ($this->authorize('admin-access'))
                 {
                     $phone = auth()->user()?->phone;
-                    $date = jdate(now())->toFormattedDateString();
+                    $date = jdate(now())->toDayDateTimeString();
                     $sessionId = session()->getId();
-                    setLog('Admin-Login','User Login As Admin : '.$phone .' at '. $date .' | '.'Session ID : ' . $sessionId,'warning');
+                    setLog('Admin-Login','User Login As Admin : '.$phone .' Session Id '. $sessionId .' | '.' Date : ' . $date,'warning');
                     return redirect()->route('dashboard');
 
                 }
