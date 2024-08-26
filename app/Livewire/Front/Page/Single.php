@@ -25,7 +25,8 @@ class Single extends Component
 
     public function render()
     {
+        $pageTitle = $this->page->title;
 
-        return view('livewire.front.page.single');
+        return view('livewire.front.page.single')->title($pageTitle);
     }
 }
