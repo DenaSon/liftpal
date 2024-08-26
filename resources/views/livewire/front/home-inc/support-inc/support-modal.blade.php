@@ -12,13 +12,13 @@
                 <form class="needs-validation" novalidate="">
 
                     <div class="form-floating mb-3">
-                        <input wire:model="fullname" type="text" class="form-control" id="floatingInput" placeholder="نام و نام خانوادگی">
-                        <label for="floatingInput">نام و نام خانوادگی</label>
+                        <input wire:model="fullname" type="text" class="form-control" id="fullname" placeholder="نام و نام خانوادگی">
+                        <label for="fullname">نام و نام خانوادگی</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input wire:model="phone" type="number" class="form-control" id="floatingInput" placeholder="شماره تلفن">
-                        <label for="floatingInput">شماره تلفن</label>
+                        <input wire:model="phone" type="number" class="form-control" id="phone" placeholder="شماره تلفن">
+                        <label for="phone">شماره تلفن</label>
                     </div>
 
 
