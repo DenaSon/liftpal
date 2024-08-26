@@ -2,7 +2,7 @@
 @section('page-title','افزودن صفحه ')
 @section('CustomCss')
 
-    <script src="{{ asset('vendor/ckstandard/ckeditor.js') }}"></script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
 
     <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet"/>
