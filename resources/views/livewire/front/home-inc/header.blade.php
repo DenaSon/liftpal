@@ -94,8 +94,7 @@
 
                 @foreach(getPagesName('header')->take(5) as $page)
                     <li class="nav-item">
-                        <a wire:navigate class="nav-link" href="{{ route('home') }}" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false"> {{ $page->title }} </a>
+                        <a wire:navigate class="nav-link" href="{{ route('page',['id'=>$page->id,'slug'=>slugMaker($page->title)]) }}" role="button"> {{ $page->title }} </a>
                     </li>
                 @endforeach
                 <li class="nav-item ">

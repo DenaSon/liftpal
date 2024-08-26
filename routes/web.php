@@ -39,6 +39,7 @@ use App\Livewire\Front\Shop\Single\SingleProduct;
 use App\Livewire\Front\Static\ContactUs;
 use App\Livewire\Front\Static\EED;
 use App\Livewire\Front\User\Expert;
+use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -180,7 +181,7 @@ Route::prefix('')->group(function ()
     Route::get('product/{id}/{slug}',SingleProduct::class)->name('singleProduct');
     Route::get('contact-us',ContactUs::class)->name('contactUs');
     Route::get('elevator-error-detection', EED::class)->name('EED');
-
+    Route::get('page/{id}/{slug}',\App\Livewire\Front\Page\Single::class)->name('page');
 
     Route::prefix('blog')->group(function ()
     {

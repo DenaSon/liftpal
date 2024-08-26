@@ -108,7 +108,7 @@
                 <button id="validator" type="button" class="btn w-25 btn-info waves-effect waves-light"> بررسی ورودی
                     ها
                 </button>
-                <button id="submit" type="submit" class="btn w-25 btn-success waves-effect waves-light">ثبت مقاله
+                <button id="submit" type="submit" class="btn w-25 btn-success waves-effect waves-light">ثبت
 
                 </button>
                 <button id='resetButton' type="reset" class="btn w-sm btn-danger waves-effect waves-light">بازنویسی
