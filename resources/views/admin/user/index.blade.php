@@ -121,12 +121,12 @@
 
 <div class="table-responsive" data-pattern="priority-columns">
 
-<table id="tech-companies-1" class="table table-striped">
+<table id="tech-companies-1" class="table  table-hover">
 
     <thead>
     <tr>
         <th>#</th>
-        <th>کاربر</th>
+        <th>شماره</th>
         <th data-priority="1"> نام</th>
         <th data-priority="1">  نام خانوادگی</th>
         <th data-priority="4"> تحصیلات </th>
@@ -142,7 +142,8 @@
 
         <tr>
         <th>{{ $index+1 }}</th>
-        <th> {{ $user->phone ?? $user->email ?? '' }} </th>
+            <th> <b style="font-size:15px;font-weight: bolder">{{ $user->phone ? substr($user->phone, 0, 4) . '-' . substr($user->phone, 4, 3) . '-' . substr($user->phone, 7, 4) : '' }}
+                </b> </th>
         <td> {{ $user->profile->name ?? 'ثبت نشده' }} </td>
         <td>{{ $user->profile->last_name ?? 'ثبت نشده' }}</td>
         <td title="{{$user->profile->expertise ?? '' }}">{{   ($user->profile->expertise) ?? 'ثبت نشده' }}</td>

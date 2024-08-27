@@ -32,9 +32,8 @@
                         <label for="role" class="form-label">نقش </label>
                         <select name="role" class="form-select" id="role">
                             <option value="admin">مدیر</option>
-                            <option value="visitor">همکار</option>
-                            <option value="stock">انباردار</option>
-                            <option value="author">نویسنده</option>
+                            <option value="manager">مدیر ساختمان</option>
+                            <option value="technician">کارشناس فنی</option>
 
                         </select>
                     </div>
