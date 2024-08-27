@@ -24,25 +24,52 @@
 <div class="row">
 <div class="col-12">
 <div class="row">
-<div class="col-lg-6 col-xl-3">
-<div class="card bg-pattern">
-<div class="card-body">
-<div class="row">
-<div class="col-6">
-<div class="avatar-md bg-blue rounded">
-<i class="fe-users avatar-title font-22 text-white"></i>
-</div>
-</div>
-<div class="col-6">
-<div class="text-end">
-<h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::count('id') }}</span></h3>
-<p class="text-muted mb-0 text-truncate">کاربران</p>
-</div>
-</div>
-</div>
-</div>
-</div> <!-- end card-->
-</div> <!-- end col -->
+
+    <div class="col-lg-6 col-xl-3">
+        <div class="card bg-pattern">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="avatar-md bg-blue rounded">
+                            <i class="fe-users avatar-title font-22 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end">
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::count('id') }}</span></h3>
+                            <p class="text-muted mb-0 text-truncate">کاربران</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+
+    <div class="col-lg-6 col-xl-3">
+        <div class="card bg-pattern">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="avatar-md bg-blue rounded">
+                            <i class="fe-users avatar-title font-22 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end">
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::where('role','technician')->count('id') }}</span></h3>
+                            <p class="text-muted mb-0 text-truncate">کارشناس فنی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+
+
+
+
 
 <div class="col-lg-6 col-xl-3">
 <div class="card bg-pattern">
@@ -215,191 +242,7 @@
 
 </div>
 <!-- end row -->
-<div class="row">
-    <div class="col-12">
-        <div class="row">
-            <div class="col-lg-6 col-xl-3">
-                <div class="card bg-pattern">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-md bg-blue rounded">
-                                    <i class="fe-users avatar-title font-22 text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::where('role','technician')->count('id') }}</span></h3>
-                                    <p class="text-muted mb-0 text-truncate">کارشناس فنی</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
 
-            <div class="col-lg-6 col-xl-3">
-                <div class="card bg-pattern">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-md bg-success rounded">
-                                    <i class="fe-user avatar-title font-22 text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark my-1"><span data-plugin="counterup">
-
-                     {{\App\Models\User::whereBetween('created_at', [now()->subDay(), now()])->where('role','technician')->count('id') }}
-
-                </span></h3>
-                                    <p class="text-muted mb-0 text-truncate">ثبت نام امروز</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
-            <div class="col-lg-6 col-xl-3">
-                <div class="card bg-pattern">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-md bg-danger rounded">
-                                    <i class="fe-user-plus avatar-title font-22 text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark my-1"><span data-plugin="counterup">
-               {{\App\Models\User::whereBetween('created_at', [now()->subWeek(), now()])->where('role','technician')->count('id') }}
-                </span></h3>
-                                    <p class="text-muted mb-0 text-truncate">ثبت نام هفته</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
-            <div class="col-lg-6 col-xl-3">
-                <div class="card bg-pattern">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-md bg-warning rounded">
-                                    <i class="fe-user-check avatar-title font-22 text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark my-1">
-                <span data-plugin="counterup">
-                    {{\App\Models\User::whereBetween('created_at', [now()->subMonth(), now()])->where('role','technician')->count('id') }}
-                </span> </h3>
-                                    <p class="text-muted mb-0 text-truncate">  ثبت نام ماه </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-
-                <div class="responsive-table-plugin">
-
-                    <div class="table-rep-plugin">
-
-                        <div class="table-responsive" data-pattern="priority-columns">
-
-                            <table id="tech-companies-1" class="table  table-hover">
-
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>شماره</th>
-                                    <th data-priority="1"> نام</th>
-                                    <th data-priority="1">  نام خانوادگی</th>
-                                    <th data-priority="4"> تحصیلات </th>
-                                    <th data-priority="6">وضعیت</th>
-                                    <th data-priority="6">ثبت نام</th>
-                                    <th data-priority="2" style="width:65px"> اقدامات</th>
-
-                                </tr>
-
-                                </thead>
-                                <tbody>
-                                @foreach($users as $index => $user)
-
-                                    <tr>
-                                        <th>{{ $index+1 }}</th>
-                                        <th> <b style="font-size:15px;font-weight: bolder">{{ $user->phone ? substr($user->phone, 0, 4) . '-' . substr($user->phone, 4, 3) . '-' . substr($user->phone, 7, 4) : '' }}
-                                            </b> </th>
-                                        <td> {{ $user->profile->name ?? 'ثبت نشده' }} </td>
-                                        <td>{{ $user->profile->last_name ?? 'ثبت نشده' }}</td>
-                                        <td title="{{$user->profile->expertise ?? '' }}">{{   ($user->profile->expertise) ?? 'ثبت نشده' }}</td>
-                                        <td>
-                                            @if($user->status == 'banned')
-                                                <span class="alert alert-danger"> مسدود </span>
-                                            @else
-                                                <span class="alert"> فعال </span>
-                                            @endif
-
-                                        </td>
-                                        <th title="{{ jdate($user->created_at)->ago() }}"> {{ jdate($user->created_at)->toFormattedDateString() }} </th>
-                                        <td>
-                                            <form id="userDeleteForm-{{ $user->id }}" action="{{ route('customers.destroy', ['customer' => $user->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div class="btn btn-group-sm ">
-
-                                                    <button  type="button"  class="btn btn-xs btn-outline-primary "data-bs-toggle="modal" data-bs-target="#bs-show-modal-sm-{{ $user->id }}"> <i class="fe-eye"></i> </button>
-                                                    <button type="button" class="btn btn-xs btn-outline-info " data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{$user->id}}">
-                                                        <i class="fe-mail"></i>
-                                                    </button>
-                                                    <button  type="button"  class="btn btn-xs btn-outline-secondary "data-bs-toggle="modal" data-bs-target="#bs-edit-modal-sm-{{ $user->id }}"> <i class="fe-edit-2"></i> </button>
-
-
-                                                    <button class="deleteButton btn btn-outline-danger"data-user-id="{{ $user->id }}" type="button">
-                                                        <i class="fe-trash-2"></i>
-                                                    </button>
-
-                                                </div>
-                                            </form>
-                                        </td>
-
-                                    </tr>
-
-                                    @include('admin.user.inc._show')
-                                    @include('admin.user.inc._edit')
-                                    @include('admin.user.inc._sendMessage')
-
-                                @endforeach
-
-                                </tbody>
-                            </table>
-                        </div> <!-- end .table-responsive -->
-                        <div class="paginate">
-                            {{ $users->links() }}
-                        </div>
-
-                    </div> <!-- end .table-rep-plugin-->
-                </div> <!-- end .responsive-table-plugin-->
-            </div>
-
-            @include('admin.user.inc._create')
-
-
-        </div> <!-- end card -->
-    </div> <!-- end col -->
-
-
-
-
-</div>
 
 <div class="col-12">
 <div class="card">
