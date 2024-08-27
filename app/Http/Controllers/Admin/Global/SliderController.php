@@ -7,6 +7,8 @@ use App\Models\Image;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\ImageManager;
 use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
 
@@ -123,6 +125,8 @@ class SliderController extends Controller
 
             $slide->move( $directory , $imageName );
 
+            imageOptimizer($directory,$imageName,768,400);
+
             $uploadedImageNames[] = $imageName;
             $fileName = Str::limit( $albumId  , 18 , '' );
             $imageData = [
@@ -185,6 +189,24 @@ class SliderController extends Controller
         setLog('Delete-Slider',$e->getMessage(),'danger');
         return redirect()->route('log-system');
     }
+    }
+
+    private function optimizeImage($directory,$imageName)
+    {
+        $new_directory = $directory . '/' . $imageName;
+        $manager = new ImageManager(new Driver());
+        $image = $manager->read($new_directory);
+        $rectangleWidth = 310;
+        $rectangleHeight = 280;
+        $image->resize(width: $rectangleWidth, height: $rectangleHeight);
+
+        $imageWidth = $image->width();
+        $imageHeight = $image->height();
+
+        $startX = max(0, ($imageWidth - $rectangleWidth) / 2);
+        $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
+        $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
+        $image->save(null,90);
     }
 
 

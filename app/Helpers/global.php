@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Number;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\ImageManager;
 use Morilog\Jalali\Jalalian;
 use Pishran\Zarinpal\Zarinpal;
 use Illuminate\Http\JsonResponse;
@@ -380,4 +382,21 @@ function userAddressExist($authId): bool
     $addressExists = (bool) Address::whereUserId($authId)->whereIsDefault(1)->first();
 
     return $addressExists;
+}
+
+
+ function imageOptimizer($directory,$imageName,$rectangleWidth,$rectangleHeight)
+{
+    $new_directory = $directory . '/' . $imageName;
+    $manager = new ImageManager(new Driver());
+    $image = $manager->read($new_directory);
+    $image->resize(width: $rectangleWidth, height: $rectangleHeight);
+
+    $imageWidth = $image->width();
+    $imageHeight = $image->height();
+
+    $startX = max(0, ($imageWidth - $rectangleWidth) / 2);
+    $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
+    $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
+    $image->save(null,90);
 }

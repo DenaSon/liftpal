@@ -4,6 +4,7 @@ namespace App\Livewire\Front;
 
 use App\Mail\home\supportMail;
 use App\Models\Request;
+use App\Models\Slider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,7 @@ class Home extends Component
 {
     use LivewireAlert;
     public $search = '';
+
 
     public $fullname;
     public $phone;
@@ -35,6 +37,9 @@ class Home extends Component
         if (!empty(request()->input('action') && request()->input('action') == 'login')) {
             $this->dispatch('login-action');
         }
+
+
+
     }
 
     public function sendSupport()
