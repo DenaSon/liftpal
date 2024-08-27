@@ -51,6 +51,76 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
+                        <div class="avatar-md bg-success rounded">
+                            <i class="fe-user avatar-title font-22 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end">
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">
+
+                     {{\App\Models\User::whereBetween('created_at', [now()->subDay(), now()])->where('role','technician')->count('id') }}
+
+                </span></h3>
+                            <p class="text-muted mb-0 text-truncate">ثبت نام امروز</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+    <div class="col-lg-6 col-xl-3">
+        <div class="card bg-pattern">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="avatar-md bg-danger rounded">
+                            <i class="fe-user-plus avatar-title font-22 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end">
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">
+               {{\App\Models\User::whereBetween('created_at', [now()->subWeek(), now()])->where('role','technician')->count('id') }}
+                </span></h3>
+                            <p class="text-muted mb-0 text-truncate">ثبت نام هفته</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+    <div class="col-lg-6 col-xl-3">
+        <div class="card bg-pattern">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="avatar-md bg-warning rounded">
+                            <i class="fe-user-check avatar-title font-22 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end">
+                            <h3 class="text-dark my-1">
+                <span data-plugin="counterup">
+                    {{\App\Models\User::whereBetween('created_at', [now()->subMonth(), now()])->where('role','technician')->count('id') }}
+                </span> </h3>
+                            <p class="text-muted mb-0 text-truncate">  ثبت نام ماه </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+
+    <div class="col-lg-6 col-xl-3">
+        <div class="card bg-pattern">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
                         <div class="avatar-md bg-blue rounded">
                             <i class="fe-users avatar-title font-22 text-white"></i>
                         </div>
