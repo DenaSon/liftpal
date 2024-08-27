@@ -1,6 +1,7 @@
 @php
-    $slider = \App\Models\Slider::with('images')->whereCaption('hero-slider')->first() ?? 'No Slider found';
+    $slider = \App\Models\Slider::with('images')?->whereCaption('hero-slider')?->first();
 @endphp
+@if($slider->images->count() > 0)
 <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush" dir="ltr">
     <div class="tns-carousel-inner"
          data-carousel-options='{
@@ -24,7 +25,7 @@
 
 
 
-        @if($slider && $slider->images)
+        @if($slider && $slider?->images)
             @foreach($slider->images as $image)
                 <div class="col mx-2 position-relative" style="height: 400px;">
                     <img src="{{ asset($image->file_path) }}" class="rounded" alt="" style="height: 100%; width: 100%; object-fit: cover;">
@@ -49,3 +50,4 @@
 
 </div>
 
+@endif
