@@ -8,7 +8,7 @@
         "items": 1,
         "controls": true,
         "autoplay": false,
-        "autoplayTimeout": {{ $slider->autoplay_interval }},
+        "autoplayTimeout": 6500,
         "swipeAngle": false,
         "speed": 4500,
         "arrowKeys": true,
