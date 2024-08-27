@@ -35,11 +35,11 @@
                     <div class="text-center">
 
 
-                        @if( !empty($user->posts->count()))
+                        @if( !empty($user->posts?->count()))
                             <h4 class="font-13 text-muted text-uppercase mb-1"> تعداد مقالات </h4>
                             <p class="mb-3">
 
-                                {{ $user->posts->count() }} مقاله
+                                {{ $user->posts?->count() }} مقاله
                             </p>
                         @endif
 
@@ -56,16 +56,16 @@
 
 
                         <h4 class="font-13 text-muted text-uppercase mb-1">ثبت نام </h4>
-                        <p class="mb-3">{{ jdate($user->created_at)->toDateTimeString() }}   </p>
+                        <p class="mb-3">{{ jdate($user?->created_at)->toDateTimeString() }}   </p>
 
                 <h4 class="font-13 text-muted text-uppercase mb-1"> بروز رسانی پروفایل  </h4>
-                <p class="mb-3">{{ jdate($user->profile->updated_at)->toDateString() }}   </p>
+                <p class="mb-3">{{ jdate($user->profile?->updated_at)->toDateString() }}   </p>
 
 
 
-                            @if( !empty($user->profile->address))
+                            @if( !empty($user->profile?->address))
                                 <h4 class="font-13 text-muted text-uppercase mb-1"> آدرس </h4>
-                                <p class="mb-3">{{ $user->profile->address }}</p>
+                                <p class="mb-3">{{ $user->profile?->address }}</p>
                             @endif
 
                     </div>
