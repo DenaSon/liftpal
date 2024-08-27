@@ -46,7 +46,7 @@
                         <input value="" dir="ltr"  name="password" type="text" class="form-control" id="password" placeholder="رمز عبور جدید" minlength="8">
                     </div>
 
-                    <div class="form-check float-start" id="notifyCheckbox">
+                    <div class="visually-hidden  form-check float-start" id="notifyCheckbox">
                         <input type="checkbox" class="form-check-input" id="notify" name="notify" value="1">
                         <label class="form-check-label" for="notify">
                             ارسال اعلان به کاربر
@@ -54,7 +54,7 @@
                     </div>
                     <br/>
 
-                    <div class="visually-hidden form-check float-start mt-2" >
+                    <div class="form-check float-start mt-2" >
                         <input {{ $user->status == 'banned' ? 'checked' : '' }} type="checkbox" class="form-check-input " id="userStatus" name="userStatus" value="1">
                         <label  class="form-check-label text-danger" for="userStatus">
                           غیرفعال سازی کاربر
