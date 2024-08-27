@@ -252,9 +252,8 @@ class UserController extends Controller
         }
 
         // Delete associated images
-        if ($user->images) {
-
-            $user->images->detach();
+        if ($user->images()->exists()) {
+            $user->images()->detach();
         }
 
         // Delete associated wallet
