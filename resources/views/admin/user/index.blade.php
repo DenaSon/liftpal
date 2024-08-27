@@ -125,6 +125,7 @@
 
     <thead>
     <tr>
+        <th>#</th>
         <th>کاربر</th>
         <th data-priority="1"> نام</th>
         <th data-priority="1">  نام خانوادگی</th>
@@ -137,10 +138,10 @@
 
     </thead>
     <tbody>
-    @foreach($users as $user)
+    @foreach($users as $index => $user)
 
         <tr>
-
+        <th>{{ $index+1 }}</th>
         <th> {{ $user->phone ?? $user->email ?? '' }} </th>
         <td> {{ $user->profile->name ?? 'ثبت نشده' }} </td>
         <td>{{ $user->profile->last_name ?? 'ثبت نشده' }}</td>
