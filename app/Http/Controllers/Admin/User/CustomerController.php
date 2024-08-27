@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin\User;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use App\Models\OrderDetail;
+
 use App\Models\Profile;
 use App\Models\User;
 use App\Notifications\sendPasswordNotify;

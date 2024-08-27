@@ -24,7 +24,7 @@
                         <input value="{{ old('last_name') }}" name="last_name" type="text" class="form-control" id="last_name" placeholder="نام خانوادگی کاربر">
                     </div>
                     <div class="mb-3">
-                        <label for="phone_email" class="form-label">شماره تلفن یا ایمیل</label> <span class="text-danger">*</span>
+                        <label for="phone_email" class="form-label">شماره تلفن </label> <span class="text-danger">*</span>
                         <input value="{{ old('phone_email') }}" name="phone_email" dir="ltr"  required type="text" class="form-control" id="phone_email" placeholder="شماره تلفن یا ایمیل">
                     </div>
 
