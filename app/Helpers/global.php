@@ -385,7 +385,7 @@ function userAddressExist($authId): bool
 }
 
 
- function imageOptimizer($directory,$imageName,$rectangleWidth,$rectangleHeight)
+ function imageOptimizer($directory,$imageName,$rectangleWidth,$rectangleHeight,$quality=90)
 {
     $new_directory = $directory . '/' . $imageName;
     $manager = new ImageManager(new Driver());
@@ -398,5 +398,5 @@ function userAddressExist($authId): bool
     $startX = max(0, ($imageWidth - $rectangleWidth) / 2);
     $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
     $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
-    $image->save(null,90);
+    $image->save(null,$quality);
 }
