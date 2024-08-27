@@ -1,7 +1,7 @@
 @php
     $slider = \App\Models\Slider::with('images')?->whereCaption('hero-slider')?->first();
 @endphp
-@if($slider->images->count() > 0)
+@if($slider?->images?->count() > 0)
 <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush" dir="ltr">
     <div class="tns-carousel-inner"
          data-carousel-options='{
