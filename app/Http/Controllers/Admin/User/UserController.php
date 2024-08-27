@@ -253,7 +253,7 @@ class UserController extends Controller
 
         // Delete associated images
         if ($user->images) {
-            $user->images->delete();
+
             $user->images->detach();
         }
 
