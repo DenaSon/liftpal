@@ -109,8 +109,11 @@ class UserController extends Controller
 
 
                 if ($notify) {
-                    $notifyTemplate = getSetting('notify_sms_template') ?? 100000;
-                    sendVerifySms($password, $phoneEmail, $notifyTemplate);
+
+                    $template_id = getSetting('notify_sms_template') ?? 100000;
+                    $parameter = new \Cryptommer\Smsir\Objects\Parameters('password',$password);
+                    $parameters = array($parameter);
+                    sendVerifySms($phoneEmail,$template_id,$parameters);
                 }
             }
             else
