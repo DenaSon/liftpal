@@ -7,6 +7,7 @@ use App\Models\Profile;
 use App\Models\User;
 use App\Notifications\sendPasswordNotify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Throwable;
@@ -122,7 +123,7 @@ class UserController extends Controller
 
                 if ($notify) {
 
-                    $template_id = getSetting('notify_sms_template') ?? 100000;
+                    $template_id = Config::get('sms.notify_template_id');
                     $parameter = new \Cryptommer\Smsir\Objects\Parameters('password',$password);
                     $parameters = array($parameter);
                     sendVerifySms($phoneEmail,$template_id,$parameters);
