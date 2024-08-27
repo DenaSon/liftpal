@@ -72,13 +72,9 @@
             </a>
             <div class="collapse" id="sidebarUsers">
                 <ul class="nav-second-level">
-                    <li>
-                        <a href="{{ route('customers.index') }}"> کارشناسان فنی  </a>
-                    </li>
-
 
                     <li>
-                        <a href="{{ route('user.index') }}"> همه  </a>
+                        <a href="{{ route('user.index') }}"> لیست کاربران  </a>
                     </li>
 
 

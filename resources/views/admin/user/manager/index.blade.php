@@ -30,13 +30,13 @@
 <div class="row">
 <div class="col-6">
 <div class="avatar-md bg-blue rounded">
-    <i class="fe-users avatar-title font-22 text-white"></i>
+<i class="fe-users avatar-title font-22 text-white"></i>
 </div>
 </div>
 <div class="col-6">
 <div class="text-end">
-    <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::count('id') }}</span></h3>
-    <p class="text-muted mb-0 text-truncate">کاربران</p>
+<h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\User::count('id') }}</span></h3>
+<p class="text-muted mb-0 text-truncate">کاربران</p>
 </div>
 </div>
 </div>
@@ -50,17 +50,17 @@
 <div class="row">
 <div class="col-6">
 <div class="avatar-md bg-success rounded">
-    <i class="fe-user-plus avatar-title font-22 text-white"></i>
+<i class="fe-user-plus avatar-title font-22 text-white"></i>
 </div>
 </div>
 <div class="col-6">
 <div class="text-end">
-    <h3 class="text-dark my-1"><span data-plugin="counterup">
+<h3 class="text-dark my-1"><span data-plugin="counterup">
 
 {{\App\Models\User::where('role','manager')->count('id') }}
 
 </span></h3>
-    <p class="text-muted mb-0 text-truncate">مدیر ساختمان</p>
+<p class="text-muted mb-0 text-truncate">مدیر ساختمان</p>
 </div>
 </div>
 </div>
@@ -73,15 +73,15 @@
 <div class="row">
 <div class="col-6">
 <div class="avatar-md bg-danger rounded">
-    <i class="mdi mdi-notebook-edit-outline avatar-title font-22 text-white"></i>
+<i class="mdi mdi-notebook-edit-outline avatar-title font-22 text-white"></i>
 </div>
 </div>
 <div class="col-6">
 <div class="text-end">
-    <h3 class="text-dark my-1"><span data-plugin="counterup">
+<h3 class="text-dark my-1"><span data-plugin="counterup">
 {{\App\Models\User::where('role','company')->count('id') }}
 </span></h3>
-    <p class="text-muted mb-0 text-truncate"> شرکت  </p>
+<p class="text-muted mb-0 text-truncate"> شرکت  </p>
 </div>
 </div>
 </div>
@@ -94,16 +94,16 @@
 <div class="row">
 <div class="col-6">
 <div class="avatar-md bg-warning rounded">
-    <i class="mdi mdi-stocking avatar-title font-22 text-white"></i>
+<i class="mdi mdi-stocking avatar-title font-22 text-white"></i>
 </div>
 </div>
 <div class="col-6">
 <div class="text-end">
-    <h3 class="text-dark my-1">
+<h3 class="text-dark my-1">
 <span data-plugin="counterup">
 {{\App\Models\User::where('role','admin')->count('id') }}
 </span> </h3>
-    <p class="text-muted mb-0 text-truncate">  مدیرکل </p>
+<p class="text-muted mb-0 text-truncate">  مدیرکل </p>
 </div>
 </div>
 </div>
@@ -127,14 +127,14 @@
 
 <thead>
 <tr>
-    <th>#</th>
-    <th>شماره</th>
-    <th data-priority="1"> نام</th>
-    <th data-priority="1">  نام خانوادگی</th>
-    <th data-priority="1">  نقش </th>
-    <th data-priority="6">وضعیت</th>
-    <th data-priority="6">ثبت نام</th>
-    <th data-priority="2" style="width:65px"> اقدامات</th>
+<th>#</th>
+<th>شماره</th>
+<th data-priority="1"> نام</th>
+<th data-priority="1">  نام خانوادگی</th>
+<th data-priority="1">  نقش </th>
+<th data-priority="6">وضعیت</th>
+<th data-priority="6">ثبت نام</th>
+<th data-priority="2" style="width:65px"> اقدامات</th>
 
 </tr>
 
@@ -142,56 +142,56 @@
 <tbody>
 @foreach($users as $index => $user)
 
-    <tr>
-        <th>{{ $index+1 }}</th>
-        <th> <b style="font-size:15px;font-weight: bolder">{{ $user->phone ? substr($user->phone, 0, 4) . '-' . substr($user->phone, 4, 3) . '-' . substr($user->phone, 7, 4) : '' }}
-            </b> </th>
-        <td> {{ $user->profile->name ?? 'ثبت نشده' }} </td>
-        <td>{{ $user->profile->last_name ?? 'ثبت نشده' }}</td>
-        <td>
-            @if( $user->role == 'admin') <span class="badge badge-outline-danger font-12"> مدیر </span> @endif
-            @if( $user->role == 'technician') <span class="badge badge-outline-primary font-12"> کارشناس فنی </span> @endif
-            @if( $user->role == 'manager') <span class="badge badge-outline-warning font-12"> مدیر ساختمان </span> @endif
-            @if( $user->role == 'company') <span class="badge badge-outline-blue font-12">  شرکت </span> @endif
+<tr>
+<th>{{ $index+1 }}</th>
+<th> <b style="font-size:15px;font-weight: bolder">{{ $user->phone ? substr($user->phone, 0, 4) . '-' . substr($user->phone, 4, 3) . '-' . substr($user->phone, 7, 4) : '' }}
+</b> </th>
+<td> {{ $user->profile->name ?? 'ثبت نشده' }} </td>
+<td>{{ $user->profile->last_name ?? 'ثبت نشده' }}</td>
+<td>
+@if( $user->role == 'admin') <span class="badge badge-outline-danger font-12"> مدیر </span> @endif
+@if( $user->role == 'technician') <span class="badge badge-outline-primary font-12"> کارشناس فنی </span> @endif
+@if( $user->role == 'manager') <span class="badge badge-outline-warning font-12"> مدیر ساختمان </span> @endif
+@if( $user->role == 'company') <span class="badge badge-outline-blue font-12">  شرکت </span> @endif
 
-        </td>
-        <td>
-            @if($user->status == 'banned')
-                <span class="alert alert-danger"> مسدود </span>
-            @else
-                <span class="alert"> فعال </span>
-            @endif
+</td>
+<td>
+@if($user->status == 'banned')
+    <span class="alert alert-danger"> مسدود </span>
+@else
+    <span class="alert"> فعال </span>
+@endif
 
-        </td>
-        <th title="{{ jdate($user->created_at)->ago() }}"> {{ jdate($user->created_at)->toFormattedDateString() }} </th>
-        <td>
-            <form id="userDeleteForm-{{$user->id}}" action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <div class="btn btn-group-sm ">
+</td>
+<th title="{{ jdate($user->created_at)->ago() }}"> {{ jdate($user->created_at)->toFormattedDateString() }} </th>
+<td>
+<form id="userDeleteForm-{{$user->id}}" action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
+    @csrf
+    @method('DELETE')
+    <div class="btn btn-group-sm ">
 
-                    <button  type="button"  class="btn btn-outline-primary  btn-xs" data-bs-toggle="modal" data-bs-target="#bs-show-modal-sm-{{ $user->id }}"> <i class="fe-eye"></i> </button>
-                    <button type="button" class="btn btn-outline-info btn-xs" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{$user->id}}">
-                        <i class="fe-mail"></i>
-                    </button>
-                    <button  type="button"  class="btn btn-xs btn-outline-secondary " data-bs-toggle="modal" data-bs-target="#bs-edit-modal-sm-{{ $user->id }}"> <i class="fe-edit-2"></i> </button>
-
-
-                    <button class="deleteButton btn btn-xs btn-outline-danger" data-user-id="{{$user->id}}" type="button">
-                        <i class="fe-trash-2"></i>
-                    </button>
-
-                </div>
-            </form>
-        </td>
-
-    </tr>
+        <button  type="button"  class="btn btn-outline-primary  btn-xs" data-bs-toggle="modal" data-bs-target="#bs-show-modal-sm-{{ $user->id }}"> <i class="fe-eye"></i> </button>
+        <button type="button" class="btn btn-outline-info btn-xs" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{$user->id}}">
+            <i class="fe-mail"></i>
+        </button>
+        <button  type="button"  class="btn btn-xs btn-outline-secondary " data-bs-toggle="modal" data-bs-target="#bs-edit-modal-sm-{{ $user->id }}"> <i class="fe-edit-2"></i> </button>
 
 
+        <button class="deleteButton btn btn-xs btn-outline-danger" data-user-id="{{$user->id}}" type="button">
+            <i class="fe-trash-2"></i>
+        </button>
 
-    @include('admin.user.manager.inc._show')
-    @include('admin.user.manager.inc._edit')
-    @include('admin.user.manager.inc._sendMessage')
+    </div>
+</form>
+</td>
+
+</tr>
+
+
+
+@include('admin.user.manager.inc._show')
+@include('admin.user.manager.inc._edit')
+@include('admin.user.manager.inc._sendMessage')
 
 @endforeach
 

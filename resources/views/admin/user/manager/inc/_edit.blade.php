@@ -54,7 +54,7 @@
                     </div>
                     <br/>
 
-                    <div class="form-check float-start mt-2" >
+                    <div class="visually-hidden form-check float-start mt-2" >
                         <input {{ $user->status == 'banned' ? 'checked' : '' }} type="checkbox" class="form-check-input " id="userStatus" name="userStatus" value="1">
                         <label  class="form-check-label text-danger" for="userStatus">
                           غیرفعال سازی کاربر
