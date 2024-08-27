@@ -271,7 +271,7 @@ function slugMaker($string)
 }
 
 
-function getPagesName($location='header')
+function getPagesName($location)
 {
 
     $pages = Cache::remember('pages',60 * 10,function() use($location)

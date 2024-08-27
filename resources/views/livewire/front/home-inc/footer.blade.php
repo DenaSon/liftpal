@@ -5,7 +5,8 @@
 
             <div class="row pt-0 mb-4">
 
-                        <div  class="col-6 col-xs-6 col-sm-6 col-md-2 d-flex  flex-column justify-content-between mb-sm-0 mb-4  "><a class="d-inline-block mb-4" href="real-estate-home-v1.html"><img
+                        <div  class="col-6 col-xs-6 col-sm-6 col-md-2 d-flex  flex-column justify-content-between mb-sm-0 mb-4  ">
+                            <a class="d-inline-block mb-4" href="{{ route('home') }}"><img
                                     src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
                             <ul class="nav flex-column mb-sm-4 mb-2">
                                 <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="mailto:{{ getSetting('support_manager_email') }}"><i
@@ -27,11 +28,11 @@
                         </div>
 
                 <div class="col-6 col-xs-6 col-sm-6 col-md-3 mb-sm-0 mb-4 ">
-                        <h4 class="h5">خدمات مشتریان</h4>
+                        <h4 class="h5">پیوند های مفید </h4>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">نحوه ثبت سفارش</a></li>
-                            <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">رویه ارسال کالا</a></li>
-                            <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal" href="#">پیگیری سفارش</a></li>
+                            @foreach(\App\Models\Page::whereLocation('footer')->latest()->take(5)->get()  as $page)
+                                <li class="nav-item mb-2"><a wire:navigate class="nav-link p-0 fw-normal" href="{{ route('page',['id'=>$page->id,'slug'=>slugMaker($page->title)]) }}">{{ $page?->title }}</a></li>
+                            @endforeach
                             <li class="nav-item mb-2"><a wire:navigate class="nav-link p-0 fw-normal" href="{{ route('shop') }}">فروشگاه</a></li>
                         </ul>
                 </div>
