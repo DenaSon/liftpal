@@ -83,8 +83,15 @@ class UserController extends Controller
                     return redirect()->back();
                 }
 
+
+
                 $user->email = $phoneEmail;
                 $user->save();
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+                $profile->name = $name;
+                $profile->last_name = $last_name;
+                $profile->save();
                 $user->markPhoneAsVerified();
                 $user->markEmailAsVerified();
 
@@ -104,6 +111,11 @@ class UserController extends Controller
 
                 $user->phone = $phoneEmail;
                 $user->save();
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+                $profile->name = $name;
+                $profile->last_name = $last_name;
+                $profile->save();
                 $user->markPhoneAsVerified();
                 $user->markEmailAsVerified();
 
