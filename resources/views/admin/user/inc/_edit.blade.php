@@ -28,18 +28,9 @@
                         <input value="{{ $user->profile->last_name ?? '' }}" name="last_name" type="text" class="form-control" id="last_name" placeholder="نام خانوادگی کاربر">
                     </div>
 
-                    <div class="mb-2">
-                        <label for="expertise" class="form-label">تخصص</label>
-                        <input value="{{ $user->profile->expertise ?? '' }}" name="expertise" type="text" class="form-control" id="expertise" placeholder="تخصص کاربر">
-                    </div>
 
-                    <div class="mb-2">
-                        <label for="gender" class="form-label">جنسیت</label>
-                        <select name = "gender" class="form-select" id="gender">
-                            <option value="male" {{ $user->profile->gender == 'male' ? 'selected' : '' }}>مرد</option>
-                            <option {{ $user->profile->gender == 'female' ? 'selected' : '' }} value="female">زن</option>
-                        </select>
-                    </div>
+
+
 
 
                     <div class="mb-2">
