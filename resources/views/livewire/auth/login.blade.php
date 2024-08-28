@@ -26,10 +26,13 @@
                                 @error('phone') {{ $message }} @enderror
                             </div>
                             <div class="mb-4">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <label class="form-label mb-0" for="signin-password">کلمه عبور</label><a
-                                        class="fs-sm" href="#">کلمه عبور را فراموش کرده اید؟</a>
-                                </div>
+{{--                                --}}
+{{--                                <div class="d-flex align-items-center justify-content-between mb-2">--}}
+{{--                                    <label class="form-label mb-0" for="signin-password">کلمه عبور</label><a--}}
+{{--                                        class="fs-sm" href="#">کلمه عبور را فراموش کرده اید؟</a>--}}
+{{--                                </div>--}}
+
+
                                 <div class="password-toggle">
                                     <input wire:model="password" class="form-control" type="password"
                                            id="signin-password" placeholder="کلمه عبور خود را وارد کنید" required>
