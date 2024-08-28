@@ -317,11 +317,18 @@ class UserController extends Controller
         }
 
         // Delete associated wallet
-        if ($user->wallet) {
+        if ($user->wallet)
+        {
             $user->wallet->delete();
         }
 
-        // Delete the user
+        if ($user->comments()->exists()) {
+            $user->comments()->delete();
+        }
+
+
+
+            // Delete the user
         $user->delete();
         Alert::success('کاربر حذف شد','کاربر و تمام اطلاعات مرتبط با آن حذف شدند.');
         return redirect()->back();

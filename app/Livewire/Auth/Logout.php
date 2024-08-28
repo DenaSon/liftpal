@@ -13,7 +13,7 @@ class Logout extends Component
         session()->invalidate();
         // Regenerate the CSRF token to prevent CSRF attacks
         session()->regenerateToken();
-        $this->redirectRoute('home');
+       return redirect('/home');
 
     }
 
