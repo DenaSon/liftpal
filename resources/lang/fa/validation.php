@@ -297,7 +297,10 @@ return [
         'fullname' => 'نام ‌و ‌نام‌خانوادگی',
         'national_code' => 'شناسه ملی',
         'messageText' => 'متن پیام',
-        'fullName' => 'نام ‌و ‌نام‌خانوادگی'
+        'fullName' => 'نام ‌و ‌نام‌خانوادگی',
+        'buildingId' => 'ساختمان',
+        'technicianId' => 'کارشناس فنی',
+        'companyId' => 'شرکت'
 
 
 
