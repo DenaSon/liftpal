@@ -296,7 +296,8 @@ return [
         'fault_cause' =>'علت خرابی',
         'fullname' => 'نام ‌و ‌نام‌خانوادگی',
         'national_code' => 'شناسه ملی',
-        'messageText' => 'متن پیام'
+        'messageText' => 'متن پیام',
+        'fullName' => 'نام ‌و ‌نام‌خانوادگی'
 
 
 

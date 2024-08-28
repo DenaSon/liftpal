@@ -34,6 +34,7 @@ class Expert extends Component
         if (!auth()->check())
         {
             $this->alert('info','لطفا ابتدا وارد حساب کاربری خود شوید.');
+            return false;
         }
 
         try
