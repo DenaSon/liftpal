@@ -170,9 +170,9 @@
             <ul class="list-group">
                 <!-- Example comment item -->
                 @foreach($new_comments->take(5) as $comment)
-                    <li class="list-group-item  @if($comment?->status == 'published') border-success @else border-warning bg-soft-warning @endif shadow-sm " data-comment-id="{{ $comment->id }}">
+                    <li class="list-group-item  @if($comment?->status == 'published') border-success @else border-warning bg-soft-warning @endif shadow-sm " data-comment-id="{{ $comment?->id }}">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-1"> دیدگاه : {{ $comment?->username }} برای محصول : <b> {{ $comment?->commentable->name}}</b>  </h5>
+                            <h5 class="mb-1"> دیدگاه : {{ $comment?->username ?? '' }} برای محصول : <b> {{ $comment?->commentable->name ?? ''}}</b>  </h5>
 
 
                             @if($comment->status == 'published')
