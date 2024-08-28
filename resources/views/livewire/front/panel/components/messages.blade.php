@@ -16,12 +16,12 @@
                         <span class="fs-sm text-dark opacity-80 px-1 fw-bolder">
                     {{ $message->title }}
                     </span>
+                        <span class="badge bg-faded-danger rounded-pill ms-2">  @if($message->sender?->role == 'admin')  <i>مدیر : </i>   @endif</span>
                         <span class="badge bg-faded-accent rounded-pill  ms-2">
 
                        {{ $message->sender?->profile?->name ?? 'ثبت نشده' }} {{ $message->sender?->profile?->last_name ?? 'ثبت نشده' }}
-                            @if($message->sender?->role == 'admin')  <i>مدیر</i>   @endif
-
                     </span>
+
                     </div>
                     <div class="dropdown content-overlay">
                         <button type="button" class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm"
