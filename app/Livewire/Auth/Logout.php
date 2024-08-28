@@ -17,7 +17,7 @@ class Logout extends Component
         session()->regenerateToken();
 
 
-        $this->redirectRoute('home',[],true,true);
+        $this->redirectRoute('home');
 
     }
 
