@@ -16,7 +16,7 @@
                                     class="fi-check-circle text-primary mt-1 me-2"></i><span>خرید قطعات آسانسور</span></li>
                         </ul>
                         <img class="d-block mx-auto" src="{{ asset('assets/img/signin-modal/signup.svg') }}" width="344"
-                             alt="Illustartion">
+                             alt="">
 
                     </div>
                     <div class="col-md-6 px-4 pt-1 pb-4 px-sm-5 pb-sm-5 pt-md-2">
