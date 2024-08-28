@@ -31,19 +31,20 @@ class Clientarea extends Component
     public function updatedPhoto()
     {
         $this->validate([
-            'photo' => 'image|max:512',
+            'photo' => 'image|max:512', // Ensure file is an image and not larger than 512 KB
         ]);
 
         if ($this->photo) {
+            // Generate a unique name for the image
             $imageName = Str::random(10) . '_' . $this->photo->getClientOriginalName();
 
-            // Determine directory based on environment
+
             if (app()->isLocal()) {
-                $directory = 'media'; // Local development directory
+                $directory = 'media';
                 $disk = 'public';
             } else {
-                $directory = ''; // Use root of the custom disk 'public_html_media'
-                $disk = 'public_html_media'; // Custom disk defined in filesystem
+                $directory = '';
+                $disk = 'public_html_media';
             }
 
             // Ensure the directory exists
@@ -51,16 +52,22 @@ class Clientarea extends Component
                 Storage::disk($disk)->makeDirectory($directory);
             }
 
-            // Store the file in the specified directory
             $path = $this->photo->storeAs($directory, $imageName, $disk);
-            $this->optimizeImage($directory,$imageName);
 
-            // Prepare image data for database insertion
+            try {
+                $this->optimizeImage($directory, $imageName);
+            }
+            catch (\Exception $e) {
+
+                $this->alert('warning',$e->getMessage());
+            }
+
+
             $albumId = 'profile_' . Auth::id();
             $imageData = [
                 'album_id' => $albumId,
                 'file_name' => Str::replace(' ', '_', Str::limit($imageName, 18, '')),
-                'file_path' => $disk === 'public' ? 'storage/' . $path : 'media/'.$path, // Adjust the path based on disk
+                'file_path' => $disk === 'public' ? 'storage/' . $path : 'media/' . $path, // Adjust the path based on disk
                 'is_index' => 0,
             ];
 
@@ -69,12 +76,13 @@ class Clientarea extends Component
 
             // Attach the image to the authenticated user
             Auth::user()->images()->save($image);
-        }
 
-        // Flash success message
-        $this->alert('success', 'تصویر پروفایل آپلود شد');
-        $this->redirectRoute('panel');
+            // Flash success message
+            $this->alert('success', 'تصویر پروفایل آپلود شد');
+            $this->redirectRoute('panel');
+        }
     }
+
 
 
     public function mount()

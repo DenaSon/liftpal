@@ -23,11 +23,6 @@
                 <span>تنظیمات</span>
             </a>
 
-            <!-- item-->
-            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                <i class="fe-lock me-1"></i>
-                <span>صفحه قفل</span>
-            </a>
 
             <!-- item-->
             <a href="javascript:void(0);" class="dropdown-item notify-item">
@@ -38,17 +33,7 @@
         </div>
     </div>
     <p class="text-muted">
-        @if(auth()->user()->role == 'admin')
-            مدیر کل
-        @elseif(auth()->user()->role == 'visitor')
-            ویزیتور
-        @elseif(auth()->user()->role == 'stock')
-            انباردار
-        @elseif(auth()->user()->role == 'author')
-            نویسنده
-        @else
-            کاربر
-        @endif
+      {{ auth()->user()->getRole() }}
 
     </p>
 </div>
