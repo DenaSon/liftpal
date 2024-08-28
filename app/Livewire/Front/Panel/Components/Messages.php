@@ -27,6 +27,19 @@ class Messages extends Component
         $message->delete();
         $this->alert('success', 'پیام با موفقیت حذف شد');
     }
+    public function markAsRead($id): void
+    {
+        $this->messageId = $id;
+        $this->validate([
+            'messageId' => 'required|exists:messages,id'
+        ]);
+        $message = Message::find($this->messageId);
+        $message->is_read = 1;
+        $message->save();
+        $this->alert('success', 'پیام با موفقیت حذف شد');
+    }
+
+
 
     public function mount()
     {

@@ -80,7 +80,7 @@ class Clientarea extends Component
     public function mount()
     {
         $this->photo = auth()->user()->images?->first()?->file_path ?? null;
-        $this->messagesCount = auth()->user()->messages()->count();
+        $this->messagesCount = auth()->user()->messages()->where('is_read',0)->count();
         $this->authUser = auth()?->user();
         $this->setPageTitle();
     }

@@ -8,7 +8,7 @@
 
     @foreach($message_list as $message)
 
-        <div class="card bg-secondary card-hover mt-3">
+        <div wire:key="{{ $message->id }}" class="card @if($message->is_read == 0) bg-secondary @endif card-hover mt-3">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div class="d-flex align-items-center">
@@ -29,6 +29,14 @@
                             <i class="fi-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu my-1" aria-labelledby="contextMenu">
+                            @if($message->is_read == 0)
+                            <li>
+                                <button  wire:click.debounce.450ms="markAsRead({{$message->id}})" type="button" class="dropdown-item">
+                                    <i class="fi-pencil opacity-60 me-2"></i>
+                                    خوانده شده
+                                </button>
+                            </li>
+                            @endif
                             <li>
                                 <button wire:confirm="از حذف پیام اطمینان دارید؟" wire:click.debounce.450ms="removeMessage({{$message->id}})" type="button" class="dropdown-item">
                                     <i class="fi-trash opacity-60 me-2"></i>
