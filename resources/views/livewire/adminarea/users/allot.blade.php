@@ -7,7 +7,7 @@
 
             <div class="card-body" wire:ignore>
 
-                <form class="" wire:submit.debounce.100ms="allot">
+
                     <div class="form-group">
                     <div class="m-2  w-50">
                         <input class="form-control" type="search" wire:model.live.debounce.250ms="buildingFilter"
@@ -75,7 +75,7 @@
                             @if($technicians->isEmpty())
                                 <option value="">بدون نتیجه</option>
                             @else
-                                <option selected> انتخاب کارشناس فنی </option>
+
                                 @foreach($technicians as $index => $technician)
                                     <option value="{{ $technician->id }}" wire:key="{{ $technician->id }}">
                                         {{ $technician->id }} - {{ $technician->name }}  {{ $technician->profile->name }} {{ $technician->profile->last_name }}
@@ -88,11 +88,9 @@
                     </div>
 
             <div class="text-center">
-                <button type="submit" class="w-25 btn btn-outline-primary mt-4"> ثبت </button>
+                <button wire:click="allot" class="w-25 btn btn-outline-primary mt-4"> ثبت </button>
             </div>
 
-
-                </form>
 
             </div>
 

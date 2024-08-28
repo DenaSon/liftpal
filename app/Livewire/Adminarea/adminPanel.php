@@ -38,6 +38,13 @@ class adminPanel extends Component
 
     public function mount()
     {
+
+        if (request()->input('page') == null)
+        {
+            return redirect()->route('management',['page' =>'dashboard']);
+        }
+
+
         $this->authorize('admin-access');
         $this->authUser = auth()->user();
     }

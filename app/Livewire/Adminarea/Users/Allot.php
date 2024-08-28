@@ -86,6 +86,7 @@ class Allot extends Component
 
     public function mount()
     {
+
         $this->companies = Company::take(20)->latest()->get();
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();

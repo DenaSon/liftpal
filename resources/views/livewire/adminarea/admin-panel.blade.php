@@ -39,7 +39,7 @@
     <div class="clearfix"></div>
 
 
-@include('livewire.front.home-inc.footer')
+
 
 
 
@@ -51,10 +51,6 @@
         <script data-navigate-once
                 src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}"></script>
 
-        <script data-navigate-once src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-        <script data-navigate-once
-                src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
-        <script data-navigate-once src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <script data-navigate-once src="{{ asset('assets/js/theme.min.js') }}"></script>
     @endsection
 
