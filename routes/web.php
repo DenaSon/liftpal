@@ -89,6 +89,7 @@ Route::middleware(['throttle:100,1','CheckAccess'])->prefix('admin')->group(func
 
     //Elevator features Routes
     Route::resource('eed',eedController::class);
+    Route::get('management',\App\Livewire\Adminarea\adminPanel::class)->name('management');
 
 
 

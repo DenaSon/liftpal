@@ -27,7 +27,6 @@ class Register extends Component
     public function register()
     {
 
-
         try {
            $this->validate([
                'name'=> 'required|string|max:100',

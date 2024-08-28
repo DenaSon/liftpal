@@ -38,7 +38,22 @@ class Login extends Component
                     session()->forget('phone_number');
                     session()->forget('temp_code');
                     $this->alert('success', 'ورود موفقیت آمیز');
-                    return redirect()->route('panel', ['page' => 'main']);
+
+                    if (auth()->user()->role == 'admin')
+                    {
+                        $phone = auth()->user()?->phone;
+                        $date = jdate(now())->toDayDateTimeString();
+                        $sessionId = session()->getId();
+                        setLog('Admin-Login','ورود کاربر با دسترسی مدیر با شماره :  '.$phone .' شناسه :  '. $sessionId .' | '.' تاریخ :  : ' . $date,'warning');
+                        return redirect()->route('dashboard');
+
+                    }
+                    else
+                    {
+                        return redirect()->route('panel', ['page' => 'main']);
+                    }
+
+
                 }
                 else
                 {
@@ -134,7 +149,7 @@ class Login extends Component
                 request()->session()->regenerate();
 
                 // Redirect the authenticated user to the intended page or dashboard
-                if (auth()->user()->isRole('admin'))
+                if (auth()->user()->role == 'admin')
                 {
                     $phone = auth()->user()?->phone;
                     $date = jdate(now())->toDayDateTimeString();

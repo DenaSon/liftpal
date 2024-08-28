@@ -2,7 +2,7 @@
     <!-- Account nav-->
     <div class="card card-body border-0 shadow-sm pb-1 me-lg-1">
         <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-4">
-            @if($photo == null)
+            @if(!isset($photo))
                 <div class="mb-3">
                     <label for="formFile" class="form-label">
                         <img class="rounded-circle" src="{{ asset('admin/assets/libs/feather-icons/icons/user.svg') }}"
