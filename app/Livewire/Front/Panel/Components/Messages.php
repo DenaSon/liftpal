@@ -36,7 +36,7 @@ class Messages extends Component
         $message = Message::find($this->messageId);
         $message->is_read = 1;
         $message->save();
-        $this->alert('success', 'پیام با موفقیت حذف شد');
+
     }
 
 

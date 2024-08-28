@@ -21,23 +21,83 @@ class UserController extends Controller
     {
 
         $filter = $request->input('filter');
+        $search = $request->input('search');
+
+        if (isset($filter) && !isset($search))
+        {
+            $users = User::query()
+                ->where(function ($query) {
+                    $query->whereNotNull('phone_verified_at')
+                        ->orWhereNotNull('email_verified_at');
+                })
+                ->orderByDesc('created_at')
+
+                ->when($filter, function ($query) use($filter)   {
+
+                    $query->where('role',$filter);
+
+                })
 
 
-        $users = User::query()->where('role', '!=','customer')
-            ->where(function ($query) {
-                $query->whereNotNull('phone_verified_at')
-                    ->orWhereNotNull('email_verified_at');
-            })
-            ->orderByDesc('created_at')
+                ->paginate(getSetting('default_pagination_number') ?? 10)->appends(request()->query());
 
-            ->when($filter, function ($query) use($filter)   {
+        }
 
-                $query->where('role',$filter);
-
-            })
+        else
+        {
+            // Validate and sanitize input values
+            $filterOptions = ['phone', 'id', 'email', 'name', 'last_name'];
+            $filter = in_array($filter, $filterOptions) ? $filter : null;
+            $search = filter_var($search, 513);
 
 
-            ->paginate(getSetting('default_pagination_number') ?? 10)->appends(request()->query());
+
+            $users = User::query()
+                ->where(function ($query) {
+
+                    $query->whereNotNull('phone_verified_at');
+
+                })
+                ->orderByDesc('created_at')
+
+                ->when($filter == 'phone', function ($query) use( $search )  {
+
+                    $query->where('phone',$search);
+
+                })
+                ->when($filter == 'id', function ($query) use( $search )  {
+
+                    $query->where('id',$search);
+
+                })
+
+                ->when($filter == 'email', function ($query) use( $search )  {
+
+                    $query->where('email', 'like','%' . $search . '%');
+
+                })
+
+                ->when($filter == 'name', function ($query) use( $search )  {
+
+                    $query->whereHas('profile', function ($query) use ( $search ) {
+                        $query->where('name', 'like', '%' . $search . '%');
+                    });
+                })
+                ->when($filter == 'last_name', function ($query) use( $search ) {
+
+                    $query->whereHas('profile', function ( $query ) use ( $search ) {
+                        $query->where('last_name', 'like', '%' . $search . '%');
+                    });
+                })
+
+
+                ->paginate(getSetting('default_pagination_number') ?? 10)->appends(request()->query());
+
+        }
+
+
+
+
 
         return view('admin.user.manager.index',compact('users'));
     }

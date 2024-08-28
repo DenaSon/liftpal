@@ -342,6 +342,7 @@
 </div>
 
 </div>
+
 <div class="col-auto">
 <div class="text-lg-end my-1 my-lg-0">
 
@@ -354,6 +355,39 @@
 </div>
 </form>
 </div> <!-- end card -->
+
+        <div class="card">
+            <div class="card-body">
+    <div class="col-auto">
+        <form action="{{ route('user.index') }}"  class="d-flex flex-wrap align-items-center">
+
+
+            <label for="filter" class="me-2 visually-hidden">مرتب سازی بر اساس</label>
+            <div class="me-sm-3">
+                <select class="form-select my-1 my-lg-0" id="filter" name = "filter">
+
+                    <option value="phone"> شماره تلفن </option>
+                    <option value="email">  ایمیل </option>
+                    <option value="name"> نام </option>
+                    <option value="last_name"> نام خانوادگی </option>
+
+                </select>
+            </div>
+
+            <label for="searchText" class="visually-hidden">جستجو</label>
+            <div class="me-sm-5 me-3">
+                <input type="search" class="form-control" id="searchText" placeholder="متن جستجو..." name="search">
+            </div>
+
+
+            <div class="me-sm-5 me-3">
+                <button type="submit" class="btn btn-success waves-effect waves-light me-2"><i class="mdi mdi-account-search-outline"> جستجو </i></button>
+            </div>
+
+    </div> <!-- here  -->
+            </div>
+        </div>
+
 
 </div>
 
