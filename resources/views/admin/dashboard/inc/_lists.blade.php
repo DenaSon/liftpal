@@ -170,9 +170,9 @@
             <ul class="list-group">
                 <!-- Example comment item -->
                 @foreach($new_comments->take(5) as $comment)
-                    <li class="list-group-item  @if($comment->status == 'published') border-success @else border-warning bg-soft-warning @endif shadow-sm " data-comment-id="{{ $comment->id }}">
+                    <li class="list-group-item  @if($comment?->status == 'published') border-success @else border-warning bg-soft-warning @endif shadow-sm " data-comment-id="{{ $comment->id }}">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-1"> دیدگاه : {{ $comment->username }} برای محصول : <b> {{ $comment->commentable->name}}</b>  </h5>
+                            <h5 class="mb-1"> دیدگاه : {{ $comment?->username }} برای محصول : <b> {{ $comment?->commentable->name}}</b>  </h5>
 
 
                             @if($comment->status == 'published')
@@ -182,14 +182,14 @@
                             @endif
 
                         </div>
-                        <p class="p-1 my-custom-comment-style font-12 overflow-auto">{{ \Illuminate\Support\Str::limit($comment->text,110) }}</p>
+                        <p class="p-1 my-custom-comment-style font-12 overflow-auto">{{ \Illuminate\Support\Str::limit($comment?->text,110) }}</p>
 
                         <!-- Add reply form for each comment -->
                         <form class="mt-3">
 
-                            <a href="{{ route('products.edit', ['product' => $comment->commentable->id]) }}#comment-{{ $comment->id }}" class="btn btn-outline-primary btn-sm me-2 btn-reply">مشاهده دیدگاه</a>
+                            <a href="{{ route('products.edit', ['product' => $comment?->commentable->id]) }}#comment-{{ $comment?->id }}" class="btn btn-outline-primary btn-sm me-2 btn-reply">مشاهده دیدگاه</a>
 
-                            <small class="text-muted float-end">تاریخ: {{ jdate($comment->created_at)->toFormattedDateString() }}</small>
+                            <small class="text-muted float-end">تاریخ: {{ jdate($comment?->created_at)->toFormattedDateString() }}</small>
                         </form>
                     </li>
                     <br/>
