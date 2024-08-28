@@ -29,7 +29,7 @@
 {{--                                --}}
 {{--                                <div class="d-flex align-items-center justify-content-between mb-2">--}}
 {{--                                    <label class="form-label mb-0" for="signin-password">کلمه عبور</label><a--}}
-{{--                                        class="fs-sm" href="#">کلمه عبور را فراموش کرده اید؟</a>--}}
+{{--              class="fs-sm" href="#">کلمه عبور را فراموش کرده اید؟</a>--}}
 {{--                                </div>--}}
 
 
