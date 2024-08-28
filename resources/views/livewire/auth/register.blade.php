@@ -54,7 +54,7 @@
                             <div class="form-check mb-4">
                                 <input wire:model="agreement" class="form-check-input" type="checkbox" id="agree-to-terms" required>
                                 <label class="form-check-label" for="agree-to-terms"> با ثبت نام در این سایت <a
-                                        href='#'> شرایط</a> و <a href='#'>قوانین </a> سایت را قبول دارم.</label>
+                                        href='#'> شرایط</a> و <a href='https://liftpal.ir/page/2/%D9%82%D9%88%D8%A7%D9%86%DB%8C%D9%86-%D9%88-%D9%85%D9%82%D8%B1%D8%B1%D8%A7%D8%AA'>قوانین </a> سایت را قبول دارم.</label>
                             </div>
                             <button onclick="removeDisable()" class="btn btn-primary btn-lg w-100" type="submit">ثبت نام</button>
                         </form>
