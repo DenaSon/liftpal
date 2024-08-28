@@ -59,9 +59,9 @@
             </a>
         </div>
         <div class="col">
-            <a class="dropdown-icon-item" href="{{ route('customers.index') }}">
+            <a class="dropdown-icon-item" href="{{ route('user.index') }}">
                 <span class="mdi mdi-account-group-outline font-28 text-pink"></span>
-                <span>مشتری ها</span>
+                <span> کاربران</span>
             </a>
         </div>
     </div>
@@ -137,11 +137,7 @@
 
 </div>
 
-<!-- All-->
-<a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-    مشاهده همه
-    <i class="fe-arrow-right"></i>
-</a>
+
 
 </div>
 </li>
@@ -215,7 +211,7 @@
 </li>
 
 <li class=" notification-list">
-<a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+<a href="{{ route('setting') }}" class="nav-link right-bar-toggle waves-effect waves-light">
 <i class="fe-settings noti-icon"></i>
 </a>
 </li>
@@ -316,7 +312,7 @@
 
     <li>
         <a class="nav-link  waves-effect waves-light" href="{{ route('home') }}">
-           مشاهده سایت 
+           مشاهده سایت
             <i class="mdi mdi-home"></i>
         </a>
 
