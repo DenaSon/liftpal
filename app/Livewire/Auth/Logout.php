@@ -9,14 +9,10 @@ class Logout extends Component
     public function logout()
     {
         auth()->logout();
-
         // Invalidate the user's session
         session()->invalidate();
-
         // Regenerate the CSRF token to prevent CSRF attacks
         session()->regenerateToken();
-
-
         $this->redirectRoute('home');
 
     }
