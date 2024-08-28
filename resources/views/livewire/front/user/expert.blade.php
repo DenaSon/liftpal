@@ -29,7 +29,7 @@
                     <h3 class="h5 d-flex justify-content-center justify-content-md-start">مهارت ها</h3>
                     <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
                         @foreach($user?->skills as $skill)
-                            <li class="col"><i
+                            <li class="col" wire:key="{{$skill->id}}"><i
                                     class="fi-education mt-n1 me-2 fs-lg align-middle"></i> {{ $skill?->name }}</li>
                         @endforeach
 
@@ -41,7 +41,7 @@
                 @include('livewire.front.user.expert-inc.comment-form')
 
                 @foreach($comments_list as $index=> $comment)
-                <div class="mb-4 pb-4 border-bottom">
+                <div class="mb-4 pb-4 border-bottom" wire:key="{{ $comment->id }}">
                     <div class="d-flex justify-content-between mb-3 mt-4">
                         <div class="d-flex align-items-center pe-2">
                             <div class="ps-2 ">
