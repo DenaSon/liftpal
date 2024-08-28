@@ -96,7 +96,7 @@
                     <label for="floatingTextarea">پیام خود را وارد نمایید</label>
                 </div>
 
-                <button class="btn btn-lg btn-primary d-block w-100" type="submit">ارسال پیام</button>
+                <button  class="btn btn-lg @if(!auth()->check()) btn-secondary @else btn-primary @endif   d-block w-100" type="submit">ارسال پیام</button>
             </form>
 
         </div>

@@ -14,7 +14,7 @@
 
             <div class="mt-3 d-flex justify-content-center justify-content-md-end">
 
-                <button @if(!auth()->check()) disabled @endif  type="submit" class="btn btn-primary">ثبت دیدگاه</button>
+                <button  type="submit" class="btn btn-primary">ثبت دیدگاه</button>
             </div>
         </form>
 
