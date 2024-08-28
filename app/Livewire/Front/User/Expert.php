@@ -31,6 +31,11 @@ class Expert extends Component
 
     public function sendMessage()
     {
+        if (!auth()->check())
+        {
+            $this->alert('info','لطفا ابتدا وارد حساب کاربری خود شوید.');
+        }
+
         try
         {
             $this->validate(
