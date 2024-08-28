@@ -216,18 +216,30 @@ function getSetting(string $key = null): mixed
 function setLog($action = null, $description = null, $severity = null)
 {
 
-    $logOnOff = getSetting('log_on_off');
-    if ($logOnOff == 'on') {
-        $log = new Log();
-        $user_id = Auth::check() ? Auth::id() : null;
-        $request = request();
-        $log->user_id = $user_id;
-        $log->action = $action;
-        $log->description = $description;
-        $log->ip_address = $request->ip();
-        $log->user_agent = $request->userAgent();
-        $log->severity = $severity;
-        $log->save();
+    try {
+
+        $logOnOff = getSetting('log_on_off');
+        if ($logOnOff == 'on') {
+            $log = new Log();
+            $user_id = Auth::check() ? Auth::id() : null;
+            $request = request();
+            $log->user_id = $user_id;
+            $log->action = $action;
+            $log->description = $description;
+            $log->ip_address = $request->ip();
+            $log->request_payload = json_encode($request->all()); // Convert request data to JSON
+
+            $log->user_agent = $request->userAgent();
+            $log->severity = $severity;
+            $log->save();
+
+        }
+
+    }
+    catch (Throwable $e)
+    {
+
+        Log::error('Failed to save log entry: ' . $e->getMessage());
 
     }
 

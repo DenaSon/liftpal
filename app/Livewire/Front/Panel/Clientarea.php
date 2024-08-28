@@ -60,6 +60,7 @@ class Clientarea extends Component
             catch (\Exception $e) {
 
                 $this->alert('warning',$e->getMessage());
+                setLog('Upload-Profile-Optimize',$e->getMessage(),'danger');
             }
 
 
