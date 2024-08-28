@@ -34,7 +34,7 @@ class Messages extends Component
     }
     public function render()
     {
-        $message_list = auth()->user()->messages()->latest()->paginate(2);
+        $message_list = auth()->user()->messages()->latest()->paginate(10);
         return view('livewire.front.panel.components.messages', compact('message_list'));
     }
 

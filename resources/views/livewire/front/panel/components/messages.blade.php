@@ -19,6 +19,7 @@
                         <span class="badge bg-faded-accent rounded-pill  ms-2">
 
                        {{ $message->sender?->profile?->name ?? 'ثبت نشده' }} {{ $message->sender?->profile?->last_name ?? 'ثبت نشده' }}
+                            @if($message->sender?->role == 'admin')  <i>مدیر</i>   @endif
 
                     </span>
                     </div>

@@ -192,7 +192,7 @@ class UserController extends Controller
             $password = $request->input('password') ?? null;
             $notify = $request->input('notify') ?? null;
             //$expertise = $request->input('expertise');
-            $gender = $request->input('gender');
+            //$gender = $request->input('gender');
             $status = $request->input('userStatus') ?? null;
             $role = $request->input('role') ?? null;
 
