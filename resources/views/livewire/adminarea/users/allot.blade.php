@@ -5,12 +5,12 @@
         <div class="col-12 card text-center mt-3">
 
 
-            <div class="card-body" wire:ignore>
+            <div class="card-body">
 
 
                     <div class="form-group">
                     <div class="m-2  w-50">
-                        <input class="form-control" type="search" wire:model.live.debounce.250ms="buildingFilter"
+                        <input class="form-control" type="search" wire:model.live="buildingFilter"
                                placeholder="نام ساختمان">
                     </div>
                     <select class="m-2 p-1 form-control w-100" wire:model="buildingId">

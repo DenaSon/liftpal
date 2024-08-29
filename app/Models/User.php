@@ -59,6 +59,9 @@ class User extends Authenticatable implements MustVerifyEmail
      }
 
 
+
+
+
     public function company(): HasOneThrough
     {
         return $this->hasOneThrough(
