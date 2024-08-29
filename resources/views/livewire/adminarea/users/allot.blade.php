@@ -68,7 +68,7 @@
                                 class="form-control"
                                 type="search"
                                 wire:model.live="technicianFilter"
-                                placeholder="شماره تلفن تکنسین"
+                                placeholder="شماره کارشناس فنی"
                             >
                         </div>
                         <select class="m-2 p-1 form-control w-100" wire:model="technicianId">
