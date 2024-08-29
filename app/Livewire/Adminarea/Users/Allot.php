@@ -14,7 +14,7 @@ class Allot extends Component
 {
     use  LivewireAlert;
 
-   public $technicianId='',$companyId='',$buildingId;
+   public $technicianId='',$companyId='',$buildingId,$buildingTechnicians=[];
 
     public $companies = [];
     public $buildings = [];
@@ -74,6 +74,20 @@ class Allot extends Component
                 'technicianId' => 'required|exists:users,id',
             ]);
 
+            $building = \App\Models\Building::find($this->buildingId);
+
+
+            $exists = $building->technicians()->wherePivot('company_id', $this->companyId)
+                ->where('user_id', $this->technicianId)->exists();
+
+            if (!$exists) {
+
+                $building->technicians()->attach($this->technicianId, ['company_id' => $this->companyId]);
+
+                $this->alert('success', 'تخصیص کارشناس فنی برای ساختمان با موفقیت انجام شد');
+            } else {
+                $this->alert('info', 'این تکنسین برای این ساختمان از قبل ثبت شده است');
+            }
 
 
         }
@@ -90,6 +104,12 @@ class Allot extends Component
         $this->companies = Company::take(20)->latest()->get();
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
+
+        $this->buildingTechnicians = \App\Models\Building::with(['technicians' => function ($query) {
+            $query->withPivot('company_id')->with('tcompanies');
+        }])->get();
+
+
     }
 
     public function buildingFilter()

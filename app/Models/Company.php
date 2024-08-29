@@ -17,14 +17,13 @@ class Company extends Model
         'registration_code'
     ];
 
-
     public function technicians()
     {
-        return $this->hasMany(Profile::class, 'company_id')
-            ->whereHas('user', function($query) {
-                $query->where('role', 'technician');
-            });
+        return $this->belongsToMany(User::class, 'building_technician')
+            ->withPivot('building_id')
+            ->withTimestamps();
     }
+
 
     public function requests()
     {

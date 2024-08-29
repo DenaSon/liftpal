@@ -35,6 +35,26 @@ class User extends Authenticatable implements MustVerifyEmail
          'role'
      ];
 
+
+    public function tbuildings()
+    {
+        return $this->belongsToMany(Building::class, 'building_technician')
+            ->withPivot('company_id')
+            ->withTimestamps();
+    }
+
+    public function tcompanies()
+    {
+        return $this->belongsToMany(Company::class, 'building_technician')
+            ->withPivot('building_id')
+            ->withTimestamps();
+    }
+
+
+
+
+
+
      public function getRole()
      {
          switch ($this->role)

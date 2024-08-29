@@ -44,6 +44,8 @@ class Building extends Model
     }
 
 
+
+
     public function companies()
     {
         return $this->belongsToMany(Company::class, 'building_technician', 'building_id', 'company_id')

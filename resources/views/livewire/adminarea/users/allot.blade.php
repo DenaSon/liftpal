@@ -75,7 +75,7 @@
                             @if($technicians->isEmpty())
                                 <option value="">بدون نتیجه</option>
                             @else
-
+                                <option selected> انتخاب کارشناس فنی </option>
                                 @foreach($technicians as $index => $technician)
                                     <option value="{{ $technician->id }}" wire:key="{{ $technician->id }}">
                                         {{ $technician->id }} - {{ $technician->name }}  {{ $technician->profile->name }} {{ $technician->profile->last_name }}
@@ -97,9 +97,28 @@
         </div>
 
 
-    </div>
+{{--                <table>--}}
+{{--                    <thead>--}}
+{{--                    <tr>--}}
+{{--                        <th>نام تکنسین</th>--}}
+{{--                        <th>نام ساختمان</th>--}}
+{{--                        <th>نام شرکت</th>--}}
+{{--                    </tr>--}}
+{{--                    </thead>--}}
+
+{{--                </table>--}}
+
+{{--            </div>--}}
+
+
+
+{{--            @foreach($buildingTechnicians as $build)--}}
+
+{{--                {{ $build->technicians->first()->profile->name }}--}}
+
+{{--            @endforeach--}}
 
 
 </div>
 
-
+</div>
