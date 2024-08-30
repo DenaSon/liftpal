@@ -107,15 +107,33 @@ class Allot extends Component
 
         $this->buildingTechnicians = \App\Models\Building::with(['technicians' => function ($query) {
             $query->withPivot('company_id')->with('tcompanies');
-        }])->get();
+        }])->latest('created_at')->get();
 
 
     }
 
-    public function buildingFilter()
+
+    public function deleteRelation($technicianId, $buildingId, $companyId)
     {
+        try {
 
+            $building = \App\Models\Building::findOrFail($buildingId);
+
+
+            $building->technicians()->wherePivot('company_id', $companyId)->detach($technicianId);
+
+
+            $this->buildingTechnicians = \App\Models\Building::with(['technicians', 'companies'])->get();
+
+           $this->alert('success','ارتباط با موفقیت حذف شد');
+
+        } catch (\Exception $e) {
+            // Handle any errors
+            $this->alert('warning', $e->getMessage());
+        }
     }
+
+
 
 
     public function render()
