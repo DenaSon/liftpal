@@ -31,6 +31,11 @@
                    href="{{ route('management',['page'=>'allot']) }}"><i
                         class="fi-user opacity-60 me-2"></i> تخصیص</a>
 
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'eed-create') active @endif"
+                   href="{{ route('management',['page'=>'eed-create']) }}"><i
+                        class="fi-flame opacity-60 me-2"></i>سیستم EED</a>
+
+
                 <a class="card-nav-link" href="#">
                     <i class="fi-logout opacity-60 me-2"></i>
                     @livewire('auth.logout')

@@ -27,6 +27,9 @@ class adminPanel extends Component
             case 'dashboard':
                 $this->pageTitle = 'داشبورد';
                 break;
+            case 'eed-create':
+                $this->pageTitle = 'سیستم کشف خطا EED';
+                break;
 
             default:
 

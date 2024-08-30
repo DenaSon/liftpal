@@ -25,6 +25,8 @@
                 <livewire:adminarea.users.allot>
                 @elseif(request()->input('page') == 'dashboard')
                 <livewire:adminarea.dashboard/>
+                @elseif(request()->input('page') == 'eed-create')
+                <livewire:adminarea.eed.eed-create/>
                 @else
 
                 @endif

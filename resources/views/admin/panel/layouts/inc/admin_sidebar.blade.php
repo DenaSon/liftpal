@@ -228,7 +228,7 @@
                 <ul class="nav-second-level">
 
                     <li>
-                        <a target="_blank" href="{{ route('management',['page'=>'dashboard']) }}">  داشبورد    </a>
+                        <a target="_blank" href="{{ route('management',['page'=>'dashboard']) }}"> پنل مدیریتی    </a>
                     </li>
 
 {{--                    <li>--}}
