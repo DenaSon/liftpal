@@ -199,7 +199,7 @@ return [
         'title' => 'عنوان',
         'text' => 'متن',
         'content' => 'محتوا',
-        'description' => 'خلاصه',
+        'description' => 'توضیحات',
         'date' => 'تاریخ',
         'time' => 'زمان',
         'available' => 'موجود',

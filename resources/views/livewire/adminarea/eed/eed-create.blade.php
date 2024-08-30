@@ -13,11 +13,26 @@
                 <input class="form-control" type="text" wire:model="code" id="type" placeholder="کد:">
             </div>
 
+
+            <div class="mt-3">
+                <div class="form-floating mb-3">
+                    <textarea wire:model="description" class="form-control" id="floatingInput" placeholder="شرح خطا"></textarea>
+
+                    <label for="floatingInput">شرح خطا </label>
+                </div>
+
+            </div>
+
+
             <div class="mt-3">
 
                 <button class="btn btn-primary" wire:click="storeCode">ثبت</button>
 
             </div>
+
+
+
+
 
 
         </div>
@@ -35,6 +50,7 @@
                         <th>#</th>
                         <th>نوع تابلو</th>
                         <th>  کد خطا</th>
+                        <th>شرح</th>
                         <th>اقدامات</th>
 
                     </tr>
@@ -45,6 +61,7 @@
                         <th scope="row">{{ $index +1 }}</th>
                         <td>{{ $error->type }}</td>
                         <td>{{ $error->code }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($error->description,25,'...') }}</td>
                         <td>
                          <a wire:confirm="از حذف خطا اطمینان دارید؟" href="#" wire:click="remove({{$error->id}})">   <i class="fi fi-trash me-4"></i></a>
                             <a href="#" wire:click="edit{{$error->id}}">  <i class="fi fi-edit text-warning"></i> </a>

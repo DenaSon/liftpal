@@ -13,7 +13,7 @@ class EedCreate extends Component
 {
 
 
-    public   $code = '', $type = '';
+    public   $code = '', $type = '', $description = '';
 
 
     use LivewireAlert,WithPagination,WithoutUrlPagination;
@@ -29,7 +29,7 @@ class EedCreate extends Component
 
 
         try {
-            $this->validate(['code' => 'required|string|max:150','type' => 'required|string|max:150']);
+            $this->validate(['code' => 'required|string|max:150','type' => 'required|string|max:150','description' => 'required|string|max:1000|min:5']);
             $exists = Error::whereCode($this->code)->whereType($this->type)->first();
             if ($exists)
             {
@@ -41,6 +41,7 @@ class EedCreate extends Component
                 $error = new Error();
                 $error->type = $this->type;
                 $error->code = $this->code;
+                $error->description = $this->description;
                 $error->save();
                 $this->alert('success','خطا با موفقیت ثبت شد');
                 $this->reset();
