@@ -60,7 +60,11 @@ class EedCreate extends Component
         Error::findorFail($id)->delete();
         $this->alert('success','خطا حذف شد');
     }
+    public function edit($id)
+    {
 
+        $this->alert('info','ویرایش ره سی صب');
+    }
 
 
 

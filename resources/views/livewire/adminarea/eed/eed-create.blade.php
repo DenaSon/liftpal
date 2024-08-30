@@ -64,7 +64,7 @@
                         <td>{{ \Illuminate\Support\Str::limit($error->description,25,'...') }}</td>
                         <td>
                          <a wire:confirm="از حذف خطا اطمینان دارید؟" href="#" wire:click="remove({{$error->id}})">   <i class="fi fi-trash me-4"></i></a>
-                            <a href="#" wire:click="edit{{$error->id}}">  <i class="fi fi-edit text-warning"></i> </a>
+                            <a href="#" wire:click="edit({{$error->id}})">  <i class="fi fi-edit text-warning"></i> </a>
                         </td>
 
                     </tr>
