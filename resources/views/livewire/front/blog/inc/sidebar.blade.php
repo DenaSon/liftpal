@@ -1,4 +1,4 @@
-        <div class="col-lg-3 col-md-1 mb-md-0 mb-4 mt-md-n5">
+        <div class="col-lg-3 col-md-1 mb-md-0 mb-4 mt-md-n5 order-sm-3">
         <!-- Sharing-->
         <div class="sticky-top py-md-5 mt-md-5">
 
