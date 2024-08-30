@@ -20,7 +20,8 @@
         <link rel="mask-icon" color="#5bbad5" href="{{ asset('favico.png') }}">
         <meta name="msapplication-TileColor" content="#766df4">
         <meta name="theme-color" content="#ffffff">
-
+        <script src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}"></script>
+    <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
 
 @yield('css')
 @stack('styles')
@@ -35,9 +36,12 @@
 {{ $slot }}
 
 </div>
-
-@yield('js')
 <x-livewire-alert::scripts/>
+<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+@yield('js')
+
 </body>
 
 </html>

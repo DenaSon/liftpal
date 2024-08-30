@@ -57,7 +57,7 @@
                 <div class="row g-2 py-4">
 
                     <div class="d-flex justify-content-center">
-                        <button wire:loading type="button" class="btn btn-primary btn-icon">
+                        <button wire:loading.attr="disabled" wire:loading.class="d-none" type="button" class="btn btn-primary btn-icon">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -133,7 +133,6 @@
 
     @section('js')
         <script data-navigate-once src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
         <x-livewire-alert::scripts/>
         <script data-navigate-once
                 src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

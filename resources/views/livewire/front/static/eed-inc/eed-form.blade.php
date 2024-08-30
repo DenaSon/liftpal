@@ -28,13 +28,16 @@
 
         </div>
 
+
         <div class="text-center">
             <div wire:loading class="spinner-grow text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
 
-        @if($this->result)
+
+
+    @if($this->result)
 
             <div class="milad alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
                 <h4 class="alert-heading fs-sm">

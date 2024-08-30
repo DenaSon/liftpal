@@ -73,22 +73,19 @@
         <div wire:ignore class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll w-100" style="max-height: 35rem;">
 
-                <!-- Menu items-->
+                @auth
+                    <li class="nav-item"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
+                                            role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
+                    </li>
+
+                @endauth
 
 
                 <li class="nav-item "><a wire:navigate class="nav-link" href="{{ route('shop') }}"
                                          role="button"
                                          data-bs-toggle="dropdown" aria-expanded="false">فروشگاه</a>
                 </li>
-
-
-                @auth
-                    <li class="nav-item"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
-                                             role="button"
-                                             data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
-                    </li>
-
-                @endauth
 
 
 
@@ -105,7 +102,6 @@
 
                 @if(!auth()->check())
                 <li class="nav-item active ms-lg-auto"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal">ورود به حساب </a> </li>
-
 
                 @endif
 
