@@ -26,24 +26,25 @@
     @livewireStyles
 
     <!-- Core JS Files -->
-    <script data-navigate-onc src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}" defer></script>
+    <script data-navigate-onc src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}" ></script>
+    <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}" ></script>
 </head>
 
 <body dir="rtl">
-<div id="main-wrapper">
-    {{ $slot }}
-</div>
-
-<!-- Scripts -->
-@yield('js')
-<script src="{{ asset('assets/js/theme.min.js') }}" defer></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-<script data-navigate-onc src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" defer></script>
-
-
 @livewireScripts
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
+<div id="main-wrapper">
+
+    {{ $slot }}
+
+</div>
 <x-livewire-alert::scripts/>
+
+
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" defer></script>
+@yield('js')
+<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}" defer></script>
 </body>
 
 </html>
