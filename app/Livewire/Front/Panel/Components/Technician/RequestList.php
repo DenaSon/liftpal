@@ -13,6 +13,7 @@ class RequestList extends Component
 
     public $request_list = [];
     public $id;
+
     public $referral;
     public $request_history = [];
 
@@ -71,12 +72,28 @@ class RequestList extends Component
                 ->update(['status' => 'cancelled']);
 
             $this->alert('info', 'درخواست تایید شد');
+            $request = Request::findOrFail($id);
+            $building_owner_number = $request->building->owner->phone;
+            $template_id = config('sms.technician_name_alert');
+            $technician_name = auth()->user()->profile?->name. ' ' .auth()->user()->profile?->last_name;
+            $this->sendSmsToManager($technician_name,$building_owner_number,$template_id);
+
+
+
         }
         catch (Throwable $e) {
             $this->alert('error', $e->getMessage());
+            setLog('Technician_Accept_Request',$e->getMessage(),'danger');
         }
     }
 
+
+    private function sendSmsToManager($technician_name,$building_owner_number,$template_id): void
+    {
+        $parameter = new \Cryptommer\Smsir\Objects\Parameters('TECHNICIAN_NAME',$technician_name);
+        $parameters = array($parameter);
+        sendVerifySms($building_owner_number,$template_id,$parameters);
+    }
 
 
     public function render()
