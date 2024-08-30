@@ -119,7 +119,7 @@
                             <tr wire:key="relation-{{$technician->id}}-{{$building->id}}-{{ $company->id }}">
                                 <td>{{ $loop->iteration }}</td> <!-- Increment counter -->
 
-                                <td class="fw-bolder">{{ $technician->profile->name }}</td>
+                                <td class="fw-bolder">{{ $technician?->profile?->name }} {{ $technician?->profile?->last_name }}</td>
                                 <td class="fw-bolder">{{ $building->builder_name }} - ({{$building->owner?->profile?->name}} {{$building->owner?->profile?->last_name}})</td>
                                 <td class="fw-bolder">{{ $company->name }}</td>
                                 <td>
