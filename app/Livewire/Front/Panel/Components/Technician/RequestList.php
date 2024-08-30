@@ -76,6 +76,7 @@ class RequestList extends Component
             $building_owner_number = $request->building->owner->phone;
             $template_id = config('sms.technician_name_alert');
             $technician_name = auth()->user()->profile?->name. ' ' .auth()->user()->profile?->last_name;
+
             $this->sendSmsToManager($technician_name,$building_owner_number,$template_id);
 
 

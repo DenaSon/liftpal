@@ -32,7 +32,7 @@
 
 <body dir="rtl">
 @livewireScripts
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script data-navigate-once src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
 <div id="main-wrapper">
 
@@ -42,9 +42,9 @@
 <x-livewire-alert::scripts/>
 
 
-<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" defer></script>
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 @yield('js')
-<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}" defer></script>
+<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
 </body>
 
 </html>

@@ -2,8 +2,8 @@
 <!-- Top offers (carousel)-->
 <section class="container mb-5 pb-md-4">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h2 class="h3 mb-0 ">مقالات آموزشی</h2><a class="btn btn-link fw-normal p-0"
-                                                  href="">مشاهده همه <i
+        <h2 class="h3 mb-0 ">مقالات آموزشی</h2><a wire:navigate class="btn btn-link fw-normal p-0"
+                                                  href="{{ route('blogIndex') }}">مشاهده همه <i
                 class="fi-arrow-long-left ms-2"></i></a>
     </div>
     <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2" dir="ltr">
