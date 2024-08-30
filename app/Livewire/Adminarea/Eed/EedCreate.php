@@ -63,7 +63,7 @@ class EedCreate extends Component
     public function edit($id)
     {
 
-        $this->alert('info','ویرایش ره سی صب');
+        $this->alert('info','ویرایش ره سی فردا');
     }
 
 
