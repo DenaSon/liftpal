@@ -216,21 +216,24 @@
         </li>
 
 
-        <li class="menu-title mt-2"> آسانسور </li>
+        <li class="menu-title mt-2"> مدیریت  </li>
 
         <li>
             <a href="#sidebarElevator" data-bs-toggle="collapse">
                 <i class="mdi mdi-elevator"></i>
-                <span>  آسانسور </span>
+                <span>  سیستم مدیریت </span>
                 <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarElevator">
                 <ul class="nav-second-level">
 
                     <li>
-                        <a href="{{ route('eed.index') }}">   سیستم EED  </a>
-
+                        <a target="_blank" href="{{ route('management',['page'=>'dashboard']) }}">  داشبورد    </a>
                     </li>
+
+{{--                    <li>--}}
+{{--                        <a target="_blank" href="{{ route('management',['page'=>'allot']) }}">  تخصیص کارشناس   </a>--}}
+{{--                    </li>--}}
 
                 </ul>
             </div>

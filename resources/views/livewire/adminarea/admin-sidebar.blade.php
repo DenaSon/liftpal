@@ -2,7 +2,7 @@
     <!-- Account nav-->
     <div class="card card-body border-0 shadow-sm pb-1 me-lg-1">
         <div class="d-flex d-md-block d-lg-flex align-items-start justify-content-center pt-lg-2 mb-4">
-            <img src="{{ asset('admin/assets/images/users/default.png') }}" alt="" class="w-75 mx-auto" style="height:160px !important;" />
+            <img src="{{ asset('media/managerpng.jpg') }}" alt="" class="w-75 mx-auto"  width="150"/>
         </div>
 
     @if(Auth::user()->isRole('manager'))

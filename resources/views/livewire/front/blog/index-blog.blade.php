@@ -46,7 +46,7 @@
                         class="fi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-8 offset-lg-2 order-md-2 order-1">
+            <div class="col-lg-6 col-md-8 offset-lg-2 d-none d-md-block">
                 <div class="row gy-3">
                     <div class="col-6 d-flex flex-sm-row flex-column align-items-sm-center">
                         <label class="d-inline-block ms-sm-2 mb-sm-0 mb-2 text-nowrap" for="categories"><i
