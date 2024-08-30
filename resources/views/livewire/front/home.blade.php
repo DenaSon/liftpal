@@ -30,7 +30,14 @@
 
 @section('js')
 
+
+
+
+            <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+
             <script data-navigate-onc src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
+
+
 
 @endsection
         @script
