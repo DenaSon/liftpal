@@ -6,7 +6,7 @@
         <div class="row justify-content-center ">
 
             <div class=" col-md-9 ">
-                <div class="me-md-5 rounded-3 p-3">
+                <div class="me-md-5 rounded-3 p-3 text-center">
 
 
                     <p class="text-dark fs-xs text-justify text-light text-shadow-lg" style="line-height:30px">
@@ -29,12 +29,12 @@
                 href="#"><i class="fi-viber"></i></a><a
                 class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2"
                 href="#"><i class="fi-telegram"></i></a></div>
-        <div class="text-center fs-sm pt-1 mt-1 pb-2">
-            &copy; تمام حقوق این سایت محفوظ است
+{{--        <div class="text-center fs-sm pt-1 mt-1 pb-2">--}}
+{{--            &copy; تمام حقوق این سایت محفوظ است--}}
 
-            <a href=''
-               class='d-inline-block nav-link p-0'
-               rel='noopener'></a></div>
+{{--            <a href=''--}}
+{{--               class='d-inline-block nav-link p-0'--}}
+{{--               rel='noopener'></a></div>--}}
 
     </div>
 </footer>
