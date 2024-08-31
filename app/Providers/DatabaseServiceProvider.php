@@ -47,6 +47,7 @@ class DatabaseServiceProvider extends ServiceProvider
             'request' => 'App\Models\Request',
             'comment' => 'App\Models\Comment',
             'company' => 'App\Models\Company',
+            'buildingTechnician' => 'App\Models\BuildingTechnician',
 
         ]);
 

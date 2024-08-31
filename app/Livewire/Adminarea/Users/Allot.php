@@ -3,6 +3,7 @@
 namespace App\Livewire\Adminarea\Users;
 
 use App\Livewire\Front\Panel\Components\Building;
+use App\Models\BuildingTechnician;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -14,12 +15,11 @@ class Allot extends Component
 {
     use  LivewireAlert;
 
-   public $technicianId='',$companyId='',$buildingId,$buildingTechnicians=[];
+   public $technicianId='',$companyId='',$buildingId;
 
     public $companies = [];
     public $buildings = [];
-    public $technicians;
-
+    public $technicians = [];
     public $buildingFilter = null;
     public $companyFilter = null;
     public $technicianFilter = null;
@@ -105,9 +105,8 @@ class Allot extends Component
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
 
-        $this->buildingTechnicians = \App\Models\Building::with(['technicians' => function ($query) {
-            $query->withPivot('company_id')->with('tcompanies');
-        }])->latest('created_at')->get();
+
+
 
 
     }
@@ -138,6 +137,9 @@ class Allot extends Component
 
     public function render()
     {
-        return view('livewire.adminarea.users.allot');
+
+        $buildingTechnician = BuildingTechnician::where('company_id', 1)->first();
+
+        return view('livewire.adminarea.users.allot',compact('buildingTechnician'));
     }
 }

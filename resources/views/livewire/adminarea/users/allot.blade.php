@@ -103,8 +103,8 @@
                 <thead>
                 <tr>
                     <th scope="row">#</th>
-                    <th>نام تکنسین</th>
-                    <th>نام ساختمان</th>
+                    <th>کارشناس فنی</th>
+                    <th> ساختمان</th>
                     <th>نام شرکت</th>
                     <th>اقدامات</th>
 
@@ -112,26 +112,9 @@
                 </thead>
                 <tbody>
 
-                @foreach($buildingTechnicians as $index => $building)
-                    @foreach($building->technicians as $technician)
-                        @foreach($building->companies as $company)
 
-                            <tr wire:key="relation-{{$technician->id}}-{{$building->id}}-{{ $company->id }}">
-                                <td>{{ $loop->iteration }}</td> <!-- Increment counter -->
 
-                                <td class="fw-bolder">{{ $technician?->profile?->name }} {{ $technician?->profile?->last_name }}</td>
-                                <td class="fw-bolder">{{ $building->builder_name }} - ({{$building->owner?->profile?->name}} {{$building->owner?->profile?->last_name}})</td>
-                                <td class="fw-bolder">{{ $company->name }}</td>
-                                <td>
-                                    <button wire:click="deleteRelation({{ $technician->id }}, {{ $building->id }}, {{ $company->id }})" class="btn btn-outline-danger btn-xs" onclick="return confirm('ارتباط حذف شود؟');">
-                                        <i class="fi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
 
-                        @endforeach
-                    @endforeach
-                @endforeach
                 </tbody>
             </table>
         </div>
