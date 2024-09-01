@@ -102,30 +102,34 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="row">#</th>
-                    <th>کارشناس فنی</th>
-                    <th> ساختمان</th>
-                    <th>نام شرکت</th>
-                    <th>اقدامات</th>
-
+                    <th scope="col">#</th>
+                    <th>ساختمان</th>
+                    <th> کارشناسان </th>
+                    <th>شرکت </th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($buildings as $index => $building)
+                    <tr wire:key="building-{{ $building->id }}">
+                        <td>{{ $index + 1 }}</td>
+                        <td class="fw-bolder">{{ $building->builder_name }}</td>
 
-                    @foreach($buildings as $building)
-                        <hr>
-                        {{ $building->builder_name }}  =
-                        @foreach($building->technicians as $singleTech)
-                                {{ $singleTech?->profile?->name }}   {{ $singleTech?->profile?->last_name }}
-                        @endforeach
-                        <hr>
-
-                    @endforeach
-
+                        <td>
+                          <button class="btn btn-xs btn-outline-primary" data-bs-toggle="modal" data-bs-target="#technicians-modal-{{$building->id}}">
+                              <i class="fi-users"></i>
+                          </button>
+                        </td>
+                        <td>
+                            {{ $building->companies?->first()?->name }}
+                        </td>
+                    </tr>
+                    @include('livewire.adminarea.users.allot-inc.show-technicians')
+                @endforeach
 
                 </tbody>
             </table>
         </div>
+
 
 
 

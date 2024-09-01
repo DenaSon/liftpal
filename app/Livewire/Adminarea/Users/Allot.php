@@ -78,16 +78,27 @@ class Allot extends Component
             $building = \App\Models\Building::find($this->buildingId);
 
 
-            $exists = $building->technicians()->wherePivot('company_id', $this->companyId)
-                ->where('user_id', $this->technicianId)->exists();
+            $exists_all = $building->technicians()
+                ->wherePivot('company_id', $this->companyId)
+                ->wherePivot('user_id', $this->technicianId)
+                ->exists();
 
-            if (!$exists) {
 
+            $exists_company = $building->technicians()
+                ->wherePivot('company_id', $this->companyId)
+                ->exists();
+
+            if (!$exists_all && !$exists_company) {
                 $building->technicians()->attach($this->technicianId, ['company_id' => $this->companyId]);
 
                 $this->alert('success', 'تخصیص کارشناس فنی برای ساختمان با موفقیت انجام شد');
             } else {
-                $this->alert('info', 'این تکنسین برای این ساختمان از قبل ثبت شده است');
+
+                if ($exists_all) {
+                    $this->alert('info', 'این تکنسین و شرکت قبلاً به این ساختمان تخصیص داده شده‌اند');
+                } elseif ($exists_company) {
+                    $this->alert('info', 'این شرکت قبلاً به این ساختمان تخصیص داده شده است');
+                }
             }
 
 
