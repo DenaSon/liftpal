@@ -36,14 +36,10 @@ class Building extends Model
 
     public function technicians()
     {
-        return $this->belongsToMany(User::class, 'building_technician')
+        return $this->belongsToMany(User::class, 'building_technician', 'building_id', 'user_id')
             ->withPivot('company_id')
-            ->withTimestamps()
-            ->as('technician')
-            ->where('role', 'technician');
+            ->withTimestamps();
     }
-
-
 
 
     public function companies()

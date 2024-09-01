@@ -112,7 +112,11 @@
                 </thead>
                 <tbody>
 
+                    @foreach($buildings as $building)
 
+                        {{ $building->builder_name }} - {{ $building->technicians->first()?->profile?->name  }}
+
+                    @endforeach
 
 
                 </tbody>

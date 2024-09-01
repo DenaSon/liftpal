@@ -106,7 +106,6 @@ class Allot extends Component
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
 
-
     }
 
 
