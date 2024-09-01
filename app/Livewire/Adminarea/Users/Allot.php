@@ -107,8 +107,6 @@ class Allot extends Component
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
 
 
-
-
     }
 
 

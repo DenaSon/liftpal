@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class BuildingTechnician extends Model
 {
+
+    public $incrementing =  false;
+    protected $keyType = 'array';
     protected $table = 'building_technician';
 
     // If your table has primary key columns other than 'id', specify them
