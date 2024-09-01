@@ -6,6 +6,7 @@ use App\Livewire\Front\Panel\Components\Building;
 use App\Models\BuildingTechnician;
 use App\Models\Company;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -104,7 +105,6 @@ class Allot extends Component
         $this->companies = Company::take(20)->latest()->get();
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
         $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
-
 
 
 
