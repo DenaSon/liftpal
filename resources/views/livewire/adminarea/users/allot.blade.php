@@ -113,8 +113,12 @@
                 <tbody>
 
                     @foreach($buildings as $building)
-
-                        {{ $building->builder_name }} - {{ $building->technicians->first()?->profile?->name  }} <br/>
+                        <hr>
+                        {{ $building->builder_name }}  =
+                        @foreach($building->technicians as $singleTech)
+                                {{ $singleTech?->profile?->name }}   {{ $singleTech?->profile?->last_name }}
+                        @endforeach
+                        <hr>
 
                     @endforeach
 
