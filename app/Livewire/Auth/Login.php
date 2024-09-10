@@ -136,7 +136,7 @@ class Login extends Component
     public function login()
     {
 
-    $this->alert('success',$this->phone);
+    $this->alert('success',convertPersianNumbers($this->phone));
 
 
     }
