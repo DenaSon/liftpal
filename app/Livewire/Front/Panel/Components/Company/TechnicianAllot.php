@@ -60,7 +60,7 @@ class TechnicianAllot extends Component
 
     public function render()
     {
-        $technicians  = auth()->user()->companies->first()->technicians ?? [];
+        $technicians  = auth()->user()->company->technicians ??  [];
         return view('livewire.front.panel.components.company.technician-allot', compact('technicians'));
     }
 }
