@@ -1,5 +1,5 @@
 <div>
-    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="#paginated">
+    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="paginated-users">
 
 
         <div class="d-flex justify-content-between">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="pagination">
-        {{ $users->links(data: ['scrollTo' => '#paginated'])}}
+        {{ $users->links(data: ['scrollTo' => '#paginated-users'])}}
     </div>
 
     @if($users->isEmpty())
