@@ -31,7 +31,7 @@
             <tbody>
 
             @foreach($requests as $request)
-                <tr class="a @if($request->status == 'accepted') bg-success text-white @endif">
+                <tr class="@if($request->status == 'accepted') bg-success @endif">
 
                     @if($request->has('building'))
 
