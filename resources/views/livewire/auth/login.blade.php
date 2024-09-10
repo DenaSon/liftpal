@@ -21,7 +21,7 @@
                         <form wire:submit="login" class="needs-validation" novalidate>
                             <div class="mb-4">
                                 <label class="form-label mb-2" for="signin-email">شماره تلفن </label>
-                                <input wire:model="phone" class="form-control" type="text" id="signin-email" min="8"
+                                <input wire:model="phone" class="form-control" type="number" id="signin-email" min="8"
                                        placeholder="شماره تلفن" required>
                                 @error('phone') {{ $message }} @enderror
                             </div>
