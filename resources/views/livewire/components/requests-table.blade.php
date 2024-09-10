@@ -25,7 +25,7 @@
                 <th>کارشناس</th>
                 <th>وضعیت</th>
 
-                <th>زمان </th>
+                <th>زمان</th>
             </tr>
             </thead>
             <tbody>
