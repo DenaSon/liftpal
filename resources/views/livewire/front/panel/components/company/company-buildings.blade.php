@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between">
         <span class="m-1 pt-2 pe-2 ps-2 fw-bold">
             <i class="fi-building me-2"></i>
-         ساختمان های مرتبط با شرکت   {{ Auth::user()->companies()->first()->name }}
+         ساختمان های مرتبط با شرکت   {{ Auth::user()->company->first()->name }}
         </span>
             <span class="m-1 pt-2 pe-2 ps-2">
                 <span class="badge bg-faded-info fw-lighter fs-sm text-waiting"> {{ $buildings?->count() ?? '0' }} </span>
