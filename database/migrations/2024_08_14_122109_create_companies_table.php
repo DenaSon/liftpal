@@ -13,15 +13,18 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('name')->nullable();
             $table->string('manager_national_code');
-            $table->string('national_id')->nullable();
+            $table->string('licence_code')->nullable();
             $table->string('economic_code')->nullable();
             $table->string('registration_code')->nullable();
             $table->string('province')->nullable();
             $table->text('address')->nullable();
-            $table->string('email');
+            $table->string('telephone')->nullable();
             $table->date('license_expiration_date')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
