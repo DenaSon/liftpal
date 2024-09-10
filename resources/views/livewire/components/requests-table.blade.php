@@ -23,6 +23,7 @@
                 <th> ساختمان</th>
                 <th>شرکت</th>
                 <th>کارشناس</th>
+                <th>وضعیت</th>
 
                 <th>زمان </th>
             </tr>
@@ -40,6 +41,7 @@
                         <td> {{ $request?->building->builder_name }}</td>
                         <td> {{ $request?->building->companies->first()->name}}</td>
                         <td> {{ $request?->technician->profile?->name }} {{ $request->technician->profile?->last_name}}</td>
+                        <td> {{ $request->getStatus()  }}</td>
                         <td class="fs-xs small"> {{ jdate($request?->created_at)->ago() }}</td>
 
                     @endif
