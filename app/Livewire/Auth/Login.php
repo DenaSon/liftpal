@@ -136,9 +136,48 @@ class Login extends Component
     public function login()
     {
 
-    $this->alert('success',convertPersianNumbers($this->phone));
 
 
+        try {
+            $this->phone = convertPersianNumbers($this->phone);
+
+            $credentials = $this->validate([
+                'phone' => ['required', 'numeric', 'digits:11', 'regex:/^09\d{9}$/'],
+                'password' => 'required|min:8'
+
+            ]);
+
+
+            if (Auth::attempt($credentials, true)) {
+                // Authentication was successful
+                request()->session()->regenerate();
+
+                // Redirect the authenticated user to the intended page or dashboard
+                if (auth()->user()->role == 'admin')
+                {
+                    $phone = auth()->user()?->phone;
+                    $date = jdate(now())->toDayDateTimeString();
+                    $sessionId = session()->getId();
+                    setLog('Admin-Login','ورود کاربر با دسترسی مدیر با شماره :  '.$phone .' شناسه :  '. $sessionId .' | '.' تاریخ :  : ' . $date,'warning');
+                    return redirect()->route('dashboard');
+
+                }
+                elseif(auth()->user()->role == 'company')
+                {
+                    return redirect()->route('panel', ['page' => 'company-dashboard']);
+                }
+                else
+                {
+                    return redirect()->route('panel', ['page' => 'main']);
+                }
+
+            }
+            $this->alert('warning', 'کاربری با این مشخصات یافت نشد', ['position' => 'center']);
+        }
+        catch (ValidationException $e)
+        {
+            $this->alert('warning', $e->getMessage(), ['position' => 'center']);
+        }
     }
 
 
