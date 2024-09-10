@@ -47,15 +47,18 @@
 <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
 <script data-navigate-onc>
     document.addEventListener('DOMContentLoaded', function() {
-        function convertPersianNumbers(str) {
+        function containsPersianNumbers(str) {
             const persianNumbers = '۰۱۲۳۴۵۶۷۸۹';
-            const englishNumbers = '0123456789';
-            return str.replace(/[۰-۹]/g, (char) => englishNumbers[persianNumbers.indexOf(char)]);
+            return Array.from(str).some(char => persianNumbers.includes(char));
         }
 
-        document.querySelectorAll('input[type="number"]').forEach(input => {
+        document.querySelectorAll('input[type="text"]').forEach(input => {
             input.addEventListener('input', function() {
-                this.value = convertPersianNumbers(this.value);
+                if (containsPersianNumbers(this.value)) {
+                    alert('لطفاً صفحه کلید خود را روی انگلیسی تنظیم کنید.');
+                    // جلوگیری از پردازش اضافی
+                    this.value = this.value.replace(/[۰-۹]/g, '');
+                }
             });
         });
     });
