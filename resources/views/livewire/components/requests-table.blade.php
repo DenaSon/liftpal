@@ -1,5 +1,5 @@
 <div>
-    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}">
+    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="paginated-requests">
 
         <div class="d-flex justify-content-between">
         <span class="m-1 pt-2 pe-2 ps-2 fw-bold">
@@ -51,7 +51,7 @@
     </div>
 
     <div class="pagination">
-        {{ $requests->links() }}
+        {{ $requests->links(data: ['scrollTo' => '#paginated-requests']) }}
     </div>
 
     @if($requests->isEmpty())
