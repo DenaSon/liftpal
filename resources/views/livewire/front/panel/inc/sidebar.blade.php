@@ -79,7 +79,7 @@
                 <!--   <a class="card-nav-link" href="real-estate-account-security.html"><i
                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a> -->
                 @can('company')
-                    @if(auth()->user()->company->count() ?? 0 > 0)
+                    @if(auth()->user()->has('company'))
                     <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
                        href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
                             class="fi fi-user-plus opacity-60 me-2"></i> انتساب کارشناس </a>
