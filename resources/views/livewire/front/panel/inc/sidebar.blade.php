@@ -17,13 +17,15 @@
 
             <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                 <h2 class="fs-lg mb-0">
-                   @if(auth()->user()->role == 'technician')
-                  <a class="text-decoration-none text-dark" wire:navigate href="{{ route('singleExpert',['id'=>$authUser?->id,'name' =>$authUser->profile?->name . '-' . $authUser->profile?->last_name ]) }}">
-                    {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}</a>
+                    @if(auth()->user()->role == 'technician')
+                        <a class="text-decoration-none text-dark" wire:navigate
+                           href="{{ route('singleExpert',['id'=>$authUser?->id,'name' =>$authUser->profile?->name . '-' . $authUser->profile?->last_name ]) }}">
+                            {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}</a>
                     @else
                         {{ $authUser->profile?->name ?? '' }}   {{ $authUser->profile?->last_name ?? '' }}
                     @endif
-                    <span class="badge bg-faded-info text-waiting fs-xs fw-normal">{{ auth()->user()->getRole() }}</span>
+                    <span
+                        class="badge bg-faded-info text-waiting fs-xs fw-normal">{{ auth()->user()->getRole() }}</span>
                 </h2>
 
 
@@ -32,9 +34,11 @@
                                 class="fi-phone opacity-60 me-2"></i>{{ $authUser->phone ?? '' }}</a></li>
 
                     @if($authUser->email)
-                        <li><a title="{{ $authUser?->email }}" class="nav-link fw-normal p-0" href=""><i
-                                    class="fi-mail opacity-60 me-2 fs-xs"></i>{{ \Illuminate\Support\Str::limit($authUser?->email,25) }}</a></li>
-
+                        <li>
+                            <a title="{{ $authUser?->email }}" class="nav-link fw-normal p-0" href=""><i
+                                    class="fi-mail opacity-60 me-2 fs-xs"></i>{{ \Illuminate\Support\Str::limit($authUser?->email,25) }}
+                            </a>
+                        </li>
                     @endif
 
                 </ul>
@@ -47,17 +51,23 @@
         @elseif(Auth::user()->isRole('technician'))
             <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3"
                href="{{ route('panel',['page'=>'request-list'])}}">
-                <i class="fi-bell-on me-2"></i>  درخواست‌ها
-          </a>
-        @endif
+                <i class="fi-bell-on me-2"></i> درخواست‌ها
+            </a>
 
+        @elseif(Auth::user()->isRole('company'))
+            <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3"
+               href="{{ route('panel',['page'=>'company-dashboard'])}}">
+                <i class="fi-bell-on me-2"></i> پنل کاربری
+            </a>
+        @endif
 
         <a class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav"
            data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>منو</a>
         <div class="collapse d-md-block mt-3" id="account-nav">
             <div class="card-nav">
 
-                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'main') active @endif"
+
+                <a wire:navigate class="@can('company') visually-hidden @endcan card-nav-link @if(request()->input("page") == 'main') active @endif"
                    href="{{ route('panel',['page'=>'main']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد
                 </a>
 
@@ -68,6 +78,25 @@
 
                 <!--   <a class="card-nav-link" href="real-estate-account-security.html"><i
                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a> -->
+                @can('company')
+                    @if(auth()->user()->company->count() > 0)
+                    <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
+                       href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
+                            class="fi fi-user-plus opacity-60 me-2"></i> انتساب کارشناس </a>
+                    @endif
+                @endcan
+
+                @can('company')
+                    @if(auth()->user()->company->count() > 0)
+
+                        <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
+                           href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i
+                                class="fi fi-user-plus opacity-60 me-2"></i>  ساختمان‌ها </a>
+
+                    @endif
+                @endcan
+
+
                 @can('manager')
                     <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
                        href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
@@ -75,10 +104,9 @@
                 @endcan
 
 
-                <a class="card-nav-link @if(request()->input("page") == 'address') active @endif"
+                <a class="card-nav-link @can('company') visually-hidden @endcan @if(request()->input("page") == 'address') active @endif"
                    href="{{ route('panel',['page'=>'address']) }}" wire:navigate><i
                         class="fi fi-geo opacity-60 me-2"></i>آدرس‌ها </a>
-
 
 
                 <a wire:navigate class="card-nav-link @if(request()->input('page') == 'messages') active @endif"
@@ -90,13 +118,12 @@
                 </a>
 
 
-
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'notification') active @endif"
                    href="{{ route('panel',['page'=>'notification']) }}"><i
                         class="fi-bell opacity-60 me-2"></i>اطلاعیه‌ها</a>
 
 
-                <a class="card-nav-link @if(request()->input("page") == 'favorite') active @endif"
+                <a class=" @can('company') visually-hidden @endcan card-nav-link @if(request()->input("page") == 'favorite') active @endif"
                    href="{{ route('panel',['page'=>'favorite']) }}" wire:navigate><i
                         class="fi-heart opacity-60 me-2"></i>مورد‌علاقه</a>
 

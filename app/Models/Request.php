@@ -48,16 +48,14 @@ class Request extends Model
     {
         return $this->belongsTo(User::class, 'technician_id');
     }
-    public function company(): HasOneThrough
+    public function company()
     {
-        return $this->hasOneThrough(
-            Company::class,
-            Profile::class,
-            'user_id',         // کلید خارجی در جدول profiles که به جدول users اشاره دارد
-            'id',              // کلید اصلی در جدول companies
-            'technician_id',   // کلید خارجی در جدول requests که به جدول profiles اشاره دارد
-            'company_id'       // کلید خارجی در جدول profiles که به جدول companies اشاره دارد
-        );
+        return $this->building()->companies;
+     }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

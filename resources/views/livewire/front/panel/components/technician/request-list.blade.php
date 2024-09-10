@@ -20,7 +20,7 @@
 
 </span>
 
-                        <span class="badge bg-faded-primary">#{{ $request->referral }}</span>
+                        <span class="badge bg-faded-primary">#{{ $request?->referral }}</span>
                     </li>
                     <hr/>
 
@@ -30,14 +30,14 @@
                                 <i class="fi-building text-muted me-2"></i>
                                نام ساختمان
                                 </span>
-                            <span class="badge bg-faded-info fs-sm">{{ $request->building->builder_name ?? 'ثبت نشده'}}</span>
+                            <span class="badge bg-faded-info fs-sm">{{ $request->building?->builder_name ?? 'ثبت نشده'}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
                                 <span>
                                 <i class="fi-user-plus text-muted me-2"></i>
                                نام مدیر
                                 </span>
-                            <span class="badge bg-faded-info fs-sm">{{ $request->building->manager_name ?? 'ثبت نشده'}}</span>
+                            <span class="badge bg-faded-info fs-sm">{{ $request->building?->manager_name ?? 'ثبت نشده'}}</span>
 
 
 
@@ -52,7 +52,7 @@
                         style="border:none !important;">
 <span class="text-justify fw-bold">
 
- {{ \Illuminate\Support\Str::limit($request->description,255) }}
+ {{ \Illuminate\Support\Str::limit($request?->description,255) }}
 </span>
                         <p class="text-muted"></p>
                     </li>
@@ -66,7 +66,7 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn w-100 btn-outline-info" data-bs-toggle="modal"
-                                data-bs-target="#mapmodal-{{$request->id}}">
+                                data-bs-target="#mapmodal-{{$request?->id}}">
                             مشاهده آدرس
                         </button>
 
@@ -79,12 +79,12 @@
                         <div class="d-flex">
                             <button type="button" class="w-50 me-2 btn btn-success"
                                     wire:confirm="درخواست تایید شود؟"
-                                    wire:click.debounce.400ms="acceptRequest({{$request->id}},{{$request->referral}})">
+                                    wire:click.debounce.400ms="acceptRequest({{$request?->id}},{{$request?->referral}})">
                                 <i class="fi-like me-1"></i>
                                 تایید
                             </button>
                             <button wire:confirm="درخواست رد شود؟"
-                                    wire:click.debounce.400ms="cancelRequest({{$request->id}})" type="button"
+                                    wire:click.debounce.400ms="cancelRequest({{$request?->id}})" type="button"
                                     class="btn btn-outline-primary" data-bs-toggle="button">
                                 <i class="fi-dislike me-1"></i>
                                 لغو
@@ -145,10 +145,10 @@
                             @endswitch
                         ">
                                     <th scope="row">{{ $index +1 }}</th>
-                                    <td>{{ $request->referral }}</td>
+                                    <td>{{ $request?->referral }}</td>
                                     <td class="fs-xs text-waiting">{{ jdate($request->created_at)->toFormattedDateTimeString() }}</td>
-                                    <td>{{ $request->building->builder_name}}</td>
-                                    <td>{{ $request->building->manager_name}}</td>
+                                    <td>{{ $request->building?->builder_name}}</td>
+                                    <td>{{ $request->building?->manager_name}}</td>
                                     <td>{{ $request->getStatus() }}</td>
                                 </tr>
                             @endforeach

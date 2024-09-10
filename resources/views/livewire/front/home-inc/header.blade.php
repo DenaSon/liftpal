@@ -74,9 +74,10 @@
             <ul class="navbar-nav navbar-nav-scroll w-100" style="max-height: 35rem;">
 
                 @auth
-                    <li class="nav-item"><a wire:navigate class="nav-link" href="{{ route('panel') }}"
-                                            role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">حساب کاربری</a>
+                    <li class="nav-item">
+
+                   @livewire('components.userarea',['class' => 'nav-link'])  {{--حساب کاربری--}}
+
                     </li>
 
                 @endauth

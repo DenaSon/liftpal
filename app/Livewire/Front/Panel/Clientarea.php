@@ -153,6 +153,15 @@ class Clientarea extends Component
             case 'messages':
                 $this->pageTitle = 'پیام‌های دریافتی';
                 break;
+            case 'company-dashboard':
+                $this->pageTitle = 'داشبورد شرکت';
+                break;
+            case 'technician-allot':
+                $this->pageTitle = 'انتساب کارشناس فنی';
+                break;
+            case 'company-buildings':
+                $this->pageTitle = 'ساختمان‌ها';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }

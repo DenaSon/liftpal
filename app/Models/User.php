@@ -43,15 +43,11 @@ class User extends Authenticatable implements MustVerifyEmail
             ->withTimestamps();
     }
 
-    public function tcompanies()
+    public function companies(): BelongsToMany
     {
-        return $this->belongsToMany(Company::class, 'building_technician')
-            ->withPivot('building_id')
+        return $this->belongsToMany(Company::class, 'technician_company')
             ->withTimestamps();
     }
-
-
-
 
 
 
@@ -81,24 +77,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
 
-
-    public function company(): HasOneThrough
+    public function company(): HasOne
     {
-        return $this->hasOneThrough(
-            Company::class,
-            Profile::class,
-            'user_id',
-            'id',
-            'id',
-            'company_id'
-        )->where('users.role', 'technician');
+        return $this->hasOne(Company::class);
+    }
+    public function isCompanyActive()
+    {
+        return $this->active == 1;
     }
 
+    // درخواست های مرتبط با یک تکنسین
     public function requests(): HasMany
     {
         return $this->hasMany(Request::class, 'technician_id');
     }
 
+    //درخواست های مرتبط با کاربر لاگین شده
     public function activeRequests(): HasMany
     {
         return $this->hasMany(Request::class, 'user_id');

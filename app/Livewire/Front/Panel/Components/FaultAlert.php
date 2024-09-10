@@ -43,6 +43,9 @@ class FaultAlert extends Component
 
     public function sendRequest()
     {
+
+
+
         try {
             $this->validate([
             'elevator_id' => 'required|numeric|max:200|exists:elevators,id',
@@ -50,10 +53,13 @@ class FaultAlert extends Component
                 'description' => 'nullable|string|max:255',
             ]);
 
-            $building = \App\Models\Building::with(['elevators', 'technicians','companies'])->findOrFail($this->building_id);
+
+
+            $building = \App\Models\Building::with(['elevators','companies'])->findOrFail($this->building_id);
+
             $elevator = Elevator::findOrFail($this->elevator_id);
 
-            if($building->technicians->count() == 0)
+            if($building->companies->isEmpty())
             {
                 $this->alert('warning','هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
 
@@ -66,7 +72,7 @@ class FaultAlert extends Component
                     function() use ($building, $elevator)
                     {
                         $random_int  =  random_int(1000000,9999999);
-                        foreach($building->technicians as $technician)
+                        foreach($building->companies->first()->technicians as $technician)
                         {
                             //send request
                             $request = new Request();
@@ -92,7 +98,7 @@ class FaultAlert extends Component
 
 
                         }
-                        $technician_count = $building->technicians->count();
+                        $technician_count = $building->companies()->first()->technicians->count();
                         $this->alert('info',' درخواست شما برای ' . $technician_count . ' '. 'کارشناس فنی ارسال شد');
 
                         $this->referral = $request->referral;
@@ -166,6 +172,8 @@ class FaultAlert extends Component
 
     public function mount()
     {
+
+
 
         if (!$this->authorize('manager'))
         {

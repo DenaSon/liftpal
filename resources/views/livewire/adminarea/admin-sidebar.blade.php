@@ -26,14 +26,23 @@
                    href="{{ route('management',['page'=>'dashboard']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد
                 </a>
 
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'companies') active @endif"
+                   href="{{ route('management',['page'=>'companies']) }}"><i
+                        class="fi-grid opacity-60 me-2"></i>شرکت‌ها</a>
+
+
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'allot') active @endif"
                    href="{{ route('management',['page'=>'allot']) }}"><i
                         class="fi-user opacity-60 me-2"></i> تخصیص</a>
 
+
+
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'eed-create') active @endif"
                    href="{{ route('management',['page'=>'eed-create']) }}"><i
                         class="fi-flame opacity-60 me-2"></i>سیستم EED</a>
+
+
 
 
                 <a class="card-nav-link" href="#">

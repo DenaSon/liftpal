@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Livewire\Front\Home\CategoriesMenu;
+use App\Models\Company;
 use App\Models\User;
+use App\Observers\companyObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
@@ -29,8 +31,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
-
 
 
         Paginator::useBootstrap();

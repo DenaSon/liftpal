@@ -4,8 +4,11 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="4">
             <item index="0" class="java.lang.String" itemvalue="wire:click" />
+            <item index="1" class="java.lang.String" itemvalue="wire:confirm" />
+            <item index="2" class="java.lang.String" itemvalue="wire:navigate" />
+            <item index="3" class="java.lang.String" itemvalue="wire:click.debounce.1000ms" />
           </list>
         </value>
       </option>

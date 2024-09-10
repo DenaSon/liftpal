@@ -300,7 +300,18 @@ return [
         'fullName' => 'نام ‌و ‌نام‌خانوادگی',
         'buildingId' => 'ساختمان',
         'technicianId' => 'کارشناس فنی',
-        'companyId' => 'شرکت'
+        'companyId' => 'شرکت',
+
+        'companyName' => 'نام شرکت ',
+        'nationalId' => 'شناسه ملی',
+        'economicCode' => 'کد اقتصادی',
+        'registrationCode' => 'شماره ثبت ',
+        'licenceExpire' => 'انقضاء مجوز',
+        'telephone' => 'تلفن',
+        'rules' => 'قوانین و مقررات',
+
+
+
 
 
 

@@ -14,6 +14,9 @@
                                 <option value="{{ $building->id }}">
                                     ساختمان {{ $building->builder_name }} {{ $building->floors }} طبقه
                                 </option>
+
+
+
                             @endforeach
                         </select>
 

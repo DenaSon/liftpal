@@ -19,7 +19,7 @@ class CheckAuth
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Gate::allows('customer-access') || Gate::allows('technician') || Gate::allows('manager') || Gate::allows('admin'))
+        if (Gate::allows('customer-access') || Gate::allows('company') || Gate::allows('technician') || Gate::allows('manager') || Gate::allows('admin'))
         {
          return $next($request);
         }

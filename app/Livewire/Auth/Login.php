@@ -158,6 +158,10 @@ class Login extends Component
                     return redirect()->route('dashboard');
 
                 }
+                elseif(auth()->user()->role == 'company')
+                {
+                    return redirect()->route('panel', ['page' => 'company-dashboard']);
+                }
                 else
                 {
                     return redirect()->route('panel', ['page' => 'main']);

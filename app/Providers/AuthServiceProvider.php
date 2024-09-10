@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Address;
 use App\Policies\AddressPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -31,8 +32,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('admin-access', function ($user) {
 
-            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('admin')))
-            {
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('admin'))) {
                 return true;
 
             }
@@ -41,8 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         });
         // Check for Customers access routes
         Gate::define('customer-access', function ($user) {
-            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('customer') || $user->isRole('admin')  ))
-            {
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('customer') || $user->isRole('admin'))) {
                 return true;
 
             }
@@ -52,8 +51,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('author', function ($user) {
 
-            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('author')))
-            {
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('author'))) {
                 return true;
 
             }
@@ -72,7 +70,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('isTechnician', function ($user) {
 
-             return   $user->role === 'technician';
+            return $user->role === 'technician';
         });
 
 
@@ -86,6 +84,15 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
+        Gate::define('company', function ($user) {
+
+            if (auth()->check() && $user->hasVerifiedPhone() && ($user->isRole('company'))) {
+                return true;
+
+            }
+            return false;
+        });
+
 
         //Check truest user for cart
 
@@ -98,7 +105,6 @@ class AuthServiceProvider extends ServiceProvider
 
             return false;
         });
-
 
 
     }

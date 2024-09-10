@@ -19,7 +19,7 @@ class Logout extends Component
 
     public function render()
     {
-        // Directly return HTML as a string
+
         return <<<'blade'
 
                 <span wire:confirm="از سیستم خارج می شوید؟" wire:click="logout">خروج</span>

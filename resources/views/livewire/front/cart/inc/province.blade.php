@@ -21,7 +21,7 @@
     <option value="کردستان">کردستان</option>
     <option value="کرمان">کرمان</option>
     <option value="کرمانشاه">کرمانشاه</option>
-    <option value="کهگیلویه و بویراحمد">کهگیلویه و بویراحمد</option>
+    <option selected value="کهگیلویه و بویراحمد">کهگیلویه و بویراحمد</option>
     <option value="گلستان">گلستان</option>
     <option value="گیلان">گیلان</option>
     <option value="لرستان">لرستان</option>

@@ -24,6 +24,9 @@ class adminPanel extends Component
             case 'allot':
                 $this->pageTitle = 'تخصیص';
                 break;
+            case 'companies':
+                $this->pageTitle = 'مدیریت شرکت';
+                break;
             case 'dashboard':
                 $this->pageTitle = 'داشبورد';
                 break;
@@ -33,7 +36,7 @@ class adminPanel extends Component
 
             default:
 
-                $this->redirectRoute('management',['page'=>'main']);
+               abort(404);
         }
 
 

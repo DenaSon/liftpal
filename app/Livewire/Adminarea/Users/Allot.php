@@ -6,25 +6,27 @@ use App\Livewire\Front\Panel\Components\Building;
 use App\Models\BuildingTechnician;
 use App\Models\Company;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 use Throwable;
 
 class Allot extends Component
 {
-    use  LivewireAlert;
+    use LivewireAlert,WithPagination,WithoutUrlPagination;
 
-   public $technicianId='',$companyId='',$buildingId;
+   public $technicianId='',$companyId='',$buildingId='';
 
     public $companies = [];
     public $buildings = [];
-    public $technicians = [];
+
     public $buildingFilter = null;
     public $companyFilter = null;
-    public $technicianFilter = null;
-
 
     public function updatedCompanyFilter($value): void
     {
@@ -51,61 +53,53 @@ class Allot extends Component
         }
     }
 
-    public function updatedTechnicianFilter($value): void
-    {
-        if (Str::length($value) > 1)
-        {
-            $this->technicians = \App\Models\User::whereRole('technician')
-                ->where('phone', 'like',  '%'.$value . '%' )
-                ->latest()->take(20)->get();
-        }
-        else
-        {
-            $this->technicians = \App\Models\User::whereRole('technician')->take(25)->inRandomOrder()->get();
-        }
-    }
 
-    public function allot()
+
+    public function allot(): void
     {
-        $this->alert('success','df');
+
         try {
             $this->validate([
                 'buildingId' => 'required|exists:buildings,id',
                 'companyId' => 'required|exists:companies,id',
-                'technicianId' => 'required|exists:users,id',
             ]);
 
-            $building = \App\Models\Building::find($this->buildingId);
-
-
-            $exists_all = $building->technicians()
-                ->wherePivot('company_id', $this->companyId)
-                ->wherePivot('user_id', $this->technicianId)
+            $exists = DB::table('building_company')
+                ->where('building_id', $this->buildingId)
                 ->exists();
 
+           if (!$exists)
+           {
+               DB::table('building_company')->insert([
+                   'building_id' => $this->buildingId,
+                   'company_id' => $this->companyId,
+                   'created_at'=>now(),
+                   'updated_at'=>now()
+               ]);
 
-            $exists_company = $building->technicians()
-                ->wherePivot('company_id', $this->companyId)
-                ->exists();
-
-            if (!$exists_all && !$exists_company) {
-                $building->technicians()->attach($this->technicianId, ['company_id' => $this->companyId]);
-
-                $this->alert('success', 'تخصیص کارشناس فنی برای ساختمان با موفقیت انجام شد');
-            } else {
-
-                if ($exists_all) {
-                    $this->alert('info', 'این تکنسین و شرکت قبلاً به این ساختمان تخصیص داده شده‌اند');
-                } elseif ($exists_company) {
-                    $this->alert('info', 'این شرکت قبلاً به این ساختمان تخصیص داده شده است');
-                }
-            }
+               $this->flash('success','ساختمان برای شرکت ثبت شد',[],route('management',['page'=>'allot']));
+           }
+           else
+           {
+               $this->alert('warning','ساختمان انتخاب شده از قبل برای شرکت ثبت شده است');
+           }
 
 
         }
         catch (Throwable $e)
         {
-            $this->alert('warning',$e->getMessage());
+            $this->flash('warning',$e->getMessage(),[],route('management',['page'=>'allot']));
+        }
+    }
+
+    public function deAllot($id)
+    {
+        $deleted = DB::table('building_company')->where('building_id', $id)->delete();
+
+        if ($deleted) {
+            $this->flash('success', 'رابطه با موفقیت حذف شد',[],route('management',['page'=>'allot']));
+        } else {
+            $this->alert('warning', 'رابطه یافت نشد یا قبلاً حذف شده است');
         }
     }
 
@@ -113,9 +107,8 @@ class Allot extends Component
     public function mount()
     {
 
-        $this->companies = Company::take(20)->latest()->get();
         $this->buildings = \App\Models\Building::take(20)->latest()->get();
-        $this->technicians = User::whereRole('technician')->take(20)->latest()->get();
+        $this->companies = Company::latest()->get();
 
     }
 
@@ -146,8 +139,7 @@ class Allot extends Component
     public function render()
     {
 
-        $buildingTechnician = BuildingTechnician::where('company_id', 1)->first();
-
-        return view('livewire.adminarea.users.allot',compact('buildingTechnician'));
+        $company_list  = Company::latest()->paginate(10);
+        return view('livewire.adminarea.users.allot',compact('company_list'));
     }
 }

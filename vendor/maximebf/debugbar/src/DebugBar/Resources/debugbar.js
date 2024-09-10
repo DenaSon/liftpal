@@ -425,7 +425,11 @@ if (typeof(PhpDebugBar) == 'undefined') {
             this.activeDatasetId = null;
             this.datesetTitleFormater = new DatasetTitleFormater(this);
             this.options.bodyMarginBottomHeight = parseInt($('body').css('margin-bottom'));
-            this.isIframe = window.self !== window.top;
+            try {
+                this.isIframe = window.self !== window.top && window.top.phpdebugbar;
+            } catch (error) {
+                this.isIframe = false;
+            }
             this.registerResizeHandler();
         },
 
@@ -934,6 +938,7 @@ if (typeof(PhpDebugBar) == 'undefined') {
          * @return {String} Dataset's id
          */
         addDataSet: function(data, id, suffix, show) {
+            if (!data || !data.__meta) return;
             if (this.isIframe) {
                 window.top.phpdebugbar.addDataSet(data, id, '(iframe)' + (suffix || ''), show);
                 return;

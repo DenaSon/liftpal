@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center mt-3">
-                            <span wire:loading="" class="badge bg-primary">درحال بررسی...</span>
+                            <span wire:loading class="badge bg-primary">درحال بررسی...</span>
                         </div>
 
 

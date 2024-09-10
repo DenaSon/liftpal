@@ -254,6 +254,17 @@ function toSystemDate($datetime)
     $gregorianDate = $jalaliDate->toCarbon();
     return $gregorianDate->format('Y-m-d H:i:s');
 }
+/**
+ * @param $date
+ * @return string
+ */
+function toSystemDateOnly($date)
+{
+    $jalaliDate = Jalalian::fromFormat('Y-m-d', $date);
+    $gregorianDate = $jalaliDate->toCarbon();
+    return $gregorianDate->format('Y-m-d');
+}
+
 
 
 
@@ -411,4 +422,19 @@ function userAddressExist($authId): bool
     $startY = max(0, ($imageHeight - $rectangleHeight) / 2);
     $image->crop($rectangleWidth, $rectangleHeight, $startX, $startY);
     $image->save(null,$quality);
+}
+
+
+function formatPhoneNumber($phoneNumber)
+{
+    if (strlen($phoneNumber) === 11) {
+
+        return substr($phoneNumber, 0, 4) . '-' .
+            substr($phoneNumber, 4, 3) . '-' .
+            substr($phoneNumber, 7, 4);
+    }
+    else
+    {
+        return $phoneNumber;
+    }
 }

@@ -8,7 +8,9 @@
         <nav class="mb-4 pt-md-3" aria-label="Breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a wire:navigate href="{{ route('home') }}">خانه</a></li>
-                <li class="breadcrumb-item"><a wire:navigate href="{{ route('panel') }}">حساب کاربری</a></li>
+                <li class="breadcrumb-item">
+                    @livewire('components.userarea',['class' => ''])  {{--حساب کاربری--}}
+                </li>
                 <li class="breadcrumb-item active " aria-current="page">{{ $pageTitle ?? 'اطلاعات حساب کاربری' }}</li>
             </ol>
         </nav>
@@ -21,31 +23,73 @@
                 <h1 class="fw-normal fs-5"> {{ $pageTitle ?? 'اطلاعات حساب کاربری' }} </h1>
                 <hr dir="rtl" class=" custom-hr-title-panel mt-2">
 
-                @if(request()->input('page') == 'profile')
-                    <livewire:front.panel.components.profile/>
-                @elseif(request()->input('page') == 'main')
-                    <livewire:front.panel.components.main/>
-                @elseif(request()->input('page') == 'invoice' && !empty(request()->input('order')))
-                    <livewire:front.panel.components.invoice/>
-                @elseif(request()->input('page') == 'support' )
-                <livewire:front.panel.components.support>
-                @elseif(request()->input('page') == 'favorite' )
-                <livewire:front.panel.components.favorite>
-                @elseif(request()->input('page') == 'address' )
-                <livewire:front.panel.components.address>
-                @elseif(request()->input('page') == 'notification' )
-                <livewire:front.panel.components.notifications>
-                @elseif(request()->input('page') == 'building' )
-                <livewire:front.panel.components.building>
-                @elseif(request()->input('page') == 'fault-alert' )
-                <livewire:front.panel.components.fault-alert>
-                @elseif(request()->input('page') == 'get-location' )
-                <livewire:front.panel.components.get-location>
-                @elseif(request()->input('page') == 'request-list' )
-                <livewire:front.panel.components.technician.request-list>
-                @elseif(request()->input('page') == 'messages' )
-                <livewire:front.panel.components.messages>
-                @endif
+                @switch(request()->input('page'))
+                    @case('profile')
+                        <livewire:front.panel.components.profile />
+                        @break
+
+                    @case('main')
+                        <livewire:front.panel.components.main />
+                        @break
+
+                    @case('invoice')
+                        @if (!empty(request()->input('order')))
+                            <livewire:front.panel.components.invoice />
+                        @endif
+                        @break
+
+                    @case('support')
+                        <livewire:front.panel.components.support />
+                        @break
+
+                    @case('favorite')
+                        <livewire:front.panel.components.favorite />
+                        @break
+
+                    @case('address')
+                        <livewire:front.panel.components.address />
+                        @break
+
+                    @case('notification')
+                        <livewire:front.panel.components.notifications />
+                        @break
+
+                    @case('company-buildings')
+                        <livewire:front.panel.components.company.company-buildings/>
+                        @break
+
+                    @case('building')
+                        <livewire:front.panel.components.building />
+                        @break
+
+                    @case('fault-alert')
+                        <livewire:front.panel.components.fault-alert />
+                        @break
+
+                    @case('get-location')
+                        <livewire:front.panel.components.get-location />
+                        @break
+
+                    @case('request-list')
+                        <livewire:front.panel.components.technician.request-list />
+                        @break
+
+                    @case('messages')
+                        <livewire:front.panel.components.messages />
+                        @break
+
+                    @case('company-dashboard')
+                        <livewire:front.panel.components.company.company-dashboard />
+                        @break
+
+                    @case('technician-allot')
+                        <livewire:front.panel.components.company.technician-allot />
+                        @break
+
+                    @default
+
+                @endswitch
+
 
 
             </div>

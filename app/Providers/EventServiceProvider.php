@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 
+use App\Models\Company;
 use App\Models\Log;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Observers\companyObserver;
 use App\Observers\LogObserver;
 use App\Observers\OrderObserver;
 use App\Observers\ProductObserver;
@@ -43,6 +45,7 @@ class EventServiceProvider extends ServiceProvider
         Log::observe(LogObserver::class);
         User::observe(UserObserver::class);
         Order::observe(OrderObserver::class);
+        Company::observe(companyObserver::class);
 
     }
 

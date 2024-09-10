@@ -34,24 +34,21 @@ class Building extends Model
         return $this->hasMany(Member::class);
     }
 
-    public function technicians()
-    {
-        return $this->belongsToMany(User::class, 'building_technician', 'building_id', 'user_id')
-            ->withPivot('company_id')
-            ->withTimestamps();
-    }
 
 
     public function companies()
     {
-        return $this->belongsToMany(Company::class, 'building_technician', 'building_id', 'company_id')
-            ->withTimestamps();
+        return $this->belongsToMany(Company::class, 'building_company', 'building_id', 'company_id');
     }
 
-    public function owner()
+
+
+    public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
 
 
 }

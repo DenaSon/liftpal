@@ -27,6 +27,8 @@
                 <livewire:adminarea.dashboard/>
                 @elseif(request()->input('page') == 'eed-create')
                 <livewire:adminarea.eed.eed-create/>
+                @elseif(request()->input('page') == 'companies')
+                <livewire:adminarea.company.companies/>
                 @else
 
                 @endif
