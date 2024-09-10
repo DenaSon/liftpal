@@ -53,16 +53,17 @@
         }
 
         document.querySelectorAll('input[type="text"]').forEach(input => {
-            input.addEventListener('input', function() {
+            input.addEventListener('change', function() {
                 if (containsPersianNumbers(this.value)) {
-                    alert('لطفاً صفحه کلید خود را روی انگلیسی تنظیم کنید.');
-                    // جلوگیری از پردازش اضافی
-                    this.value = this.value.replace(/[۰-۹]/g, '');
+                    alert('لطفاً کیبورد خود را روی انگلیسی تنظیم کنید.');
+                    // پاک کردن مقدار ورودی برای جلوگیری از ورود اعداد فارسی
+                    this.value = '';
                 }
             });
         });
     });
 </script>
+
 
 </body>
 
