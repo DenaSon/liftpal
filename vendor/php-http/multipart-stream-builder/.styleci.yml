@@ -1,0 +1,11 @@
+preset: symfony
+
+finder:
+    exclude:
+        - "spec"
+        - "tests"
+    path:
+        - "src"
+
+disabled:
+    - single_line_throw

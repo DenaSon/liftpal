@@ -1,0 +1,8 @@
+composer.lock
+/vendor
+/demo/bridge/*/vendor
+/demo/bridge/doctrine/db.sqlite
+/src/DebugBar/Resources/vendor
+.phpunit.result.cache
+/drivers
+.phpunit.cache/
