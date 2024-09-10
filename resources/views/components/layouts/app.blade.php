@@ -45,6 +45,22 @@
 <script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 @yield('js')
 <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
+<script data-navigate-onc>
+    document.addEventListener('DOMContentLoaded', function() {
+        function convertPersianNumbers(str) {
+            const persianNumbers = '۰۱۲۳۴۵۶۷۸۹';
+            const englishNumbers = '0123456789';
+            return str.replace(/[۰-۹]/g, (char) => englishNumbers[persianNumbers.indexOf(char)]);
+        }
+
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', function() {
+                this.value = convertPersianNumbers(this.value);
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>
