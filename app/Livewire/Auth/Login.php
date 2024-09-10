@@ -95,7 +95,7 @@ class Login extends Component
 
     public function sendVerifySms()
     {
-        $this->alert('success',$this->phone);
+
 
         if (Str::length($this->phone) == 11 && is_numeric($this->phone))
         {
@@ -135,6 +135,8 @@ class Login extends Component
 
     public function login()
     {
+
+        $this->alert('success',$this->phone);
 
         try {
 
