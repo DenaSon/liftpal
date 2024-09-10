@@ -87,7 +87,7 @@
                 @endcan
 
                 @can('company')
-                    @if(auth()->user()->company->count() > 0)
+                    @if(auth()->user()->has('company'))
 
                         <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
                            href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i
