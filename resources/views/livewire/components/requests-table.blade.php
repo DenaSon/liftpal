@@ -31,7 +31,7 @@
             <tbody>
 
             @foreach($requests as $request)
-                <tr class="a @if($request->status == 'accepted') bg-faded-success @endif">
+                <tr class="a @if($request->status == 'accepted') bg-success @endif">
 
                     @if($request->has('building'))
 
