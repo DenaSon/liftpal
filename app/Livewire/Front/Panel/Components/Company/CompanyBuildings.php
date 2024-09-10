@@ -19,7 +19,7 @@ class CompanyBuildings extends Component
     public function render()
     {
 
-        $buildings = auth()->user()->company->buildings()->latest()->paginate(10);
+        $buildings = auth()->user()->company->buildings()->latest()->paginate(10) ?? [];
         return view('livewire.front.panel.components.company.company-buildings', compact('buildings'));
     }
 }

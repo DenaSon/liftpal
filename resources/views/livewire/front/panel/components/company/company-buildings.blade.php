@@ -56,7 +56,7 @@
                         </td>
 
                         <td>
-                            {{ jdate($building->created_at)->toFormattedDateString() }}
+                            {{ jdate($building->pivot->created_at)->toFormattedDateString() }}
                         </td>
 
 
