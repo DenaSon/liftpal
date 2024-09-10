@@ -32,7 +32,7 @@
             @foreach($requests as $request)
                 <tr>
 
-                    @if($request->has('buildings'))
+                    @if($request->has('building'))
 
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td> {{ $request?->referral }}</td>
