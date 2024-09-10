@@ -44,7 +44,7 @@ class TechnicianAllot extends Component
         {
             $this->users = User::with(['company','profile'])
                 ->where('phone', 'like', '%' . $this->search . '%')
-                //->whereRole('technician')
+                ->whereRole('technician')
                 ->take(2)
                 ->get(['id','phone']);
         }
@@ -60,7 +60,7 @@ class TechnicianAllot extends Component
 
     public function render()
     {
-        $technicians  = auth()->user()->companies()->first()->technicians ?? [];
+        $technicians  = auth()->user()->companies()->first()->technicians;
         return view('livewire.front.panel.components.company.technician-allot', compact('technicians'));
     }
 }
