@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckAccess;
 use App\Http\Middleware\CheckAuth;
+use App\Http\Middleware\ConvertToPersianNumbers;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -46,6 +47,7 @@ class Kernel extends HttpKernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
+        ConvertToPersianNumbers::class,
 
 
 
@@ -94,5 +96,6 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'CheckAccess' => CheckAccess::class,
         'CheckAuth' => CheckAuth::class,
+        'ConvertToPersianNumbers' => ConvertToPersianNumbers::class,
     ];
 }
