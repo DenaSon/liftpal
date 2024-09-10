@@ -136,9 +136,10 @@ class Login extends Component
     public function login()
     {
 
-        $this->alert('success',$this->phone);
+
 
         try {
+            $this->phone = convertPersianNumbers($this->phone);
 
             $credentials = $this->validate([
                 'phone' => ['required', 'numeric', 'digits:11', 'regex:/^09\d{9}$/'],

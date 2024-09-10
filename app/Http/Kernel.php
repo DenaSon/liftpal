@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            ConvertToPersianNumbers::class
         ],
 
         'api' => [
