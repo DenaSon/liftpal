@@ -32,7 +32,7 @@
 
             @foreach($requests as $request)
                 @if($request->status == 'accepted')
-                    <tr class="bg-faded-success border border-success border-1">
+                    <tr class="bg-faded-success border border-success border-top">
                         @else
                     <tr>
                 @endif
