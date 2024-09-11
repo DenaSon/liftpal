@@ -3,10 +3,11 @@
 namespace App\Livewire\Components;
 
 
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 
-
+#[Lazy]
 class RequestsTable extends Component
 {
     use WithoutUrlPagination;
