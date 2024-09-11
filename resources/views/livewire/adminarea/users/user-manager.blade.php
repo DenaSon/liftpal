@@ -53,7 +53,6 @@
                                     <a class=" text-dark" target="_blank"
                                        href="{{ route('user.index',['filter' =>'phone','search'=> $user?->phone]) }}">
                                         @endcan
-
                                         {{ $user->profile?->name }}
                                         @can('admin-access')
                                     </a>
@@ -68,7 +67,10 @@
                                 @endcan
 
                             </td>
-                            <td class="@can('company')  fw-bolder @endcan">{{ $user->getRole() }}</td>
+                            <td>
+                                   {{ $user->getRole() }}
+                            </td>
+
                             <td>{{ formatPhoneNumber($user->phone) }}</td>
                             <td class="fs-xs">{{ jdate($user->created_at)->isToday() ? 'امروز' : jdate($user->created_at)->toFormattedDateString()  }}</td>
                         </tr>

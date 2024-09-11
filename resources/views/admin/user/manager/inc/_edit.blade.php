@@ -35,6 +35,7 @@
                             <option value="admin">مدیر</option>
                             <option value="manager">مدیر ساختمان</option>
                             <option value="technician">کارشناس فنی</option>
+                            <option value="company"> شرکت </option>
 
                         </select>
                     </div>
