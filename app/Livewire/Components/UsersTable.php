@@ -3,10 +3,12 @@
 namespace App\Livewire\Components;
 
 use App\Models\User;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
+#[Lazy]
 class UsersTable extends Component
 {
     use WithPagination,WithoutUrlPagination;
