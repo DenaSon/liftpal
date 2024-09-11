@@ -4,12 +4,15 @@
     <div class="card mt-3">
 
         <div class="form-group">
-            <input class="form-control" wire:model.live.debounce.800ms="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
+            <input class="form-control" wire:model.debounce.800ms="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
+            <button type="button" wire:click="searchUser" class="btn btn-outline-info">
+                <i class="fi-search"></i>
+            </button>
         </div>
 
     </div>
 
-    <x-front.spinner></x-front.spinner>
+
 
     <div wire:init="loadMore">
         <div class="card mt-3 shadow-lg" id="paginated-users">
@@ -43,7 +46,7 @@
                     <tbody>
 
                     @foreach($users as $user)
-                        <tr wire:key="{{$user->id}}" wire:transition.duration.1000ms>
+                        <tr wire:key="user-{{$user->id}}" wire:transition.duration.800ms>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
                                 @can('admin-access')

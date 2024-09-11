@@ -22,7 +22,7 @@ class UserManager extends Component
     {
         $this->perPage += 5;
     }
-    public function updatedSearch($value)
+    public function searchUser()
     {
         $this->resetPage();
     }
@@ -38,11 +38,15 @@ class UserManager extends Component
             })
             ->latest('created_at')
             ->paginate($this->perPage);
+
+
     }
 
     public function render()
     {
         $users = $this->searchUsers();
+
+
 
         return view('livewire.adminarea.users.user-manager',compact('users'));
     }
