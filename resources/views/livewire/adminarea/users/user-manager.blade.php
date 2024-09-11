@@ -33,7 +33,7 @@
                         <th>زمان ثبتنام</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody  wire:transition>
 
                     @foreach($users as $user)
                         <tr>
