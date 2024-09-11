@@ -27,26 +27,19 @@ class UserManager extends Component
         $this->resetPage();
     }
 
-    protected function searchUsers()
-    {
-        return User::query()
-            ->when(trim($this->search), function ($query) {
-                $query->where('phone', 'like', '%' . $this->search . '%')
-                    ->orWhereHas('profile', function ($q) {
-                        $q->where('last_name', 'like', '%' . $this->search . '%');
-                    });
-            })
-            ->latest('created_at')
-            ->paginate($this->perPage);
 
-
-    }
 
     public function render()
     {
-        $users = $this->searchUsers();
-
-
+       $users =  User::query()
+        ->when(trim($this->search), function ($query) {
+            $query->where('phone', 'like', '%' . $this->search . '%')
+                ->orWhereHas('profile', function ($q) {
+                    $q->where('last_name', 'like', '%' . $this->search . '%');
+                });
+        })
+        ->latest('created_at')
+        ->paginate($this->perPage);
 
         return view('livewire.adminarea.users.user-manager',compact('users'));
     }
