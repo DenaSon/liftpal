@@ -74,7 +74,7 @@
                                         @if($log->user_id == null)
                                             احراز نشده
                                         @else
-                                            {{ $log->profile->name ?? '' }} {{ $log->profile->last_name ?? '' }}
+                                            {{ $log->user()->profile->name ?? '' }} {{ $log->user()->profile->last_name ?? '' }}
                                         @endif
                                     </td>
                                     <td>  {{ $log->action }}</td>
