@@ -23,7 +23,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $company->name }}</td>
                     <td>
-                        <a class="text-dark" target="_blank" href="{{ route('user.index',['filter'=>'phone','search'=>$company->owner->phone]) }}">
+                        <a class="text-dark" target="_blank" href="{{ route('user.index',['filter'=>'phone','search'=>$company?->owner?->phone]) }}">
                             {{ $company->owner->profile?->name  }} {{ $company->owner->profile?->last_name  }}
                         </a>
                     </td>
