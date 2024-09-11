@@ -36,7 +36,7 @@
                     <tbody >
 
                     @foreach($users as $user)
-                        <tr  wire:transition.duration.450ms>
+                        <tr  wire:transition.duration.1500ms>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
                                 @can('admin-access')
