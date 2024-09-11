@@ -6,10 +6,12 @@ use App\Models\Company;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Throwable;
 
+#[Lazy]
 class CompanyDashboard extends Component
 {
     use LivewireAlert,WithoutUrlPagination;

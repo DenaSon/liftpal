@@ -55,7 +55,7 @@
 
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody wire:init>
                     @foreach($eedList as $index=> $error)
                     <tr wire:key="error-{{ $error->id }}">
                         <th scope="row">{{ $index +1 }}</th>

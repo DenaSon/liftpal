@@ -6,12 +6,14 @@ use App\Models\Company;
 use App\Models\Message;
 use Illuminate\Support\Facades\RateLimiter;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Lazy;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 use Throwable;
 
+#[Lazy]
 class Companies extends Component
 {
     use  WithoutUrlPagination,LivewireAlert;
