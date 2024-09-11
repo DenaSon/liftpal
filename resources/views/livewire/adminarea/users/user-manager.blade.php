@@ -1,11 +1,17 @@
-<div wire:init="loadMore" class="user-list">
+<div  class="user-list">
 
 
 
+    <div class="card mt-3">
 
+        <div class="form-group">
+            <input class="form-control" wire:model.live="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
+        </div>
 
-    <div>
-        <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="paginated-users">
+    </div>
+
+    <div wire:init="loadMore">
+        <div class="card mt-3 shadow-lg" id="paginated-users">
 
 
             <div class="d-flex justify-content-between">
