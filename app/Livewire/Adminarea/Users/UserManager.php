@@ -22,7 +22,10 @@ class UserManager extends Component
     {
         $this->perPage += 5;
     }
-
+    public function updatedSearch($value)
+    {
+        $this->resetPage();
+    }
 
     protected function searchUsers()
     {
