@@ -45,7 +45,7 @@
                         <td> {{ $request?->owner->profile?->name }} {{ $request->owner->profile?->last_name }}</td>
                         <td> {{ $request?->building->builder_name }}</td>
                         <td> {{ $request?->building->companies->first()->name}}</td>
-                        <td> {{ $request?->technician->profile?->name }} {{ $request->technician->profile?->last_name}}</td>
+                        <td> </td>
                         <td> {{ $request->getStatus()  }}</td>
                         <td class="fs-xs small"> {{ jdate($request?->created_at)->ago() }}</td>
 
