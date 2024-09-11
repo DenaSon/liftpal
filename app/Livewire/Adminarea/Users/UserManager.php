@@ -15,7 +15,7 @@ class UserManager extends Component
     public $perPage = 10;
     public function loadMore()
     {
-        $this->perPage += 10;
+        $this->perPage += 5;
     }
 
 
