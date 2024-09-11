@@ -50,7 +50,25 @@
                             @can('admin-access') </a>  @endcan
 
                     </td>
-                    <td class="@can('company')  fw-bolder @endcan">{{ $user->getRole() }}</td>
+
+
+                    <td>
+                                   <span class="btn btn-xs @switch($user->role)
+                                   @case('manager')
+                                   btn-outline-info
+                                   @break
+                                    @case('technician')
+                                   btn-outline-warning
+                                   @break
+                                    @case('company')
+                                   btn-outline-dark
+                                   @break
+                                    @case('admin')
+                                   btn-outline-danger
+                                   @endswitch p-1 ps-3 pe-3">{{ $user->getRole() }}</span>
+                    </td>
+
+
                     <td>{{ formatPhoneNumber($user->phone) }}</td>
                     <td class="fs-xs">{{ jdate($user->created_at)->isToday() ? 'امروز' : jdate($user->created_at)->toFormattedDateString()  }}</td>
                 </tr>

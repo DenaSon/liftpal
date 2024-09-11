@@ -80,7 +80,7 @@
                                    @break
                                     @case('admin')
                                    btn-outline-danger
-                                   @endswitch p-1">{{ $user->getRole() }}</span>
+                                   @endswitch p-1 ps-3 pe-3">{{ $user->getRole() }}</span>
                             </td>
 
                             <td>{{ formatPhoneNumber($user->phone) }}</td>
