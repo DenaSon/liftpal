@@ -303,34 +303,34 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $user = User::findorfail($id);
-
-
-        // Delete associated profile
-        if ($user->profile) {
-            $user->profile->delete();
-        }
-
-        // Delete associated images
-        if ($user->images()->exists()) {
-            $user->images()->detach();
-        }
-
-        // Delete associated wallet
-        if ($user->wallet)
-        {
-            $user->wallet->delete();
-        }
-
-        if ($user->comments()->exists()) {
-            $user->comments()->delete();
-        }
-
-
-
-            // Delete the user
-        $user->delete();
-        Alert::success('کاربر حذف شد','کاربر و تمام اطلاعات مرتبط با آن حذف شدند.');
-        return redirect()->back();
+//        $user = User::findorfail($id);
+//
+//
+//        // Delete associated profile
+//        if ($user->profile) {
+//            $user->profile->delete();
+//        }
+//
+//        // Delete associated images
+//        if ($user->images()->exists()) {
+//            $user->images()->detach();
+//        }
+//
+//        // Delete associated wallet
+//        if ($user->wallet)
+//        {
+//            $user->wallet->delete();
+//        }
+//
+//        if ($user->comments()->exists()) {
+//            $user->comments()->delete();
+//        }
+//
+//
+//
+//            // Delete the user
+//        $user->delete();
+//        Alert::success('کاربر حذف شد','کاربر و تمام اطلاعات مرتبط با آن حذف شدند.');
+//        return redirect()->back();
     }
 }

@@ -31,7 +31,7 @@
 
             @foreach($users as $user)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }} -{{ $user->id }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>
                         @can('admin-access')
                             <a class=" text-dark" target="_blank"  href="{{ route('user.index',['filter' =>'phone','search'=> $user?->phone]) }}">

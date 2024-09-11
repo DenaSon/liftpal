@@ -255,46 +255,46 @@ class CustomerController extends Controller
     public function destroy(string $id)
     {
 
-      if(!Gate::allows('admin'))
-      {
-           Alert::warning('دسترسی غیرمجاز','شما اجازه حذف کاربران را ندارید.');
-           return redirect()->back();
-      }
-
-        try
-        {
-
-            $user = User::findorfail($id);
-
-
-            // Delete associated profile
-            if ($user->profile) {
-                $user->profile->delete();
-            }
-
-            // Delete associated images
-            if ($user->images) {
-                $user->images->delete();
-                $user->images->detach();
-            }
-
-            // Delete associated wallet
-            if ($user->wallet) {
-                $user->wallet->delete();
-            }
-
-            // Delete the user
-            $user->delete();
-            Alert::success('کاربر حذف شد','کاربر و تمام اطلاعات مرتبط با آن حذف شدند.');
-            return redirect()->back();
-
-
-        }
-      catch (Throwable $e)
-      {
-          setLog('Delete-Customer',$e->getMessage(). ' '. $e->getFile(),'danger');
-          return redirect()->route('log-system');
-      }
+//      if(!Gate::allows('admin'))
+//      {
+//           Alert::warning('دسترسی غیرمجاز','شما اجازه حذف کاربران را ندارید.');
+//           return redirect()->back();
+//      }
+//
+//        try
+//        {
+//
+//            $user = User::findorfail($id);
+//
+//
+//            // Delete associated profile
+//            if ($user->profile) {
+//                $user->profile->delete();
+//            }
+//
+//            // Delete associated images
+//            if ($user->images) {
+//                $user->images->delete();
+//                $user->images->detach();
+//            }
+//
+//            // Delete associated wallet
+//            if ($user->wallet) {
+//                $user->wallet->delete();
+//            }
+//
+//            // Delete the user
+//            $user->delete();
+//            Alert::success('کاربر حذف شد','کاربر و تمام اطلاعات مرتبط با آن حذف شدند.');
+//            return redirect()->back();
+//
+//
+//        }
+//      catch (Throwable $e)
+//      {
+//          setLog('Delete-Customer',$e->getMessage(). ' '. $e->getFile(),'danger');
+//          return redirect()->route('log-system');
+//      }
 
 
 
