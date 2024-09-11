@@ -1,4 +1,4 @@
-<div wire:init="loadMore" class="user-list">
+<div wire:init="loadMore" class="user-list" wire:transition>
 
 
 
@@ -82,8 +82,8 @@
 
 <div class="d-flex">
 @if($users->hasMorePages())
-        <div wire:loading wire:target="loadMore" class="alert alert-primary text-center mx-auto mt-3">
-            <div class="mx-auto text-center">
+        <div wire:loading wire:target="loadMore" class="alert alert-info text-center mx-auto mt-3">
+            <div class="mx-auto text-center fe-bold" wire:transition>
                 بارگذاری بیشتر...
             </div>
         </div>
