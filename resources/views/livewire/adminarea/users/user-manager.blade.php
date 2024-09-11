@@ -9,6 +9,8 @@
 
     </div>
 
+    <x-front.spinner></x-front.spinner>
+
     <div wire:init="loadMore">
         <div class="card mt-3 shadow-lg" id="paginated-users">
 
