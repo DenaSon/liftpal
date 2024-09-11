@@ -82,8 +82,10 @@
 
 
 @if($users->hasMorePages())
-        <div wire:loading wire:target="loadMore" class="alert alert-primary">
-            بارگذاری بیشتر...
+        <div wire:loading wire:target="loadMore" class="alert alert-primary text-center mx-auto mt-3">
+            <div class="mx-auto text-center">
+                بارگذاری بیشتر...
+            </div>
         </div>
     @endif
 </div>
