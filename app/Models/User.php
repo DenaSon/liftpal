@@ -64,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
              case 'company':
                  return 'شرکت';
              case 'technician':
-                 return 'کارشناس فنی';
+                 return 'کارشناس';
              case 'master':
                  return 'مدیرکل';
              case 'manager':

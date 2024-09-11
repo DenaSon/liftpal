@@ -68,7 +68,19 @@
 
                             </td>
                             <td>
-                                   {{ $user->getRole() }}
+                                   <span class="btn btn-xs @switch($user->role)
+                                   @case('manager')
+                                   btn-outline-info
+                                   @break
+                                    @case('technician')
+                                   btn-outline-warning
+                                   @break
+                                    @case('company')
+                                   btn-outline-dark
+                                   @break
+                                    @case('admin')
+                                   btn-outline-danger
+                                   @endswitch p-1">{{ $user->getRole() }}</span>
                             </td>
 
                             <td>{{ formatPhoneNumber($user->phone) }}</td>
