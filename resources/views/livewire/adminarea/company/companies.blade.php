@@ -24,22 +24,22 @@
                     <td>{{ $company->name }}</td>
                     <td>
                         <a class="text-dark" target="_blank" href="{{ route('user.index',['filter'=>'phone','search'=>$company?->owner?->phone]) }}">
-                            {{ $company->owner->profile?->name  }} {{ $company->owner->profile?->last_name  }}
+                            {{ $company?->owner?->profile?->name  }} {{ $company?->owner?->profile?->last_name  }}
                         </a>
                     </td>
-                    <td>{{ $company->licence_code }}</td>
+                    <td>{{ $company?->licence_code }}</td>
                     <td class="text-muted fs-xs">{{ $company?->province }}</td>
                     <td>
-                        @if(\Illuminate\Support\Carbon::parse($company->license_expiration_date)->lessThan(now()))
+                        @if(\Illuminate\Support\Carbon::parse($company?->license_expiration_date)->lessThan(now()))
                             <span class="badge bg-danger fw-bold">منقضی</span>
                         @else
 
-                            {{ jdate($company->license_expiration_date)->toFormattedDateString() }}
+                            {{ jdate($company?->license_expiration_date)->toFormattedDateString() }}
 
                         @endif
                     </td>
                     <td>
-                        @if($company->active == 1)
+                        @if($company?->active == 1)
                             <span class="badge bg-success">فعال</span>
                         @else
                             <span class="badge bg-danger">غیرفعال</span>
@@ -47,13 +47,13 @@
                     </td>
 
                     <td>
-                        @if($company->active == 1)
-                            <button wire:confirm="شرکت را غیرفعال می کنید؟" wire:click="deActiveCompany({{$company->id}})" title="غیرفعال سازی"
+                        @if($company?->active == 1)
+                            <button wire:confirm="شرکت را غیرفعال می کنید؟" wire:click="deActiveCompany({{$company?->id}})" title="غیرفعال سازی"
                                     class="btn btn-xs btn-outline-danger" type="button">
                                 <i class="fi-accounting"></i>
                             </button>
                         @else
-                            <button wire:confirm="شرکت را فعال سازی می کنید؟" wire:click="activeCompany({{$company->id}})" title="فعال سازی"
+                            <button wire:confirm="شرکت را فعال سازی می کنید؟" wire:click="activeCompany({{$company?->id}})" title="فعال سازی"
                                     class="btn btn-xs btn-outline-success" type="button">
                                 <i class="fi-accounting"></i>
                             </button>
