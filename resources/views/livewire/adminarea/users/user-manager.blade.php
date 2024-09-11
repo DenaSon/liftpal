@@ -1,11 +1,10 @@
-<div  class="user-list">
-
+<div class="user-list">
 
 
     <div class="card mt-3">
 
         <div class="form-group">
-            <input class="form-control" wire:model.live="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
+            <input class="form-control" wire:model.live.debounce.800ms="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
         </div>
 
     </div>
@@ -39,14 +38,15 @@
                         <th>زمان ثبتنام</th>
                     </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
 
                     @foreach($users as $user)
-                        <tr wire:key="{{$user->id}}"  wire:transition.duration.1000ms>
+                        <tr wire:key="{{$user->id}}" wire:transition.duration.1000ms>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
                                 @can('admin-access')
-                                    <a class=" text-dark" target="_blank"  href="{{ route('user.index',['filter' =>'phone','search'=> $user?->phone]) }}">
+                                    <a class=" text-dark" target="_blank"
+                                       href="{{ route('user.index',['filter' =>'phone','search'=> $user?->phone]) }}">
                                         @endcan
 
                                         {{ $user->profile?->name }}
@@ -59,7 +59,8 @@
                                     <a class="text-dark" target="_blank"
                                        href="{{ route('user.index',['filter' =>'phone','search'=> $user?->phone]) }}">   @endcan   {{ $user->profile?->last_name }}
 
-                                        @can('admin-access') </a>  @endcan
+                                        @can('admin-access') </a>
+                                @endcan
 
                             </td>
                             <td class="@can('company')  fw-bolder @endcan">{{ $user->getRole() }}</td>
@@ -75,29 +76,23 @@
     </div>
 
 
-
-
-
-
-
-
-
-<div class="d-flex">
-@if($users->hasMorePages())
-        <div wire:loading wire:target="loadMore" class="alert alert-info text-center mx-auto mt-3">
-            <div class="mx-auto text-center">
-                بارگذاری کاربران...
+    <div class="d-flex">
+        @if($users->hasMorePages())
+            <div wire:loading wire:target="loadMore" class="alert alert-info text-center mx-auto mt-3">
+                <div class="mx-auto text-center">
+                    بارگذاری کاربران...
+                </div>
             </div>
-        </div>
-    @endif
-</div>
+        @endif
+    </div>
 </div>
 
 <script>
-    document.addEventListener('scroll', function() {
+    document.addEventListener('scroll', function () {
         const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
         if (scrollTop + clientHeight >= scrollHeight - 5) {
-            @this.call('loadMore');
+            @this.
+            call('loadMore');
         }
     });
 </script>
