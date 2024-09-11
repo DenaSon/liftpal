@@ -43,7 +43,7 @@
                         <th>زمان ثبتنام</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody wire:poll.visible>
 
                     @foreach($users as $user)
                         <tr wire:key="user-{{$user->id}}" wire:transition.duration.800ms>
