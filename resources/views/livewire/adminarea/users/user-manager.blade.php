@@ -33,10 +33,10 @@
                         <th>زمان ثبتنام</th>
                     </tr>
                     </thead>
-                    <tbody  wire:transition>
+                    <tbody >
 
                     @foreach($users as $user)
-                        <tr>
+                        <tr  wire:transition>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
                                 @can('admin-access')
