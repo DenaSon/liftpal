@@ -20,7 +20,7 @@ class Log extends Model
 
     public function profile():BelongsTo
     {
-        return $this->belongsTo(Profile::class,'user_id');
+        return $this->belongsTo(Profile::class);
 
     }
 
