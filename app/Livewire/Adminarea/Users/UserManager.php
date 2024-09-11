@@ -11,16 +11,18 @@ class UserManager extends Component
 {
     use WithPagination,WithoutUrlPagination;
 
-    protected $listeners = ['loadMoreTriggered'];
-
-    public function loadMoreTriggered()
+    protected $listeners = ['loadMore'];
+    public $perPage = 10;
+    public function loadMore()
     {
-        $this->dispatch('loadMore');
+        $this->perPage += 10;
     }
 
 
     public function render()
     {
-        return view('livewire.adminarea.users.user-manager',['users'=>User::paginate(10)]);
+        $users = User::paginate($this->perPage);
+
+        return view('livewire.adminarea.users.user-manager',compact('users'));
     }
 }

@@ -1,43 +1,24 @@
-<div
-    id="usersTable"
-    wire:scroll.debounce.200ms="loadMoreTriggered"
-    style="height: 400px; overflow-y: auto;"
->
-    <table class="table-auto w-full">
-        <thead>
-        <tr>
-            <th class="px-4 py-2">Name</th>
-            <th class="px-4 py-2">Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($users as $user)
-            <tr>
-                <td class="border px-4 py-2">{{ $user->profile?->name }} {{ $user->profile?->last_name }}</td>
-                <td class="border px-4 py-2">{{ $user->phone }}</td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-
-    @if($users->hasMorePages())
-        <div wire:loading wire:target="loadMoreTriggered">
-            Loading more users...
+<div wire:init="loadMore" class="user-list">
+    @foreach($users as $user)
+        <div class="user-item">
+            {{ $user->phone }}
         </div>
-    @else
-        <div class="text-center py-2">
-            No more records to load.
+    @endforeach
+
+    <!-- نمایش پیام بارگذاری داده ها در حین لود بیشتر کاربران -->
+    @if($users->hasMorePages())
+        <div wire:loading wire:target="loadMore" class="loader">
+            بارگذاری بیشتر...
         </div>
     @endif
 </div>
 
+
 <script>
-    document.addEventListener('livewire:load', function () {
-        let usersTable = document.getElementById('usersTable');
-        usersTable.addEventListener('scroll', function () {
-            if (usersTable.scrollTop + usersTable.clientHeight >= usersTable.scrollHeight) {
-                Livewire.dispatch('loadMoreTriggered'); // Using dispatch for Livewire v3
-            }
-        });
+    document.addEventListener('scroll', function() {
+        const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+            @this.call('loadMore');
+        }
     });
 </script>
