@@ -80,7 +80,7 @@
 
 
 
-
+<div class="d-flex">
 @if($users->hasMorePages())
         <div wire:loading wire:target="loadMore" class="alert alert-primary text-center mx-auto mt-3">
             <div class="mx-auto text-center">
@@ -89,7 +89,7 @@
         </div>
     @endif
 </div>
-
+</div>
 
 <script>
     document.addEventListener('scroll', function() {
