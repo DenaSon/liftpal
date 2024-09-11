@@ -1,5 +1,5 @@
 <div>
-    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="paginated-requests">
+    <div class="card {{ $card_class ?? 'mt-3' }}" id="paginated-requests">
 
         <div class="d-flex justify-content-between">
         <span class="m-1 pt-2 pe-2 ps-2 fw-bold">

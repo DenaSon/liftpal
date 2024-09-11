@@ -1,7 +1,7 @@
 <div class="user-list">
 
 
-    <div class="card mt-3">
+    <div class="card mt-3 shadow">
 
         <div class="form-group">
             <input class="form-control" wire:model.debounce.800ms="search" placeholder="جستجو کاربر (شماره یا نام خانوادگی)">
@@ -21,7 +21,7 @@
             <div class="d-flex justify-content-between">
         <span class="m-1 pt-2 pe-2 ps-2 fw-bold">
             <i class="fi-list me-2"></i>
-
+            لیست کاربران
         </span>
                 <span class="m-1 pt-2 pe-2 ps-2">
                 <span class="badge bg-faded-info fw-lighter fs-sm text-waiting"> {{ $users?->count() ?? '0' }} </span>
@@ -40,7 +40,7 @@
                         <th>نام خانوادگی</th>
                         <th>نقش</th>
                         <th>تلفن</th>
-                        <th>زمان ثبتنام</th>
+                        <th>ثبت‌نام</th>
                     </tr>
                     </thead>
                     <tbody wire:poll.visible>

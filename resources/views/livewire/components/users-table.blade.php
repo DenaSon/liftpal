@@ -1,5 +1,5 @@
 <div>
-    <div class="card {{ $card_class ?? 'mt-3 shadow-lg' }}" id="paginated-users">
+    <div class="card {{ $card_class ?? '' }}" id="paginated-users">
 
 
         <div class="d-flex justify-content-between">
@@ -24,7 +24,7 @@
                 <th>نام خانوادگی</th>
                 <th>نقش</th>
                 <th>تلفن</th>
-                <th>زمان ثبتنام</th>
+                <th> ثبت‌نام</th>
             </tr>
             </thead>
             <tbody>

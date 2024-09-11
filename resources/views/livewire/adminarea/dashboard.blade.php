@@ -11,9 +11,9 @@
                               counter="{{ \App\Models\User::whereRole('manager')->count() }}"></x-front.card-counter>
 
 
-        @livewire('components.users-table',['role'=>'all','class' =>'table-hover table-hover','list_name' => 'لیست کاربران','card_class' => 'mt-3'])
+        @livewire('components.users-table',['role'=>'all','class' =>'table-hover ','list_name' => 'لیست کاربران','card_class' => 'mt-3  shadow-lg'])
 
-       @livewire('components.requests-table',['class' => 'table-hover'])
+        @livewire('components.requests-table',['card_class'=>'mt-3 shadow-lg','class' => 'table-hover'])
 
     </div>
 
