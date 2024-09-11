@@ -29,8 +29,10 @@
                 <livewire:adminarea.eed.eed-create/>
                 @elseif(request()->input('page') == 'companies')
                 <livewire:adminarea.company.companies/>
+                @elseif(request()->input('page') == 'user-manager')
+                <livewire:adminarea.users.user-manager/>
                 @else
-
+                        <livewire:adminarea.dashboard/>
                 @endif
 
 

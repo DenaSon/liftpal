@@ -27,6 +27,9 @@ class adminPanel extends Component
             case 'companies':
                 $this->pageTitle = 'مدیریت شرکت';
                 break;
+            case 'user-manager':
+                $this->pageTitle = 'مدیریت کاربران';
+                break;
             case 'dashboard':
                 $this->pageTitle = 'داشبورد';
                 break;

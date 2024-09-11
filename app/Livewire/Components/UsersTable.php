@@ -13,7 +13,6 @@ class UsersTable extends Component
 {
     use WithPagination,WithoutUrlPagination;
 
-
     public $role ='';
     public $class = '';
     public $list_name ='';

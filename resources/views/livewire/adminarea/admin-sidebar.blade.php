@@ -26,6 +26,10 @@
                    href="{{ route('management',['page'=>'dashboard']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد
                 </a>
 
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'user-manager') active @endif"
+                   href="{{ route('management',['page'=>'user-manager']) }}"><i
+                        class="fi-grid opacity-60 me-2"></i>کاربران</a>
+
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'companies') active @endif"
                    href="{{ route('management',['page'=>'companies']) }}"><i
                         class="fi-grid opacity-60 me-2"></i>شرکت‌ها</a>
