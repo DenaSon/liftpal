@@ -20,13 +20,13 @@
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
 
-
+    <!-- Styles -->
     @yield('css')
     @stack('styles')
     @livewireStyles
 
     <!-- Core JS Files -->
-    <script src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}" ></script>
+    <script data-navigate-onc src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}" ></script>
     <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}" ></script>
 </head>
 
@@ -39,14 +39,14 @@
     {{ $slot }}
 
 </div>
-<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
-<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <x-livewire-alert::scripts/>
 
 
-
-
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 @yield('js')
+<script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+
 
 </body>
 
