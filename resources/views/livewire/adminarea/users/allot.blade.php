@@ -52,9 +52,9 @@
                             <option selected> انتخاب شرکت</option>
                             @foreach($companies as $index => $company)
                                 <option value="{{ $company->id }}" wire:key="{{ $company->id }}">
-                                    {{ $company->id }} - {{ $company->name }} - مدیریت : {{ $company->owner->profile->name }} {{ $company->owner->profile->last_name }}
-                                    ({{ $company?->phone }})
-                                    {{ \Illuminate\Support\Str::limit( $company?->address,15)  }}
+                                    {{ $company->id }} - {{ $company->name }} - مدیریت : {{ $company->owner?->profile?->name }} {{ $company->owner?->profile?->last_name }}
+                                    ({{ $company?->telephone }})
+                                    {{ \Illuminate\Support\Str::limit( $company?->address,12)  }}
                                 </option>
                             @endforeach
                         @endif
