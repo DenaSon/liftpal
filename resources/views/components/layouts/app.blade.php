@@ -42,8 +42,9 @@
 <x-livewire-alert::scripts/>
 
 
-<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
 @yield('js')
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
 
 
