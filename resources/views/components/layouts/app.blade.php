@@ -39,30 +39,12 @@
     {{ $slot }}
 
 </div>
+<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <x-livewire-alert::scripts/>
 
-
-<script data-navigate-once src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 @yield('js')
 <script data-navigate-onc src="{{ asset('assets/js/theme.min.js') }}"></script>
-<script data-navigate-onc>
-    document.addEventListener('DOMContentLoaded', function() {
-        function containsPersianNumbers(str) {
-            const persianNumbers = '۰۱۲۳۴۵۶۷۸۹';
-            return Array.from(str).some(char => persianNumbers.includes(char));
-        }
 
-        document.querySelectorAll('input[type="text"]').forEach(input => {
-            input.addEventListener('change', function() {
-                if (containsPersianNumbers(this.value)) {
-                    alert('لطفاً کیبورد خود را روی انگلیسی تنظیم کنید.');
-                    // پاک کردن مقدار ورودی برای جلوگیری از ورود اعداد فارسی
-                    this.value = '';
-                }
-            });
-        });
-    });
-</script>
 
 
 </body>
