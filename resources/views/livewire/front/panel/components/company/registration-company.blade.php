@@ -1,4 +1,7 @@
-
+@push('styles')
+    <script src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
+    <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
+@endpush
 <div class="container d-flex justify-content-center align-items-center mt-5">
     <div class="card shadow" style="width: 35rem;">
         <div class="card-body">
@@ -94,6 +97,26 @@
 </div>
 
 
+@section('js')
+    <script>
 
+        var options = {
+            time: false,
+            hasSecond: false,
+
+            separatorChars: {
+                date: '-',
+                time: ':',
+                dateTime: ' ',
+
+            }
+
+
+        };
+        jalaliDatepicker.startWatch(options);
+
+
+    </script>
+@endsection
 
 

@@ -1,9 +1,6 @@
 <div>
 
-    @push('styles')
-        <script src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
-        <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
-    @endpush
+
 
     @if(!$active)
         @include('livewire.front.panel.components.company.registration-company')
@@ -36,25 +33,5 @@
     @endif
 
 
-    @section('js')
-        <script>
 
-            var options = {
-                time: false,
-                hasSecond: false,
-
-                separatorChars: {
-                    date: '-',
-                    time: ':',
-                    dateTime: ' ',
-
-                }
-
-
-            };
-            jalaliDatepicker.startWatch(options);
-
-
-        </script>
-    @endsection
 </div>
