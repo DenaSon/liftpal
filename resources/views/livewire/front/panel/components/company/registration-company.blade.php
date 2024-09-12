@@ -1,9 +1,6 @@
 
-
 <div class="container d-flex justify-content-center align-items-center mt-5">
 
-    <script src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
-    <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
     <div class="card shadow" style="width: 35rem;">
         <div class="card-body">
             <h6 class="card-title text-center mb-4">
@@ -48,7 +45,7 @@
 
 
                 <div class="form-floating mb-3">
-                    <input  data-jdp type="text" class="form-control" id="licenceExpire" placeholder="" wire:model="licenceExpire">
+                    <input readonly  data-jdp type="text" class="form-control" id="licenceExpire" placeholder="" wire:model="licenceExpire">
                     <label for="licenceExpire">تاریخ انقضاء مجوز</label>
                 </div>
 
@@ -96,28 +93,4 @@
         </div>
     </div>
 </div>
-
-
-
-    <script>
-
-        var options = {
-            time: false,
-            hasSecond: false,
-
-            separatorChars: {
-                date: '-',
-                time: ':',
-                dateTime: ' ',
-
-            }
-
-
-        };
-        jalaliDatepicker.startWatch(options);
-
-
-    </script>
-
-
 

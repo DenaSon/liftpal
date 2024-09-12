@@ -11,7 +11,7 @@ use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Throwable;
 
-#[Lazy]
+
 class CompanyDashboard extends Component
 {
     use LivewireAlert,WithoutUrlPagination;

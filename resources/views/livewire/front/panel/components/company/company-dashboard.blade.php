@@ -1,7 +1,5 @@
 <div>
 
-
-
     @if(!$active)
         @include('livewire.front.panel.components.company.registration-company')
 
@@ -35,3 +33,43 @@
 
 
 </div>
+
+@push('styles')
+    <script data-navigate-once src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
+    <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
+@endpush
+@section('js')
+
+    <script data-navigate-once>
+        var options = {
+            time: false,
+            hasSecond: false,
+            separatorChars: {
+                date: '-',
+                time: ':',
+                dateTime: ' ',
+            }
+        };
+
+        // Initial call for normal components
+        jalaliDatepicker.startWatch(options);
+
+        // Handle initialization when Livewire fully loads
+        document.addEventListener('livewire:load', function () {
+            jalaliDatepicker.startWatch(options);
+        });
+
+        // Handle DOM updates on Livewire components
+        Livewire.hook('element.updated', (el, component) => {
+            jalaliDatepicker.startWatch(options);
+        });
+
+        // Specific event for Lazy loaded components
+        document.addEventListener('livewire:lazy-load', function () {
+            jalaliDatepicker.startWatch(options);
+        });
+
+    </script>
+
+@endsection
+
