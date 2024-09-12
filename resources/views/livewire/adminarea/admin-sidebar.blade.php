@@ -2,17 +2,17 @@
     <!-- Account nav-->
     <div class="card card-body border-0 shadow-sm pb-1 me-lg-1">
         <div class="d-flex d-md-block d-lg-flex align-items-start justify-content-center pt-lg-2 mb-4">
-            <img src="{{ asset('media/managerpng.jpg') }}" alt="" class="w-75 mx-auto"  width="150"/>
+            <img src="{{ asset('media/managerpng.jpg') }}" alt="" class="w-75 mx-auto" width="150"/>
         </div>
 
-    @if(Auth::user()->isRole('manager'))
+        @if(Auth::user()->isRole('manager'))
             <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3"
                href="{{ route('panel',['page'=>'fault-alert']) }}"><i
                     class="fi-shop me-2"></i>اعلام مشکل فنی</a>
         @elseif(Auth::user()->isRole('technician'))
             <a wire:navigate class="btn btn-outline-primary btn-lg w-100 mb-3 mt-3"
                href="{{ route('panel',['page'=>'request-list'])}}">
-                <i class="fi-bell-on me-2"></i>  درخواست‌ها
+                <i class="fi-bell-on me-2"></i> درخواست‌ها
             </a>
         @endif
 
@@ -23,7 +23,8 @@
             <div class="card-nav">
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'dashboard') active @endif"
-                   href="{{ route('management',['page'=>'dashboard']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد
+                   href="{{ route('management',['page'=>'dashboard']) }}"><i class="fi-dashboard opacity-60 me-2"></i>
+                    داشبورد
                 </a>
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'user-manager') active @endif"
@@ -35,18 +36,18 @@
                         class="fi-grid opacity-60 me-2"></i>شرکت‌ها</a>
 
 
-
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'allot') active @endif"
                    href="{{ route('management',['page'=>'allot']) }}"><i
                         class="fi-user opacity-60 me-2"></i> تخصیص</a>
-
 
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'eed-create') active @endif"
                    href="{{ route('management',['page'=>'eed-create']) }}"><i
                         class="fi-flame opacity-60 me-2"></i>سیستم EED</a>
 
-
+                <a wire:navigate class="card-nav-link @if(request()->input("page") == 'setting') active @endif"
+                   href="{{ route('management',['page'=>'setting']) }}"><i
+                        class="fi-flame opacity-60 me-2"></i>تنظیمات</a>
 
 
                 <a class="card-nav-link" href="#">

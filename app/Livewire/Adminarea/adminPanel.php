@@ -36,6 +36,9 @@ class adminPanel extends Component
             case 'eed-create':
                 $this->pageTitle = 'سیستم کشف خطا EED';
                 break;
+            case 'setting' :
+                $this->pageTitle = 'تنظیمات';
+                break;
 
             default:
 

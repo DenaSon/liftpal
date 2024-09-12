@@ -8,7 +8,8 @@
         <nav class="mb-4 pt-md-3" aria-label="Breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a wire:navigate href="{{ route('home') }}">خانه</a></li>
-                <li class="breadcrumb-item"><a wire:navigate href="{{ route('management',['page'=>'dashboard']) }}">پنل مدیریتی </a></li>
+                <li class="breadcrumb-item"><a wire:navigate href="{{ route('management',['page'=>'dashboard']) }}">پنل
+                        مدیریتی </a></li>
 
             </ol>
         </nav>
@@ -22,17 +23,19 @@
                 <hr dir="rtl" class=" custom-hr-title-panel mt-2">
 
                 @if(request()->input('page') == 'allot')
-                <livewire:adminarea.users.allot>
-                @elseif(request()->input('page') == 'dashboard')
-                <livewire:adminarea.dashboard/>
-                @elseif(request()->input('page') == 'eed-create')
-                <livewire:adminarea.eed.eed-create/>
-                @elseif(request()->input('page') == 'companies')
-                <livewire:adminarea.company.companies/>
-                @elseif(request()->input('page') == 'user-manager')
-                <livewire:adminarea.users.user-manager/>
-                @else
-                        <livewire:adminarea.dashboard/>
+                    <livewire:adminarea.users.allot>
+                        @elseif(request()->input('page') == 'dashboard')
+                            <livewire:adminarea.dashboard/>
+                        @elseif(request()->input('page') == 'eed-create')
+                            <livewire:adminarea.eed.eed-create/>
+                        @elseif(request()->input('page') == 'companies')
+                            <livewire:adminarea.company.companies/>
+                        @elseif(request()->input('page') == 'user-manager')
+                            <livewire:adminarea.users.user-manager/>
+                        @elseif(request()->input('page') == 'setting')
+                            <livewire:adminarea.system.setting/>
+                        @else
+                            <livewire:adminarea.dashboard/>
                 @endif
 
 
@@ -43,10 +46,6 @@
     </div>
 
     <div class="clearfix"></div>
-
-
-
-
 
 
     @section('js')
