@@ -79,7 +79,7 @@
                 <!--   <a class="card-nav-link" href="real-estate-account-security.html"><i
                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a> -->
                 @can('company')
-                    @if(auth()->user()?->company)
+                    @if(auth()->user()?->company && auth()->user()?->company->isActive())
 
                     <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
                        href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
@@ -89,7 +89,7 @@
                 @endcan
 
                 @can('company')
-                    @if(auth()->user()?->company)
+                    @if(auth()->user()?->company && auth()->user()?->company->isActive())
 
                         <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
                            href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i

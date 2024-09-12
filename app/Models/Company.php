@@ -43,6 +43,11 @@ class Company extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function isActive(): bool
+    {
+        return (bool)$this->active == 1;
+    }
+
 
 
     public function technicians(): BelongsToMany

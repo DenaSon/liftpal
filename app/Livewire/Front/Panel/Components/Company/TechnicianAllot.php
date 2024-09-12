@@ -27,6 +27,8 @@ class TechnicianAllot extends Component
     {
         $company_id = auth()->user()->company->id;
         $user->companies()->syncWithoutDetaching($company_id);
+        $this->alert('success','انتساب انجام شد');
+
 
     }
 
