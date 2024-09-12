@@ -7,7 +7,7 @@
         <ul class="list-group pt-md-5">
 
 
-            <li class="list-group-item active">
+            <li class="list-group-item active ">
             <span>
            دسته بندی مقالات
             </span>
@@ -16,7 +16,7 @@
 
 
             @foreach($categories as $category)
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <li class="list-group-item d-none d-md-flex justify-content-between align-items-center">
             <a wire:navigate href="{{ route('blogIndex',['cid'=>$category->id]) }}" class="text-decoration-none">
             {{ $category->name }}
             </a>

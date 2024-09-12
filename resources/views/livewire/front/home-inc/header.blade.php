@@ -118,3 +118,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/theme-style.css') }}">
     <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
 @endpush
+
+<script>
+    document.addEventListener('click', function(event) {
+
+        let navbarCollapse = document.querySelector('.navbar-collapse');
+        let isNavbarOpen = navbarCollapse.classList.contains('show');
+
+
+        if (isNavbarOpen && !navbarCollapse.contains(event.target) && !event.target.closest('.navbar-toggler')) {
+            let bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                toggle: false
+            });
+            bsCollapse.hide();
+        }
+    });
+
+</script>
