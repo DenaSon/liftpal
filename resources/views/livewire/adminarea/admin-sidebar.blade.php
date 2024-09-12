@@ -47,7 +47,7 @@
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'setting') active @endif"
                    href="{{ route('management',['page'=>'setting']) }}"><i
-                        class="fi-flame opacity-60 me-2"></i>تنظیمات</a>
+                        class="fi-settings opacity-60 me-2"></i>تنظیمات</a>
 
 
                 <a class="card-nav-link" href="#">

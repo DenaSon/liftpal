@@ -213,6 +213,11 @@ function getSetting(string $key = null): mixed
 
     return $setting ?? null;
 }
+
+/**
+ * Set Log and report to programmer
+ *
+ */
 function setLog($action = null, $description = null, $severity = null)
 {
 
