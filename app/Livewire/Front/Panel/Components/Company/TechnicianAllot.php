@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Throwable;
 
 class TechnicianAllot extends Component
 {
@@ -25,18 +26,34 @@ class TechnicianAllot extends Component
 
     public function allotToCompany(User $user): void
     {
-        $company_id = auth()->user()->company->id;
-        $user->companies()->syncWithoutDetaching($company_id);
-        $this->alert('success','انتساب انجام شد');
+        try {
+            $company_id = auth()->user()->company->id;
+            $user->companies()->syncWithoutDetaching($company_id);
+            $this->alert('success','انتساب انجام شد');
+
+        }
+        catch (Throwable $e)
+        {
+            $this->alert('warning','صفحه را Refresh و مجدد سعی کنید');
+            setLog('CompanyTechnician-Allot',$e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine(),'danger');
+        }
 
 
     }
 
     public function deAllotTechnician(User $user)
     {
-        $company_id = auth()->user()->company->id;
-        $user->companies()->detach($company_id);
-        $this->alert('success','کارشناس از لیست شرکت شما حذف شد');
+        try
+        {
+            $company_id = auth()->user()->company->id;
+            $user->companies()->detach($company_id);
+            $this->alert('success','کارشناس از لیست شرکت شما حذف شد');
+        }
+        catch (Throwable $e)
+        {
+            $this->alert('warning','صفحه را Refresh و مجدد سعی کنید');
+            setLog('CompanyTechnician-Allot',$e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine(),'danger');
+        }
 
     }
 
