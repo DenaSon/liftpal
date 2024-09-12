@@ -48,7 +48,7 @@
 
 
                 <div class="form-floating mb-3">
-                    <input readonly data-jdp type="text" class="form-control" id="licenceExpire" placeholder="" wire:model="licenceExpire">
+                    <input  data-jdp type="text" class="form-control" id="licenceExpire" placeholder="" wire:model="licenceExpire">
                     <label for="licenceExpire">تاریخ انقضاء مجوز</label>
                 </div>
 
