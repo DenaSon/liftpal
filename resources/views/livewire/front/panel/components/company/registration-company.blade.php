@@ -1,8 +1,9 @@
-@push('styles')
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+
     <script src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
     <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
-@endpush
-<div class="container d-flex justify-content-center align-items-center mt-5">
     <div class="card shadow" style="width: 35rem;">
         <div class="card-body">
             <h6 class="card-title text-center mb-4">
@@ -97,7 +98,7 @@
 </div>
 
 
-@section('js')
+
     <script>
 
         var options = {
@@ -117,6 +118,6 @@
 
 
     </script>
-@endsection
+
 
 
