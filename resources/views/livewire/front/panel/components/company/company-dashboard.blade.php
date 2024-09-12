@@ -1,3 +1,33 @@
+@push('styles')
+    <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
+@endpush
+@section('js')
+
+    <script>
+
+        var options = {
+            time: false,
+            hasSecond: false,
+            separatorChars: {
+                date: '-',
+                time: ':',
+                dateTime: ' ',
+            }
+        };
+
+
+        jalaliDatepicker.startWatch(options);
+
+
+        $(document).ready(function () {
+            jalaliDatepicker.startWatch(options);
+        });
+
+
+    </script>
+
+@endsection
+
 <div>
 
     @if(!$active)
@@ -5,7 +35,7 @@
 
     @elseif($active && auth()->user()->company->active == 0)
         <span class="text-center m-2">
- <div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert">
+ <div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert" wire:ignore>
 
   <span class="fw-bold">
       ثبت شرکت شما انجام شده و پس از استعلام توسط واحد فنی حساب کاربری شما فعالسازی می شود.
@@ -34,42 +64,5 @@
 
 </div>
 
-@push('styles')
-    <script data-navigate-once src="{{ asset('admin/assets/js/jalalidatepicker.min.js') }}"></script>
-    <link href="{{ asset('admin/assets/css/jalalidatepicker.min.css') }}" rel="stylesheet" type="text/css"/>
-@endpush
-@section('js')
 
-    <script data-navigate-once>
-        var options = {
-            time: false,
-            hasSecond: false,
-            separatorChars: {
-                date: '-',
-                time: ':',
-                dateTime: ' ',
-            }
-        };
-
-        // Initial call for normal components
-        jalaliDatepicker.startWatch(options);
-
-        // Handle initialization when Livewire fully loads
-        document.addEventListener('livewire:load', function () {
-            jalaliDatepicker.startWatch(options);
-        });
-
-        // Handle DOM updates on Livewire components
-        Livewire.hook('element.updated', (el, component) => {
-            jalaliDatepicker.startWatch(options);
-        });
-
-        // Specific event for Lazy loaded components
-        document.addEventListener('livewire:lazy-load', function () {
-            jalaliDatepicker.startWatch(options);
-        });
-
-    </script>
-
-@endsection
 

@@ -79,15 +79,17 @@
                 <!--   <a class="card-nav-link" href="real-estate-account-security.html"><i
                            class="fi-lock opacity-60 me-2"></i>گذرواژه و امنیتی</a> -->
                 @can('company')
-                    @if(auth()->user()->has('company'))
+                    @if(auth()->user()?->company)
+
                     <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
                        href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
                             class="fi fi-user-plus opacity-60 me-2"></i> انتساب کارشناس </a>
+
                     @endif
                 @endcan
 
                 @can('company')
-                    @if(auth()->user()->has('company'))
+                    @if(auth()->user()?->company)
 
                         <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
                            href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i
@@ -98,9 +100,12 @@
 
 
                 @can('manager')
+
                     <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
                        href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
                             class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
+
+
                 @endcan
 
 

@@ -182,6 +182,8 @@
                 });
             }
 
+
+
             $(document).ready(function () {
                 initializeSelect2();
             });
