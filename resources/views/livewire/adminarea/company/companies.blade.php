@@ -19,7 +19,7 @@
             <tbody>
 
             @foreach($companies as $company)
-                <tr wire:key="company-{{$company->id}}" class="@if($company->active == 1) bg-faded-success @endif">
+                <tr wire:key="company-{{$company->id}}" class="@if($company->active == 1) bg-faded-success @else bg-danger @endif">
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $company->name }}</td>
                     <td>
