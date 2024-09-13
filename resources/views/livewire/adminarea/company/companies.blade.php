@@ -23,7 +23,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $company->name }}</td>
                     <td>
-                        <a class="text-dark" target="_blank" href="{{ route('user.index',['filter'=>'phone','search'=>$company?->owner?->phone]) }}">
+                        <a class="text-dark" target="_blank"
+                           href="{{ route('user.index',['filter'=>'phone','search'=>$company?->owner?->phone]) }}">
                             {{ $company?->owner?->profile?->name  }} {{ $company?->owner?->profile?->last_name  }}
                         </a>
                     </td>
@@ -48,21 +49,23 @@
 
                     <td>
                         @if($company?->active == 1)
-                            <button wire:confirm="شرکت را غیرفعال می کنید؟" wire:click="deActiveCompany({{$company?->id}})" title="غیرفعال سازی"
+                            <button wire:confirm="شرکت را غیرفعال می کنید؟"
+                                    wire:click="deActiveCompany({{$company?->id}})" title="غیرفعال سازی"
                                     class="btn btn-xs btn-outline-danger" type="button">
                                 <i class="fi-accounting"></i>
                             </button>
                         @else
-                            <button wire:confirm="شرکت را فعال سازی می کنید؟" wire:click="activeCompany({{$company?->id}})" title="فعال سازی"
+                            <a wire:confirm="شرکت را فعال سازی می کنید؟"
+                                    wire:click="activeCompany({{$company?->id}})" title="فعال سازی"
                                     class="btn btn-xs btn-outline-success" type="button">
                                 <i class="fi-accounting"></i>
-                            </button>
+                            </a>
                         @endif
-                        <button title="اطلاعات" class="btn btn-xs btn-outline-primary" type="button"
+
+                        <a title="اطلاعات" class="btn btn-xs btn-outline-primary" type="button"
                                 data-bs-toggle="modal" data-bs-target="#company-info-{{$company->id}}">
                             <i class="fi-info-circle"></i>
-                        </button>
-
+                        </a>
 
                         <a target="_blank"
                            href="https://lift.inso.gov.ir/chooseregion?return=%2freg_%7b0%7d%2fHome%2fValidSellers">
