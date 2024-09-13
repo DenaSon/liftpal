@@ -49,11 +49,11 @@
 
                     <td>
                         @if($company?->active == 1)
-                            <button wire:confirm="شرکت را غیرفعال می کنید؟"
+                            <a wire:confirm="شرکت را غیرفعال می کنید؟"
                                     wire:click="deActiveCompany({{$company?->id}})" title="غیرفعال سازی"
                                     class="btn btn-xs btn-outline-danger" type="button">
                                 <i class="fi-accounting"></i>
-                            </button>
+                            </a>
                         @else
                             <a wire:confirm="شرکت را فعال سازی می کنید؟"
                                     wire:click="activeCompany({{$company?->id}})" title="فعال سازی"
