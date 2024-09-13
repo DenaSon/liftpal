@@ -47,23 +47,30 @@
                         @endif
                     </td>
 
-                    <td>
+                    <td class="d-flex gap-2">
                         @if($company?->active == 1)
                             <a wire:confirm="شرکت را غیرفعال می کنید؟"
-                                    wire:click="deActiveCompany({{$company?->id}})" title="غیرفعال سازی"
-                                    class="btn btn-xs btn-outline-danger" type="button">
+                               wire:click="deActiveCompany({{$company?->id}})"
+                               title="غیرفعال سازی"
+                               class="btn btn-xs btn-outline-danger"
+                               type="button">
                                 <i class="fi-accounting"></i>
                             </a>
                         @else
                             <a wire:confirm="شرکت را فعال سازی می کنید؟"
-                                    wire:click="activeCompany({{$company?->id}})" title="فعال سازی"
-                                    class="btn btn-xs btn-outline-success" type="button">
+                               wire:click="activeCompany({{$company?->id}})"
+                               title="فعال سازی"
+                               class="btn btn-xs btn-outline-success"
+                               type="button">
                                 <i class="fi-accounting"></i>
                             </a>
                         @endif
 
-                        <a title="اطلاعات" class="btn btn-xs btn-outline-primary" type="button"
-                                data-bs-toggle="modal" data-bs-target="#company-info-{{$company->id}}">
+                        <a title="اطلاعات"
+                           class="btn btn-xs btn-outline-primary"
+                           type="button"
+                           data-bs-toggle="modal"
+                           data-bs-target="#company-info-{{$company->id}}">
                             <i class="fi-info-circle"></i>
                         </a>
 
@@ -74,6 +81,7 @@
                             </button>
                         </a>
                     </td>
+
 
 
                 </tr>
