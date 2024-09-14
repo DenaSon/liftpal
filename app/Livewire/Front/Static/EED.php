@@ -36,7 +36,7 @@ class EED extends Component
                 // Find the error message based on the 'type' and 'code'
                 $msg = Error::where('type', 'like', '%' . $this->type . '%')
                     ->where('code', $value)
-                    ->first(['description']);
+                    ->first();
 
 
                 $this->result = $msg ?: ['description' => 'خطا یافت نشد'];
