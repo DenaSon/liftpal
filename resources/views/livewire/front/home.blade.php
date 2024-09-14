@@ -28,15 +28,15 @@
 
                 }
         </script>
-        <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "{{ getSetting('website_title')  }}",
-                "item": "{{ url()->current() }}"
+            <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "{{ getSetting('website_title')  }}",
+    "item": "{{ url()->current() }}"
   },{
     "@type": "ListItem",
     "position": 2,
@@ -47,9 +47,15 @@
     "position": 3,
     "name": "فروشگاه",
     "item": "{{ route('shop') }}"
+  },{
+    "@type": "ListItem",
+    "position": 4,
+    "name": "تماس با ما",
+    "item": "{{ route('contactUs') }}"
   }]
 }
-        </script>
+            </script>
+
 
     @endsection
 
