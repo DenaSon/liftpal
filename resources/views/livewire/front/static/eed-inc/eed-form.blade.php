@@ -8,7 +8,7 @@
         </span>
 
         </div>
-        <div class="card-body ">
+        <div class="card-body" wire:loading.remove>
             <div class="my-2 mb-1">
 
                 <label for="errorCode" class="form-label text-muted">
@@ -25,7 +25,7 @@
             </select>
 
                 <div class="mt-3">
-                    <input type="number" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا" pattern="[0-9]*">
+                    <input type="number" wire:model.live.debounce.500ms="code" class="form-control" placeholder="شماره خطا" pattern="[0-9]*">
                 </div>
 
 
