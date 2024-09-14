@@ -28,6 +28,7 @@
     <!-- Core JS Files -->
     <script data-navigate-onc src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}" ></script>
     <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}" ></script>
+    @yield('schema')
 </head>
 
 <body dir="rtl">

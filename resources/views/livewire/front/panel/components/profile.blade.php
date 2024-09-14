@@ -109,7 +109,8 @@
             <div class="d-flex align-items-center justify-content-center mt-4 pt-4 pb-1">
                 <button class="btn btn-primary px-3 px-sm-4" type="submit">
                     <i class="fi-checkbox-checked-alt me-2"></i>
-                    ذخیره پروفایل</button>
+                    ثبت
+                     </button>
                 <!-- <button class="btn btn-link btn-sm px-0" type="button"><i class="fi-trash me-2"></i>حذف اکانت</button> -->
             </div>
 
