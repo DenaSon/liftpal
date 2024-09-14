@@ -1,4 +1,3 @@
-
 <div>
 
     @section('meta')
@@ -10,13 +9,13 @@
 
     @endsection
 
-        @section('schema')
+    @section('schema')
 
-            <script type="application/ld+json">
-                {
-                  "@context": "https://schema.org",
-                  "@type": "Organization",
-                  "name": "{{ getSetting('website_title') }}",
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "{{ getSetting('website_title') }}",
                   "url": "{{ url()->current() }}",
                   "logo": "https://liftpal.ir/assets/img/logo/logo.png",
                   "contactPoint": {
@@ -28,33 +27,31 @@
                   },
 
                 }
-            </script>
-            <script type="application/ld+json">
-                {
-                  "@context": "https://schema.org",
-                  "@type": "BreadcrumbList",
-                  "itemListElement": [{
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "{{ url()->current() }}"
-                  },{
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "مقالات آموزشی",
-                    "item": "{{ route('blogIndex') }}"
-                  }],{
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "فروشگاه",
-                    "item": "{{ route('products.index') }}"
-                  }]
-                }
-            </script>
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url()->current() }}"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "مقالات آموزشی",
+    "item": "{{ route('blogIndex') }}"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "فروشگاه",
+    "item": "{{ route('products.index') }}"
+  }]
+}
+        </script>
 
-
-
-        @endsection
+    @endsection
 
 
 
@@ -66,40 +63,36 @@
     @endpush
 
 
-        @include('livewire.front.home-inc.header')
-        @include('livewire.front.home-inc.hero')
-        @include('livewire.front.home-inc.categories')
-        @include('livewire.front.home-inc.services')
-        @include('livewire.front.home-inc.posts')
-        @include('livewire.front.home-inc.elevator-calc')
-        @include('livewire.front.home-inc.logos')
+    @include('livewire.front.home-inc.header')
+    @include('livewire.front.home-inc.hero')
+    @include('livewire.front.home-inc.categories')
+    @include('livewire.front.home-inc.services')
+    @include('livewire.front.home-inc.posts')
+    @include('livewire.front.home-inc.elevator-calc')
+    @include('livewire.front.home-inc.logos')
 
 
     @include('livewire.front.home-inc.footer')
 
-@section('js')
+    @section('js')
+
+        <script data-navigate-onc
+                src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+
+        <script data-navigate-onc src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
+
+    @endsection
+    @script
+    <script>
 
 
+        $wire.on('login-action', () => {
 
+            var loginModal = new bootstrap.Modal(document.getElementById('signin-modal'));
+            loginModal.show();
 
-            <script data-navigate-onc src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+        });
+    </script>
 
-            <script data-navigate-onc src="{{ asset('assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
-
-
-
-@endsection
-        @script
-        <script>
-
-
-            $wire.on('login-action', () => {
-
-                var loginModal = new bootstrap.Modal(document.getElementById('signin-modal'));
-                loginModal.show();
-
-            });
-        </script>
-
-        @endscript
+    @endscript
 </div>
