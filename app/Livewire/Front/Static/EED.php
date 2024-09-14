@@ -19,7 +19,7 @@ class EED extends Component
 
     public function mount()
     {
-       $this->errors = Error::select(['id','type'])->distinct()->get();
+       $this->errors = Error::select(['type'])->distinct()->get();
     }
 
 
