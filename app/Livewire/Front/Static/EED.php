@@ -23,7 +23,7 @@ class EED extends Component
     {
         if(Str::length($value) > 0)
         {
-            $result = Error::where('type','like',$this->type)->where('code',$value)->first();
+            $this->result = Error::where('type','like','%'.$this->type.'%')->where('code',$value)->first();
         }
     }
 
