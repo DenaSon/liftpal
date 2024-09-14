@@ -43,6 +43,11 @@
                     "position": 2,
                     "name": "مقالات آموزشی",
                     "item": "{{ route('blogIndex') }}"
+                  }],{
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "فروشگاه",
+                    "item": "{{ route('products.index') }}"
                   }]
                 }
             </script>
