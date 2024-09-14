@@ -6,7 +6,7 @@
         <meta name="description" content="{{ getSetting('meta_description') }}">
         <meta name="keywords" content="{{ getSetting('meta_keywords') }}">
         <meta name="author" content="Liftpal Systems">
-
+        <meta name="google-site-verification" content="i349yLWrBRwkzKCaCYV1_sgCgSrhgpIyKvV0jhSf_rY" />
     @endsection
 
     @section('schema')
