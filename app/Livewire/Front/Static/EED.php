@@ -17,78 +17,16 @@ class EED extends Component
     public $type;
 
 
-
-    public $lat = '55.156476611281';
-    public $lng = '37.082999580804';
-
-
-    public function setlocation()
-    {
-        $this->lat = '30.66439741244777';
-        $this->lng = '51.582633722338954';
-
-
-    }
-
     public function mount()
     {
-        $this->errors = Error::all();
-
-    }
-
-    public function updatedErrorCode($value): void
-    {
-        try
-        {
-
-            $executed = RateLimiter::attempt(
-                'request-eed'.session()->getId(),
-                5,
-                function() use($value)
-                {
-
-                    $this->validate(['errorCode' => 'required|exists:errors,id|numeric']);
-
-                    $existCode = Error::whereId($value)->first();
-                    if($existCode)
-                    {
-                        $this->dispatch('remove-alert');
-                        $this->errorCode = $existCode->code;
-                        $this->result = $existCode;
-                        $this->type = $existCode->type;
-
-                    }
-                    else
-                    {
-                        $this->alert('warning','کد خطا وجود ندارد');
-                    }
-                }
-            );
-
-            if (! $executed) {
-                $this->alert('warning', 'لطفا 1 دقیقه دیگر مجدد سعی کنید', [
-                    'text' => 'در هر دقیقه 5 بررسی می توانید انجام دهید',
-                    'showConfirmButton' => true,
-                    'ConfirmButtonText' => 'تایید',
-                    'timer' => 50000,
-                    'timerProgressBar' =>true,
-
-
-                ]);
-            }
-
-
-        }
-        catch (Throwable $e)
-        {
-            $this->alert('warning',$e->getMessage());
-        }
-
+       $this->errors = Error::select(['id','type'])->distinct()->get();
     }
 
 
     public function render()
     {
+
+
         return view('livewire.front.static.e-e-d')
             ->with(['errors' => $this->errors])
             ->title('سیستم تفسیر خطاهای آسانسور');

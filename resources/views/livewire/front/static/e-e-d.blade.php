@@ -166,34 +166,7 @@
         <!-- This page plugins -->
         <!-- ============================================================== -->
 
-        <script>
-            function initializeSelect2() {
-                $('.select2-error').select2({
-                    placeholder: "وارد کردن کد خطا",
-                    allowClear: true,
-                    minimumInputLength: 1,
-                    maximumInputLength: 10,
-                    tags: false,
-                    width: 'resolve',
-                    minimumResultsForSearch: 10 // at least 20 results must be displayed
-                }).on('change', function (e) {
-                    @this.
-                    set('errorCode', $(this).val());
-                });
-            }
 
-
-
-            $(document).ready(function () {
-                initializeSelect2();
-            });
-
-            document.addEventListener('livewire:load', function () {
-                Livewire.hook('message.processed', (message, component) => {
-                    initializeSelect2();
-                });
-            });
-        </script>
 
     @endsection
 

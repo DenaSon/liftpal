@@ -15,15 +15,16 @@
                     <i class="fi-search me-2"></i>
                     <span class="fs-xs">جستجو خطا</span>
                 </label>
-                <select dir="ltr" class="select2-error select2 text-center" wire:model.live.debounce.1s="errorCode"
-                        style="width: 100%" id="errorCode">
-                    <option value="0" selected>ورودی شماره خطا</option>
-                    @foreach($errors as $error)
 
-                        <option value="{{ $error->id }}">{{ $error->code }}</option>
-                    @endforeach
+            <select class="form-select" wire:model.live.debounce.250ms="type">
+                @foreach($errors as $error)
+                    <option wire:key="{{ $error->id }}" value="{{ $error->type }}"> {{ $error->type }} </option>
+                @endforeach
 
-                </select>
+            </select>
+
+
+
             </div>
 
         </div>
@@ -36,8 +37,7 @@
         </div>
 
 
-
-    @if($this->result)
+        @if($this->result)
 
             <div class="milad alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
                 <h4 class="alert-heading fs-sm">
