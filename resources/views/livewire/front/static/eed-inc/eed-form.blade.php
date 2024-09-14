@@ -25,7 +25,7 @@
             </select>
 
                 <div class="mt-3">
-                    <input type="text" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا">
+                    <input type="number" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا" accept="application/vnd.apple.numbers">
                 </div>
 
 
@@ -47,7 +47,7 @@
             <div class="milad alert alert-info mt-2 text-center overflow-auto mx-2 scrollable-alert-eed" role="alert">
                 <h4 class="alert-heading fs-sm">
                     <span class="float-end text-info">      نوع تابلو :   {{ $type }} </span>
-                    <span class="fs-xs float-start">{{ $errorCode }}</span>
+                    <span class="fs-xs float-start">{{ $code }}</span>
                 </h4>
                 <div class="clearfix"></div>
                 <hr class="mt-1 mb-1 text-info" style="width: 100px"/>

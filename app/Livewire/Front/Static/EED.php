@@ -17,29 +17,44 @@ class EED extends Component
     public $code = '';
     public $result  = null;
     public $errorCode;
-    public $error_types;
+
 
     public function updatedCode($value)
     {
-        if(Str::length($value) > 0)
+        if (is_numeric($value) && is_string($this->type))
         {
-            $this->result = Error::where('type','like','%'.$this->type.'%')->where('code',$value)->first();
+            if(Str::length($value) > 0)
+            {
+                $msg =  Error::where('type','like','%'.$this->type.'%')->where('code',$value)->first();
+                if ($msg)
+                {
+                    $this->result = $msg;
+                }
+                else
+                {
+                    $this->result['description'] = 'خطا یافت نشد';
+                }
+            }
+
+        }
+        else
+        {
+            abort(404);
         }
     }
 
 
     public function mount()
     {
-       $this->error_types = Error::select(['type'])->distinct()->get();
+
     }
 
 
     public function render()
     {
 
-
-        return view('livewire.front.static.e-e-d')
-            ->with(['errors' => $this->error_types])
+        $error_types = Error::select(['type'])->distinct()->get();
+        return view('livewire.front.static.e-e-d',compact('error_types'))
             ->title('سیستم تفسیر خطاهای آسانسور');
     }
 }
