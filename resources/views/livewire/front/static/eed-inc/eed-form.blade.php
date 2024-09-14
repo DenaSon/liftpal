@@ -54,7 +54,7 @@
 
                 <p class="text-justify">
 
-                    {{ $result->description  }}
+                    {{ $result?->description  }}
 
                 </p>
             </div>
