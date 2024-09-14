@@ -42,9 +42,7 @@ class EED extends Component
                             $this->result['description'] = 'خطا یافت نشد';
                         }
                     }
-                    else {
-                        abort(404);
-                    }
+
                 }
 
             }
