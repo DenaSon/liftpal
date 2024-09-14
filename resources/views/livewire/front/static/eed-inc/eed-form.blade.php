@@ -25,7 +25,7 @@
             </select>
 
                 <div class="mt-3">
-                    <input type="number" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا" accept="application/vnd.apple.numbers">
+                    <input type="number" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا" pattern="[0-9]*">
                 </div>
 
 
@@ -54,7 +54,7 @@
 
                 <p class="text-justify">
 
-                    {{ $result->description ?? '...' }}
+                    {{ $result->description  }}
 
                 </p>
             </div>
