@@ -32,7 +32,7 @@
 
             <div class="table-responsive mt-3">
 
-                <table class="table table-hover" wire:loading.remove>
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>#</th>
