@@ -33,7 +33,7 @@ class EED extends Component
                 else
                 {
                     if (Str::length($value) > 0) {
-                        $msg = Error::where('type', 'like', '%' . $this->type . '%')->where('code', $value)->first();
+                        $msg = Error::where('type', 'like', '%' . $this->type . '%')->where('code', $value)->first(['description']);
                         if ($msg) {
                             $this->result = $msg;
                         }
