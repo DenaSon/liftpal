@@ -1,27 +1,32 @@
 <div class=" align-items-center justify-content-center row">
     <div class="container mt-3"></div>
-    <div class="col-12 card  mb-4 shadow-lg mt-5 ">
-        <div class="card-header text-center">
+    <div class="col-12 card  mb-4 shadow-lg mt-5 opacity-75">
+        <div class="card-header text-center ">
             <i class=" me-2 fi-info-square text-primary"></i>
             <span class="cart-header-text text-primary">
             شناسایی خطاهای آسانسور
         </span>
 
         </div>
-        <div class="card-body">
-            <div class="my-2 mb-1" wire:ignore>
+        <div class="card-body ">
+            <div class="my-2 mb-1">
 
                 <label for="errorCode" class="form-label text-muted">
                     <i class="fi-search me-2"></i>
                     <span class="fs-xs">جستجو خطا</span>
                 </label>
 
-            <select class="form-select" wire:model.live.debounce.250ms="type">
-                @foreach($errors as $error)
-                    <option wire:key="{{ $error->id }}" value="{{ $error->type }}"> {{ $error->type }} </option>
+            <select class="form-select" wire:model="type">
+                <option value="">انتخاب نوع تابلو</option>
+                @foreach($error_types as $etype)
+                    <option wire:key="{{ $etype->id }}" value="{{ $etype->type }}"> {{ $etype->type }} </option>
                 @endforeach
 
             </select>
+
+                <div class="mt-3">
+                    <input type="text" wire:model.live.debounce.150ms="code" class="form-control" placeholder="شماره خطا">
+                </div>
 
 
 
@@ -57,7 +62,7 @@
         @endif
         <div class="col-12 d-flex align-items-center justify-content-center mt-0 pt-0">
             <img class="d-md-block pt-0 pb-4"
-                 src="{{ asset('assets/img/inspect-eed.png') }}" alt="SEARCH" style="opacity: 0.2; position:absolute"
+                 src="{{ asset('assets/img/inspect-eed.png') }}" alt="SEARCH" style="opacity: 0.2; position:absolute;z-index:-1"
                  id="inspect-image">
 
 
