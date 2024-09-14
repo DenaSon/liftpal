@@ -18,41 +18,36 @@ class EED extends Component
     public $result = null;
     public $errorCode;
 
-
     public function updatedCode($value)
     {
         try
         {
-            $this->validate(['type' =>'required|string']);
+            // Validate the 'type' field before proceeding
+            $this->validate(['type' => 'required|string']);
 
-            if (is_numeric($value) && is_string($this->type))
-            {
-                if ($this->type == null) {
-                    $this->alert('warning', 'نوع تابلو انتخاب نشده است');
-                }
-                else
-                {
-                    if (Str::length($value) > 0) {
-                        $msg = Error::where('type', 'like', '%' . $this->type . '%')->where('code', $value)->first(['description']);
-                        if ($msg) {
-                            $this->result = $msg;
-                        }
-                        else
-                        {
-                            $this->result['description'] = 'خطا یافت نشد';
-                        }
-                    }
-
-                }
-
+            // Check if 'value' is numeric and 'type' is a string
+            if (!is_numeric($value) || empty($this->type)) {
+                $this->alert('warning', 'نوع تابلو انتخاب نشده است یا مقدار وارد شده صحیح نمی‌باشد');
+                return;
             }
 
+
+            if (Str::length($value) > 0) {
+                // Find the error message based on the 'type' and 'code'
+                $msg = Error::where('type', 'like', '%' . $this->type . '%')
+                    ->where('code', $value)
+                    ->first(['description']);
+
+
+                $this->result = $msg ?: ['description' => 'خطا یافت نشد'];
+            }
         }
-        catch (Throwable $e)
-        {
-            $this->alert('info', $e->getMessage());
+        catch (Throwable $e) {
+            $this->alert('warning', 'مشکلی در اعتبارسنجی وجود دارد: ' . $e->getMessage());
         }
+
     }
+
 
 
     public function mount()
