@@ -46,7 +46,7 @@
     "@type": "ListItem",
     "position": 3,
     "name": "فروشگاه",
-    "item": "{{ route('products.index') }}"
+    "item": "{{ route('shop') }}"
   }]
 }
         </script>
