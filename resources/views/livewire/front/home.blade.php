@@ -35,7 +35,7 @@
               "itemListElement": [{
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
+                "name": "{{ getSetting('website_title')  }}",
                 "item": "{{ url()->current() }}"
   },{
     "@type": "ListItem",
