@@ -91,6 +91,17 @@
                 @can('company')
                     @if(auth()->user()?->company && auth()->user()?->company->isActive())
 
+                        <a class="card-nav-link @if(request()->input("page") == 'company-technicians') active @endif"
+                           href="{{ route('panel',['page'=>'company-technicians']) }}" wire:navigate><i
+                                class="fi fi-user-plus opacity-60 me-2"></i> مدیریت کارشناس‌ </a>
+
+                    @endif
+                @endcan
+
+
+                @can('company')
+                    @if(auth()->user()?->company && auth()->user()?->company->isActive())
+
                         <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
                            href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i
                                 class="fi fi-user-plus opacity-60 me-2"></i>  ساختمان‌ها </a>
@@ -131,6 +142,7 @@
                 <a class=" @can('company') visually-hidden @endcan card-nav-link @if(request()->input("page") == 'favorite') active @endif"
                    href="{{ route('panel',['page'=>'favorite']) }}" wire:navigate><i
                         class="fi-heart opacity-60 me-2"></i>مورد‌علاقه</a>
+
 
                 <a wire:navigate class="card-nav-link @if(request()->input("page") == 'support') active @endif"
                    href="{{ route('panel',['page'=>'support']) }}"><i

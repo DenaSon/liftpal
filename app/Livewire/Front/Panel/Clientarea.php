@@ -162,6 +162,9 @@ class Clientarea extends Component
             case 'company-buildings':
                 $this->pageTitle = 'ساختمان‌ها';
                 break;
+            case 'company-technicians':
+                $this->pageTitle = 'مدیریت کارشناس‌ها ';
+                break;
             default:
                 $this->redirectRoute('panel', ['page' => 'main']);
         }

@@ -64,7 +64,7 @@ class Building extends Component
 
     public function mount()
     {
-
+        $this->authorize('manager');
 
 
     }
@@ -354,6 +354,7 @@ class Building extends Component
 
     public function render()
     {
+        $this->authorize('manager');
 
 
         $this->building_list = \App\Models\Building::whereUserId(auth()->user()->id)->latest('id')->take(10)->get();

@@ -59,7 +59,11 @@
                         @break
 
                     @case('building')
-                        <livewire:front.panel.components.building />
+                        @can('manager')
+                            <livewire:front.panel.components.building />
+                        @else
+                           @php  abort(403) @endphp
+                        @endcan
                         @break
 
                     @case('fault-alert')
@@ -80,6 +84,10 @@
 
                     @case('company-dashboard')
                         <livewire:front.panel.components.company.company-dashboard />
+                        @break
+
+                    @case('company-technicians')
+                        <livewire:front.panel.components.company.technician-manager />
                         @break
 
                     @case('technician-allot')

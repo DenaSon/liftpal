@@ -1,5 +1,6 @@
 <div>
 
+
     @include('livewire.front.panel.components.building-inc._building_modal')
 
     @if($building_list->count() > 0)
