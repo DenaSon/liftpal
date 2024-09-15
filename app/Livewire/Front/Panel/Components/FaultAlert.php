@@ -21,11 +21,11 @@ use Throwable;
 class FaultAlert extends Component
 {
 
-    use LivewireAlert,WithoutUrlPagination;
+    use LivewireAlert, WithoutUrlPagination;
 
     public $elevator_id;
     public $list;
-    public $building_list =[];
+    public $building_list = [];
     public $building_id;
     public $description;
     public $technician_list;
@@ -36,75 +36,85 @@ class FaultAlert extends Component
     public $building;
     public $referral;
     public $request_created;
-    public $request_list =[];
+    public $request_list = [];
     public $timeout;
-
 
 
     public function sendRequest()
     {
 
 
-
         try {
             $this->validate([
-            'elevator_id' => 'required|numeric|max:200|exists:elevators,id',
+                'elevator_id' => 'required|numeric|max:200|exists:elevators,id',
                 'fault_cause' => 'nullable|string|max:200',
                 'description' => 'nullable|string|max:255',
             ]);
 
 
-
-            $building = \App\Models\Building::with(['elevators','companies'])->findOrFail($this->building_id);
+            $building = \App\Models\Building::with(['elevators', 'companies'])->findOrFail($this->building_id);
 
             $elevator = Elevator::findOrFail($this->elevator_id);
 
-            if($building->companies->isEmpty())
-            {
-                $this->alert('warning','هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
+            if ($building->companies->isEmpty()) {
+                $this->alert('warning', 'هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
 
-            }
-            else
-            {
+            } else {
                 $executed = RateLimiter::attempt(
-                    'send-request-technician'.session()->getId(),
+                    'send-request-technician' . session()->getId(),
                     2,
-                    function() use ($building, $elevator)
-                    {
-                        $random_int  =  random_int(1000000,9999999);
-                        foreach($building->companies->first()->technicians as $technician)
-                        {
-                            //send request
-                            $request = new Request();
-                            $request->user_id = Auth::id();
-                            $request->referral = $random_int;
-                            $request->technician_id = $technician->id;
-                            $request->building_id = $building->id;
-                            $request->status = 'pending';
-
-                            $elevatorAlert = 'آسانسور : ' . $elevator->getType() . ' ' . $elevator->model;
-                            $cause = ' به علت : ' . $this->fault_cause .'.';
-                            $causeDescription = "\nتوضیحات: " . $this->description;
-                            $full_description = $elevatorAlert .' '. $cause .' '. $causeDescription;
-                            $request->description = $full_description;
-                            $request->save();
-
-                            $technician_name = $technician->profile->name;
-
-                            $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
-                            $parameters = array($parameter1);
-                            sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
+                    function () use ($building, $elevator) {
+                        $random_int = random_int(1000000, 9999999);
 
 
+                        $requiredSkillIds = [12, 14]; // شناسه‌های مهارت‌های مورد نیاز
+
+
+                        foreach ($building->companies->first()->technicians as $technician) {
+                            $technicianSkillCount = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->count();
+
+                            //Send Request if technician have skill ( 12 and 14 )
+                            if ($technicianSkillCount === count($requiredSkillIds))
+                            {
+                                //Send Request
+                                $request = new Request();
+                                $request->user_id = Auth::id();
+                                $request->referral = $random_int;
+                                $request->technician_id = $technician->id;
+                                $request->building_id = $building->id;
+                                $request->status = 'pending';
+
+                                $elevatorAlert = 'آسانسور : ' . $elevator->getType() . ' ' . $elevator->model;
+                                $cause = ' به علت : ' . $this->fault_cause . '.';
+                                $causeDescription = "\nتوضیحات: " . $this->description;
+                                $full_description = $elevatorAlert . ' ' . $cause . ' ' . $causeDescription;
+                                $request->description = $full_description;
+                                $request->save();
+
+                                $technician_name = $technician->profile->name;
+
+                                $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
+                                $parameters = array($parameter1);
+                                sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
+
+                            }
+                            else
+                            {
+                               $this->alert('warning','هیچ تکنسینی با مهارت مورد درخواست برای ساختمان شما وجود ندارد');
+                               return;
+                            }
 
                         }
-                        $technician_count = $building->companies()->first()->technicians->count();
-                        $this->alert('info',' درخواست شما برای ' . $technician_count . ' '. 'کارشناس فنی ارسال شد');
+                        if (isset($request))
+                        {
+                            $technician_count = $building->companies()->first()->technicians->count();
+                            $this->alert('info', ' درخواست شما برای ' . $technician_count . ' ' . 'کارشناس فنی ارسال شد');
 
-                        $this->referral = $request->referral;
+                            $this->referral = $request->referral;
 
-                        $this->request_created = jdate($request->created_at)->toTimeString();
-                        $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
+                            $this->request_created = jdate($request->created_at)->toTimeString();
+                            $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
+                        }
 
 
                     }
@@ -112,19 +122,15 @@ class FaultAlert extends Component
 
                 );
 
-                if (! $executed) {
-                    $this->alert('error','لطفا چند لحظه دیگر مجددا سعی کنید.');
+                if (!$executed) {
+                    $this->alert('error', 'لطفا چند لحظه دیگر مجددا سعی کنید.');
                 }
-
-
 
 
             }
 
 
-
-        }
-        catch (Throwable $e) {
+        } catch (Throwable $e) {
             $this->alert('warning', $e->getMessage());
         }
 
@@ -138,15 +144,12 @@ class FaultAlert extends Component
             $this->validate(['building_id' => 'required|exists:buildings,id']);
             $building = \App\Models\Building::with('members', 'elevators')->find($this->building_id);
             $this->elevator_list = $building->elevators;
-        }
-        catch (Throwable $e) {
+        } catch (Throwable $e) {
             $this->alert('warning', $e->getMessage());
         }
 
 
     }
-
-
 
 
     public function requestsTimeout(): void
@@ -158,11 +161,9 @@ class FaultAlert extends Component
                 ->where('status', 'pending')
                 ->get();
 
-            foreach ($requests as $request)
-            {
+            foreach ($requests as $request) {
                 $request->status = 'cancelled';
                 $request->save();
-
 
 
             }
@@ -174,10 +175,8 @@ class FaultAlert extends Component
     {
 
 
-
-        if (!$this->authorize('manager'))
-        {
-            abort(403,'دسترسی شما در سیستم به عنوان مدیر ساختمان ثبت نشده است.');
+        if (!$this->authorize('manager')) {
+            abort(403, 'دسترسی شما در سیستم به عنوان مدیر ساختمان ثبت نشده است.');
         }
         $this->building_list = \App\Models\Building::whereUserId(auth()->id())->get();
         $this->request_list = Request::whereUserId(auth()->id())->orderByDesc('created_at')->take(15)->get();
