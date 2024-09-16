@@ -20,7 +20,7 @@
     <link rel="canonical" href="{{ route('singleArticle',['id'=>$post->id,'slug'=>slugMaker($post->title)]) }}">
     <meta property="og:site_name" content="{{ getSetting('website_title') }}">
     <meta property="og:title" content="{{ $post->title }}">
-    <meta property="og:type" content="product">
+    <meta property="og:type" content="article">
     <meta property="og:image" content="{{ asset($post->images->first()->file_path) }}">
     <meta property="og:url"
           content="{{ route('singleArticle',['id' => $post->id,'slug' => slugMaker($post->title)]) }}">
