@@ -50,7 +50,7 @@
             class="d-block mx-auto my-3" src="{{ asset('assets/img/liftpal/eed-illustratin.png') }}"
             width="256" alt="Illustration">
         <div class="card-body">
-            <h2 class="h5 card-title">سیستم خطایاب اسانسور</h2>
+            <h2 class="h5 card-title">سیستم خطایاب آسانسور</h2>
             <p class="card-text fs-sm">
 
                 با سیستم خطایاب EED، تکنسین‌ها می‌توانند زمان خرابی را کاهش داده و عملکرد بهینه و ایمن آسانسورها را تضمین کنند. EED یک ابزار ضروری برای هر تیم پشتیبانی آسانسور است
