@@ -1,4 +1,4 @@
-@section('meta')
+@section('schema')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -15,6 +15,8 @@
         }]
     }
     </script>
+@endsection
+@section('js')
     <link rel="canonical" href="{{ route('singleArticle',['id'=>$post->id,'slug'=>slugMaker($post->title)]) }}">
     <meta property="og:site_name" content="{{ getSetting('website_title') }}">
     <meta property="og:title" content="{{ $post->title }}">
@@ -74,11 +76,9 @@
         </div>
     </div>
 
-    <div class="col-lg-4 text-start">
-
+    <div class="col-lg-4 text-lg-start text-center">
         <img class="img-thumbnail" src="{{ asset($post->images->first()->file_path) }}" alt="{{ $post->title }}"
              height="180" width="290"/>
-
     </div>
 
 
