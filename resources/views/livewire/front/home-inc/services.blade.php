@@ -62,6 +62,7 @@
         <div class="card-footer pt-0 border-0"><a  wire:navigate.hover class="btn btn-outline-primary "
                                                   href="{{ route('EED') }}"> شروع </a></div>
     </div>
+
 </div>
 
 
