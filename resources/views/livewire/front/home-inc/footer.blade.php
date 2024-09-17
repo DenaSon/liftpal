@@ -24,10 +24,10 @@
                         </li>
                     @endauth
 
-                    <li><a class="nav-link-light" href="{{ route('blogIndex') }}"> دانشنامه آسانسور </a></li>
-                    <li><a class="nav-link-light" href="{{ route('EED') }}"> سیستم خطایاب </a></li>
-                    <li><a class="nav-link-light" href="{{ route('shop') }}"> فروشگاه </a></li>
-                    <li><a class="nav-link-light" href="{{ route('contactUs') }}"> تماس باما </a></li>
+                    <li><a wire:navigate class="nav-link-light" href="{{ route('blogIndex') }}"> دانشنامه آسانسور </a></li>
+                    <li><a wire:navigate class="nav-link-light" href="{{ route('EED') }}"> سیستم خطایاب </a></li>
+                    <li><a wire:navigate class="nav-link-light" href="{{ route('shop') }}"> فروشگاه </a></li>
+                    <li><a wire:navigate class="nav-link-light" href="{{ route('contactUs') }}"> تماس باما </a></li>
 
                 </ul>
             </div>
@@ -71,12 +71,12 @@
             <div class="d-flex flex-lg-row flex-column align-items-center order-lg-2 order-1 ms-lg-4 mb-lg-0 mb-4">
 
 
-                <div class="d-flex flex-wrap fs-sm mb-lg-0 mb-4 pe-lg-4"><a class="nav-link-light px-2 mx-1"
+                <div class="d-flex flex-wrap fs-sm mb-lg-0 mb-4 pe-lg-4"><a wire:navigate class="nav-link-light px-2 mx-1"
                                                                             href="https://liftpal.ir/page/1/%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87-%D9%85%D8%A7">درباره
                         ما</a><a wire:navigate class="nav-link-light px-2 mx-1"
-                                 href="{{ route('blogIndex') }}">مقالات</a><a
+                                 href="{{ route('blogIndex') }}">مقالات</a><a wire:navigate
                         class="nav-link-light px-2 mx-1"
-                        href="{{ route('shop') }}">فروشگاه</a><a
+                        href="{{ route('shop') }}">فروشگاه</a><a wire:navigate
                         class="nav-link-light px-2 mx-1" href="{{ route('contactUs') }}">تماس باما</a></div>
 
             </div>
