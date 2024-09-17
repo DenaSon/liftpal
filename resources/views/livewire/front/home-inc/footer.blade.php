@@ -61,7 +61,7 @@
 
             <p class="fs-sm text-center text-sm-start mb-4"><span class="text-light opacity-50">© تمام حقوق محفوظ است |
                 <span class="fw-normal fs-xs">
-                     طراحی و پیاده سازی :
+                       پیاده سازی :
                     <a role="button" class="text-light" wire:navigate onclick="alert('شماره تماس : 09173434796')">Mohammad Asadi</a>
 
                 </span>
