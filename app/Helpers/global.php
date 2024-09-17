@@ -304,15 +304,14 @@ function slugMaker($string)
 function getPagesName($location)
 {
 
-    $pages = Cache::remember('pages',60 * 10,function() use($location)
-    {
-        return Page::select(['id','title','slug','location'])
+
+
+       return  Page::select(['id','title','slug','location'])
             ->where('is_active',true)
             ->where('location',$location)
-            ->orderByDesc('created_at')->get();
-    });
+            ->orderByDesc('created_at')->get() ?? [];
 
-    return $pages ?? null;
+
 }
 
 

@@ -4,7 +4,7 @@
             <span class="input-group-text text-muted"><i
                     class="fi-mail"></i>
             </span>
-            <input wire:poll.1000ms wire:model="email" class="form-control" type="text" placeholder="ایمیل شما">
+            <input  wire:model="email" class="form-control" type="text" placeholder="ایمیل شما">
         </div>
         <button  class="btn btn-primary btn-sm rounded-pill" type="submit">ثبت</button>
     </form>
