@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model
 {
     use HasFactory;
-    public $table = 'newsletter_emails';
+    public $table = 'subscribers';
 }

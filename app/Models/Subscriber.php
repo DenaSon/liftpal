@@ -7,10 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends Model
 {
-    use HasFactory;
-    public $table = 'Subscribers';
 
-    protected $fillable = [
-        'email',
-    ];
 }
