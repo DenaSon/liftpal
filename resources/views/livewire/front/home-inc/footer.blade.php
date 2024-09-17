@@ -33,7 +33,7 @@
             </div>
             <!-- Links-->
             <div class="col-lg-2 col-md-3 col-sm-4">
-                <h3 class="fs-base text-light"> خدمات مشتریان </h3>
+                <h3 class="fs-base text-light"> با مشتریان </h3>
                 <ul class="list-unstyled fs-sm">
                     @foreach(\App\Models\Page::whereLocation('footer')->take(5)->get() as $page)
                         <li class="nav-link-light">
