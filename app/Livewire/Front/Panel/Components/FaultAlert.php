@@ -68,7 +68,7 @@ class FaultAlert extends Component
                         $random_int = random_int(1000000, 9999999);
 
 
-                        $requiredSkillIds = [12, 14]; // شناسه‌های مهارت‌های مورد نیاز
+                        $requiredSkillIds = [12]; // شناسه‌های مهارت‌های مورد نیاز
 
 
                         foreach ($building->companies->first()->technicians as $technician) {
