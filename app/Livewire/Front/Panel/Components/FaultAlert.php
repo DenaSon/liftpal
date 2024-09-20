@@ -73,7 +73,7 @@ class FaultAlert extends Component
 
                         foreach ($building->companies->first()->technicians as $technician)
                         {
-                            $technicianSkill = $technician->skills()->whereIn('skills.id', [12, 14])->first();
+                            $technicianSkill = $technician->skills()->whereIn('skills.id', [12])->first();
 
                             //Send Request if technician have skill ( 12 )
                             if ($technicianSkill)
