@@ -57,6 +57,7 @@ class FaultAlert extends Component
             $elevator = Elevator::findOrFail($this->elevator_id);
 
             if ($building->companies->isEmpty()) {
+
                 $this->alert('warning', 'هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
 
             } else {
@@ -74,7 +75,7 @@ class FaultAlert extends Component
                             $technicianSkillCount = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->count();
 
                             //Send Request if technician have skill ( 12 and 14 )
-                            if ($technicianSkillCount === count($requiredSkillIds))
+                            if ($technicianSkillCount > 0)
                             {
                                 //Send Request
                                 $request = new Request();
