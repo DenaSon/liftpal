@@ -71,11 +71,12 @@ class FaultAlert extends Component
                         $requiredSkillIds = [12]; // شناسه‌های مهارت‌های مورد نیاز
 
 
-                        foreach ($building->companies->first()->technicians as $technician) {
-                            $technicianSkillCount = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->count();
+                        foreach ($building->companies->first()->technicians as $technician)
+                        {
+                            $technicianSkill = $technician->skills()->whereIn('skills.id', [12, 14])->first();
 
-                            //Send Request if technician have skill ( 12 and 14 )
-                            if ($technicianSkillCount > 0)
+                            //Send Request if technician have skill ( 12 )
+                            if ($technicianSkill)
                             {
                                 //Send Request
                                 $request = new Request();
