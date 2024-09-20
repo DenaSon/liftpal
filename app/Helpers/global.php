@@ -22,6 +22,7 @@ use Morilog\Jalali\Jalalian;
 use Pishran\Zarinpal\Zarinpal;
 use Illuminate\Http\JsonResponse;
 
+
 /*
 |--------------------------------------------------------------------------
 | Global Functions
@@ -109,11 +110,18 @@ function sendSms(string $value, string $phoneNumber, int $templateID, string $pa
 
 function sendVerifySms( string $phoneNumber, int $templateID, array $parameters)
 {
-    $send = Smsir::send();
 
-    // Send the verification SMS with the generated parameters
-    $response = $send->Verify($phoneNumber, $templateID, $parameters);
+    try {
+        $send = Smsir::send();
+        $response = $send->Verify($phoneNumber, $templateID, $parameters);
 
+    }
+    catch (Throwable $e)
+    {
+        setLog('sendVerifySms', $e->getMessage() . ' '. $e->getFile(), 'danger');
+
+
+    }
 
 }
 
