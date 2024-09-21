@@ -60,7 +60,7 @@ class FaultAlert extends Component
             {
                 $executed = RateLimiter::attempt(
                     'send-request-technician' . session()->getId(),
-                    2,
+                    10,
                     function () use ($building, $elevator) {
                         $random_int = random_int(1000000, 9999999);
 
@@ -70,7 +70,7 @@ class FaultAlert extends Component
                         {
                            foreach ($technician->skills as $skill)
                            {
-                               $this->alert('success',$skill->name);
+                              $this->alert('success',$skill->name);
                            }
 return;
                             if ($technicianSkill)
