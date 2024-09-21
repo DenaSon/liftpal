@@ -327,7 +327,7 @@ class User extends Authenticatable implements MustVerifyEmail
      }
      public function skills(): BelongsToMany
      {
-         return $this->belongsToMany(Skill::class);
+         return $this->belongsToMany(Skill::class)->withPivot('approved');
      }
 
      public function elevators(): HasManyThrough

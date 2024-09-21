@@ -53,7 +53,7 @@ class FaultAlert extends Component
 
             if ($building->companies->isEmpty()) {
 
-                $this->alert('warning', 'هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
+                $this->alert('warning', 'هنوز هیچ کارشناسی برای ساختمان شما اختصاص داده نشده است');
 
             } else {
                 $executed = RateLimiter::attempt(

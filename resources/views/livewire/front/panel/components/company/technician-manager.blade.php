@@ -72,4 +72,12 @@
 
 
     </div>
+
+
+
+    @livewire('components.requests-table',
+    ['class'=> 'table-striped'])
+
+
+
 </div>

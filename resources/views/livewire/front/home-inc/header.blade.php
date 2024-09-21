@@ -1,5 +1,12 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" data-scroll-header>
     <div class="container  d-flex">
+
+
+
+
+
+
+
         <a target="_self" wire:navigate class="navbar-brand ms-3 ms-xl-4 logo" href="{{ route('home') }}">
             <img class="d-block" src="{{ asset('assets/img/logo/logo.png') }}" width="116" alt="logo"></a>
 
@@ -110,6 +117,9 @@
             </ul>
         </div>
     </div>
+
+
+
 </header>
 <livewire:auth.login wire:key="{{uniqid()}}"/>
 <!-- Sign Up Modal-->
@@ -135,3 +145,5 @@
     });
 
 </script>
+
+
