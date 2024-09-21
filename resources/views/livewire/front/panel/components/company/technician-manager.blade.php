@@ -82,10 +82,11 @@
 
     </div>
 
+    <hr class="mt-4 w-100"/>
 
 
     @livewire('components.requests-table',
-    ['class'=> 'table-dark'])
+    ['class'=> 'table-stripped'])
 
 
 
