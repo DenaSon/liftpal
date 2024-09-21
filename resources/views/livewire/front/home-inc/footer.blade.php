@@ -62,7 +62,7 @@
             <p class="fs-sm text-center text-sm-start mb-4"><span class="text-light opacity-50">© تمام حقوق محفوظ است |
                 <span class="fw-normal fs-xs">
                        پیاده سازی :
-                    <a role="button" class="text-light" wire:navigate onclick="alert('شماره تماس : 09173434796')">Mohammad Asadi</a>
+                    <a role="link" class="text-light" target="_blank" href="https://www.linkedin.com/in/mohammad-asadi-4b851532a/" >Mohammad Asadi</a>
 
                 </span>
                 </span><a wire:navigate

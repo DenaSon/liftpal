@@ -38,7 +38,6 @@ class FaultAlert extends Component
     public function sendRequest()
     {
 
-
         try {
             $this->validate([
                 'elevator_id' => 'required|numeric|exists:elevators,id',
@@ -51,7 +50,8 @@ class FaultAlert extends Component
 
             $elevator = Elevator::findOrFail($this->elevator_id);
 
-            if ($building->companies->isEmpty()) {
+            if ($building->companies->isEmpty())
+            {
 
                 $this->alert('warning', 'هنوز هیچ کارشناسی برای ساختمان شما اختصاص داده نشده است');
 

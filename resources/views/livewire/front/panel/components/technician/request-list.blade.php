@@ -9,7 +9,8 @@
 
                 <ul class="list-group m-2" style="padding: 0 0 0 0 !important;">
 
-                    <li wire:key="request-{{$request->id}}" class="list-group-item d-flex justify-content-between align-items-center"
+                    <li wire:key="request-{{$request->id}}"
+                        class="list-group-item d-flex justify-content-between align-items-center"
                         style="border:none !important;">
 <span>
 
@@ -30,16 +31,16 @@
                                 <i class="fi-building text-muted me-2"></i>
                                نام ساختمان
                                 </span>
-                            <span class="badge bg-faded-info fs-sm">{{ $request->building?->builder_name ?? 'ثبت نشده'}}</span>
+                            <span
+                                class="badge bg-faded-info fs-sm">{{ $request->building?->builder_name ?? 'ثبت نشده'}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
                                 <span>
                                 <i class="fi-user-plus text-muted me-2"></i>
                                نام مدیر
                                 </span>
-                            <span class="badge bg-faded-info fs-sm">{{ $request->building?->manager_name ?? 'ثبت نشده'}}</span>
-
-
+                            <span
+                                class="badge bg-faded-info fs-sm">{{ $request->building?->manager_name ?? 'ثبت نشده'}}</span>
 
 
                         </li>
@@ -59,8 +60,7 @@
                     <hr/>
 
 
-
-                        <li class="list-group-item d-flex justify-content-between align-items-center"
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
                         style="border:none !important;">
 
 
