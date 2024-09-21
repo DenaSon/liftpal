@@ -68,13 +68,13 @@ class FaultAlert extends Component
 
                         foreach ($building->companies->first()->technicians as $technician) {
 
-                            // Get all the skills of the technician that match the required skills
-                            $technicianSkills = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->get();
+                            // بررسی اینکه تکنسین آیا مهارت با شناسه 12 را دارد یا خیر
+                            $technicianSkill = $technician->skills()->where('skills.id', 12)->first();
 
-                            // Check if the technician has at least one matching skill
-                            if ($technicianSkills->isNotEmpty()) {
+                            // اگر تکنسین مهارت مورد نظر را داشت، درخواست ارسال می‌شود
+                            if ($technicianSkill) {
 
-                                // Send Request for this technician
+                                // ارسال درخواست برای این تکنسین
                                 $request = new Request();
                                 $request->user_id = Auth::id();
                                 $request->referral = $random_int;
@@ -89,18 +89,15 @@ class FaultAlert extends Component
                                 $request->description = $full_description;
                                 $request->save();
 
-                                // Send SMS to the technician
+                                // ارسال پیامک به تکنسین
                                 $technician_name = $technician->profile->name;
                                 $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
                                 $parameters = array($parameter1);
-                                sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
+                               // sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
 
                             }
-                            else
-                            {
-                                $this->alert('warning','کارشناس مرتبط با مهات مورد نیاز شما پیدا نشد');
-                            }
                         }
+
 
 
 
