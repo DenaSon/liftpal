@@ -57,9 +57,7 @@
         </table>
     </div>
 
-    <div class="pagination">
-        {{ $requests->links() }}
-    </div>
+
 
     @if($requests->isEmpty())
         <span class="text-center text-info p-3 m-3">درخواستی وجود ندارد</span>

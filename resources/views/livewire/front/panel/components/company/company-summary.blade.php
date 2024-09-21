@@ -22,5 +22,3 @@
     'list_name' => 'لیست کارفرما'
 ])
 
-@livewire('components.requests-table',
-['class'=> 'table-striped'])

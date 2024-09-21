@@ -24,7 +24,7 @@ class RequestsTable extends Component
 
     public function render()
     {
-        $requests = \App\Models\Request::latest('created_at')->paginate(10);
+        $requests = \App\Models\Request::latest('created_at')->take(30)->get();
         return view('livewire.components.requests-table',compact('requests'));
     }
 
