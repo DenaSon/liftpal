@@ -60,22 +60,21 @@ class FaultAlert extends Component
             {
                 $executed = RateLimiter::attempt(
                     'send-request-technician' . session()->getId(),
-                    10,
+                    2,
                     function () use ($building, $elevator) {
                         $random_int = random_int(1000000, 9999999);
 
                         $requiredSkillIds = [12];
 
-                        foreach ($building->companies->first()->technicians as $technician)
-                        {
-                           foreach ($technician->skills as $skill)
-                           {
-                              $this->alert('success',$skill->name);
-                           }
-return;
-                            if ($technicianSkill)
-                            {
-                                //Send Request
+                        foreach ($building->companies->first()->technicians as $technician) {
+
+                            // Get all the skills of the technician that match the required skills
+                            $technicianSkills = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->get();
+
+                            // Check if the technician has at least one matching skill
+                            if ($technicianSkills->isNotEmpty()) {
+
+                                // Send Request for this technician
                                 $request = new Request();
                                 $request->user_id = Auth::id();
                                 $request->referral = $random_int;
@@ -90,20 +89,18 @@ return;
                                 $request->description = $full_description;
                                 $request->save();
 
+                                // Send SMS to the technician
                                 $technician_name = $technician->profile->name;
-
                                 $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
                                 $parameters = array($parameter1);
                                 sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
 
                             }
-                            else
-                            {
-                                $this->alert('warning', 'هیچ کارشناسی با مهارت مورد درخواست برای ساختمان شما وجود ندارد');
-                                return;
-                            }
-
                         }
+
+
+
+
                         if (isset($request))
                         {
                             $technician_count = $building->companies()->first()->technicians->count();
