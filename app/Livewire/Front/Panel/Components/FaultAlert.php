@@ -93,7 +93,7 @@ class FaultAlert extends Component
                                 $technician_name = $technician->profile->name;
                                 $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
                                 $parameters = array($parameter1);
-                                 //sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
+                                 sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
 
                             }
                         }
