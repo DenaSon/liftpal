@@ -10,6 +10,8 @@ use Intervention\Gif\Blocks\GraphicControlExtension;
 use Intervention\Gif\Blocks\ImageDescriptor;
 use Intervention\Gif\Blocks\NetscapeApplicationExtension;
 use Intervention\Gif\Blocks\TableBasedImage;
+use Intervention\Gif\Exceptions\DecoderException;
+use Intervention\Gif\Exceptions\EncoderException;
 use Intervention\Gif\Traits\CanHandleFiles;
 
 class Builder
@@ -92,15 +94,16 @@ class Builder
      * Create new animation frame from given source
      * which can be path to a file or GIF image data
      *
-     * @param string $source
+     * @param string|resource $source
      * @param float $delay time delay in seconds
      * @param int $left position offset in pixels from left
      * @param int $top position offset in pixels from top
      * @param bool $interlaced
+     * @throws DecoderException
      * @return Builder
      */
     public function addFrame(
-        string $source,
+        mixed $source,
         float $delay = 0,
         int $left = 0,
         int $top = 0,
@@ -206,6 +209,7 @@ class Builder
     /**
      * Encode the current build
      *
+     * @throws EncoderException
      * @return string
      */
     public function encode(): string
