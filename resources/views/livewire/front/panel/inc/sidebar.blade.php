@@ -31,14 +31,15 @@
                         class="badge bg-faded-info text-waiting fs-xs fw-normal">{{ auth()->user()->getRole() }}</span>
                 </h2>
 
+                @if($authUser->company()->count() > 0)
+                    <b class="mt-2">
+                        {{ $authUser->company->name }}
+                    </b>
+                @endif
 
                 <ul class="list-unstyled fs-sm mt-3 mb-0">
 
-                    @if($authUser->company()->count() > 0)
-                        <li class="mb-2">
-                            {{ $authUser->company->name }}
-                        </li>
-                    @endif
+
 
 
                     <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ??  '' }}"><i
