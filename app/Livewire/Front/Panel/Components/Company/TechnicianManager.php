@@ -11,6 +11,8 @@ use Livewire\Component;
 class TechnicianManager extends Component
 {
 
+    public $type = 'all';
+
     use LivewireAlert;
 
     public $skillsApproved = [];
@@ -21,6 +23,15 @@ class TechnicianManager extends Component
     {
 
 
+    }
+
+    public function installers()
+    {
+        $this->type = 'installer';
+    }
+    public function maintenances()
+    {
+        $this->type = 'maintenance';
     }
 
     public function approved($skillId,$userId): void
@@ -52,7 +63,23 @@ class TechnicianManager extends Component
 
     public function render()
     {
-        $companyTechnicians = auth()->user()->company->technicians;
+        if ($this->type == 'installer')
+        {
+            $companyTechnicians = auth()->user()->company->technicians()->whereHas('skills', function ($query) {
+                $query->where('skills.id', 11);
+            })->get();
+        }
+        elseif ($this->type == 'maintenance')
+        {
+            $companyTechnicians = auth()->user()->company->technicians()->whereHas('skills', function ($query) {
+                $query->where('skills.id', 12);
+            })->get();
+        }
+        else
+        {
+            $companyTechnicians = auth()->user()->company->technicians;
+        }
+
 
         return view('livewire.front.panel.components.company.technician-manager', compact('companyTechnicians'));
     }
