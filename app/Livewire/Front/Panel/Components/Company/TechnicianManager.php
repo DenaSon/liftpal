@@ -66,13 +66,15 @@ class TechnicianManager extends Component
         if ($this->type == 'installer')
         {
             $companyTechnicians = auth()->user()->company->technicians()->whereHas('skills', function ($query) {
-                $query->where('skills.id', 11);
+                $query->where('skills.id', 11)
+                    ->wherePivot('approved', 1);
             })->get();
         }
         elseif ($this->type == 'maintenance')
         {
             $companyTechnicians = auth()->user()->company->technicians()->whereHas('skills', function ($query) {
-                $query->where('skills.id', 12);
+                $query->where('skills.id', 12)
+                    ->wherePivot('approved', 1);
             })->get();
         }
         else
