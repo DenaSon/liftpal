@@ -29,6 +29,13 @@ class TechnicianManager extends Component
     {
         $this->type = 'installer';
     }
+
+
+    public function show_all()
+    {
+        $this->type = 'all';
+    }
+
     public function maintenances()
     {
         $this->type = 'maintenance';

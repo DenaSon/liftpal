@@ -73,6 +73,7 @@
         <div class="d-flex gap-4 m-2 mx-auto">
             <button wire:click="maintenances" class="btn btn-outline-warning w-50 btn-xs ">تعمیرکارها</button>
             <button wire:click="installers" class="btn btn-outline-info w-50 btn-xs">نصاب‌ها</button>
+            <button wire:click="show_all" class="btn btn-outline-info w-50 btn-xs">همه</button>
         </div>
 
 
