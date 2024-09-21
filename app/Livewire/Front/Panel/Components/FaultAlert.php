@@ -64,11 +64,11 @@ class FaultAlert extends Component
                     function () use ($building, $elevator) {
                         $random_int = random_int(1000000, 9999999);
 
-                        $requiredSkillIds = [12];
+
 
                         foreach ($building->companies->first()->technicians as $technician)
                         {
-                            dd($technicianSkill = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->first());
+                            dd($technicianSkill = $technician->skills()->whereIn('skills.id', 12)->first());
 
                             if ($technicianSkill)
                             {
