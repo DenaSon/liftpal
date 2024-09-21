@@ -96,6 +96,10 @@ class FaultAlert extends Component
                                 sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
 
                             }
+                            else
+                            {
+                                $this->alert('warning','کارشناس مرتبط با مهات مورد نیاز شما پیدا نشد');
+                            }
                         }
 
 
