@@ -34,7 +34,7 @@ class UsersTable extends Component
         }
         else
         {
-            $users = User::whereRole($this->role)->latest('created_at')->paginate(15);
+            $users = User::whereRole($this->role)->latest('created_at')->paginate(10);
         }
         return view('livewire.components.users-table',['users'=>$users]);
     }

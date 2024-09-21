@@ -32,9 +32,9 @@
 
             @foreach($requests as $request)
                 @if($request->status == 'accepted')
-                    <tr class="bg-faded-success border-top border-success ">
+                    <tr class="bg-faded-success border-top border-success " wire:key="request-{{$request->id}}">
                         @else
-                    <tr>
+                    <tr wire:key="request-{{$request->id}}">
                 @endif
 
 
