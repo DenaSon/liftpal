@@ -105,7 +105,7 @@ class FaultAlert extends Component
                         if (isset($request))
                         {
                             $technician_count = $building->companies()->first()->technicians->count();
-                            $this->alert('info', ' درخواست شما برای ' . $technician_count . ' ' . 'کارشناس فنی ارسال شد');
+                            $this->alert('info','درخواست شما ارسال شد');
 
                             $this->referral = $request->referral;
 
