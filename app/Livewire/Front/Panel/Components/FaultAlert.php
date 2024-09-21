@@ -70,7 +70,7 @@ class FaultAlert extends Component
                         {
                            foreach ($technician->skills as $skill)
                            {
-                               echo $skill->name;
+                               $this->alert('success',$skill->name);
                            }
 return;
                             if ($technicianSkill)
