@@ -17,6 +17,9 @@
 
             <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                 <h2 class="fs-lg mb-0">
+
+
+
                     @if(auth()->user()->role == 'technician')
                         <a class="text-decoration-none text-dark" wire:navigate
                            href="{{ route('singleExpert',['id'=>$authUser?->id,'name' =>$authUser->profile?->name . '-' . $authUser->profile?->last_name ]) }}">
@@ -30,6 +33,14 @@
 
 
                 <ul class="list-unstyled fs-sm mt-3 mb-0">
+
+                    @if($authUser->company()->count() > 0)
+                        <li class="mb-2">
+                            {{ $authUser->company->name }}
+                        </li>
+                    @endif
+
+
                     <li><a class="nav-link fw-normal p-0" href="tel:{{ $authUser->phone ??  '' }}"><i
                                 class="fi-phone opacity-60 me-2"></i>{{ $authUser->phone ?? '' }}</a></li>
 
@@ -40,6 +51,7 @@
                             </a>
                         </li>
                     @endif
+
 
                 </ul>
             </div>
@@ -67,7 +79,8 @@
             <div class="card-nav">
 
 
-                <a wire:navigate class="@can('company') visually-hidden @endcan card-nav-link @if(request()->input("page") == 'main') active @endif"
+                <a wire:navigate
+                   class="@can('company') visually-hidden @endcan card-nav-link @if(request()->input("page") == 'main') active @endif"
                    href="{{ route('panel',['page'=>'main']) }}"><i class="fi-dashboard opacity-60 me-2"></i> داشبورد
                 </a>
 
@@ -81,9 +94,9 @@
                 @can('company')
                     @if(auth()->user()?->company && auth()->user()?->company->isActive())
 
-                    <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
-                       href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
-                            class="fi fi-user-plus opacity-60 me-2"></i> انتساب کارشناس </a>
+                        <a class="card-nav-link @if(request()->input("page") == 'technician-allot') active @endif"
+                           href="{{ route('panel',['page'=>'technician-allot']) }}" wire:navigate><i
+                                class="fi fi-user-plus opacity-60 me-2"></i> انتساب کارشناس </a>
 
                     @endif
                 @endcan
@@ -104,7 +117,7 @@
 
                         <a class="card-nav-link @if(request()->input("page") == 'company-buildings') active @endif"
                            href="{{ route('panel',['page'=>'company-buildings']) }}" wire:navigate><i
-                                class="fi fi-user-plus opacity-60 me-2"></i>  ساختمان‌ها </a>
+                                class="fi fi-user-plus opacity-60 me-2"></i> ساختمان‌ها </a>
 
                     @endif
                 @endcan
@@ -115,7 +128,6 @@
                     <a class="card-nav-link @if(request()->input("page") == 'building') active @endif"
                        href="{{ route('panel',['page'=>'building']) }}" wire:navigate><i
                             class="fi fi-building opacity-60 me-2"></i>مدیریت ساختمان </a>
-
 
                 @endcan
 
