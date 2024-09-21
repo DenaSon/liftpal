@@ -2,17 +2,12 @@
 
 namespace App\Livewire\Front\Panel\Components;
 
-use App\Jobs\panel\jobRequest;
 use App\Models\Elevator;
 use App\Models\Request;
-use App\Services\NeshanService;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Number;
-use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Throwable;
@@ -46,7 +41,7 @@ class FaultAlert extends Component
 
         try {
             $this->validate([
-                'elevator_id' => 'required|numeric|max:200|exists:elevators,id',
+                'elevator_id' => 'required|numeric|exists:elevators,id',
                 'fault_cause' => 'nullable|string|max:200',
                 'description' => 'nullable|string|max:255',
             ]);
@@ -60,22 +55,21 @@ class FaultAlert extends Component
 
                 $this->alert('warning', 'هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
 
-            } else {
+            }
+            else
+            {
                 $executed = RateLimiter::attempt(
                     'send-request-technician' . session()->getId(),
                     2,
                     function () use ($building, $elevator) {
                         $random_int = random_int(1000000, 9999999);
 
-
-                        $requiredSkillIds = [12]; // شناسه‌های مهارت‌های مورد نیاز
-
+                        $requiredSkillIds = [12];
 
                         foreach ($building->companies->first()->technicians as $technician)
                         {
-                            $technicianSkill = $technician->skills()->whereIn('skills.id',$requiredSkillIds)->first();
+                            dd($technicianSkill = $technician->skills()->whereIn('skills.id', $requiredSkillIds)->first());
 
-                            //Send Request if technician have skill ( 12 )
                             if ($technicianSkill)
                             {
                                 //Send Request
@@ -102,8 +96,8 @@ class FaultAlert extends Component
                             }
                             else
                             {
-                               $this->alert('warning','هیچ تکنسینی با مهارت مورد درخواست برای ساختمان شما وجود ندارد');
-                               return;
+                                $this->alert('warning', 'هیچ کارشناسی با مهارت مورد درخواست برای ساختمان شما وجود ندارد');
+                                return;
                             }
 
                         }
