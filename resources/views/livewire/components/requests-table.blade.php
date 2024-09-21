@@ -58,7 +58,7 @@
     </div>
 
     <div class="pagination">
-        {{ $requests->links(data: ['scrollTo' => '#paginated-requests']) }}
+        {{ $requests->links() }}
     </div>
 
     @if($requests->isEmpty())
