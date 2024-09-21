@@ -55,26 +55,26 @@ class FaultAlert extends Component
 
                 $this->alert('warning', 'هنوز هیچ تکنسینی برای ساختمان شما اختصاص داده نشده است');
 
-            }
-            else
-            {
+            } else {
                 $executed = RateLimiter::attempt(
                     'send-request-technician' . session()->getId(),
                     2,
                     function () use ($building, $elevator) {
                         $random_int = random_int(1000000, 9999999);
 
-                        $requiredSkillIds = [12];
+                        //$requiredSkillIds = [12];
 
                         foreach ($building->companies->first()->technicians as $technician) {
 
                             // بررسی اینکه تکنسین آیا مهارت با شناسه 12 را دارد یا خیر
-                            $technicianSkill = $technician->skills()->where('skills.id', 12)->first();
+                            $technicianSkill = $technician->skills()
+                                ->where('skills.id', 12)
+                                ->wherePivot('approved',1)
+                                ->first();
 
-                            // اگر تکنسین مهارت مورد نظر را داشت، درخواست ارسال می‌شود
                             if ($technicianSkill) {
 
-                                // ارسال درخواست برای این تکنسین
+
                                 $request = new Request();
                                 $request->user_id = Auth::id();
                                 $request->referral = $random_int;
@@ -93,19 +93,15 @@ class FaultAlert extends Component
                                 $technician_name = $technician->profile->name;
                                 $parameter1 = new \Cryptommer\Smsir\Objects\Parameters('name', $technician_name);
                                 $parameters = array($parameter1);
-                               // sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
+                                 //sendVerifySms($technician->phone, config('sms.technician_alert_template_id'), $parameters);
 
                             }
                         }
 
 
-
-
-
-                        if (isset($request))
-                        {
+                        if (isset($request)) {
                             $technician_count = $building->companies()->first()->technicians->count();
-                            $this->alert('info','درخواست شما ارسال شد');
+                            $this->alert('info', 'درخواست شما ارسال شد');
 
                             $this->referral = $request->referral;
 
