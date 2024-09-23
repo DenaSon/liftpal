@@ -151,9 +151,9 @@
                                     <td>{{ $request->building?->manager_name}}</td>
                                     <td>{{ $request->getStatus() }}</td>
                                     <td>
-                                        <button type="button" class="btn w-100 btn-outline-info" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-xs w-100 btn-outline-info" data-bs-toggle="modal"
                                                 data-bs-target="#mapmodal-{{$request?->id}}">
-                                            مشاهده آدرس
+                                             آدرس
                                         </button>
                                     </td>
                                 </tr>
