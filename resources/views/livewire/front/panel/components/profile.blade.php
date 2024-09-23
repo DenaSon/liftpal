@@ -191,9 +191,9 @@
                         <a class="collapse-label collapsed d-inline-block fs-md fw-bold text-success text-decoration-none  pt-2 pb-3 mx-auto mx-md-0 ms-md-2"
                            href="#showMoreSkill" data-bs-toggle="collapse"
                            data-bs-label-collapsed="مشاهده مهارت‌ها"
-                           data-bs-label-expanded="بستن" role="button"
+                           data-bs-label-expanded="" role="button"
                            aria-expanded="false" aria-controls="showMoreSkill">
-                            <i class="fi-arrow-down me-2"></i>
+
                         </a>
                     </div>
                 </div>
@@ -201,17 +201,17 @@
         </div>
     @endcan
 
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            $wire.on('showCollapse', () => {
+
+                document.getElementById('showMoreSkill').classList.add('show');
+                document.getElementById('showMoreSkill').classList.remove('collapse');
+            });
+        });
+    </script>
+
 </div>
 
 
-@script
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        $wire.on('showCollapse', () => {
 
-            document.getElementById('showMoreSkill').classList.add('show');
-            document.getElementById('showMoreSkill').classList.remove('collapse');
-        });
-    });
-</script>
-@endscript
