@@ -157,6 +157,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                @include('livewire.front.panel.components.technician._address_iframeModal')
                             @endforeach
                             </tbody>
                         </table>
