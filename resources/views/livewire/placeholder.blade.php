@@ -13,11 +13,11 @@
 
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+        <div class="spinner-grow" style="" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+        <div class="spinner-grow" style="" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
 
