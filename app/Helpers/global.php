@@ -395,6 +395,7 @@ function getPosts()
 
     $posts = Post::
     orderBy('views')
+        ->latest('created_at')
         ->get();
 
     Cache::put($cacheKey, $posts, $cacheDuration);

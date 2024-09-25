@@ -14,7 +14,8 @@
                 <!-- Item-->
                 <div class="col">
                     <div class="card shadow-sm card-hover border-0 h-100">
-                        <div class="card-img-top card-img-hover"><a wire:navigate class="img-overlay"
+                        <div class="card-img-top card-img-hover">
+                            <a wire:navigate class="img-overlay"
                                                                     href="{{ route('singleArticle',['id'=>$post->id,'slug'=>slugMaker($post->title)]) }}"></a>
 
                             <img src="{{ $post->images?->first()?->file_path ?? ''}}" alt="Image" height="265"
