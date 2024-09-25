@@ -18,7 +18,7 @@
                                                                     href="{{ route('singleArticle',['id'=>$post->id,'slug'=>slugMaker($post->title)]) }}"></a>
 
                             <img src="{{ $post->images?->first()?->file_path ?? ''}}" alt="Image" height="265"
-                                 style="height:265px">
+                                 style="height:265px;width:100%" width="100%">
                         </div>
                         <div class="card-body position-relative pb-3">
                             <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link"
