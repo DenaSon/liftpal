@@ -32,7 +32,7 @@
                             class="small card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap">
 
                             <i class="fi-user ms-1 mt-n1 fs-lg text-muted"></i> <span
-                                class="small d-inline-block mx-1 px-2 fs-sm">   {{ $post->profile->name ?? '' }} {{ $post->profile->last_name ?? '' }}
+                                class="small d-inline-block mx-1 px-2 fs-sm">   لیفت‌پال
                         </span>
 
                             <i class="fi-clock ms-1 mt-n1 fs-lg"></i>
