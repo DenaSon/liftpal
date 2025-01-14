@@ -86,9 +86,22 @@ enum Format
      */
     public function mediaTypes(): array
     {
-        return array_filter(MediaType::cases(), function ($mediaType) {
-            return $mediaType->format() === $this;
-        });
+        return array_filter(
+            MediaType::cases(),
+            fn(MediaType $mediaType) => $mediaType->format() === $this
+        );
+    }
+
+    /**
+     * Return the first found media type for the current format
+     *
+     * @return MediaType
+     */
+    public function mediaType(): MediaType
+    {
+        $types = $this->mediaTypes();
+
+        return reset($types);
     }
 
     /**
@@ -98,9 +111,22 @@ enum Format
      */
     public function fileExtensions(): array
     {
-        return array_filter(FileExtension::cases(), function ($fileExtension) {
-            return $fileExtension->format() === $this;
-        });
+        return array_filter(
+            FileExtension::cases(),
+            fn(FileExtension $fileExtension) => $fileExtension->format() === $this
+        );
+    }
+
+    /**
+     * Return the first found file extension for the current format
+     *
+     * @return FileExtension
+     */
+    public function fileExtension(): FileExtension
+    {
+        $extensions = $this->fileExtensions();
+
+        return reset($extensions);
     }
 
     /**
@@ -129,7 +155,7 @@ enum Format
         $reflectionClass = new ReflectionClass($classname);
         if ($constructor = $reflectionClass->getConstructor()) {
             $parameters = array_map(
-                fn ($parameter) => $parameter->getName(),
+                fn($parameter) => $parameter->getName(),
                 $constructor->getParameters(),
             );
         }
@@ -137,7 +163,7 @@ enum Format
         // filter out unavailable options of target encoder
         $options = array_filter(
             $options,
-            fn ($key) => in_array($key, $parameters),
+            fn($key) => in_array($key, $parameters),
             ARRAY_FILTER_USE_KEY,
         );
 

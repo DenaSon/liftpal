@@ -119,6 +119,7 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
 
     steps:
       - name: Configure Git to avoid issues with line endings
@@ -152,7 +153,7 @@ jobs:
     timeout-minutes: 5
 
     env:
-      PHP_EXTENSIONS: none, ctype, curl, dom, json, libxml, mbstring, openssl, phar, soap, tokenizer, xml, xmlwriter
+      PHP_EXTENSIONS: none, ctype, curl, dom, json, libxml, mbstring, openssl, pdo, phar, soap, tokenizer, xml, xmlwriter
       PHP_INI_VALUES: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
 
     strategy:
@@ -167,6 +168,7 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
 
     steps:
       - name: Configure Git to avoid issues with line endings
@@ -208,9 +210,9 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: 8.4
           coverage: xdebug
-          extensions: none, ctype, curl, dom, json, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter
+          extensions: none, ctype, curl, dom, json, libxml, mbstring, pdo, phar, soap, tokenizer, xml, xmlwriter
           ini-values: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
           tools: none
 
@@ -244,7 +246,7 @@ jobs:
 
     env:
       PHP_EXTENSIONS: none, ctype, dom, json, fileinfo, iconv, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter
-      PHP_INI_VALUES: assert.exception=1, phar.readonly=0, zend.assertions=1
+      PHP_INI_VALUES: assert.exception=1, phar.readonly=0, zend.assertions=1, error_reporting=0
 
     steps:
       - name: Checkout
@@ -253,7 +255,7 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: 8.4
           coverage: none
           extensions: ${{ env.PHP_EXTENSIONS }}
           ini-values: ${{ env.PHP_INI_VALUES }}
@@ -302,6 +304,7 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
 
         coverage:
           - pcov

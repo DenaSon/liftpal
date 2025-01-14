@@ -84,7 +84,7 @@
             const $explainButton = $('<a>Visual Explain</a>')
                 .addClass(csscls('visual-explain'))
                 .on('click', () => {
-                    if (!confirm(statement.explain['visual-confirm'])) return;
+                    if (!confirm(confirmMessage)) return;
                     fetch(statement.explain.url, {
                         method: "POST",
                         body: JSON.stringify({
@@ -111,6 +111,8 @@
         },
 
         identifyDuplicates: function(statements) {
+            if (! Array.isArray(statements)) statements = [];
+
             const makeStatementHash = (statement) => {
                 return [
                     statement.sql,
@@ -158,9 +160,9 @@
                 connections.add(statement.connection);
             }
 
-            const $text = $('<span />').text(`${data.nb_statements} statements were executed`);
+            const $text = $('<span />').text(`${data.nb_statements} ${data.nb_statements == 1 ? 'statement was' : 'statements were'} executed`);
             if (data.nb_excluded_statements) {
-                $text.append(`, ${data.nb_excluded_statements} have been excluded`);
+                $text.append(`, ${data.nb_excluded_statements} ${data.nb_excluded_statements == 1 ? 'has' : 'have'} been excluded`);
             }
             if (data.nb_failed_statements > 0 || this.duplicateQueries.size > 0) {
                 const details = [];
@@ -168,7 +170,7 @@
                     details.push(`${data.nb_failed_statements} failed`);
                 }
                 if (this.duplicateQueries.size > 0) {
-                    details.push(`${this.duplicateQueries.size} duplicates`);
+                    details.push(`${this.duplicateQueries.size} ${this.duplicateQueries.size == 1 ? 'duplicate' : 'duplicates'}`);
                 }
                 $text.append(` (${details.join(', ')})`);
             }
@@ -229,12 +231,17 @@
                     .attr('data-duplicate', false)
                     .append($('<strong />').addClass(csscls('sql name')).text(statement.sql));
             } else {
-                const $code = $('<code />').html(PhpDebugBar.Widgets.highlight(statement.sql, 'sql')).addClass(csscls('sql'));
+                const $code = $('<code />').html(PhpDebugBar.Widgets.highlight(statement.sql, 'sql')).addClass(csscls('sql')),
+                    duplicated = this.duplicateQueries.has(statement);
+                $li.attr('data-connection', statement.connection)
+                    .attr('data-duplicate', duplicated)
+                    .toggleClass(csscls('sql-duplicate'), duplicated)
+                    .append($code);
+
                 if (statement.show_copy) {
                     $('<span title="Copy to clipboard" />')
                         .addClass(csscls('copy-clipboard'))
                         .css('cursor', 'pointer')
-                        .html("&#8203;")
                         .on('click', (event) => {
                             event.stopPropagation();
                             if (this.copyToClipboard($code.get(0))) {
@@ -243,11 +250,8 @@
                                     $(event.target).removeClass(csscls('copy-clipboard-check'));
                                 }, 2000)
                             }
-                        }).appendTo($code);
+                        }).prependTo($li);
                 }
-                $li.attr('data-connection', statement.connection)
-                    .attr('data-duplicate', this.duplicateQueries.has(statement))
-                    .append($code);
             }
 
             if (statement.width_percent) {
@@ -260,16 +264,16 @@
             }
 
             if ('is_success' in statement && !statement.is_success) {
-                $li.addClass(csscls('error')).append($('<span />').addClass(csscls('error')).text(`[${statement.error_code}] ${statement.error_message}`));
+                $li.addClass(csscls('error')).prepend($('<span />').addClass(csscls('error')).text(`[${statement.error_code}] ${statement.error_message}`));
             }
             if (statement.duration_str) {
-                $li.append($('<span title="Duration" />').addClass(csscls('duration')).text(statement.duration_str));
+                $li.prepend($('<span title="Duration" />').addClass(csscls('duration')).text(statement.duration_str));
             }
             if (statement.memory_str) {
-                $li.append($('<span title="Memory usage" />').addClass(csscls('memory')).text(statement.memory_str));
+                $li.prepend($('<span title="Memory usage" />').addClass(csscls('memory')).text(statement.memory_str));
             }
             if (statement.connection) {
-                $li.append($('<span title="Connection" />').addClass(csscls('database')).text(statement.connection));
+                $li.prepend($('<span title="Connection" />').addClass(csscls('database')).text(statement.connection));
             }
             if (statement.xdebug_link) {
                 $('<span title="Filename" />')
@@ -285,7 +289,7 @@
                                 fetch(statement.xdebug_link.url);
                             }
                         })
-                    ).appendTo($li);
+                    ).prependTo($li);
             }
 
             const $details = $('<table></table>').addClass(csscls('params'))
@@ -308,6 +312,10 @@
             if($details.children().length) {
                 $li.addClass(csscls('expandable'))
                     .on('click', (event) => {
+                        if (window.getSelection().type == "Range") {
+                            return;
+                        }
+
                         if ($(event.target).closest(`.${csscls('params')}`).length) {
                             return;
                         }
@@ -335,17 +343,17 @@
             const $li = $('<li />').addClass(csscls('table-list-item'));
             const $muted = $('<span />').addClass(css('text-muted'));
 
-            for (const i in values) {
+            $.each(values, (i, value) => {
                 if (showLineNumbers) {
-                    $ul.append($li.clone().append([$muted.clone().text(`${i}:`), '&nbsp;', $('<span/>').text(values[i])]));
+                    $ul.append($li.clone().append([$muted.clone().text(`${i}:`), '&nbsp;', $('<span/>').text(value)]));
                 } else {
                     if (caption === 'Hints') {
-                        $ul.append($li.clone().append(values[i]));
+                        $ul.append($li.clone().append(value));
                     } else {
-                        $ul.append($li.clone().text(values[i]));
+                        $ul.append($li.clone().text(value));
                     }
                 }
-            }
+            });
 
             return this.renderDetail(caption, icon, $ul);
         },
@@ -354,7 +362,7 @@
             const $muted = $('<span />').addClass(css('text-muted'));
 
             const values = [];
-            for (const trace of traces) {
+            for (const trace of traces.values()) {
                 const $span = $('<span/>').text(trace.name || trace.file);
                 if (trace.namespace) {
                     $span.prepend(`${trace.namespace}::`);

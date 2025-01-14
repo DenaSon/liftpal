@@ -16,6 +16,8 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/tests/unit')
     // DeprecatedPhpFeatureTest.php must not use declare(strict_types=1);
     ->notName('DeprecatedPhpFeatureTest.php')
+    // UseBaselineTest.php must not use declare(strict_types=1);
+    ->notName('UseBaselineTest.php')
     // Issue5795Test.php contains required whitespace that would be cleaned up
     ->notName('Issue5795Test.php')
     ->notName('*.phpt');
@@ -164,7 +166,23 @@ $config->setFinder($finder)
         'no_empty_comment' => true,
         'no_empty_phpdoc' => true,
         'no_empty_statement' => true,
-        'no_extra_blank_lines' => true,
+        'no_extra_blank_lines' => [
+            'tokens' => [
+                'attribute',
+                'break',
+                'case',
+                'continue',
+                'curly_brace_block',
+                'default',
+                'extra',
+                'parenthesis_brace_block',
+                'return',
+                'square_brace_block',
+                'switch',
+                'throw',
+                'use',
+            ],
+        ],
         'no_homoglyph_names' => true,
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,

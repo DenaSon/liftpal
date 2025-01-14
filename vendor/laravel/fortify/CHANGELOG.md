@@ -1,6 +1,35 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/fortify/compare/v1.24.0...1.x)
+## [Unreleased](https://github.com/laravel/fortify/compare/v1.25.1...1.x)
+
+## [v1.25.1](https://github.com/laravel/fortify/compare/v1.25.0...v1.25.1) - 2024-11-27
+
+* Replace implicitly nullable parameters for PHP 8.4 by [@JeppeKnockaert](https://github.com/JeppeKnockaert) in https://github.com/laravel/fortify/pull/580
+
+## [v1.25.0](https://github.com/laravel/fortify/compare/v1.24.5...v1.25.0) - 2024-11-21
+
+* Add Remember Me Functionality to Registered User Login by [@cvairlis](https://github.com/cvairlis) in https://github.com/laravel/fortify/pull/579
+
+## [v1.24.5](https://github.com/laravel/fortify/compare/v1.24.4...v1.24.5) - 2024-11-12
+
+* [1.x] Supports PHP 8.4 by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/fortify/pull/576
+
+## [v1.24.4](https://github.com/laravel/fortify/compare/v1.24.3...v1.24.4) - 2024-10-29
+
+* Rename `POST` routes to avoid regression bugs by [@cima-alfa](https://github.com/cima-alfa) in https://github.com/laravel/fortify/pull/574
+
+## [v1.24.3](https://github.com/laravel/fortify/compare/v1.24.2...v1.24.3) - 2024-10-18
+
+* Update logo to support dark/light theme by [@milewski](https://github.com/milewski) in https://github.com/laravel/fortify/pull/569
+* Fix unnamed routes when views are disabled (with original code formatting) by [@cima-alfa](https://github.com/cima-alfa) in https://github.com/laravel/fortify/pull/571
+
+## [v1.24.2](https://github.com/laravel/fortify/compare/v1.24.1...v1.24.2) - 2024-09-16
+
+* Adding context length configuration for 2FA to ensure better security standards by [@MattLoyeD](https://github.com/MattLoyeD) in https://github.com/laravel/fortify/pull/568
+
+## [v1.24.1](https://github.com/laravel/fortify/compare/v1.24.0...v1.24.1) - 2024-09-03
+
+* [1.x] Add `X-Retry-After` to `/user/confirm-password/status` response by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/fortify/pull/565
 
 ## [v1.24.0](https://github.com/laravel/fortify/compare/v1.23.0...v1.24.0) - 2024-08-20
 

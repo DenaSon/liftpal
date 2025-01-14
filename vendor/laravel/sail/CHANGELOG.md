@@ -1,6 +1,56 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/sail/compare/v1.31.3...1.x)
+## [Unreleased](https://github.com/laravel/sail/compare/v1.39.1...1.x)
+
+## [v1.39.1](https://github.com/laravel/sail/compare/v1.39.0...v1.39.1) - 2024-11-27
+
+* [1.x] Remove the default `ubuntu` user by [@rojtjo](https://github.com/rojtjo) in https://github.com/laravel/sail/pull/762
+
+## [v1.39.0](https://github.com/laravel/sail/compare/v1.38.0...v1.39.0) - 2024-11-25
+
+* [1.x] Use Ubuntu 24.04 and Node 22 by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/758
+
+## [v1.38.0](https://github.com/laravel/sail/compare/v1.37.1...v1.38.0) - 2024-11-11
+
+* fix: Use xdg-open if open does not exist by [@rqpt](https://github.com/rqpt) in https://github.com/laravel/sail/pull/744
+* Add MongoDB extension and service by [@GromNaN](https://github.com/GromNaN) in https://github.com/laravel/sail/pull/748
+* fix: Sail share 504 timeout fix for linux hosts by [@rqpt](https://github.com/rqpt) in https://github.com/laravel/sail/pull/709
+* Use equals sign (=) instead of space as ENV variable separator by [@jpkleemans](https://github.com/jpkleemans) in https://github.com/laravel/sail/pull/753
+
+## [v1.37.1](https://github.com/laravel/sail/compare/v1.37.0...v1.37.1) - 2024-10-29
+
+* Update typesense.stub to 27.1 by [@Braunson](https://github.com/Braunson) in https://github.com/laravel/sail/pull/741
+* Update typesense.stub to correct version tag by [@Braunson](https://github.com/Braunson) in https://github.com/laravel/sail/pull/742
+
+## [v1.37.0](https://github.com/laravel/sail/compare/v1.36.0...v1.37.0) - 2024-10-21
+
+* Add php 8.4 to the list of runtimes by [@jobvink](https://github.com/jobvink) in https://github.com/laravel/sail/pull/740
+
+## [v1.36.0](https://github.com/laravel/sail/compare/v1.35.0...v1.36.0) - 2024-10-10
+
+* [1.x] Update Postgres client to v17 by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/737
+
+## [v1.35.0](https://github.com/laravel/sail/compare/v1.34.0...v1.35.0) - 2024-10-08
+
+* Upgrade to Postgres 17 by [@ziadoz](https://github.com/ziadoz) in https://github.com/laravel/sail/pull/735
+* Use /data path for minio by [@francoism90](https://github.com/francoism90) in https://github.com/laravel/sail/pull/736
+
+## [v1.34.0](https://github.com/laravel/sail/compare/v1.33.0...v1.34.0) - 2024-09-27
+
+* M3 silicon support and fix 'Hash Sum Mismatch' by [@ConrDev](https://github.com/ConrDev) in https://github.com/laravel/sail/pull/734
+* Update logo to support dark/light theme by [@milewski](https://github.com/milewski) in https://github.com/laravel/sail/pull/733
+
+## [v1.33.0](https://github.com/laravel/sail/compare/v1.32.0...v1.33.0) - 2024-09-22
+
+* Pass all command line arguments to wrapped executable by [@JoaquinTrinanes](https://github.com/JoaquinTrinanes) in https://github.com/laravel/sail/pull/728
+* Use apt php8.3-swoole again by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/731
+
+## [v1.32.0](https://github.com/laravel/sail/compare/v1.31.3...v1.32.0) - 2024-09-11
+
+* [1.x] Add Docker Compose Tests by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/721
+* Cleanup unneeded code by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/724
+* Use selenium/standalone-chromium on ARM by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/723
+* Use selenium/standalone-chromium on AMD and ARM by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/sail/pull/722
 
 ## [v1.31.3](https://github.com/laravel/sail/compare/v1.31.2...v1.31.3) - 2024-09-03
 

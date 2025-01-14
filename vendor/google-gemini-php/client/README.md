@@ -38,6 +38,7 @@ To complete this quickstart, make sure that your development environment meets t
 
 - Requires [PHP 8.1+](https://php.net/releases/)
 
+
 ## Setup
 
 ### Installation
@@ -47,6 +48,14 @@ First, install Gemini via the [Composer](https://getcomposer.org/) package manag
 ```bash
 composer require google-gemini-php/client
 ```
+
+If you want to use beta features you should install beta branch:
+
+```bash
+composer require google-gemini-php/client:1.0.4-beta
+```
+
+For beta documentation: https://github.com/google-gemini-php/client/tree/beta
 
 Ensure that the `php-http/discovery` composer plugin is allowed to run or install a client manually if your project does not already have a PSR-18 client integrated.
 ```bash
@@ -67,8 +76,28 @@ $yourApiKey = getenv('YOUR_API_KEY');
 $client = Gemini::client($yourApiKey);
 
 $result = $client->geminiPro()->generateContent('Hello');
-
 $result->text(); // Hello! How can I assist you today?
+
+// Custom Model
+$result = $client->generativeModel(model: 'models/gemini-1.5-flash-001')->generateContent('Hello');
+$result->text(); // Hello! How can I assist you today?
+
+
+// Enum usage
+$result = $client->geminiPro()->generativeModel(model: ModelType::GEMINI_FLASH);
+$result->text(); // Hello! How can I assist you today?
+
+
+// Enum method usage
+$result = $client->geminiPro()->generativeModel(
+    model: ModelType::generateGeminiModel(
+      variation: ModelVariation::FLASH,
+      generation: 1.5,
+      version: "002"
+    ), // models/gemini-1.5-flash-002
+);
+$result->text(); // Hello! How can I assist you today?
+
 ```
 
 If necessary, it is possible to configure and create a separate client.
@@ -109,7 +138,7 @@ If the input contains both text and image, use the `gemini-pro-vision` model.
 ```php
 
 $result = $client
- ->geminiProVision()
+ ->geminiFlash()
  ->generateContent([
   'What is this picture?',
   new Blob(
@@ -231,13 +260,63 @@ print_r($response->embedding->values);
 //]
 ```
 
+```php
+$response = $client
+ ->embeddingModel()
+ ->batchEmbedContents("Bu bir testtir", "Deneme123");
+
+print_r($response->embeddings);
+// [
+// [0] => Gemini\Data\ContentEmbedding Object
+// (
+//     [values] => Array
+//         (
+//         [0] => 0.035855837
+//         [1] => -0.049537655
+//         [2] => -0.06834927
+//         [3] => -0.010445258
+//         [4] => 0.044641383
+//         [5] => 0.031156342
+//         [6] => -0.007810312
+//         [7] => -0.0106866965
+//         ...
+//         ),
+// ),
+// [1] => Gemini\Data\ContentEmbedding Object
+// (
+//     [values] => Array
+//         (
+//         [0] => 0.035855837
+//         [1] => -0.049537655
+//         [2] => -0.06834927
+//         [3] => -0.010445258
+//         [4] => 0.044641383
+//         [5] => 0.031156342
+//         [6] => -0.007810312
+//         [7] => -0.0106866965
+//         ...
+//         ),
+// ),
+// ]
+```
+
 ### Models
 
 #### List Models
 Use list models to see the available Gemini models:
 
+- **pageSize (optional)**:
+  The maximum number of Models to return (per page). <br>
+  If unspecified, 50 models will be returned per page. This method returns at most 1000 models per page, even if you pass a larger pageSize.
+
+
+- **nextPageToken (optional)**:
+    A page token, received from a previous models.list call. <br>
+    Provide the pageToken returned by one request as an argument to the next request to retrieve the next page.
+    When paginating, all other parameters provided to models.list must match the call that provided the page token.
+
 ```php
-$response = $client->models()->list();
+$response = $client->models()->list(pageSize: 3, nextPageToken: 'ChFtb2RlbHMvZ2VtaW5pLXBybw==');
 
 $response->models;
 //[
@@ -266,6 +345,9 @@ $response->models;
 //            ...
 //        )
 //]
+```
+```php
+$response->nextPageToken // Chltb2RlbHMvZ2VtaW5pLTEuMC1wcm8tMDAx
 ```
 
 #### Get Model

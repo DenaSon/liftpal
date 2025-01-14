@@ -2,6 +2,59 @@
 
 All notable changes of the PHPUnit 10.5 release series are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [10.5.41] - 2025-01-13
+
+### Added
+
+* `Test\AfterLastTestMethodErrored`, `Test\AfterTestMethodErrored`, `Test\BeforeTestMethodErrored`, `Test\PostConditionErrored`, and `Test\PreConditionErrored` events
+
+### Fixed
+
+* [#6094](https://github.com/sebastianbergmann/phpunit/issues/6094): Errors in after-last-test methods are not reported
+* [#6095](https://github.com/sebastianbergmann/phpunit/issues/6095): Expectation is not counted correctly when a doubled method is called more often than is expected
+* [#6098](https://github.com/sebastianbergmann/phpunit/issues/6098): No `system-out` element in JUnit XML logfile
+
+## [10.5.40] - 2024-12-21
+
+### Fixed
+
+* [#6082](https://github.com/sebastianbergmann/phpunit/issues/6082): `assertArrayHasKey()`, `assertArrayNotHasKey()`, `arrayHasKey()`, and `ArrayHasKey::__construct()` do not support all possible key types
+* [#6087](https://github.com/sebastianbergmann/phpunit/issues/6087): `--migrate-configuration` does not remove `beStrictAboutTodoAnnotatedTests` attribute from XML configuration file
+
+## [10.5.39] - 2024-12-11
+
+### Added
+
+* [#6081](https://github.com/sebastianbergmann/phpunit/pull/6081): `DefaultResultCache::mergeWith()` for merging result cache instances
+
+### Fixed
+
+* [#6066](https://github.com/sebastianbergmann/phpunit/pull/6066): TeamCity logger does not handle error/skipped events in before-class methods correctly
+
+## [10.5.38] - 2024-10-28
+
+### Changed
+
+* [#6012](https://github.com/sebastianbergmann/phpunit/pull/6012): Remove empty lines between TeamCity events
+
+## [10.5.37] - 2024-10-19
+
+### Fixed
+
+* [#5982](https://github.com/sebastianbergmann/phpunit/pull/5982): Typo in exception message
+
+## [10.5.36] - 2024-10-08
+
+### Changed
+
+* [#5957](https://github.com/sebastianbergmann/phpunit/pull/5957): Skip data provider build when requirements are not satisfied
+* [#5969](https://github.com/sebastianbergmann/phpunit/pull/5969): Check for requirements before creating a separate process
+* Updated regular expressions used by `StringMatchesFormatDescription` constraint to be consistent with PHP's `run-tests.php`
+
+### Fixed
+
+* [#5965](https://github.com/sebastianbergmann/phpunit/issues/5965): `PHPUnit\Framework\Exception` does not handle string error codes (`PDOException` with error code `'HY000'`, for example)
+
 ## [10.5.35] - 2024-09-19
 
 ### Changed
@@ -322,6 +375,12 @@ All notable changes of the PHPUnit 10.5 release series are documented in this fi
 
 * [#5563](https://github.com/sebastianbergmann/phpunit/issues/5563): `createMockForIntersectionOfInterfaces()` does not automatically register mock object for expectation verification
 
+[10.5.41]: https://github.com/sebastianbergmann/phpunit/compare/10.5.40...10.5.41
+[10.5.40]: https://github.com/sebastianbergmann/phpunit/compare/10.5.39...10.5.40
+[10.5.39]: https://github.com/sebastianbergmann/phpunit/compare/10.5.38...10.5.39
+[10.5.38]: https://github.com/sebastianbergmann/phpunit/compare/10.5.37...10.5.38
+[10.5.37]: https://github.com/sebastianbergmann/phpunit/compare/10.5.36...10.5.37
+[10.5.36]: https://github.com/sebastianbergmann/phpunit/compare/10.5.35...10.5.36
 [10.5.35]: https://github.com/sebastianbergmann/phpunit/compare/10.5.34...10.5.35
 [10.5.34]: https://github.com/sebastianbergmann/phpunit/compare/10.5.33...10.5.34
 [10.5.33]: https://github.com/sebastianbergmann/phpunit/compare/10.5.32...10.5.33

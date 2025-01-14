@@ -141,6 +141,8 @@ return ConfigurationFactory::preset([
     'ordered_imports' => ['sort_algorithm' => 'alpha', 'imports_order' => ['const', 'class', 'function']],
     'ordered_interfaces' => true,
     'ordered_traits' => true,
+    'php_unit_method_casing' => ['case' => 'snake_case'],
+    'php_unit_set_up_tear_down_visibility' => true,
     'phpdoc_align' => [
         'align' => 'left',
         'spacing' => [
@@ -188,6 +190,7 @@ return ConfigurationFactory::preset([
     ],
     'single_import_per_statement' => true,
     'single_line_after_imports' => true,
+    'single_line_comment_spacing' => true,
     'single_line_comment_style' => [
         'comment_types' => ['hash'],
     ],

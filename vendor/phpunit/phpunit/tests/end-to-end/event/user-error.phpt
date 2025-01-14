@@ -2,27 +2,19 @@
 The right events are emitted in the right order for a test that runs code which triggers E_USER_ERROR
 --SKIPIF--
 <?php declare(strict_types=1);
-if (!version_compare('8.4.0-dev', PHP_VERSION)) {
+if (version_compare(PHP_VERSION, '8.4.0-dev', '>=')) {
     print 'skip: PHP < 8.4 is required.';
 }
 --FILE--
 <?php declare(strict_types=1);
-$traceFile = tempnam(sys_get_temp_dir(), __FILE__);
-
 $_SERVER['argv'][] = '--do-not-cache-result';
 $_SERVER['argv'][] = '--no-configuration';
-$_SERVER['argv'][] = '--no-output';
-$_SERVER['argv'][] = '--log-events-text';
-$_SERVER['argv'][] = $traceFile;
+$_SERVER['argv'][] = '--debug';
 $_SERVER['argv'][] = __DIR__ . '/_files/UserErrorTest.php';
 
 require __DIR__ . '/../../bootstrap.php';
 
 (new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
-
-print file_get_contents($traceFile);
-
-unlink($traceFile);
 --EXPECTF--
 PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
