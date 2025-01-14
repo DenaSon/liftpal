@@ -14,6 +14,11 @@
       </LaravelCodeGeneration>
     </option>
     <option name="frameworkFound" value="true" />
+    <option name="translation">
+      <LaravelTranslation>
+        <option name="defaultLanguageFromConfig" value="fa" />
+      </LaravelTranslation>
+    </option>
     <option name="userClassName" value="\AppModels\User" />
   </component>
 </project>
