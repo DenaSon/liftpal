@@ -56,9 +56,7 @@
                                 <span class="fw-bold fs-16">Zarinpal</span>
                             </li>
                     </ul>
-                    <div class="container mt-4 me-md-5 d-flex justify-content-center">
-                        <button type="button" class="btn btn-outline-success w-75 mt-2 me-2">پیگیری سفارش</button>
-                    </div>
+
 
                 @endif
 
